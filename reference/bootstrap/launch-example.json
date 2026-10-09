@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "template_root": "../..",
+  "destination": "../../../example-poc",
+  "name": "example-poc",
+  "inputs": ["../../../requirements.md"],
+  "through": 0,
+  "integration": "codex",
+  "personas": [],
+  "ports": {"ui": 28401},
+  "capabilities": []
+}

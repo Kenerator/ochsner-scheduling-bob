@@ -1,0 +1,10 @@
+{
+  "schema_version": 2,
+  "timeout": 900,
+  "install": ["{python}", "-m", "pip", "install", "."],
+  "checks": [
+    {"name": "unit-tests", "kind": "starter", "mode": "offline", "required": true, "scenarios": ["starter-suite"], "argv": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-v"]},
+    {"name": "demo-success", "kind": "starter", "mode": "fixture", "required": true, "scenarios": ["generic-success"], "argv": ["poc-demo", "--scenario", "success"]},
+    {"name": "demo-failure", "kind": "starter", "mode": "fixture", "required": true, "scenarios": ["generic-failure"], "argv": ["poc-demo", "--scenario", "failure"]}
+  ]
+}

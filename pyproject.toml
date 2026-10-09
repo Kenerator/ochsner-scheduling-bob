@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ochsner-scheduling-bob"
+version = "0.1.0"
+description = "Synthetic Ochsner scheduling assistant with guarded effects and replay"
+requires-python = ">=3.11"
+dependencies = ["marimo==0.25.1", "anywidget==0.11.0", "zen-engine==2.1.2", "rapidfuzz==3.14.6", "uvicorn==0.54.0", "starlette==1.7.0"]
+
+[project.optional-dependencies]
+bootstrap = ["specify-cli @ git+https://github.com/github/spec-kit.git@f1d3a4f8337ebbd3ae22760a9c12e3352b93a175"]
+
+[project.scripts]
+bob = "ochsner_bob.__main__:main"
+poc-template = "poc_template.__main__:main"
+poc-demo = "poc_demo.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

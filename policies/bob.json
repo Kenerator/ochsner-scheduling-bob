@@ -1,0 +1,80 @@
+{
+  "contentType": "application/vnd.gorules.decision",
+  "nodes": [
+    {"id": "input", "type": "inputNode", "name": "Closed categorical facts", "position": {"x": 0, "y": 0}},
+    {
+      "id": "policy",
+      "type": "decisionTableNode",
+      "name": "BOB policy v1 — core structural guards remain independent",
+      "position": {"x": 300, "y": 0},
+      "content": {
+        "hitPolicy": "first",
+        "inputs": [
+          {"id": "invalid", "name": "Invalid categorical facts", "field": ""},
+          {"id": "action", "name": "Action", "field": "action"},
+          {"id": "identity", "name": "Identity", "field": "identity"},
+          {"id": "proposal", "name": "Proposal", "field": "proposal"},
+          {"id": "confirmation", "name": "Confirmation", "field": "confirmation"},
+          {"id": "effect", "name": "Effect", "field": "effect"}
+        ],
+        "outputs": [
+          {"id": "allow", "name": "Allow", "field": "allow"},
+          {"id": "reason", "name": "Reason", "field": "reason"},
+          {"id": "rule", "name": "Rule", "field": "rule"}
+        ],
+        "rules": [
+          {
+            "_id": "invalid_facts",
+            "invalid": "not (action in [\"discover\", \"availability\", \"lookup\", \"booking\", \"handoff\"] and identity in [\"verified\", \"missing\", \"ambiguous\", \"unknown\"] and proposal in [\"current\", \"none\"] and confirmation in [\"current\", \"none\"] and effect in [\"clear\", \"blocked\", \"unknown\"])",
+            "allow": "false", "reason": "\"Supply exactly the five supported categorical facts.\"", "rule": "\"invalid_facts\""
+          },
+          {
+            "_id": "effect_unknown", "action": "\"booking\", \"handoff\"", "effect": "\"unknown\"",
+            "allow": "false", "reason": "\"Prior effect is unknown; reconcile before another write.\"", "rule": "\"effect_unknown\""
+          },
+          {
+            "_id": "effect_blocked", "action": "\"booking\", \"handoff\"", "effect": "\"blocked\"",
+            "allow": "false", "reason": "\"Effect authority is blocked; another write is denied.\"", "rule": "\"effect_blocked\""
+          },
+          {
+            "_id": "public_discovery", "action": "\"discover\"",
+            "allow": "true", "reason": "\"Public provider discovery does not require identity.\"", "rule": "\"public_discovery\""
+          },
+          {
+            "_id": "handoff_ready", "action": "\"handoff\"", "effect": "\"clear\"",
+            "allow": "true", "reason": "\"Handoff may proceed without identity; effect authority is clear.\"", "rule": "\"handoff_ready\""
+          },
+          {
+            "_id": "identity_required", "action": "\"availability\", \"lookup\", \"booking\"", "identity": "!= \"verified\"",
+            "allow": "false", "reason": "\"Current verified synthetic identity is required.\"", "rule": "\"identity_required\""
+          },
+          {
+            "_id": "verified_read", "action": "\"availability\", \"lookup\"", "identity": "\"verified\"",
+            "allow": "true", "reason": "\"Current verified synthetic identity permits this read.\"", "rule": "\"verified_read\""
+          },
+          {
+            "_id": "proposal_required", "action": "\"booking\"", "proposal": "\"none\"",
+            "allow": "false", "reason": "\"A current exact proposal is required before booking.\"", "rule": "\"proposal_required\""
+          },
+          {
+            "_id": "confirmation_required", "action": "\"booking\"", "confirmation": "\"none\"",
+            "allow": "false", "reason": "\"Current explicit confirmation is required before booking.\"", "rule": "\"confirmation_required\""
+          },
+          {
+            "_id": "booking_ready", "action": "\"booking\"", "identity": "\"verified\"", "proposal": "\"current\"", "confirmation": "\"current\"", "effect": "\"clear\"",
+            "allow": "true", "reason": "\"Booking facts are ready; independent structural guards still apply.\"", "rule": "\"booking_ready\""
+          },
+          {
+            "_id": "default_deny",
+            "allow": "false", "reason": "\"No policy permission matches; action denied.\"", "rule": "\"default_deny\""
+          }
+        ]
+      }
+    },
+    {"id": "output", "type": "outputNode", "name": "Policy decision", "position": {"x": 600, "y": 0}}
+  ],
+  "edges": [
+    {"id": "input-policy", "type": "edge", "sourceId": "input", "targetId": "policy"},
+    {"id": "policy-output", "type": "edge", "sourceId": "policy", "targetId": "output"}
+  ]
+}

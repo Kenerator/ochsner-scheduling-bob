@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PoC launch configuration (not authority)",
+  "type": "object", "required": ["schema_version"], "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "template_root": {"type": "string", "minLength": 1},
+    "destination": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,79}$"},
+    "inputs": {"type": "array", "maxItems": 100, "items": {"type": "string", "minLength": 1}},
+    "rfp": {"type": "string", "minLength": 1},
+    "persona_catalog": {"type": "string", "minLength": 1},
+    "personas": {"type": "array", "maxItems": 100, "items": {"type": "string", "minLength": 1}},
+    "through": {"type": "integer", "minimum": 0, "maximum": 6},
+    "integration": {"enum": ["codex", "claude"]},
+    "execution": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "model": {"type": "string"},
+        "reasoning_effort": {"enum": ["low", "medium", "high", "xhigh", "max", "ultra"]},
+        "stage_timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 86400},
+        "assistant_executable": {"type": "string", "minLength": 1}
+      }
+    },
+    "capabilities": {"type": "array", "maxItems": 100, "items": {"type": "string", "minLength": 1}},
+    "ports": {"type": "object", "maxProperties": 16,
+      "propertyNames": {"pattern": "^[a-z][a-z0-9_-]{0,39}$"},
+      "additionalProperties": {"type": "integer", "minimum": 1024, "maximum": 65535}},
+    "qualification": {"type": "object", "additionalProperties": false,
+      "properties": {"profile": {"type": "string", "minLength": 1}, "required_kinds": {"type": "array", "items": {"type": "string", "minLength": 1}}}},
+    "delivery": {"type": "object", "additionalProperties": false,
+      "properties": {"owner": {"type": "string", "minLength": 1}, "repository": {"type": "string", "minLength": 1},
+        "private": {"type": "boolean"}, "ssh_alias": {"type": "string", "minLength": 1}}}
+  }
+}
