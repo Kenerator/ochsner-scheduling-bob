@@ -49,7 +49,7 @@ fully exposed recording-OFF diagnostics. New ordered receipts are observations,
 not regenerated browser parity; absent required receipts remain incomplete even
 when core parity passes. Historical stills keep their exact source/limitations.
 [Future production notes](production-design-notes.md) are design only.
-Reviewed current code: RC-2 / `c8463252251dd840ac443641702656fd3134eebc`,
+Historical reviewed code: RC-2 / `c8463252251dd840ac443641702656fd3134eebc`,
 415 tests/all demos and repair-delta review green at that historical checkpoint.
 [PR #3](https://github.com/Kenerator/ochsner-scheduling-bob/pull/3) normally merged
 at `96b9bb8ec21392d9bf5962f79c61adaca7a3ee1a`. Later

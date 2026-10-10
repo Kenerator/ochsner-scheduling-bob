@@ -28,10 +28,17 @@ and a standard runner. Two independent domain reviews approved the exact runtime
 engineering commit with no actionable findings. The OFF reviewer inspected all
 six regressions and passed nine bounded in-memory/socket-denied probes with zero
 API/model/store/record-grant/exact-replay activity; engineering reviewed ESM,
-nested launch, dependency checks and workflow boundaries. Final documentation/
-evidence review and actual CI remain pending; no complete-candidate approval,
-green CI or merge claim is made here. Changed runtime bytes require only an
-affected-delta rereview, not a duplicate broad audit.
+nested launch, dependency checks and workflow boundaries. Independent exact-object
+documentation review reproduced 17 Markdown files/316 local targets/29 anchors/
+zero errors and found only a P3 historical RC-2 label in next steps, now corrected.
+Actual [CI run 38070507724](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38070507724)
+passed on full candidate `654c2f4f3619b00df3dd40f1d2fa900c3962c972`, binding the
+same profile hash: Python 3.11.17/Node 22.14.0 on standard Ubuntu/Linux x86_64,
+all seven steps passed without skips/timeouts; combined 422 tests (28.847 s),
+supplied HTTP and booking demos, eight widget checks, install and pip check.
+The final documentation-only closure still requires affected-delta selection and
+current-head CI before integration; no merge or frozen-stage-one claim is made.
+Changed runtime bytes require only affected-delta rereview, not duplicate audit.
 
 README/task help, BOB versus inherited tooling, policy-to-spec provenance,
 as-built/persona links and historical merge/video/public-source wording are
