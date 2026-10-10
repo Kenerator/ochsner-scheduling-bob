@@ -11,6 +11,9 @@ incomplete; renderer parity remains false. Recording-OFF API/model diagnostics
 are repaired separately. Existing images/scripts are not evidence of these new
 behaviors; no new capture, upload or paid QA is part of this repair. See
 [native T053–T056](../../specs/001-ochsner-scheduling-assistant/tasks.md).
+Reviewed repair source: `c8463252251dd840ac443641702656fd3134eebc` / RC-2,
+415 tests/all demos passed. This code checkpoint does not relabel existing stills
+or require new capture/media work; their original source bindings remain intact.
 
 Audience update 2026-10-10: the Operator approved branded synthetic assets in
 this exact public-source repository. BOB remains an internal-use PoC, not a

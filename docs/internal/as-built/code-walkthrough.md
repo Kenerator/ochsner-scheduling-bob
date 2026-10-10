@@ -2,7 +2,12 @@
 
 ## Completeness delta — 2026-10-10
 
-Repair base `00ed37d`; native T056 records final reviewed source.
+Updated/reviewed 2026-10-10. Code/test source
+`c8463252251dd840ac443641702656fd3134eebc` / immutable RC-2; repair base `00ed37d`.
+415 tests/all demos passed; independent repair-delta review clear. Native T056
+records the [protected PR](https://github.com/Kenerator/ochsner-scheduling-bob/pull/3)
+handoff and limitations. This later documentation records that source; it does
+not move the tag to include itself.
 [diagnostics.py](../../../src/ochsner_bob/diagnostics.py) owns bounded final
 API/model metadata; [Conversation](../../../src/ochsner_bob/conversation.py)
 publishes public context, accepted/rejected categories, stale/application status

@@ -35,7 +35,7 @@ address required behavior. Future refinement can use immutable before/after
 checkpoints and affected-behavior tests. Future hosting/platform conventions and
 broader distribution rights require a separately authorized phase, not new MVP gates.
 
-Current handoff: immutable [RC-1](../internal/milestones.md) records the repaired
+Historical handoff: immutable [RC-1](../internal/milestones.md) records the repaired
 398-test source. The [87-still supplement](../internal/video-notes.md#feature-completion-supplement--2026-10-10)
 is delivered for media assembly; Operator intro/wrap and finished-video QA remain
 with that owner. Purged references remain expired, even with an external export.
@@ -49,3 +49,7 @@ fully exposed recording-OFF diagnostics. New ordered receipts are observations,
 not regenerated browser parity; absent required receipts remain incomplete even
 when core parity passes. Historical stills keep their exact source/limitations.
 [Future production notes](production-design-notes.md) are design only.
+Reviewed current code: RC-2 / `c8463252251dd840ac443641702656fd3134eebc`,
+415 tests/all demos and repair-delta review green. Normal protected integration
+of [PR #3](https://github.com/Kenerator/ochsner-scheduling-bob/pull/3) remains the
+handoff; no new media capture or production work is implied.

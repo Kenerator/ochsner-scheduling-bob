@@ -8,9 +8,12 @@ Updated: 2026-10-10. These are source checkpoints, not production release claims
 | `poc/integrated-core-01` | `9625185fa799816ee7456275785348cc83567e3b` | 378-test integration with actual booking/shared-core replay and approved read-only pairing. Private main and annotated/peeled tag refs verified. Its later clean export failed on missing Git provenance; not a clean-setup completion tag. | [Retained failure and corrective evidence](../../specs/001-ochsner-scheduling-assistant/tasks.md) |
 | `poc/qualified-01` | `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961` | Annotated code/test milestone: fresh committed export/install, 387 tests, all eight supplied scenarios, demos and six widget checks passed. Not production, browser-wide, remote-clone or finished-video certification. | [Exact source/evidence](../../specs/001-ochsner-scheduling-assistant/tasks.md), [as built](as-built/architecture.md) |
 | `RC-1` | `e2dfa7e9f471513921063d568bb3bc890eff1800` | Replay post-booking lookup and separate Support membership/control repairs. Parent 398 tests/three demos; clean committed export/install 398 tests/three demos. Annotated object `ca101e7ce6bfeb2768d7a78f6327049e850f6e22`; remote object and peeled target verified. | [Follow-on evidence](../../specs/001-ochsner-scheduling-assistant/tasks.md), [current stills](video-notes.md#feature-completion-supplement--2026-10-10) |
+| `RC-2` | `c8463252251dd840ac443641702656fd3134eebc` | Ordered browser observations/truthful missing capture and recording-OFF diagnostics; ZEN indexes/future design notes. 415 tests, all demos, whole-diff repair and independent delta review green. Annotated object `136cb900924f6d496996831bbb63d99b6a80c3d9`. No new actual-browser/model/renderer/production qualification. | [Native T053–T056](../../specs/001-ochsner-scheduling-assistant/tasks.md), [protected PR #3](https://github.com/Kenerator/ochsner-scheduling-bob/pull/3) |
 
 RC-1 is immutable and intentionally precedes the documentation/asset checkpoint
 that records it. The earlier private-destination history below remains historical.
+RC-2 likewise points to its reviewed code/test source, not this later source-binding
+documentation. Neither tag is moved to include its own record.
 The Operator approved this exact repository becoming public on 2026-10-10;
 internal-use PoC status and no-deployment/no-video-publication limits remain.
 

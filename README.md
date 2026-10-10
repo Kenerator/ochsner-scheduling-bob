@@ -14,7 +14,11 @@ Historical qualified checkpoint: annotated immutable **RC-1**, source
 booking demos passed both locally and in a fresh committed export/install on
 Python 3.11.13/macOS ARM. See the [evidence ledger](specs/001-ochsner-scheduling-assistant/tasks.md)
 for historical failures and qualification limits. No application license is selected.
-Original-scope completeness repair is tracked there as T053–T056. Current replay
+Current reviewed code checkpoint: immutable **RC-2**, source
+`c8463252251dd840ac443641702656fd3134eebc`: 415 tests, three booking demos and
+starter success/failure passed; independent repair-delta review is clear.
+[Protected PR #3](https://github.com/Kenerator/ochsner-scheduling-bob/pull/3)
+contains the original-scope completeness repair tracked as T053–T056. Current replay
 requires observed browser receipts; older no-gap labels do not prove they were
 captured. Recording-OFF diagnostics now have their own bounded, sanitized path.
 

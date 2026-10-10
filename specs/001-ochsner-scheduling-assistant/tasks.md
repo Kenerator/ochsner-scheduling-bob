@@ -24,7 +24,7 @@ retained, not evidence that these newly reproduced gaps were covered.
 - [x] T055 [P] [US6] Replace stale current policy/table indexes and add brief future
   production-design notes only (monitoring, rollout/rollback, reschedule/cancel,
   authenticated support/replay). No production implementation.
-- [ ] T056 [US6] Update affected as-built/persona/video/next-step references; one
+- [x] T056 [US6] Update affected as-built/persona/video/next-step references; one
   independent whole-diff review, full suite/demos/credential guard and protected
   PR. Create only the next unused immutable annotated RC after verified flows.
 
@@ -47,7 +47,13 @@ exception retains that regression without broad exclusion. Whole-index guard
 fresh readback: 370 files, 116 binary, six exact synthetic allowed findings, zero
 unresolved findings/symlinks/submodules. Changed Markdown navigation:
 ten files/238 targets/20 anchors, zero
-errors. Source/RC/PR binding remains pending.
+errors. Reviewed code/test source `c8463252251dd840ac443641702656fd3134eebc`;
+immutable annotated RC-2 object `136cb900924f6d496996831bbb63d99b6a80c3d9`.
+Only the repair branch and RC-2 were pushed; normal protected
+[PR #3](https://github.com/Kenerator/ochsner-scheduling-bob/pull/3) is open for
+integration. RC-1 object/source are unchanged. This later documentation binds
+the qualified source without moving any tag. Merge/main synchronization remain
+an integration handoff, not a completed merge claim.
 No paid calls, new actual-browser recording, Operator-trial changes, media upload
 or production deployment in this follow-on.
 
