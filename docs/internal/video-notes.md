@@ -1,6 +1,7 @@
 # Video production notes
 
-Updated: 2026-10-09. Status: implementation in progress; not a finished video.
+Updated: 2026-10-09. Status: product implemented; quickstart still support prepared.
+The existing video task owns narration/assembly; this is not a finished video.
 
 Keep this file current as Specify, Plan and Implement establish the actual product. Record confirmed behavior, not aspirations; link to canonical specs/tests instead of copying them. Use synthetic data and keep credentials and personal data out of recordings.
 
@@ -85,3 +86,48 @@ and widget SHA-256 `9639b413ae48de0a1b615b0d2563e730efa1d50b9133a65f4ef6f9f9641e
 At capture the baseline HEAD plus dirty integration was still in use, not a clean
 tag. The subsequent reviewed checkpoint binds these code bytes; it does not
 retroactively make the screenshots clean-tag executions. No extra paid call occurred.
+
+### User-quickstart still supplement — 2026-10-09
+
+The Operator-assigned SM requested missing native synthetic stills for the new
+BOB user quickstart, prioritizing the proposal **before** separate Confirm and
+the completed outcome/history. Thirteen visually checked Chrome JPEG originals
+are in [quickstart stills](../../assets/ui/stills/quickstart-20261009/), with exact
+captions, states, dimensions, SHA-256, source and limitations in the
+[machine-readable manifest](../../assets/ui/stills/quickstart-20261009/manifest.json).
+
+Recommended sequence: `31` offline start/disclosure → `32` public providers →
+`20` private synthetic fixture → `21` numbered availability → `22` proposal before
+Confirm → `23` cleared/disabled confirmation → `24` completed current/history →
+`25` Help controls / `27` actual medical response → `28` truthful mock queued
+handoff → optional `29` capture/seal / `30` isolated replay initial state.
+`26` is an alternate medical-control view, not the response. These are actual
+1700×543 **scrolled viewports**, not full pages, even though the screenshot API
+accepted a full-page option. No edits, crops, animation or screen recording.
+
+Source export: `4a21cafb803dac5a50c8f03dac83c923698435fa`. Only the disposable
+widget's backend literal changed from port 28451 to 28541; its original/capture
+hashes are in the manifest. Marimo ran at 28540, allowed origin matched it, and
+the owned supplied mock used its own ephemeral port/private namespace. The
+product repository's source stayed unchanged; this is a transport-modified
+capture export, not an unmodified clean-tag execution. Python 3.11.13; six
+widget checks passed in that copy. Actual journey ended booking: completed,
+then a deliberate handoff: queued, never real staff contact. Sealed ten-event
+replay opened with semantic parity true, renderer parity false, no gaps/drift;
+still `30` shows initial simulation state, not all fidelity fields.
+
+IAB was tried first but showed kernel-not-found/acknowledgement warnings; initial
+sandboxed Marimo state writes were denied. Host-permitted restart did not remove
+the IAB issue. Exploratory/rejected frames (including an initial helper bound to
+the IAB tab) remain scratch-only and are not adopted. Final Chrome originals
+were captured with an explicit tab binding and checked visually. The Operator's
+active trial ports/tab were not controlled, reset or stopped. No model calls,
+new support access or takeover. Reuse the earlier approved read-only support
+original with its historical boundary. There is no new takeover-sequence still;
+use an explicitly explanatory control card backed by the runbook/source, not
+an implied live demonstration.
+
+Launch verification found a fresh export needs its `.bob-local` parent created
+before a nested namespace. The README now makes that preparation explicit;
+existing trial state/budget/journals were not altered. No fresh install/full-suite
+or production qualification is claimed by this content-only run.

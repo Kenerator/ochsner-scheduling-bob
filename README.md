@@ -28,6 +28,7 @@ In two terminals from this root:
 
 ```sh
 # Terminal 1: owns and stops its own supplied mock child
+mkdir -p -m 700 .bob-local
 .venv/bin/python scripts/serve_browser.py
 # Terminal 2: local presentation only
 .venv/bin/marimo run apps/scheduling_app.py --host 127.0.0.1 --port 28450 --session-ttl 3600 --headless

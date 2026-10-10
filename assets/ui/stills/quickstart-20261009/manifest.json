@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "updated_date": "2026-10-09",
+  "date_timezone": "America/Chicago",
+  "audience": "Ochsner-private/internal review only; no publication grant",
+  "source_revision": "4a21cafb803dac5a50c8f03dac83c923698435fa",
+  "qualified_code_tag": "poc/qualified-01",
+  "qualified_code_revision": "5e7ae0c6b1ae29d198f734a0c26e2c96e525b961",
+  "capture_root": "/private/tmp/bob-video-stills-20261009-IslAki",
+  "source_basis": "git archive of source_revision; no Git worktree; working tree state unknown/conservatively dirty",
+  "native_capture_module_digest": "118327af911fccf9cadb6a94c80432f830b70b15fb80a289341b5783b06f4aca",
+  "widget_original_sha256": "e33b57b8baafa5dd93f4d746f8159af2d49023ee3ec0863da7afd7cb8e17bb38",
+  "widget_capture_sha256": "e6c0f33c58417de135808f00c09cf4b6497001b4950dcb80fd1c6931dd050cd6",
+  "transport_only_change": "Disposable export widget.js backend literal http://127.0.0.1:28451 -> http://127.0.0.1:28541. No other product source changes. Marimo 28540; sidecar allowed UI origin 28540. Existing trial 28450/28451 untouched.",
+  "mode": "offline_commands; actual unchanged supplied synthetic HTTP service; no language adapter or paid calls",
+  "capture": "Actual independently owned Chrome tab, native JPEG scrolled viewport screenshots. fullPage option returned viewport only; no full-page claim, crop, edit or screen recording.",
+  "verification": [
+    "Python 3.11.13; own supplied mock starts and stops with launcher",
+    "Six widget projection tests passed in disposable copy, 0.405s",
+    "Public discovery -> provider 1 -> local fixture -> actual availability -> selection -> separate Confirm -> completed booking",
+    "Help and medical boundary -> deliberate mock handoff -> validated queued receipt, retained history",
+    "Explicit capture before journey -> seal ten events -> open isolated actual SchedulingSession replay: semantic parity true, renderer parity false, missing [], drift []"
+  ],
+  "limitations": [
+    "No new support pairing/takeover was performed. Reuse existing approved bob-support-readonly-20261009.jpg with its historical source boundary.",
+    "No reusable takeover-sequence still original exists; prior actual takeover behavior evidence is described in video notes/tasks, not a new visual capture.",
+    "Semantic core replay does not reproduce full browser drafts/focus/scroll/ack history or private receipt details.",
+    "No genuine model, production authentication, real PHI, real staff contact, accessibility certification, deployment or video completion claim."
+  ],
+  "rejected_captures": "Exploratory IAB originals 01/02/02b/03/04/05 and helper-bound 10/11/12 remain only in scratch stills, not adopted. IAB showed kernel-not-found and acknowledgement warning; initial sandboxed Marimo state-file writes were denied. Host-permitted restart did not remove IAB kernel issue. An initial screenshot helper remained bound to IAB; explicit tab-argument helper and visual verification corrected this before selecting adopted 20-32.",
+  "launch_addendum": "Fresh archive initially failed with journal storage unavailable because .bob-local parent did not exist. mkdir -m 700 .bob-local in disposable root resolved it. Current README launch commands work with existing parent; fresh-clone instructions should create this private parent before a nested namespace. No product behavior fix made in this content task.",
+  "entries": [
+    {
+      "file": "20-synthetic-identity.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "924e7517887c6b1a8b1c17eeb8a84b7d416c2f4fc3cffc87b65786445f5e9dbd",
+      "revision": 2,
+      "caption": "Enter only the supplied synthetic phone, birth date and ZIP in these local controls. This is fixture matching, not production authentication.",
+      "state": "Before local identity check; 555-0101 / 1985-04-12 / 70112."
+    },
+    {
+      "file": "21-numbered-availability.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "9da7d35b7a888737c9b8ec3fce47c79f9978375d30674725a213c46760f4d084",
+      "revision": 4,
+      "caption": "Request current availability, then choose a numbered option. A returned option is not a booking.",
+      "state": "One actual supplied-HTTP option for selected provider prov_2001."
+    },
+    {
+      "file": "22-proposal-before-confirm.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "a71848f5cd4b4542c05a9217316a2ba6ca958b8c57965c68896ed41d776b09cb",
+      "revision": 5,
+      "caption": "Review the exact API time, location and provider. Confirm appointment is a separate action.",
+      "state": "BEFORE Confirm: 2026-10-16T09:00:00-05:00, primary care, Downtown, Dr. Elena Brooks."
+    },
+    {
+      "file": "23-after-confirm-controls.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "113ad7371ba6e60968d3cb7d8d7c6b231a0e85d2ef30cf1deea58200c29883ed",
+      "revision": 6,
+      "caption": "After confirmation completes, the old proposal is cleared and confirmation is disabled.",
+      "state": "AFTER one explicit synthetic Confirm; outcome is in separate still 24."
+    },
+    {
+      "file": "24-completed-outcome-history.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "6a7ca43a6cf682ba3b4313ea6fd9a61c6bbdb85982b91c9a37a63a2531aa00eb",
+      "revision": 6,
+      "caption": "Check Outcomes, not assumptions: both the current attempt and retained history say booking completed.",
+      "state": "Actual validated supplied mock booking; not a real appointment."
+    },
+    {
+      "file": "25-help-controls.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "fd9b9598b2da89cee077a3b2b391304affc60e33f86fb362fcf7acec962021ef",
+      "revision": 7,
+      "caption": "Help remains available after a completed booking. No email is required.",
+      "state": "Help control viewport; actual response separately observed says mock handoff, no basic-phone access or real staff contact."
+    },
+    {
+      "file": "26-medical-boundary.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "a164bb319f79d03a4078919e0f9aeff6018705c0906d3eb1a4fe2b8d8950f119",
+      "revision": 8,
+      "caption": "Use Medical boundary for a clear limit on clinical requests.",
+      "state": "Controls-only viewport, not the response; prefer still 27 for actual response."
+    },
+    {
+      "file": "27-medical-response.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "54f25dc5f0223aaeddbe7bf9730c44c6cabd70e63866719cc51b4b478f131da0",
+      "revision": 8,
+      "caption": "BOB cannot give medical advice or triage. It can prepare a mock medical-advice handoff request.",
+      "state": "Actual response is visible; does not claim emergency triage or real staff contact."
+    },
+    {
+      "file": "28-truthful-mock-handoff.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "80f63da568388b50966249979a6168ec47a3b1069aa2e1d1e2a1db40c94f7544",
+      "revision": 9,
+      "caption": "A validated mock queue receipt means queued in this synthetic service, not that an employee received it or joined.",
+      "state": "Current handoff: queued; history booking: completed and handoff: queued."
+    },
+    {
+      "file": "29-capture-seal-controls.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "b9f1a1d3b780ea29f0a79b22c1f8592ff17f0cfe02273961a22b225450b76d43",
+      "revision": 9,
+      "caption": "Lower Developer Mode exposes explicit synthetic capture, sealing and a reference. This disclosure is not authentication.",
+      "state": "Sealed ten-event capture; missing [], stored true. Diagnostics fidelity false here is pre-replay qualification, not later open result."
+    },
+    {
+      "file": "30-open-recorded-core-replay.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "a78b03a8aa64de47b7bec318e4b7e4d16c30fa767007dbcc142873b15b1a54b3",
+      "revision": "simulation index -1",
+      "caption": "Open a sealed reference to inspect an isolated simulation, not to repeat a live action.",
+      "state": "Actual replay initial state. Open returned semantic parity true, renderer parity false, no missing evidence/drift; those fields are not all visible in this viewport. Reuse prior core-replay still for limits."
+    },
+    {
+      "file": "31-offline-start-disclosure.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "b0f9eaf063630855ab547b64a4faae02d27642bc232cfa4fa52ed32b5fe6d774",
+      "revision": 0,
+      "caption": "Start independent patient. This run uses offline interpretation and synthetic data; BOB is not a clinician or live representative.",
+      "state": "Second new independent session; clean offline disclosure/header."
+    },
+    {
+      "file": "32-public-provider-results.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "d6b04cdb975b6ea34a5e6063bccba80fbef7bdcc80f61a58a9875beff6a46a34",
+      "revision": 1,
+      "caption": "Public provider discovery needs no patient identity. Choose a provider or refine the search.",
+      "state": "Second session: Primary care / Downtown, two actual public provider results before identity entry."
+    }
+  ]
+}
