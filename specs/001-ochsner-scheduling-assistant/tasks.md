@@ -1,5 +1,10 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Ownership correction — 2026-10-10
+
+- [x] Transfer the existing public BOB repository from `nxus-SYSTEMS` to the Operator-selected `Kenerator/ochsner-scheduling-bob`, preserving ID `1412468983`/node `R_kgDOVDCQ9w`. The broker PAT's HTTP 403 was reported without a blind alternate-route retry; the explicitly reviewed existing Kenerator CLI login was then verified and its one normal transfer succeeded. All 11 advertised refs matched at transfer, including main `ac78af3`, RC-1/older annotated objects and peeled targets, and PR #1's head. Old web URL redirects HTTP 301. Canonical SSH origin was verified and updated; no copy/recreation/deletion/force or auth configuration changes.
+- [x] Restore the two transfer-reset fields (secret scanning/push protection) to their previously enabled state and verify the complete branch/tag/Actions/Dependabot baseline at the same repository/new owner. Same ruleset IDs/no bypass and merged PR #1 preserved. Update only current canonical-owner links through ordinary protected PR workflow, retaining historical owner/grant/source facts. [Exact readback and limits](../../docs/internal/security.md#bob-public-source-settings-readback--2026-10-10). No runtime/test/media changes, test restart, new RC, model calls, license/deployment/publication authority or original-four-PoC changes.
+
 ## Approved follow-on repairs and evidence — 2026-10-10
 
 This records bounded implementation within existing stories/FRs, not a Converge

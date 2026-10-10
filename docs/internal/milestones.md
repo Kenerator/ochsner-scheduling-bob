@@ -14,6 +14,12 @@ that records it. The earlier private-destination history below remains historica
 The Operator approved this exact repository becoming public on 2026-10-10;
 internal-use PoC status and no-deployment/no-video-publication limits remain.
 
+Current canonical destination, corrected by the Operator on 2026-10-10:
+[Kenerator/ochsner-scheduling-bob](https://github.com/Kenerator/ochsner-scheduling-bob).
+This was a same-ID repository transfer, not a new repository or milestone.
+All existing refs/RC-1 were preserved; [ownership/security readback](security.md#bob-public-source-settings-readback--2026-10-10)
+records the transfer and restoration of its two affected scanning settings.
+
 Qualified code/test source: `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`.
 Fresh committed export/install, 387 tests, eight supplied scenarios, demos and
 six renderer checks passed. This following documentation-only checkpoint records
@@ -22,7 +28,7 @@ commit above, not to this later documentation commit; no tag is moved to include
 its own record. Final authorized private remote verification is reported in the
 completion chat. The milestone does not certify production/public release.
 
-Approved private destination: `nxus-SYSTEMS/ochsner-scheduling-bob`. Preferred
+Historical initial private destination: `nxus-SYSTEMS/ochsner-scheduling-bob`. Preferred
 SSH alias could not access that repository; the explicitly approved
 `kenerator-github.com` fallback was verified and used. No force push or public
 publication occurred. Active implementation after the baseline is not implied
