@@ -1,6 +1,13 @@
-# Bootstrap UAT quick start
+# Inherited bootstrap UAT quick start
 
-Reviewed: 2026-10-09. Exercise a real small concept, not a perfect synthetic showcase. Current supported host: **macOS ARM**, Python 3.11+; Linux support is deferred. Run commands from the template root. Use a new destination for each trial.
+This page exercises retained `poc_template` scaffolding into a new destination;
+it is **not BOB product UAT**. For BOB use [setup](../../README.md#start-here),
+[task flows](../user/getting-started.md), the adapted [qualification profile](qualification.json)
+and source-bound evidence in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md).
+The broad Template-maintainer suites referenced by inherited guidance are not
+included in BOB's local `tests/`; do not report them as locally executed.
+
+Reviewed: 2026-10-10. Exercise a real small concept, not a perfect synthetic showcase. Current required qualification host: **macOS ARM**, Python 3.11+; Linux product qualification is deferred. Run scaffold commands from the tool checkout root. Use a new destination for each trial.
 
 Before launch, verify the actual interpreter with `python3 --version`. If it is below 3.11, replace `python3` below with a verified compatible executable or existing project environment; no global Python change is needed. Use a lowercase `--name` slug even if the confirmed destination/display name uses uppercase. In chat UAT, present each decision in ordinary text with options/recommendation, not only question cards; preserve prior answers. Pass product requirements and labeled assumptions as intake, not setup prompts or pause/authorization records.
 

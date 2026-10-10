@@ -1,5 +1,29 @@
 # As-built code walkthrough
 
+## Stage-one quality delta — 2026-10-10
+
+Updated/reviewed runtime/test source:
+`56fc4e8bc10ec4a15dc2befabb76208f2d64a807` (candidate, not an integrated RC).
+In [InteractionService](../../../src/ochsner_bob/interaction_service.py), `_summary`
+registers bounded OFF references with fixed TTL; `_open_off_inspection` exposes
+only current sanitized diagnostics after session authorization. Requested/current
+revision and `historical_state_available=false` prevent an exact-history claim.
+No RecordingStore/API/model or domain mutation occurs; previous replay targets
+are cleared so fork/export cannot silently address an older recording.
+[Six OFF-reference regressions](../../../tests/test_off_reference.py) cover the
+access/expiry/privacy/bounds/no-effect boundaries; existing replay/store tests
+retain exact-recording guards.
+
+[package.json](../../../src/ochsner_bob/package.json) explicitly classifies the
+shipped widget as ESM; [widget tests](../../../tests/test_widget_projection.py)
+exercise actual imports with syntax detection disabled. Node 22.14.0 is a
+verification prerequisite, not application runtime.
+The [workflow](../../../.github/workflows/bob-offline.yml) runs retained
+`poc_template.qualification.qualify_project` against the [BOB profile](../qualification.json).
+Inherited tools remain useful, not scheduling authority or an invented local
+maintainer-test suite. The component diagram is unchanged; see the
+[current boundary note](architecture.md#stage-one-quality-delta--2026-10-10).
+
 ## Completeness delta — 2026-10-10
 
 Updated/reviewed 2026-10-10. Code/test source

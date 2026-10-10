@@ -27,7 +27,7 @@ Build one deterministic scheduling core with thin CLI, Marimo patient/support vi
 
 **Performance Goals**: Useful local feedback around 400 ms where feasible; expose measured latency for longer work; no unsupported SLA claim.
 
-**Constraints**: Synthetic data only; loopback mock; API `startTime` authoritative; identity/correction revocation; reserve-before-write; no automatic retry after unknown; no real authentication, PHI, clinical advice, live handoff, or public delivery claim.
+**Constraints**: Synthetic data only; loopback mock; API `startTime` authoritative; identity/correction revocation; reserve-before-write; no automatic retry after unknown; no real authentication, PHI, clinical advice, live handoff, application deployment or external media-publication claim. Public source/retained branding are approved only for this exact repository, not general relicensing or endorsement.
 
 **Scale/Scope**: One local demo process, two paired synthetic sessions for isolation checks, eight supplied scenarios, B01-B18 and R01-R16 contracts, seven pinned persona constraints.
 
@@ -35,7 +35,7 @@ Build one deterministic scheduling core with thin CLI, Marimo patient/support vi
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-Design alignment only, not implementation proof: personas and Morgan-Rae support coverage map to stories/tests; explicit confirmation and correction revocation make interaction predictable; measured responsiveness is honest; reusable core/thin adapters keep authority deterministic; tests cover success, negative, boundary, recovery, concurrency, replay, and supplied mock integration; synthetic fixtures and private branding provenance preserve safe exploration; clean setup, reset, demos, video notes, README index, and as-built docs are planned; native `tasks.md` remains the single completion ledger.
+Design alignment only, not implementation proof: personas and Morgan-Rae support coverage map to stories/tests; explicit confirmation and correction revocation make interaction predictable; measured responsiveness is honest; reusable core/thin adapters keep authority deterministic; tests cover success, negative, boundary, recovery, concurrency, replay, and supplied mock integration; synthetic fixtures and approved branding provenance with explicit distribution boundaries preserve safe exploration; clean setup, reset, demos, video notes, README index, and as-built docs are planned; native `tasks.md` remains the single completion ledger.
 
 ## Project Structure
 

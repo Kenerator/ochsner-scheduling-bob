@@ -10,6 +10,7 @@
 | EffectAttempt/Receipt | Booking or handoff attempt, provenance, result (`attempted`, `completed`, `rejected`, `unknown`, `queued`), validation, unknown latch. |
 | DiagnosticEvent | Allowlisted category, transition, rule reason, API outcome, latency, certainty, sanitized references; no identity-bearing raw text. |
 | InteractionReference/Variant | Source trace/step, fork changes, provenance, diff, simulation-only and review status; no authority. |
+| OFF inspection grant | Bounded session-owned reference/expiry in memory; returns current sanitized diagnostics with requested/current revision, never an exact historical snapshot or recording. |
 | SupportMirror | Acknowledged patient view, known/missing/uncertain facts, current/prior outcomes, freshness, takeover state, session id. |
 
 ## Invariants
