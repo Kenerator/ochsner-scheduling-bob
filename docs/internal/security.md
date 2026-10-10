@@ -2,11 +2,36 @@
 
 ## BOB public-source settings readback — 2026-10-10
 
-Exact repository: [nxus-SYSTEMS/ochsner-scheduling-bob](https://github.com/nxus-SYSTEMS/ochsner-scheduling-bob).
+Current exact repository: [Kenerator/ochsner-scheduling-bob](https://github.com/Kenerator/ochsner-scheduling-bob).
 Operator-approved public visibility was applied after source/docs/content checks;
 the application remains internal-use with no public deployment or external video
 publication. Raw intake, runtime credentials, journals, capabilities and the model
 ledger remain excluded. No root license was selected or third-party ownership changed.
+
+The Operator's later ownership correction on 2026-10-10 transferred this same
+repository from `nxus-SYSTEMS` to `Kenerator`: ID `1412468983`, node
+`R_kgDOVDCQ9w`, public visibility and all 11 advertised refs were preserved.
+Main at transfer was `ac78af3bb2e39ae6ba02995f666dc89f63bfbb4e`; RC-1 and all
+older tag objects/peeled targets, plus PR #1's head/merge state, matched the
+pre-transfer snapshot. The old web URL returns HTTP 301 to the current URL.
+Local origin uses the verified existing `kenerator-github.com` SSH alias and
+canonical Kenerator owner. No repository was copied, recreated or deleted.
+
+The broker PAT's first transfer request returned HTTP 403 despite metadata
+showing administration. After an explicitly reviewed credential-path decision,
+the already-configured Kenerator keyring login was verified as user ID `95498894`
+with `repo` scope and exact-source administration; its one normal transfer
+request succeeded. No raw token was printed, manually retrieved, exported or replaced; no
+authentication switch, login, Bitwarden mutation or global configuration change
+occurred. This resolved a server-token capability mismatch, not a safety denial;
+the broker credential itself was not repaired.
+
+Transfer readback found secret scanning and push protection disabled. Only those
+two previously enabled fields were restored, then the full baseline below passed
+readback at the new owner with the same ruleset IDs and no bypass. PR #1 remained
+merged at its original commit. Existing history/owner facts below describe their
+original checkpoints, while current canonical links use Kenerator. Application
+source, tests, media files and immutable tags were not changed for this correction.
 
 Fresh authenticated REST readback verified:
 

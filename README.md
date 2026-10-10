@@ -1,5 +1,7 @@
 # BOB · synthetic scheduling PoC
 
+Canonical repository: [Kenerator/ochsner-scheduling-bob](https://github.com/Kenerator/ochsner-scheduling-bob).
+
 Internal-use Ochsner proof of concept, with publicly accessible source and approved
 branded synthetic assets; not a public application deployment. One guarded scheduling core serves a deterministic
 CLI and paired Marimo patient/support views. Uses the unchanged supplied HTTP mock,
