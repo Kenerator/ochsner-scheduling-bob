@@ -42,7 +42,11 @@ class BrowserLaunchTests(unittest.TestCase):
         script=root/"scripts/serve_browser.py"
         self.assertTrue(script.is_file(),"owned browser backend launch missing")
         with tempfile.TemporaryDirectory() as temporary:
-            child=subprocess.Popen([sys.executable,str(script),"--port","0","--namespace",str(Path(temporary)/"run")],cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+            # README prerequisite: create the private parent before a nested
+            # namespace; the launcher creates only its immediate run directory.
+            parent = Path(temporary) / ".bob-local"
+            parent.mkdir(mode=0o700)
+            child=subprocess.Popen([sys.executable,str(script),"--port","0","--namespace",str(parent/"run-N")],cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
             try:
                 self.assertTrue(select.select([child.stdout],[],[],5)[0],"backend startup exceeded bound")
                 line=child.stdout.readline()

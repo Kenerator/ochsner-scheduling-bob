@@ -1,0 +1,42 @@
+name: BOB offline qualification
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    # Standard public-repository runner; no larger runner, secrets, model
+    # credentials, deployment, caches or uploaded artifacts.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22.14.0'
+      - name: Verify prerequisites and install this checkout
+        run: |
+          python --version
+          node --version
+          python -m pip install -e .
+          python -m pip check
+      - name: Execute the committed BOB qualification profile
+        env:
+          PYTHONPATH: src
+          NODE_OPTIONS: --no-experimental-detect-module
+        # Export/venv helper executes the actual profile; this is not browser,
+        # live-model, remote-clone or required Mac ARM qualification.
+        run: python -m poc_template qualify --project . --execute

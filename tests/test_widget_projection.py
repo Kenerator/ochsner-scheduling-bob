@@ -1,5 +1,6 @@
 """Run the shipped widget's pure presentation boundary in actual JavaScript."""
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -8,6 +9,15 @@ import tempfile
 
 
 class WidgetProjectionTests(unittest.TestCase):
+    def test_widget_import_is_explicit_esm_without_node_syntax_detection(self):
+        path = Path(__file__).resolve().parents[1] / "src/ochsner_bob/widget.js"
+        script = "import widget,{semanticReceipt} from " + json.dumps(path.as_uri()) + "; console.log(JSON.stringify({render:typeof widget.render,revision:semanticReceipt(0,{},null,0,[]).revision}));"
+        environment = {**os.environ, "NODE_OPTIONS": "--no-experimental-detect-module"}
+        result = subprocess.run([shutil.which("node"), "--input-type=module", "-e", script],
+            env=environment, capture_output=True, text=True, timeout=5)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout), {"render": "function", "revision": 0})
+
     def test_actual_support_renderer_labels_pairing_and_control_separately(self):
         script=Path(__file__).with_name("widget_harness.mjs")
         result=subprocess.run([shutil.which("node"),str(script),"--support-status"],

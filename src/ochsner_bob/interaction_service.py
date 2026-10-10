@@ -330,7 +330,7 @@ class InteractionService(BrowserService):
             return self._contexts[session.id]
         context = {"active": None, "last": None, "gaps": [], "dropped": 0, "bytes": 0,
                    "observations": None, "language_pending": None, "model": None,
-                   "diagnostics": Diagnostics(limit=self.limits.max_events)}
+                   "diagnostics": Diagnostics(limit=self.limits.max_events), "inspection_refs": {}}
         self._contexts[session.id] = context
         session.api = _ObservedAPI(session.api, lambda *args: self._observe(context, self._api_observation, session, *args))
         language = None if self._language is None else _ObservedLanguage(self._language,
@@ -563,7 +563,16 @@ class InteractionService(BrowserService):
             if self.wall_clock() >= report["expires_at"]:
                 report["recording"] = "expired"
             return report
-        return {"recording": "off", "reference": session.view()["reference"], "missing": [], "dropped": 0, "stored": False}
+        reference = session.view()["reference"]
+        # Published OFF references authorize only this session's bounded public
+        # inspection. No exact capture, persisted record or historical snapshot
+        # is invented; repeated polls do not extend the original grant's TTL.
+        references = context["inspection_refs"]
+        if reference not in references:
+            if len(references) >= min(self.limits.max_events, 2000):
+                references.pop(next(iter(references)))
+            references[reference] = self.wall_clock() + self.limits.ttl_seconds
+        return {"recording": "off", "reference": reference, "missing": [], "dropped": 0, "stored": False}
 
     def read(self, token):
         with self.lock:
@@ -730,6 +739,30 @@ class InteractionService(BrowserService):
             raise PermissionError("Recording reference is not granted to this local session.")
         return key, metadata
 
+    def _open_off_inspection(self, session, digest, reference, now):
+        references = self._attach(session)["inspection_refs"]
+        if reference not in references:
+            raise PermissionError("Inspection reference is not granted to this local session.")
+        # Switching to OFF inspection cannot leave a previous exact replay as
+        # the implicit target of subsequent fork/export commands.
+        previous = self._replays.pop(digest, None)
+        if previous:
+            previous[0].purge()
+        response = {"simulation_only": True, "browser_mode": "inspection", "submission_pending": False,
+                    "reference": reference, "index": -1, "recording": "unavailable"}
+        if now >= references[reference]:
+            return {**response, "inspection_status": "expired"}
+        context = self._attach(session)
+        events = session.trace()
+        event_limit = min(self.limits.max_events, 2000)
+        return {**response, "recording": "off", "inspection_status": "available",
+                "fidelity": deepcopy(_FIDELITY), "inspection": {
+                    "kind": "sanitized_current_diagnostics", "historical_state_available": False,
+                    "requested_revision": int(_REF.fullmatch(reference)[2]), "current_revision": session.revision,
+                    "events": events[-event_limit:],
+                    "trace_dropped": session.dropped_events + max(0, len(events) - event_limit),
+                    **context["diagnostics"].snapshot(), "provenance": deepcopy(self.provenance)}}
+
     @staticmethod
     def _qualify_report(replay, report):
         report["missing"] = list(dict.fromkeys(report["missing"] + replay.missing))
@@ -825,6 +858,8 @@ class InteractionService(BrowserService):
             now = self.wall_clock()
             if operation == "import":
                 return self._import_replay(session, digest, data["payload"], now)
+            if operation == "open" and self._reference_key(data["reference"]) == (session.id, "original"):
+                return self._open_off_inspection(session, digest, data["reference"], now)
             selected = self._authorized(session, data["reference"]) if "reference" in data else None
             if operation == "close":
                 current = self._replays.pop(digest, None)
