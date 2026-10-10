@@ -1,0 +1,68 @@
+{
+  "schema": "bob-native-still-supplement-v1",
+  "run": "bob-rc2-iab-20261010-4K0vX1",
+  "date": "2026-10-10",
+  "source_revision": "96b9bb8ec21392d9bf5962f79c61adaca7a3ee1a",
+  "platform": "macOS ARM; Python 3.11.13; existing project venv",
+  "browser": "actual Codex in-app browser; owned tab 8, closed after capture",
+  "mode": "offline deterministic supplied synthetic fixtures; no model calls",
+  "fixture_digest": "b145d2fc18097c3f2f9c5eba00b4dd911cff5ead0ad2875f19bfcfc556abfb02",
+  "policy_digest": "57623ce5384491d1dd55618b1c223141b5f818db481bf79425f59f41d4299800",
+  "capture_transport": {
+    "method": "git archive of exact source; disposable export, not a fresh installation",
+    "ui_port": 28680,
+    "backend_port": 28681,
+    "only_source_change": "widget.js backend literal 28451 -> 28681 in disposable copy only",
+    "original_widget_sha256": "bdbe37f46006d04c14e3d76dba7f3e88decb506d758ac32581fc809ececbd553",
+    "capture_widget_sha256": "6fa4c4acd00c72a7def239c41f200d2cffa4687d0363c436abff30940c42a811",
+    "archive_working_state": "unknown/conservatively dirty; not an unmodified clean-tag execution",
+    "cleanup": "owned tab and UI/backend stopped; supplied mock lifecycle closed with backend; ports 28680/28681 no longer listening"
+  },
+  "stills": [
+    {
+      "file": "01-recording-off-state.jpg",
+      "sha256": "028ff5be71ae2ca74fb2563a47a7eb239c6e39834484c57dca665e2b925f552a",
+      "width": 1280, "height": 720,
+      "visible": "Developer disclosure; recording off, stored false; discover state before revision 0, identity missing, no proposal",
+      "limits": "scrolled viewport; lower state/rule/API fields are not all visible"
+    },
+    {
+      "file": "02-recording-off-api-model.jpg",
+      "sha256": "2c9079e09272952bb5dd7064a6e3a0d5b5bc864941a2c878fb4dd42a8af31167",
+      "width": 1280, "height": 720,
+      "visible": "same recording-OFF inspection, native inner scroll; providers ok/error none/latency 1.874 ms; model null; bounded diagnostics",
+      "limits": "pair with still 01 for recording-OFF context; null HTTP status is not an observed numeric status; model null is not genuine-model evidence"
+    },
+    {
+      "file": "03-replay-original-observations.jpg",
+      "sha256": "e7fda33641bacdbf47331d83fd1dc27754519a40edc7cdad6c80abda59b30e27",
+      "width": 1280, "height": 720,
+      "visible": "actual replay observed_views, bob-v1 renderer, revision 1, can_confirm false and observed pending true",
+      "inspection_rectangle": {"x": 124.796875, "y": 234.6953125, "width": 1015.40625, "height": 460, "inner_scroll_top": 648},
+      "limits": "viewport does not show entire receipt or later step/fidelity fields; linked UI JSON contains those exact values, not implied pixel visibility"
+    }
+  ],
+  "ui_evidence": {
+    "file": "ui-evidence.json",
+    "sha256": "769d539c9cc098fea7ba05da256ce56d8b4ab4c4ab227611c22fb97ee8d518de",
+    "origin": "read-only parsing of actual visible diagnostic/replay DOM JSON",
+    "flow": "first independent patient: start -> primary care/downtown providers -> inspect recording OFF; second independent patient: start -> opt in before commands -> help -> medical -> seal -> open -> step twice",
+    "result": "full_replay; no declared gaps; 71 ordered original observations (35 step 1/revision 1, 36 step 2/revision 2); core semantic parity true; renderer parity false",
+    "authority": "synthetic observations only; references/namespaces do not authenticate imports or authorize live actions"
+  },
+  "focused_verification": {
+    "command": "PYTHONPATH=src:tests .venv/bin/python -m unittest test_view_receipt_capture test_live_diagnostics -v",
+    "source_revision": "96b9bb8ec21392d9bf5962f79c61adaca7a3ee1a",
+    "result": "17 tests passed in 0.127 s",
+    "missing_partial_boundary": "absent acknowledgement and legacy missing can_confirm presentation report incomplete_capture in source-bound tests; no naturally occurring incomplete UI state captured"
+  },
+  "limitations": [
+    "Three unedited native JPEG viewports, not full pages, animation, continuous recording or a finished video.",
+    "Intermittent acknowledgement-unavailable presentation notices and Marimo reconnect/clean WebSocket-close warnings occurred; cause unproven. Not warning-free browser qualification.",
+    "Initial nested namespace launch failed because its parent was absent; direct owned namespace resolved launch without shared-state changes.",
+    "Marimo server registration/recent-files writes to host state were denied; UI served despite warnings; host permission was not bypassed.",
+    "No actual missing/partial receipt UI screenshot; tests are not relabeled as browser execution.",
+    "Core parity does not prove renderer parity or import authenticity; full_replay means declared internal capture completeness.",
+    "No paid call, private identity input, booking, support pairing, Operator trial control, Chrome fallback, old still relabeling, RC movement, public deployment or external media publication."
+  ]
+}
