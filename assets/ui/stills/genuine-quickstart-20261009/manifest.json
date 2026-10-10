@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "updated_date": "2026-10-09",
+  "date_timezone": "America/Chicago",
+  "audience": "Private/internal Ochsner review only; no publication grant",
+  "source_revision": "3427c5922f6987bc31e0bc472bdc8cb77cff4cca",
+  "model_evidence": "model-evidence.json",
+  "source_basis": "git archive; working tree state unknown/conservatively dirty, not an unmodified clean-tag execution",
+  "native_capture_module_digest": "118327af911fccf9cadb6a94c80432f830b70b15fb80a289341b5783b06f4aca",
+  "capture_root": "/private/tmp/bob-genuine-stills-20261009-jV8By9",
+  "capture": "New task-owned Chrome tab 374884094. Ten visually checked native JPEG scrolled viewport originals; fullPage option returned only1700x543. No crop/edit/animation or continuous screen recording.",
+  "plumbing_changes": [
+    {
+      "file": "src/ochsner_bob/widget.js",
+      "change": "Backend literal28451->28541 only.",
+      "original_sha256": "e33b57b8baafa5dd93f4d746f8159af2d49023ee3ec0863da7afd7cb8e17bb38",
+      "capture_sha256": "e6c0f33c58417de135808f00c09cf4b6497001b4950dcb80fd1c6931dd050cd6"
+    },
+    {
+      "file": "scripts/serve_browser.py",
+      "change": "Keep the ORIGINAL canonical .bob-local/model-budget.json absolute path in disposable export, not a new budget.",
+      "original_sha256": "2c04e6dbf285d90acd870368591b25712368c018c0a800cb0b4c9c1ae407de4c",
+      "capture_sha256": "e5e50aec564966671a789e5bf6738e59366db71fbfe7e5b7a462ff8dbe1e4bd8"
+    },
+    {
+      "file": "scripts/capture_openai_launch.py",
+      "change": "Capture-only approved secure broker/runtime opt-in and LanguageAdapter subclass logging validated LanguageOutcome after returning from genuine transport. No scheduling/model proposal mutation or retry.",
+      "capture_sha256": "5dc5a67d0c7ba1964d23ebf9f996b553e11d01441191916aa2b659e4d8991e30"
+    }
+  ],
+  "unchanged_language_sha256": "4d5cb915284c90c408406f2ea3f57bea0d5a126abb4d07be668d4861b7614461",
+  "unchanged_budget_sha256": "70313c1bf3493b237c5d150b016095fad0c13a283231c18ae3e7a9f44780c701",
+  "launch": {
+    "python": "3.11.13",
+    "capture_ui": "http://127.0.0.1:28540/",
+    "capture_backend": "http://127.0.0.1:28541",
+    "ui_allowed_origin": "http://127.0.0.1:28540",
+    "namespace": ".bob-local/genuine-video",
+    "model": "gpt-5.4-2026-03-05",
+    "runtime_opt_in": {
+      "BOB_ENABLE_OPENAI": "1",
+      "BOB_OPENAI_MODEL": "gpt-5.4-2026-03-05"
+    },
+    "credential_source": "Existing approved DevOps bw-get-secret.sh broker, secure note [Env] OPENAI_API_KEY/notes; value never recorded.",
+    "viewer_launch": "After securely configuring OPENAI_API_KEY and creating private .bob-local: BOB_ENABLE_OPENAI=1 BOB_OPENAI_MODEL=gpt-5.4-2026-03-05 .venv/bin/python scripts/serve_browser.py --openai. Default UI uses README Marimo28450; do not start over an existing trial."
+  },
+  "verification": [
+    "Actual single genuine request accepted: discover / primary_care / downtown;405input40output tokens, known$0.001612500, no retries.",
+    "Same-session explicit provider1/private fixture/actual slot/select/separate Confirm -> booking completed/history at revision8.",
+    "Six widget projection checks in copy passed0.407s; no full-suite/install/platform qualification rerun or claim."
+  ],
+  "limitations": [
+    "Final still shows current attempt plus retained outcome-history list item, not appointment-lookup results. No same-session appointment-lookup table was captured; owned session is closed.",
+    "Single successful demonstration, not reliability qualification.",
+    "Visible label offline before first model turn, openai at revision 3 after genuine response; later guarded local controls again display offline. Do not relabel those local controls as additional model calls.",
+    "The supplied mock booking is not a real appointment or real staff contact.",
+    "Semantic core replay is not full browser/draft/focus/ack replay; this run sealed capture but did not execute replay.",
+    "No optional correction branch or model retry was performed.",
+    "IAB failure was documented in immediately preceding phase; scoped fresh Chrome tab used under existing permission, no host-denial bypass.",
+    "No new support pairing, takeover, real PHI, real staff contact, production service or public publication.",
+    "Optional model correction was not needed for the coherent base journey and was not run."
+  ],
+  "entries": [
+    {
+      "file": "01-configured-before-first-model-turn.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "df24f2b3446a818a2783ca6eb6dedf47fb4004c6f51557ee5b7cc4fbdf213927",
+      "revision": 0,
+      "caption": "Before any model turn, BOB truthfully shows offline interpretation. Genuine adapter is configured; explicitly synthetic capture is on."
+    },
+    {
+      "file": "02-exact-public-natural-request.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "4024ecaa2ef716404e5f2d1b0a1c83c9cd379e39856eee18b6bb0d39c984e975",
+      "revision": 0,
+      "caption": "Type the exact public request: Find a family doctor downtown. Keep identity and consent out of this box."
+    },
+    {
+      "file": "03-genuine-openai-response-mode.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "5837ec650de73c9296b4c4648de24366b711a0e55b74a5844279870e1d2c3609",
+      "revision": 3,
+      "caption": "After the real model response, the visible label is openai interpretation. BOB asks you to choose a provider or refine the search."
+    },
+    {
+      "file": "04-real-model-public-provider-results.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "8fea2c0d68c0e4016b3bc0b5dd24af3cd77c211d274f6a397b476873a696c0f6",
+      "revision": 3,
+      "caption": "The validated model proposal leads to two actual supplied-service public providers; no identity lookup or booking yet."
+    },
+    {
+      "file": "05-explicit-provider-selection.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "34da8d3a57e23701e4336ffb3d51fdf816e2c8eaa5e7c63f0ab791608d6760aa",
+      "revision": 4,
+      "caption": "Choose provider one explicitly. The active public filters now include prov_2001; this local control makes no model call."
+    },
+    {
+      "file": "06-private-synthetic-identity.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "f4d8caf89b2aaf69b63a6a66de2789dc2fe05122bf56865957b5e11dea85c0be",
+      "revision": 4,
+      "caption": "Enter only the known synthetic phone, DOB and ZIP in private local controls. They are not model inputs or consent."
+    },
+    {
+      "file": "07-actual-numbered-availability.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "9da7d35b7a888737c9b8ec3fce47c79f9978375d30674725a213c46760f4d084",
+      "revision": 6,
+      "caption": "Actual supplied HTTP availability returns option one after local identity verification. Availability is not a booking."
+    },
+    {
+      "file": "08-proposal-before-separate-confirm.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "a71848f5cd4b4542c05a9217316a2ba6ca958b8c57965c68896ed41d776b09cb",
+      "revision": 7,
+      "caption": "Review the exact API time, provider and location before separate Confirm. Selecting alone did not book."
+    },
+    {
+      "file": "09-after-confirm-disabled.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "7adb145e543f4d759b7f68bbd04187b38bc04edce5031e31634a5b3c3ba8a795",
+      "revision": 8,
+      "caption": "After one explicit local Confirm completes, the proposal clears and the old confirmation is disabled."
+    },
+    {
+      "file": "10-completed-mock-outcome-history.jpg",
+      "format": "image/jpeg",
+      "width": 1700,
+      "height": 543,
+      "sha256": "81daa58530f975f7c86b9d23d635bbc4a8ffce58ececb34d1c6e649264d64961",
+      "revision": 8,
+      "caption": "Current attempt and history both show booking completed in the synthetic service. The model did not supply identity or confirmation."
+    }
+  ]
+}

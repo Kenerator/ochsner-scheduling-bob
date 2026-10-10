@@ -10,7 +10,8 @@ browser, patient matching, booking, handoff delivery or production readiness.
 
 The Operator authorized up to **200 calls and $20 total**. The qualification
 worker was sole caller through call 40, then explicitly released ownership;
-the parent integration used the same ledger for one browser call. Exact credential source: Bitwarden secure note `[Env] OPENAI_API_KEY`,
+the parent integration used the same ledger for one browser call, followed by
+one separately approved video-demonstration call. Exact credential source: Bitwarden secure note `[Env] OPENAI_API_KEY`,
 retrieved using the approved DevOps `bw-get-secret.sh` helper (`notes` field).
 Credential contents must remain in process environment only: no echo, file,
 command-line argument, trace, raw response or exported environment listing.
@@ -98,9 +99,31 @@ confirmation, polling and replay were not sent to the model.
 Shared totals after this call: **41/200**, 31 known / 10 unknown; known numeric cost
 **$0.026381000**, retained unknown liability **$3.023040000**, total liability
 **$3.049421000**, remaining **$16.950579000**. Actual total bill is still unknown.
-These follow-on totals supersede the historical 40-call snapshot below, not its
+These 41-call follow-on totals superseded the historical 40-call snapshot below, not its
 individual qualification results. No further paid requests were required for
 offline integration verification. The browser still is not a full reliability test.
+
+Video-demonstration follow-on (2026-10-09): the verified Operator video assignment
+approved genuine natural-language demonstrations; SM assigned an isolated still
+capture. Reviewed source `3427c5922f6987bc31e0bc472bdc8cb77cff4cca`, with disclosed
+capture-only plumbing in the [manifest](../../assets/ui/stills/genuine-quickstart-20261009/manifest.json).
+Exact request “Find a family doctor downtown” again produced a genuine accepted
+`discover` proposal with `primary_care` / `downtown`, visible `openai interpretation`
+and two supplied providers. Same-session local provider/identity/availability/
+selection/separate Confirm reached mock completion; those controls did not call
+OpenAI. One dispatch, no retries: 405 input / 40 output, 2714.653 ms,
+known rate-estimated cost **$0.001612500**. See [sanitized evidence](../../assets/ui/stills/genuine-quickstart-20261009/model-evidence.json),
+not raw model text or billing-statement proof.
+
+Latest shared totals: **42/200**, 32 known / 10 unknown; known numeric cost
+**$0.027993500**, retained unknown liability **$3.023040000**, total liability
+**$3.051033500**, remaining **$16.948966500** under the original $20 ceiling.
+The original canonical ledger was not reset, relocated or deleted; the disposable
+export referenced its absolute path. These totals supersede the 41-call snapshot,
+not any retained failure or individual qualification result. Actual historical
+bill remains unknown. This single demonstration is not a new reliability suite;
+no additional model calls were needed for still packaging. Owned capture services
+and tab were closed without altering the active Operator trial.
 
 - Initial offline red: 17 tests, 12 failures / 5 errors (missing module, hook,
   runner). Added receipt-sanitization regression observed red before its fix.

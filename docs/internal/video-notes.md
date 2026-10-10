@@ -1,6 +1,6 @@
 # Video production notes
 
-Updated: 2026-10-09. Status: product implemented; quickstart still support prepared.
+Updated: 2026-10-09. Status: product implemented; offline and genuine-AI quickstart still support prepared.
 The existing video task owns narration/assembly; this is not a finished video.
 
 Keep this file current as Specify, Plan and Implement establish the actual product. Record confirmed behavior, not aspirations; link to canonical specs/tests instead of copying them. Use synthetic data and keep credentials and personal data out of recordings.
@@ -131,3 +131,50 @@ Launch verification found a fresh export needs its `.bob-local` parent created
 before a nested namespace. The README now makes that preparation explicit;
 existing trial state/budget/journals were not altered. No fresh install/full-suite
 or production qualification is claimed by this content-only run.
+
+### Genuine-AI quickstart supplement — 2026-10-09
+
+Under the Operator's verified video assignment, SM requested a genuine
+natural-language journey. Ten visually checked native Chrome JPEG originals
+are indexed in the [genuine still manifest](../../assets/ui/stills/genuine-quickstart-20261009/manifest.json),
+with [sanitized model and state evidence](../../assets/ui/stills/genuine-quickstart-20261009/model-evidence.json).
+Reviewed source revision: `3427c5922f6987bc31e0bc472bdc8cb77cff4cca`.
+
+Sequence: `01` configured start → `02` exact public request **Find a family doctor
+downtown** → `03` genuine response / visible `openai interpretation` → `04` two
+supplied public providers → `05` explicit provider selection → `06` private
+synthetic identity → `07` actual numbered availability → `08` proposal before
+separate Confirm → `09` confirmation cleared/disabled → `10` completed current
+attempt and retained **outcome history**. Still `10` contains a current-attempt
+paragraph and a separate history-list item; it is not an appointment-lookup
+table. No same-session “Look up my appointments” still exists. Narration must
+preserve that distinction.
+
+One real `gpt-5.4-2026-03-05` request proposed `discover`, `primary_care`,
+`downtown`; 405 input / 40 output tokens, 2714.653 ms, known rate-estimated cost
+$0.001612500. The visible “Choose a provider or refine your search.” is core
+presentation after a validated structured proposal, not raw model prose.
+The initial mode is offline; after the real response it is openai; later local
+controls truthfully show offline. Identity, consent and booking remain local
+guarded actions, not additional model calls. The same synthetic session reached
+revision 8, mock booking completed, with eight core events and no takeover.
+Capture was sealed without gaps; replay was not executed in this run.
+
+The disposable `git archive` export used UI 28540/backend 28541, its own mock
+and private namespace. Capture-only changes were the widget port, an absolute
+reference to the original canonical budget, and a secure-launch/sanitized-outcome
+wrapper; hashes are in the manifest. Language and budget implementation bytes
+were unchanged. This is not an unmodified clean-tag execution. All ten originals
+are 1700×543 scrolled viewports, not full pages; no crop/edit/animation or
+continuous recording. Chrome fallback follows the preceding documented IAB
+failure. Six widget checks passed in the copy; no full-suite or fresh-install
+qualification is claimed here.
+
+Shared ledger advanced only from 41 to 42 of 200 calls, under the same $20
+ceiling: known numeric cost $0.027993500 plus retained unknown liability
+$3.023040000 = total liability $3.051033500; remaining $16.948966500.
+Actual historical bill remains unknown. No correction branch, retry, new support
+pairing, real PHI/staff contact or publication occurred. Owned capture services
+and tab were closed; the active Operator trial was not controlled or reset.
+Video assembly/bookend filming remain with the video owner; still delivery is
+not a finished-video claim.

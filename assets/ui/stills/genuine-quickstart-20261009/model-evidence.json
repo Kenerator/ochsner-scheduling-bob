@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "updated_date": "2026-10-09",
+  "date_timezone": "America/Chicago",
+  "run_id": "genuine-quickstart-20261009-2b177fafa5294c45af95d8f34f55f05f",
+  "authority": {
+    "source_thread": "01a113f6-dcea-73f0-9a89-6e619adacb05",
+    "turn": "01a123d9-77f6-7dd0-80ec-d0124b0fdfa1",
+    "human_user_message": "01a123d9-8dd7-7901-babd-fc1266cc042b",
+    "scope": "Genuine AI natural-language demonstration; stills only, synthetic private controls, existing budget preserved; no publication or takeover."
+  },
+  "source_revision": "3427c5922f6987bc31e0bc472bdc8cb77cff4cca",
+  "model_run": {
+    "latency_ms": 2714.653,
+    "model": "gpt-5.4-2026-03-05",
+    "outcome": {
+      "accounting_status": "known",
+      "action": "discover",
+      "cost_usd": "0.001612500",
+      "mode": "openai",
+      "preferences": {
+        "location": "downtown",
+        "specialty": "primary_care"
+      },
+      "reason": "Public interpretation proposed; core validation remains required.",
+      "status": "ok",
+      "usage": {
+        "cached_input_tokens": 0,
+        "input_tokens": 405,
+        "output_tokens": 40,
+        "reasoning_output_tokens": 0
+      }
+    },
+    "prompt": "Find a family doctor downtown"
+  },
+  "transport": {
+    "provider": "OpenAI",
+    "endpoint": "https://api.openai.com/v1/responses",
+    "service_tier": "default",
+    "store": false,
+    "tools": [],
+    "automatic_retries": 0,
+    "fixture_transport": false,
+    "max_output_tokens": 512
+  },
+  "request_evidence": "One deliberate Chrome Send, exact planned public prompt; adapter sanitized LanguageOutcome; canonical durable budget reservation 42 settled known. Raw model body/OpenAI response IDs are intentionally not retained by product.",
+  "ui_response": "Choose a provider or refine your search.",
+  "ui_response_origin": "SchedulingSession/Conversation presentation after validated structured model proposal, not raw model-generated prose.",
+  "public_provider_results": [
+    {
+      "provider_id": "prov_2001",
+      "name": "Dr. Elena Brooks",
+      "specialty": "primary_care",
+      "locations": [
+        "downtown",
+        "uptown"
+      ]
+    },
+    {
+      "name": "Dr. Marcus King",
+      "specialty": "primary_care",
+      "locations": [
+        "downtown"
+      ]
+    }
+  ],
+  "recording": {
+    "reference": "BOB-2b177fafa5294c45af95d8f34f55f05f/step/1/branch/original",
+    "status": "full_replay",
+    "missing": [],
+    "sealed": true,
+    "model_category": "accepted",
+    "diagnostic_core_events": [
+      {
+        "action": "begin_input",
+        "before_revision": 0,
+        "after_revision": 1,
+        "state": "start",
+        "identity": "missing",
+        "provider_count": 0,
+        "slot_count": 0,
+        "proposal": false,
+        "booking_certainty": "not_attempted",
+        "takeover": false
+      },
+      {
+        "action": "preferences",
+        "before_revision": 1,
+        "after_revision": 2,
+        "state": "preferences",
+        "identity": "missing",
+        "provider_count": 0,
+        "slot_count": 0,
+        "proposal": false,
+        "booking_certainty": "not_attempted",
+        "takeover": false
+      },
+      {
+        "action": "discover",
+        "before_revision": 2,
+        "after_revision": 3,
+        "state": "providers",
+        "identity": "missing",
+        "provider_count": 2,
+        "slot_count": 0,
+        "proposal": false,
+        "booking_certainty": "not_attempted",
+        "takeover": false
+      },
+      {
+        "action": "preferences",
+        "before_revision": 3,
+        "after_revision": 4,
+        "state": "preferences",
+        "identity": "missing",
+        "provider_count": 2,
+        "slot_count": 0,
+        "proposal": false,
+        "booking_certainty": "not_attempted",
+        "takeover": false
+      },
+      {
+        "action": "identity",
+        "before_revision": 4,
+        "after_revision": 5,
+        "state": "ready",
+        "identity": "verified",
+        "provider_count": 2,
+        "slot_count": 0,
+        "proposal": false,
+        "booking_certainty": "not_attempted",
+        "takeover": false
+      },
+      {
+        "action": "availability",
+        "before_revision": 5,
+        "after_revision": 6,
+        "state": "options",
+        "identity": "verified",
+        "provider_count": 2,
+        "slot_count": 1,
+        "proposal": false,
+        "booking_certainty": "not_attempted",
+        "takeover": false
+      },
+      {
+        "action": "select",
+        "before_revision": 6,
+        "after_revision": 7,
+        "state": "proposal",
+        "identity": "verified",
+        "provider_count": 2,
+        "slot_count": 1,
+        "proposal": true,
+        "booking_certainty": "not_attempted",
+        "takeover": false
+      },
+      {
+        "action": "confirm",
+        "before_revision": 7,
+        "after_revision": 8,
+        "state": "completed",
+        "identity": "verified",
+        "provider_count": 2,
+        "slot_count": 0,
+        "proposal": false,
+        "booking_certainty": "completed",
+        "takeover": false
+      }
+    ],
+    "replay_executed_this_run": false
+  },
+  "budget": {
+    "path": "/Users/ken/codeRepos/ochsner-scheduling-bob/.bob-local/model-budget.json",
+    "reservation": 42,
+    "before": {
+      "calls": 41,
+      "max_calls": 200,
+      "ceiling_usd": "20.000000000",
+      "known_calls": 31,
+      "unknown_calls": 10,
+      "input_tokens": 11569,
+      "output_tokens": 1214,
+      "cached_input_tokens": 0,
+      "reasoning_output_tokens": 0,
+      "known_cost_usd": "0.026381000",
+      "liability_usd": "3.049421000",
+      "remaining_usd": "16.950579000"
+    },
+    "after": {
+      "calls": 42,
+      "max_calls": 200,
+      "ceiling_usd": "20.000000000",
+      "known_calls": 32,
+      "unknown_calls": 10,
+      "input_tokens": 11974,
+      "output_tokens": 1254,
+      "cached_input_tokens": 0,
+      "reasoning_output_tokens": 0,
+      "known_cost_usd": "0.027993500",
+      "liability_usd": "3.051033500",
+      "remaining_usd": "16.948966500"
+    },
+    "calls_this_run": 1,
+    "cost_this_run_usd": "0.001612500",
+    "retained_prior_unknown_liability_usd": "3.023040000",
+    "actual_total_historical_bill": "unknown",
+    "invoice_claim": false
+  },
+  "privacy": "No private fixture discriminator, identity ID, proposal nonce or confirmation authority was sent to OpenAI. Known synthetic fixture entered only in private controls. Credential broker output existed only in runtime memory/environment; no raw credential/body/header saved.",
+  "model_pricing_source": "https://developers.openai.com/api/docs/models/gpt-5.4",
+  "pricing_reviewed": "2026-10-09",
+  "limitations": [
+    "Single successful demonstration, not reliability qualification.",
+    "Visible label offline before first model turn, openai at revision 3 after genuine response; later guarded local controls again display offline. Do not relabel those local controls as additional model calls.",
+    "The supplied mock booking is not a real appointment or real staff contact.",
+    "Semantic core replay is not full browser/draft/focus/ack replay; this run sealed capture but did not execute replay.",
+    "No optional correction branch or model retry was performed."
+  ]
+}
