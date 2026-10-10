@@ -1,9 +1,14 @@
 # Supplied synthetic runtime subset
 
-Adopted 2026-10-09 for the approved private BOB repository only. These five files
+Adopted 2026-10-09 for the then-private BOB repository. These five files
 are byte-identical to the supplied scheduling assignment runtime. Raw intake and
 the complete RFP remain ignored. No public redistribution license, sponsor
 endorsement, production integration or real-patient-data permission is claimed.
+On 2026-10-10 the Operator approved this exact source repository becoming public.
+The supplied assignment asks for a GitHub repository and working cloned mock;
+its data README identifies fabricated data. Review found no restrictive notice
+in the supplied subset. This is intended assignment use, not general open-source
+relicensing. Raw intake remains excluded and the five runtime bytes are unchanged.
 
 | File | SHA-256 |
 | --- | --- |

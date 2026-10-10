@@ -1,7 +1,65 @@
 # Video production notes
 
-Updated: 2026-10-09. Status: product implemented; offline and genuine-AI quickstart still support prepared.
+Updated: 2026-10-10. Status: source-bound feature-completion still supplement delivered;
+video assembly and Operator bookends remain with the media owner.
 The existing video task owns narration/assembly; this is not a finished video.
+
+Audience update 2026-10-10: the Operator approved branded synthetic assets in
+this exact public-source repository. BOB remains an internal-use PoC, not a
+publicly deployed application. Earlier private-only notes below describe the
+historical capture grant; they do not override this later decision. External
+video publication remains outside this grant.
+
+## Feature-completion supplement — 2026-10-10
+
+[Final manifest](../../assets/ui/stills/feature-completion-20261010/manifest.json):
+87 unedited native JPEG viewports with byte hashes, dimensions, visible target
+rectangles/anchors and per-entry source. No crop, pixel repair, continuous
+recording, model calls or access to the Operator's active trial was used.
+Default source metadata applies only to the ordinary set; never relabel all
+frames as RC-1. Three isolated capture sets are disclosed in `capture_sets`:
+
+| Set | Count / source | Actual change and evidence |
+| --- | --- | --- |
+| Ordinary | 64 / `c3e6df20dff2518014d763c162359ceb9de23d1d` | Backend literal changed to isolated port 28541; independent mock/private namespace. Historical incomplete post-booking replay retained. |
+| Receipt loss | 6 / same `c3e6df2` | Isolated port 28543 plus capture-only launcher using existing accepted-receipt-hiding wrapper. Launcher/proof hashes included; not transport-only. |
+| Repaired | 17 / `e2dfa7e9f471513921063d568bb3bc890eff1800` | Clean export/install qualified before sole backend-literal change to 28545. Actual complete core replay and separate Support status. |
+
+Use P50→P51 for fresh mismatch/correction (not original P25's session), and
+P52→P53 for pending typo→explicit Downtown acceptance (P23 is a later repetition,
+not P22's precursor). D30/D31 show actual sanitized diagnostics/provenance;
+P54/P55 show medical boundary and a validated **mock** handoff, not staff contact.
+R06/R07 pair readable reviewed fixture-proposal flags/provenance with control
+context; this is simulation-only and not an executed/adopted test. R14/R17 include
+step-index input, Jump and bookmarks. R11 is typed-invalid valid JSON, not a
+malformed-JSON parser demonstration.
+
+R01 shows actual appointment rows after booking, distinct from completed history.
+R02 seals complete evidence but does not yet evaluate parity; R04 shows eight
+events, no gaps, core semantic parity true and renderer parity false. The later
+unknown API variant changes the final **lookup**, not the completed booking.
+S30→S31→S32 shows joined/inactive → joined/active → joined/inactive; zero lease
+when inactive. Historical `not_joined` labels meant inactive takeover, not failed
+pairing. Private identity and confirmation authority remain excluded.
+
+F08/F09 show Reset retaining uncertainty; F10 shows a new verified selection
+still unable to Confirm. The [proof](../../assets/ui/stills/feature-completion-20261010/receipt-loss-proof.jsonl)
+records one validated accepted booking and an independent matching appointments
+read. Its receipt was deliberately hidden at the adapter boundary. No second
+Confirm action occurred; one proof entry remains. This is not a packet audit or
+actual outage. Rejected grant-bearing/framing frames remain scratch-only and are
+listed in the manifest, never adopted.
+
+R17 shows the selected disposable recording expired after Purge. An external
+export is retained, but the same tombstoned reference **cannot** be revived by
+re-import. Do not narrate restoration or removal of effect protection.
+IAB kernel/acknowledgement failures and Chrome fallback are retained, not hidden.
+The repaired capture launch also reported denied writes to Marimo's host recent-
+file/server registry; actual isolated UI flows and originals were observed, but
+successful capture is not evidence that those host metadata writes succeeded.
+Native Chrome viewport sizes vary; per-entry JPEG dimensions govern placement.
+Minimal effects, short preferred/no duration cap and Operator intro/wrap remain
+the approved video approach. Stills delivery is not a finished-video claim.
 
 Keep this file current as Specify, Plan and Implement establish the actual product. Record confirmed behavior, not aspirations; link to canonical specs/tests instead of copying them. Use synthetic data and keep credentials and personal data out of recordings.
 

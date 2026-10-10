@@ -1,6 +1,6 @@
 # As-built architecture
 
-Updated/reviewed 2026-10-09: code/test source `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`.
+Updated/reviewed 2026-10-10: current code/test source `e2dfa7e9f471513921063d568bb3bc890eff1800` (RC-1).
 Documentation finalized after that tested source checkpoint. [Walkthrough](code-walkthrough.md),
 [spec](../../../specs/001-ochsner-scheduling-assistant/spec.md),
 [plan](../../../specs/001-ochsner-scheduling-assistant/plan.md),
@@ -8,6 +8,23 @@ Documentation finalized after that tested source checkpoint. [Walkthrough](code-
 [decisions](../../product/decisions.md). This describes actual source, not deployment readiness.
 
 ## Components and authority
+
+The 2026-10-10 repair retains this topology and all live effect/privacy boundaries.
+[Post-booking replay tests](../../../tests/test_post_booking_replay.py) cover
+validated dynamic appointment rows: capture binds each complete row to the current
+approved synthetic identity and a unique approved public slot, rather than
+persisting private rows or requiring a static appointment ID. Replay constructs
+simulation-only placeholder receipts through its recorded-only port; invalid,
+ambiguous or foreign rows remain incomplete. This is not live receipt replay.
+
+[Support status tests](../../../tests/test_support_status.py) separate BrowserService's
+resolved paired role (`joined`) from SchedulingSession's control lease
+(`active`/`inactive`). The session alone reports membership unknown; it cannot
+infer a browser binding. Lease expiry/Return ends control, not pairing. Widget
+status remains visible before the first acknowledged patient screen. No private
+identity, selection or confirmation authority is added. Parent and clean committed
+export both passed 398 tests and all three demos; actual browser evidence and
+renderer-parity limits are [separately source-bound](../video-notes.md#feature-completion-supplement--2026-10-10).
 
 ```mermaid
 flowchart TB
@@ -182,7 +199,8 @@ duplicate keys, nonfinite values and executable/endpoint configuration. Replay/s
 access checks expiry; store operations sweep expiry and explicit expire/purge
 APIs exist. Tombstones retain
 expiry status without payload; purge does not erase journals/budgets/unrelated
-files. Quota failure does not silently evict active captures. Evidence:
+files. Importing an external export cannot revive the same purged/tombstoned
+reference. Quota failure does not silently evict active captures. Evidence:
 [replay](../../../tests/test_replay_contract.py), [store](../../../tests/test_recording_store.py),
 [capture integration](../../../tests/test_interaction_service.py).
 The [same-core regressions](../../../tests/test_replay_live_core.py) additionally
@@ -219,7 +237,9 @@ booking qualification; this documentation worker performed no live calls.
 
 ## Reviewed source and verification
 
-Reviewed code/test source `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`, 2026-10-09.
+Historical reviewed code/test source `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`, 2026-10-09.
+The following digests/results remain bound to that earlier milestone, not RC-1;
+current repair evidence is linked above and in the native task ledger.
 Clean committed-export qualification passed. Digests identify inspected bytes,
 not production approval or a dependency lock:
 

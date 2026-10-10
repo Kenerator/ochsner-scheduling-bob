@@ -1,6 +1,6 @@
 # BOB handoff and next steps
 
-Updated 2026-10-09. Detailed completion/open work belongs in the
+Updated 2026-10-10. Detailed completion/open work belongs in the
 [native ledger](../../specs/001-ochsner-scheduling-assistant/tasks.md), not this memo.
 
 Use [README](../../README.md), [demo](../internal/demo.md),
@@ -14,7 +14,7 @@ or external publication is claimed.
 Explicitly deferred: production authentication/authorization, real PHI/APIs,
 distributed idempotency and reconciliation, live support routing, deployment,
 Linux/mobile/assistive-technology qualification, locked transitive dependencies,
-load/capacity qualification, broader branding rights and public redistribution.
+load/capacity qualification and general third-party relicensing.
 Each needs its own design, evidence and authority before adoption.
 
 Replay version 1 remains historical typed-interpreter evidence. The corrected
@@ -32,5 +32,13 @@ No additional calls are scheduled by this handoff.
 
 Optional post-MVP UX refinement was considered and deferred; baseline fixes here
 address required behavior. Future refinement can use immutable before/after
-checkpoints and affected-behavior tests. Sponsor/platform conventions and public
-delivery rights remain questions for a separately authorized phase, not new MVP gates.
+checkpoints and affected-behavior tests. Future hosting/platform conventions and
+broader distribution rights require a separately authorized phase, not new MVP gates.
+
+Current handoff: immutable [RC-1](../internal/milestones.md) records the repaired
+398-test source. The [87-still supplement](../internal/video-notes.md#feature-completion-supplement--2026-10-10)
+is delivered for media assembly; Operator intro/wrap and finished-video QA remain
+with that owner. Purged references remain expired, even with an external export.
+The exact public-source repository and retained branding/assets are now approved;
+repository settings/readback are being finalized separately from video production.
+There is no public application deployment or external video-publication grant.

@@ -1,10 +1,17 @@
 # BOB · synthetic scheduling PoC
 
-Private/internal Ochsner review. One guarded scheduling core serves a deterministic
+Internal-use Ochsner proof of concept, with publicly accessible source and approved
+branded synthetic assets; not a public application deployment. One guarded scheduling core serves a deterministic
 CLI and paired Marimo patient/support views. Uses the unchanged supplied HTTP mock,
 standalone ZEN policy, public-only RapidFuzz suggestions, and optional bounded
 OpenAI interpretation. No PHI, clinical advice, production authentication, real
-staff contact, deployment, or public redistribution is implied.
+staff contact, sponsor endorsement or general third-party relicensing is implied.
+
+Current code checkpoint: annotated immutable **RC-1**, source
+`e2dfa7e9f471513921063d568bb3bc890eff1800` (2026-10-10): 398 tests and all three
+booking demos passed both locally and in a fresh committed export/install on
+Python 3.11.13/macOS ARM. See the [evidence ledger](specs/001-ochsner-scheduling-assistant/tasks.md)
+for historical failures and qualification limits. No application license is selected.
 
 ## Start here
 
@@ -46,6 +53,8 @@ Takeover/return and preference suggestions are local demonstrations; a suggestio
 requires patient acceptance after return. Lower Developer Mode exposes bounded
 sanitized diagnostics and **recorded-only shared-core replay**. Complete matching
 captures qualify semantic core projections, not full browser-renderer parity.
+“Joined” describes the paired role; “active/inactive” describes its separate
+control lease. Ending control does not unpair the local participant.
 
 Ctrl-C each owned terminal to stop it. Workflow Reset never clears uncertain-effect
 protection. A fresh mock run uses a new explicit `--namespace .bob-local/run-N`;
@@ -73,6 +82,7 @@ model fallback. View/poll/replay never invokes a model. See
 - Native authority: [spec](specs/001-ochsner-scheduling-assistant/spec.md), [plan](specs/001-ochsner-scheduling-assistant/plan.md), [task/evidence ledger](specs/001-ochsner-scheduling-assistant/tasks.md), [quickstart](specs/001-ochsner-scheduling-assistant/quickstart.md).
 - Product: [personas](docs/product/personas.md), [stories](docs/product/user-stories.md), [decisions](docs/product/decisions.md), [backlog](docs/product/backlog.md), [roadmap](docs/product/roadmap.md), [increments](docs/product/sprint-planning.md), [next steps](docs/product/next-steps.md).
 - Review: [demo](docs/internal/demo.md), [video/stills](docs/internal/video-notes.md), [persona/test crosswalk](docs/internal/persona-story-test-index.md), [performance](docs/internal/performance-notes.md), [Marimo feasibility](docs/internal/marimo-feasibility.md).
+- User help: [patient, Support and Developer guide](docs/user/getting-started.md), [recovery and irreversible purge](docs/user/recovery.md).
 - As built: [walkthrough](docs/internal/as-built/code-walkthrough.md), [architecture](docs/internal/as-built/architecture.md), [UI provenance](docs/internal/ui-assets.md), [mock provenance](vendor/reference/PROVENANCE.md).
 - Delivery: [credential guard](docs/internal/security.md), [milestones](docs/internal/milestones.md), [independent review](docs/internal/reviews/adversarial-review.md).
 

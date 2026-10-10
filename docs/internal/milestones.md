@@ -1,12 +1,18 @@
 # Milestones and optional UX refinement
 
-Updated: 2026-10-09. These are private checkpoints, not release claims.
+Updated: 2026-10-10. These are source checkpoints, not production release claims.
 
 | Tag | Source commit | Purpose / timing | Relevant docs or demo |
 | --- | --- | --- | --- |
 | `poc/unfinished-baseline` | `a43fb61532a62f83b91dd862099419b385caee98` | Reviewed unfinished design/core baseline; credential guard 196 files, zero findings; remote main and tag verified. Browser, genuine model and completion evidence still pending. | [Native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md) |
 | `poc/integrated-core-01` | `9625185fa799816ee7456275785348cc83567e3b` | 378-test integration with actual booking/shared-core replay and approved read-only pairing. Private main and annotated/peeled tag refs verified. Its later clean export failed on missing Git provenance; not a clean-setup completion tag. | [Retained failure and corrective evidence](../../specs/001-ochsner-scheduling-assistant/tasks.md) |
 | `poc/qualified-01` | `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961` | Annotated code/test milestone: fresh committed export/install, 387 tests, all eight supplied scenarios, demos and six widget checks passed. Not production, browser-wide, remote-clone or finished-video certification. | [Exact source/evidence](../../specs/001-ochsner-scheduling-assistant/tasks.md), [as built](as-built/architecture.md) |
+| `RC-1` | `e2dfa7e9f471513921063d568bb3bc890eff1800` | Replay post-booking lookup and separate Support membership/control repairs. Parent 398 tests/three demos; clean committed export/install 398 tests/three demos. Annotated object `ca101e7ce6bfeb2768d7a78f6327049e850f6e22`; remote object and peeled target verified. | [Follow-on evidence](../../specs/001-ochsner-scheduling-assistant/tasks.md), [current stills](video-notes.md#feature-completion-supplement--2026-10-10) |
+
+RC-1 is immutable and intentionally precedes the documentation/asset checkpoint
+that records it. The earlier private-destination history below remains historical.
+The Operator approved this exact repository becoming public on 2026-10-10;
+internal-use PoC status and no-deployment/no-video-publication limits remain.
 
 Qualified code/test source: `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`.
 Fresh committed export/install, 387 tests, eight supplied scenarios, demos and

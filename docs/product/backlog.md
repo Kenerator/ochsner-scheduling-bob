@@ -10,6 +10,6 @@ Capture unmet needs, useful improvements and debt without silently expanding the
 | BOB-next-02 | Production identity/authentication, distributed idempotency and clinical/contact-center integration | Separate product effort | Operator | Out of this synthetic PoC | [Boundaries](decisions.md) |
 | BOB-next-03 | Linux/mobile/screen-reader qualification and standalone-wheel packaging | After required Mac path | Operator | Deferred; no support claim | [Plan](../../specs/001-ochsner-scheduling-assistant/plan.md) |
 | BOB-next-04 | Optional bounded post-MVP UI/UX refinement | After required slice | Operator | Considered, not a new completion gate | [Milestones](../internal/milestones.md) |
-| BOB-next-05 | Public distribution/brand rights and external delivery | Before any public release | Operator | Deferred; private audience only | [UI assets](../internal/ui-assets.md) |
+| BOB-next-05 | Broader distribution, public app hosting or external media delivery | Separate follow-on | Operator | Exact public source/branding approved 2026-10-10; hosting/media/general relicensing not granted | [UI assets](../internal/ui-assets.md), [decisions](decisions.md) |
 
 Accepted work moves into the relevant Spec-Kit tasks; this is not a second completion ledger. Review during [sprint planning](sprint-planning.md); summarize direction in the [roadmap](roadmap.md).

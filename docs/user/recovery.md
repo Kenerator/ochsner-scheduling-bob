@@ -1,6 +1,6 @@
 # Recovery and limitations
 
-Updated 2026-10-09. All data and appointments are synthetic. Results refer to the
+Updated 2026-10-10. All data and appointments are synthetic. Results refer to the
 supplied local mock, never a real appointment or staff contact.
 
 - **Completed:** a matching validated receipt was returned. History is separate
@@ -17,6 +17,16 @@ supplied local mock, never a real appointment or staff contact.
 - **Support stale:** last acknowledged screen is not necessarily current backend
   context. Keep private information out of public drafts; failed acknowledgements
   are not evidence of freshness. Pair/lease/grants expire.
+
+Support membership and control are distinct: joined/inactive is a valid state
+before takeover and after Return. Do not interpret an inactive lease as failed
+pairing. Current backend context and the last acknowledged patient screen can
+differ; read their separate revision/freshness labels.
+
+A selected recording Purge leaves an expired/tombstoned reference. An external
+export may still exist, but importing the same reference does not restore it.
+Do not rename/bypass tombstones to imply recovery. Recording retention/purge
+does not remove booking uncertainty, effect-journal claims or model reservations.
 
 An intentionally fresh supplied mock run uses a new explicit application namespace
 or CLI journal, retaining prior uncertain claims. Do not delete private state or

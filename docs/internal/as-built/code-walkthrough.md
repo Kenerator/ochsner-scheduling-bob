@@ -1,6 +1,6 @@
 # As-built code walkthrough
 
-Updated/reviewed 2026-10-09: code/test source `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`.
+Updated/reviewed 2026-10-10: current code/test source `e2dfa7e9f471513921063d568bb3bc890eff1800` (RC-1).
 Documentation finalized after that tested source checkpoint. See the
 [architecture snapshot](architecture.md#reviewed-source-and-verification) for
 code digests and verification limits.
@@ -96,6 +96,13 @@ fixture is not supplied-service acceptance evidence.
 
 ## Browser, Interaction and widget
 
+RC-1 repair: [Support status regressions](../../../tests/test_support_status.py)
+pin the paired role independently from takeover. BrowserService resolves joined;
+SchedulingSession reports only control status and unknown membership. The widget
+renders joined/inactive with zero lease both before and after takeover, including
+before a first observation; [renderer tests](../../../tests/test_widget_projection.py)
+exercise the shipped JavaScript. Return does not remove the role binding.
+
 [BrowserService](../../../src/ochsner_bob/browser_service.py) owns role-bound opaque
 capabilities, pairing, exact delivered/acknowledged views and takeover leases.
 Support's `observed_patient` is the last accepted patient renderer receipt, not
@@ -127,6 +134,15 @@ takeover lease. Sidecar URL is fixed at `http://127.0.0.1:28451` (default UI por
 28450); changing launcher ports alone does not reconfigure it.
 
 ## Replay and optional language
+
+RC-1 repair: InteractionService validates post-booking appointment rows against
+the current approved fixture identity and a unique approved public-slot projection.
+It records fixture bindings, not private rows or receipt IDs. The recorded-only
+port reconstructs simulation placeholders; missing/extra/foreign/ambiguous data
+remain gaps. [Post-booking replay regressions](../../../tests/test_post_booking_replay.py)
+cover Confirm → appointments → seal/open/export/import with semantic parity,
+privacy checks and fail-closed invalid bindings. Live booking/effect behavior is
+unchanged. Same-reference re-import cannot revive a purged store tombstone.
 
 [replay.py](../../../src/ochsner_bob/replay.py) drives actual SchedulingSession
 through fixed recorded-only fixtures and private memory claims. Actual capture
@@ -184,6 +200,10 @@ bounded regular archive revision metadata, never an ancestor repository or an
 environment-supplied revision. Archive state stays unknown/conservatively dirty;
 actual source bytes are independently hashed. See
 [8 provenance regressions](../../../tests/test_source_provenance.py).
-The final clean committed export passed 387 combined tests plus supplied-HTTP,
+The earlier qualified clean committed export passed 387 combined tests plus supplied-HTTP,
 demo and shipped-renderer checks; the earlier Git-free startup failure is retained
 in native tasks. A Git-free archive is supported, not a standalone wheel.
+The RC-1 clean export/install subsequently passed 398 tests (19.696 s), pip
+dependency checks and all three demos on Python 3.11.13/macOS ARM. Its capture
+copy later changed only the widget backend port, explicitly disclosed in the
+[current still manifest](../../../assets/ui/stills/feature-completion-20261010/manifest.json).

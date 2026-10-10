@@ -1,5 +1,27 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Approved follow-on repairs and evidence — 2026-10-10
+
+This records bounded implementation within existing stories/FRs, not a Converge
+stage or new product scope. Earlier failures, counts and captures below remain
+historical; no checkpoint/tag was rewritten.
+
+- [x] Post-booking replay gap reproduced and repaired at `3b1c7886ccaec58006077269c1a28999269f0016`: dynamic validated rows bind current approved synthetic identity plus unique public slot; no private rows/receipt IDs persisted. New `test_post_booking_replay.py` covers complete parity/export/import and invalid identity/schema/ambiguous bindings; recorded-only placeholders cannot create live effects. Independent review found no actionable remaining findings.
+- [x] Support membership/control separation repaired at `e2dfa7e9f471513921063d568bb3bc890eff1800`: BrowserService joined status persists before/during/after control, inactive lease zero, session membership unknown. Tests first: new suite initially 5 failing/2 passing, then 7 passing; actual widget null-observation regression reproduced and fixed before review clearance. No private identity or confirmation authority added.
+- [x] Parent integration: 398 tests passed (23.252 s), all three success/conflict/unknown demos passed, diff check passed. Clean committed e2dfa7e export: fresh Python 3.11.13/macOS ARM venv/editable install, pip dependency check passed, 398 tests (19.696 s) and all three demos passed. Benign pip-cache permission warning retained; no global runtime change. No standalone-wheel/remote-clone/production qualification claimed.
+- [x] Whole-index guards before code commits: 275 then 276 files, 29 binary files, five existing exact-blob synthetic exceptions, zero unresolved matches/symlinks/submodules. All eight then-reachable commit trees separately scanned successfully with isolated temporary indexes. Images/archives are not decoded; this is not secret-free/PHI/history certification.
+- [x] Annotated immutable RC-1 created only after green source qualification; object `ca101e7ce6bfeb2768d7a78f6327049e850f6e22`, peeled source `e2dfa7e9f471513921063d568bb3bc890eff1800`; named main/tag push verified. RC-1 is not moved to include this later documentation record.
+- [x] Adopted and handed off [87 actual stills](../../assets/ui/stills/feature-completion-20261010/manifest.json): 64 ordinary c3e6df2, six disclosed receipt-loss fault captures c3e6df2, 17 repaired e2dfa7e. Per-entry hashes/source/dimensions/anchors, rejected-frame list and fault launcher/proof are retained. Actual browser replay has core parity true/render parity false; Support joined/control statuses are separately shown. Purge yields expired and cannot be restored by same-reference import. No full seven-persona/browser/accessibility certification inferred.
+- [x] Updated user guide/recovery, asset provenance, as-built affected boundaries, persona crosswalk and video notes from actual source/tests. Component diagrams retain unchanged topology; current source is explicit while historical digest sections remain historical.
+- [x] Documentation/evidence checkpoint verification: fresh parent suite 398 passed (23.060 s), all three demos passed; read-only independent audit resolved 248 local links and 17 anchors across 16 changed docs, verified all 87 JPEG hashes/dimensions against original capture bytes, three source lineages and fault/port-change hashes, and found no rejected original adopted. Staged whole-index guard: 366 files, 116 binary files, five existing exact-blob synthetic exceptions, zero unresolved findings/symlinks/submodules. Binary images are not decoded by the guard; no secret/PHI-free certification. Only the eight owned tabs/six capture services were closed; exact Operator trial PIDs remained running.
+- [x] New informed Operator audience/public-source decision natively verified: exact `nxus-SYSTEMS/ochsner-scheduling-bob` may become public, including retained logo/colors/branded synthetic stills. Internal-use PoC; no public app deployment, external video publication, sponsor-issued license, root-license choice or endorsement. Required unchanged supplied fabricated runtime subset retained; raw intake stays ignored.
+- [ ] Finish current exact-repository visibility/protection readback and report actual settings; no force/history rewrite, plan upgrade, invented CI or bypass. Independent security settings already read back enabled; external-fork approval returned a private-repository validation error and remains to resolve. Video assembly is not this repository gate.
+
+No model calls in this follow-on. Canonical budget remains 42/200 calls,
+$20 ceiling; known numeric cost $0.027993500 plus retained unknown liability
+$3.023040000 = $3.051033500 total liability; historical actual bill unknown.
+Media owner retains final assembly/QA and Operator intro/wrap; no finished video.
+
 **Input**: Design documents from `specs/001-ochsner-scheduling-assistant/`
 **Prerequisites**: `plan.md`, `spec.md`, `research.md`, `data-model.md`, `contracts/`, `quickstart.md`
 **Tests**: Required by the feature specification; write meaningful red tests before implementation.

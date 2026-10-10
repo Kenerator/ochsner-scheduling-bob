@@ -1,5 +1,27 @@
 # Persona → story → executable acceptance
 
+## Current follow-on evidence — 2026-10-10
+
+Source `e2dfa7e9f471513921063d568bb3bc890eff1800` / immutable RC-1.
+US2/US4 continuity and developer evidence: [post-booking replay regressions](../../tests/test_post_booking_replay.py)
+bind validated dynamic appointments without private row persistence and retain
+fail-closed malformed/foreign/ambiguous evidence. US5 Support/Admin and US4
+Developer: [Support status regressions](../../tests/test_support_status.py),
+[shipped-widget tests](../../tests/test_widget_projection.py) and actual S30–32
+captures distinguish joined membership from the control lease, including before
+first observation. No support identity/select/confirm permission is added.
+US1/US3/US6 uncertainty/safety: actual F08–F10 captures retain blocking through
+Reset/reverification/new selection, with a separately disclosed receipt-loss
+fault. [Feature notes](video-notes.md#feature-completion-supplement--2026-10-10)
+and manifest bind each original to its real source/mode.
+
+Combined 398 tests and all three demos passed in the parent and clean committed
+export/install. These are bounded regressions/actual selected browser journeys,
+not user research or all-persona/assistive-technology acceptance. Pinned persona
+needs and unresolved/deferred channel capabilities below are unchanged.
+Earlier review dates/source/counts remain historical; the native ledger owns
+completion, not this crosswalk.
+
 Reviewed 2026-10-09 against base `a43fb61532a62f83b91dd862099419b385caee98`
 plus dirty integration on that date. This is a constraint/evidence crosswalk,
 not a second task ledger. [Native US1–6 and acceptance criteria](../../specs/001-ochsner-scheduling-assistant/spec.md)

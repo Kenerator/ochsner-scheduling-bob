@@ -1,6 +1,6 @@
 # Key decisions
 
-Reviewed 2026-10-09; implementation progress belongs in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md).
+Reviewed 2026-10-10; implementation progress belongs in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md).
 
 - `SchedulingSession` owns identity, preferences, proposal revisions, policy and effect certainty. CLI/browser use shared `Conversation`; no notebook kernel, model, diagnostic reference or support mirror owns booking authority.
 - Actual supplied HTTP service and synthetic data are vendored unchanged with [hash provenance](../../vendor/reference/PROVENANCE.md). Actual standalone ZEN and RapidFuzz are used; fake adapters/sketch tests are not integration evidence.
@@ -11,5 +11,5 @@ Reviewed 2026-10-09; implementation progress belongs in [native tasks](../../spe
 - Operator authorized up to 200 synthetic OpenAI calls and $20 total, permitting other models as needed. No tools/retries, bounded requests/responses, and runtime-only credentials remain in force. [Qualification](../internal/live-qualification.md) records actual access/results/cost rather than assuming success.
 - Exact synthetic recordings require explicit opt-in and private bounded retention. Sanitized diagnostics are not exact transcripts. Replay/forks are isolated simulations; incomplete capture or provenance drift must remain visible and cannot revive live consent/effects.
 - Seven pinned [personas](personas.md) are adopted design/test hypotheses, not validated research or permissions. No email prerequisite, basic-phone delivery, clinical suitability inference, live representative or admin console is invented.
-- Required observed Ochsner theme/logo is approved only for private/internal review; [asset provenance](../internal/ui-assets.md) retains redistribution limits. Private repository approval is not a public publication grant.
+- Audience decision updated 2026-10-10: Operator explicitly approved the exact `nxus-SYSTEMS/ochsner-scheduling-bob` repository becoming public, including retained Ochsner logo/colors and branded synthetic stills, after the specific public-asset question. BOB remains an internal-use PoC, not a public application deployment. This supersedes the earlier private-only audience restriction for this repository, not historical capture facts. Preserve [asset provenance](../internal/ui-assets.md) and third-party ownership; no Ochsner-issued license, endorsement, general relicensing, media publication or deployment is claimed. No root application license was selected.
 - Direct project-local video exception: no duration limit, short preferred, Operator intro/wrap, minimal effects and screenshots/animated stills. No continuous screen recording or external publication is implied. Shared Template Constitution and original four PoCs remain unchanged.
