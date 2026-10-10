@@ -8,6 +8,12 @@ import tempfile
 
 
 class WidgetProjectionTests(unittest.TestCase):
+    def test_actual_support_renderer_labels_pairing_and_control_separately(self):
+        script=Path(__file__).with_name("widget_harness.mjs")
+        result=subprocess.run([shutil.which("node"),str(script),"--support-status"],
+                              capture_output=True,text=True,timeout=5)
+        self.assertEqual(result.returncode,0,result.stderr)
+
     def test_acknowledged_stale_notice_and_pending_controls_are_mirrored(self):
         from ochsner_bob.browser_service import BrowserService
         from test_session_contract import FixturePort

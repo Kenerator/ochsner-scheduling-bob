@@ -158,6 +158,8 @@ export default {render({model,el}) {
   }
   function render(){if(!state)return;const mirror=role==='support';shown=mirror?state.observed_patient:state;
     connection.textContent=mirror?`Demo support · ${state.fresh?'fresh':'stale / missing'} · observation age ${state.age_seconds??'—'} seconds`:`Patient · ${(state.interpretation?.mode||'offline')} interpretation · revision ${state.revision}`;
+    // Pairing outlives temporary control and does not depend on an acknowledged screen.
+    supportStatus.textContent=mirror?`Local participant: ${state.demo_support} · demo control: ${state.control_status||'not reported'} · lease ${state.lease_seconds||0}s`:'Only explicitly paired local demo support can observe the acknowledged screen.';
     if(!shown){current.textContent='No acknowledged patient screen';updateEnabled();return;}
     if(mirror){const receipt=state.last_observed;for(const input of publicFields){input.value=receipt?.draft?.[input.id]||'';input.classList.toggle('mirror-focus',receipt?.focus===input.id);}identityDetails.open=(receipt?.expanded||[]).includes('local-controls');dev.open=(receipt?.expanded||[]).includes('developer');showNotice(mirroredNotice(receipt,shown),['stale','grant','invalid','unavailable','ack_unavailable'].includes(receipt?.presentation?.notice),receipt?.presentation?.notice||'domain');}
     else if(!dirty&&renderedRevision!==shown.revision){syncFilters(shown.preferences);if(!working&&noticeKind==='domain')showNotice(shown.message);}
@@ -174,7 +176,6 @@ export default {render({model,el}) {
       renderedRevision=shown.revision;
     }
     current.textContent='Current attempt: '+presentation(shown,role).current;
-    supportStatus.textContent=mirror?`Local participant: ${state.demo_support} · lease ${state.lease_seconds||0}s`:'Only explicitly paired local demo support can observe the acknowledged screen.';
     observedMeta.textContent=mirror?JSON.stringify({last_observed:state.last_observed,known:state.known,missing:state.missing,uncertain:state.uncertain},null,2):'';
     context.textContent=mirror?`Current backend context (not necessarily observed): revision ${state.patient.revision}, ${state.patient.state}; last acknowledged: ${shown.revision}. Patient display: ${state.last_observed?.presentation?.pending===true?'working':state.last_observed?.presentation?.pending===false?'not working':'work status not reported'}, ${state.last_observed?.presentation?.dirty===true?'unsent corrections':state.last_observed?.presentation?.dirty===false?'no unsent corrections':'correction status not reported'}, confirmation ${state.last_observed?.presentation?.can_confirm===true?'was enabled':state.last_observed?.presentation?.can_confirm===false?'was disabled':'not reported'}. Mirrored transaction controls are read-only.`:shown.message;
     suggestionText.textContent=shown.support_suggestion?'Review suggestion: '+JSON.stringify(shown.support_suggestion.preferences):'No pending public preference suggestion.';

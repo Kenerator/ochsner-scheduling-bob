@@ -212,10 +212,13 @@ class BrowserService:
             target = view["patient"] if role == "support" else view
             target["support_suggestion"] = deepcopy(self.suggestions.get(session.id))
             if role == "support":
+                # A resolved paired caller remains joined after control returns.
+                view["demo_support"] = "joined"
                 # Never deliver a usable confirmation nonce to a mirror.
                 if target.get("proposal"):
                     target["proposal"].pop("nonce", None)
-                view["lease_seconds"] = max(0, round(self.leases.get(session.id, 0) - self.clock()))
+                view["lease_seconds"] = (max(0, round(self.leases.get(session.id, 0) - self.clock()))
+                                         if session.takeover else 0)
                 view["observed_patient"] = deepcopy(self.observed.get(session.id))
             else:
                 # Receipt snapshots must come from a patient response, never

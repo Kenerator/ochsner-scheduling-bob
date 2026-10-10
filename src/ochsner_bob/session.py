@@ -375,4 +375,6 @@ class SchedulingSession:
                     "known": ["synthetic identity verified"] if self.identity else [],
                     "missing": [] if self.identity else ["private identity"],
                     "uncertain": ["booking"] if self.journal.blocked(self._key("booking")) else [],
-                    "demo_support": "joined" if self.takeover else "not_joined"}
+                    # Membership belongs to the capability-resolving adapter.
+                    "demo_support": "unknown",
+                    "control_status": "active" if self.takeover else "inactive"}

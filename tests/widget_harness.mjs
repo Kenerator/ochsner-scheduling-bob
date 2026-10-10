@@ -27,7 +27,20 @@ globalThis.fetch=async(url,request)=>{
 };
 const named=text=>nodes.find(n=>n.tag==='button'&&n.textContent===text);
 const flush=async()=>{for(let n=0;n<4;n++)await new Promise(setImmediate);};
-if(process.argv.includes('--support-presentation')){
+if(process.argv.includes('--support-status')){
+  for(const [control,lease,observed] of [['inactive',0,null],['inactive',0,view],['active',300,view],['inactive',0,view]]){
+    nodes.length=0;values.clear();values.set('bob-v1-token','local-fixture-support');values.set('bob-v1-role','support');
+    const mirror={patient:view,observed_patient:observed,last_observed:null,fresh:false,
+      demo_support:'joined',control_status:control,lease_seconds:lease,known:[],missing:[],uncertain:[]};
+    const requests=[];
+    globalThis.fetch=async(url,request)=>{requests.push(new URL(url).pathname);return {ok:true,json:async()=>mirror};};
+    const cleanup=widget.render({model:{get:()=>''},el:new Element('root')});await flush();
+    assert.ok(nodes.some(n=>n.tag==='p'&&n.textContent===`Local participant: joined · demo control: ${control} · lease ${lease}s`),
+      'pairing and temporary control must be labeled separately');
+    assert.equal(named('Confirm appointment').disabled,true);
+    assert.deepEqual(requests,['/state']);cleanup();
+  }
+}else if(process.argv.includes('--support-presentation')){
   const cases=[
     {name:'legacy receipt with no optional presentation',presentation:undefined,
       expected:'work status not reported, correction status not reported, confirmation not reported'},
