@@ -9,18 +9,36 @@ standalone ZEN policy, public-only RapidFuzz suggestions, and optional bounded
 OpenAI interpretation. No PHI, clinical advice, production authentication, real
 staff contact, sponsor endorsement or general third-party relicensing is implied.
 
-Historical qualified checkpoint: annotated immutable **RC-1**, source
-`e2dfa7e9f471513921063d568bb3bc890eff1800` (2026-10-10): 398 tests and all three
-booking demos passed both locally and in a fresh committed export/install on
-Python 3.11.13/macOS ARM. See the [evidence ledger](specs/001-ochsner-scheduling-assistant/tasks.md)
-for historical failures and qualification limits. No application license is selected.
-Current reviewed code checkpoint: immutable **RC-2**, source
-`c8463252251dd840ac443641702656fd3134eebc`: 415 tests, three booking demos and
-starter success/failure passed; independent repair-delta review is clear.
-[Protected PR #3](https://github.com/Kenerator/ochsner-scheduling-bob/pull/3)
-contains the original-scope completeness repair tracked as T053–T056. Current replay
-requires observed browser receipts; older no-gap labels do not prove they were
-captured. Recording-OFF diagnostics now have their own bounded, sanitized path.
+## What you can try
+
+- Find providers, refine location/dates/provider filters, look up the current
+  synthetic patient's appointments, and review an exact proposal before a
+  separate confirmation. Correct or decline without canceling prior bookings.
+- Pair a local Support view with the patient's acknowledged public screen;
+  demonstrate takeover/return and explicitly accepted public suggestions.
+- Inspect sanitized state, rule/API/model diagnostics with recording OFF. Open
+  an owned OFF reference for current sanitized inspection, not an exact history.
+  Opt in separately for synthetic recording, recorded-only replay and variants.
+- Use the same guarded behavior through an offline CLI; optional language
+  interpretation proposes public intent/preferences, never identity or consent.
+
+| Repository/runtime boundary | Responsibility |
+| --- | --- |
+| `apps/`, `widget.py`, `widget.js` | Marimo/AnyWidget patient and Support presentation |
+| `conversation.py` → `session.py` | Shared commands, identity, proposal and effect authority |
+| `http_mock.py` → `vendor/reference/` | Validated synthetic reads/writes against the unchanged supplied mock |
+| `policy.py`, `policies/bob.json`, `suggestions.py`, `language.py` | ZEN policy, public suggestions, optional bounded interpretation |
+| `journal.py`, `diagnostics.py`, `interaction_service.py`, `replay.py` | Durable effect protection, sanitized inspection, isolated replay |
+
+See the existing [component/authority diagram](docs/internal/as-built/architecture.md#components-and-authority)
+and [code walkthrough](docs/internal/as-built/code-walkthrough.md).
+
+![Exact proposal before separate confirmation](assets/ui/stills/quickstart-20261009/22-proposal-before-confirm.jpg)
+
+Historical offline Chrome viewport: returned appointment **before** separate
+Confirm, source `4a21cafb803dac5a50c8f03dac83c923698435fa` with a disclosed
+disposable backend-port change. Not current-source browser qualification;
+[original capture details](assets/ui/stills/quickstart-20261009/manifest.json).
 
 ## Start here
 
@@ -28,16 +46,24 @@ Required qualification target: macOS ARM, **Python 3.11+**. Verify your executab
 the host's system `python3` may be 3.9. Do not replace global Python.
 
 ```sh
+git clone https://github.com/Kenerator/ochsner-scheduling-bob.git
+cd ochsner-scheduling-bob
+
 python3.11 --version
 python3.11 -m venv .venv
 .venv/bin/python -m pip install -e .
+.venv/bin/python -m pip check
+node --version
 PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
 .venv/bin/python scripts/demo_booking.py --flow all
 ```
 
 Use any explicitly verified compatible executable instead of `python3.11`.
-JavaScript boundary tests additionally require Node.js; it is not an application
-runtime dependency. Direct dependencies are pinned in [pyproject.toml](pyproject.toml);
+Run subsequent commands from this repository root. JavaScript boundary tests
+require **Node.js 22.14.0** (qualified locally; also selected by offline CI).
+The widget has explicit ESM classification, including when syntax detection is
+disabled. Node is a verification prerequisite, not an application runtime
+dependency; no npm install is needed. Direct dependencies are pinned in [pyproject.toml](pyproject.toml);
 transitive dependencies are not a reproducible lock. No API key is needed offline.
 
 In two terminals from this root:
@@ -45,12 +71,17 @@ In two terminals from this root:
 ```sh
 # Terminal 1: owns and stops its own supplied mock child
 mkdir -p -m 700 .bob-local
-.venv/bin/python scripts/serve_browser.py
+.venv/bin/python scripts/serve_browser.py --port 28451 --ui-port 28450
 # Terminal 2: local presentation only
 .venv/bin/marimo run apps/scheduling_app.py --host 127.0.0.1 --port 28450 --session-ttl 3600 --headless
 ```
 
-Open `http://127.0.0.1:28450/`. Click **Start independent patient**, choose Primary
+Open `http://127.0.0.1:28450/`. The shipped widget expects backend **28451**, and
+the sidecar permits UI origin **28450**. Keep that fixed pair together; launcher
+port flags alone do not reconfigure the widget. Do not stop another process to
+free a port. The sidecar owns a separate mock on an OS-selected loopback port.
+
+Click **Start independent patient**, choose Primary
 care / Downtown and Find providers. Choose provider 1. Enter the supplied synthetic
 fixture in private controls: phone `555-0101`, DOB `1985-04-12`, ZIP `70112`.
 Get availability, select a returned option, review its exact API time/location/provider,
@@ -69,6 +100,10 @@ Ctrl-C each owned terminal to stop it. Workflow Reset never clears uncertain-eff
 protection. A fresh mock run uses a new explicit `--namespace .bob-local/run-N`;
 retain old files for reconciliation. Never delete/reset the shared model budget.
 Restarting Marimo alone does not restart the backend or perform a write.
+The `mkdir` prerequisite above is required before a nested `run-N` namespace;
+the launcher creates its immediate run directory, not missing ancestor directories.
+Continue with the [task-oriented guide](docs/user/getting-started.md) for lookup,
+refinement, correction, decline and recovery.
 
 ## CLI and optional language
 
@@ -86,6 +121,26 @@ One private root ledger limits all qualification/CLI/browser calls to **200 / $2
 uncertain usage retains its reservation. No tools, automatic retries or silent
 model fallback. View/poll/replay never invokes a model. See
 [qualification and actual cost uncertainty](docs/internal/live-qualification.md).
+
+## Verification and historical checkpoints
+
+The [BOB profile](docs/internal/qualification.json) runs dependency checks,
+combined regressions, all eight supplied-HTTP scenarios, success/conflict/unknown
+booking demos and shipped-widget JavaScript boundaries. The
+[offline workflow](.github/workflows/bob-offline.yml) executes that committed
+profile on a standard Ubuntu runner with read-only permissions and SHA-pinned
+official actions. Actual run evidence belongs in the native ledger; CI is not
+Mac ARM, browser, genuine-model or production qualification, and no new required
+branch-protection context is implied.
+
+Immutable **RC-1** (`e2dfa7e9f471513921063d568bb3bc890eff1800`) records the
+historical 398-test source and clean Mac export. **RC-2**
+(`c8463252251dd840ac443641702656fd3134eebc`) records the 415-test completeness
+repair, normally merged through [PR #3](https://github.com/Kenerator/ochsner-scheduling-bob/pull/3)
+at `96b9bb8`. Later [limited IAB evidence](docs/internal/video-notes.md#completeness-iab-supplement--2026-10-10)
+retains acknowledgement/reconnect warnings and renderer parity false. Historical
+captures/counts keep their source bindings; see the [native evidence ledger](specs/001-ochsner-scheduling-assistant/tasks.md)
+and [milestones](docs/internal/milestones.md). No root application license is selected.
 
 ## Document index
 

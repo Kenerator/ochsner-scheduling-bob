@@ -4,27 +4,49 @@ Internal-use synthetic demonstration with public source, not a real healthcare s
 a clinician or live representative. Follow [setup](../../README.md) with an
 explicit Python 3.11+ environment. Offline use needs no model account.
 
-Start a patient session, choose supported specialty/location and Find providers.
-Enter only supplied synthetic identity in the separate private controls. A returned
-numbered option becomes an exact proposal, not a booking. Confirm separately after
-reviewing its time, provider and location. No email is required.
+## Find and confirm an appointment
 
-Correct any private discriminator or public preference to invalidate the old
-proposal. Blank private fields retain prior local entries; verified fields clear
-from the browser. Identity values are never sent to a language model. Do not type
-names, phone, DOB or ZIP into the public-language box.
+Start an independent patient session. Choose specialty/location, select **Find
+providers**, then choose a returned provider. In **Private synthetic identity**,
+enter `555-0101`, `1985-04-12`, `70112` and select **Check or correct identity**.
+Select **Get current availability**, choose a numbered option and review its exact
+time, provider and location. Select **Confirm appointment** separately to attempt
+the mock booking. Selection alone does not book; no email is required.
 
-Help, Medical boundary and Unsupported request remain available. BOB offers no
-clinical advice or triage. A mock handoff receipt is not contact with a person.
-Read [recovery](recovery.md) before restarting an uncertain attempt.
+## Refine or correct the search
 
-Pair only with another local demo tab using the one-use grant. Support sees your
-last acknowledged public screen and freshness, not private fields or authority
-to confirm. Review a public suggestion explicitly after control returns.
+Change specialty, location or dates and select **Apply preferences**. Review
+**Active filters**, then request current availability again. Blank a date control
+to clear it; choose **Any location** to remove that filter. The public request box
+also accepts offline `provider 1`, `clear provider` and `clear dates`. A spelling
+suggestion requires explicit acceptance; it is never silently selected.
 
-The lower Developer Mode is a local demonstration, not an authentication system.
-Recording is opt-in synthetic-only. Replay/forks are typed simulations with no
-live effects and disclosed fidelity limits. See [demo](../internal/demo.md).
+Correct private details with **Check or correct identity**. Blank private fields
+retain prior local entries; verified inputs clear from the browser. Identity
+changes revoke old private results and proposals. **Decline / change my mind**
+clears the pending proposal, not an earlier booking. Request fresh options and
+review a new proposal before confirming after a correction or decline.
+Keep names, phone, DOB and ZIP out of the public request box; use private controls.
+
+## Look up existing appointments
+
+Check the current synthetic identity, then select **Look up my appointments**.
+Returned appointments appear in the options area. They are different from
+**Outcomes**, the history of booking/handoff attempts. Correcting identity clears
+the old private results before another lookup.
+
+## Recover or request assistance
+
+No providers/availability means refine the search or use **Help**. No identity
+match means correct private details; multiple matches require ZIP without exposing
+candidate records. Empty appointment lookup differs from failed lookup. For a
+failed read, follow the message and retry the read when appropriate. For an
+**unknown write outcome**, do not repeat the write: follow [recovery](recovery.md).
+Reset retains unresolved effect protection.
+
+**Help**, **Medical boundary** and **Unsupported request** remain reachable.
+Deliberately select **Submit mock handoff** if wanted. A queued result is a
+validated mock receipt, not contact with a person. See the [demo runbook](../internal/demo.md).
 
 ## Support view
 
@@ -36,6 +58,12 @@ An unaccepted suggestion changes nothing. After Return the patient must choose
 to accept it, then get current options and freshly select/confirm.
 
 ## Developer view and replay
+
+Inspect sanitized diagnostics with recording OFF; an owned OFF reference opens
+bounded **current sanitized diagnostics**, explicitly not a historical state,
+exact recording or full replay. The reference is session-scoped, expires and does
+not grant another patient access. It cannot be stepped, forked or exactly exported.
+The local Developer disclosure is not production authentication.
 
 Record only explicitly approved synthetic sessions. Start capture before the
 journey, then Seal and inspect fidelity/missing evidence. Open the resulting

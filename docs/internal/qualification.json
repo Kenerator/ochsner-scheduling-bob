@@ -4,6 +4,7 @@
   "install": ["{python}", "-m", "pip", "install", "-e", "."],
   "required_kinds": ["product", "service-integration", "ui-static"],
   "checks": [
+    {"name": "installed-dependency-consistency", "kind": "product", "mode": "offline", "required": true, "scenarios": ["declared-runtime-dependencies"], "argv": ["{python}", "-m", "pip", "check"]},
     {"name": "combined-tests", "kind": "product", "mode": "offline", "required": true, "scenarios": ["BOB-combined-regressions", "retained-starter-tests"], "argv": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-v"]},
     {"name": "unchanged-supplied-http", "kind": "service-integration", "mode": "synthetic", "required": true, "scenarios": ["happy_path_booking", "provider_lookup", "no_patient_match", "multiple_patient_matches", "slot_conflict", "no_availability", "api_failure", "unsupported_request"], "argv": ["{python}", "-m", "unittest", "discover", "-s", "tests", "-p", "test_supplied_http.py", "-v"]},
     {"name": "booking-success-conflict-unknown", "kind": "product", "mode": "synthetic", "required": true, "scenarios": ["success", "conflict-recovery", "accepted-receipt-hidden-unknown"], "argv": ["{python}", "scripts/demo_booking.py", "--flow", "all"]},

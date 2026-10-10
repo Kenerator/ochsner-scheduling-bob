@@ -9,7 +9,10 @@ the narrower core projection, not retained browser receipt history. New code
 captures ordered acknowledgements and labels absent required observations
 incomplete; renderer parity remains false. Recording-OFF API/model diagnostics
 are repaired separately. Existing images/scripts are not evidence of these new
-behaviors; no new capture, upload or paid QA is part of this repair. See
+behaviors; no new capture accompanied that repair checkpoint. The later
+[limited IAB supplement](#completeness-iab-supplement--2026-10-10) records three
+stills at merged source without relabeling earlier captures or proving warning-free
+operation. No upload or paid QA was part of this source repair. See
 [native T053–T056](../../specs/001-ochsner-scheduling-assistant/tasks.md).
 Reviewed repair source: `c8463252251dd840ac443641702656fd3134eebc` / RC-2,
 415 tests/all demos passed. This code checkpoint does not relabel existing stills
@@ -109,7 +112,7 @@ Use the [persona/story/test index](persona-story-test-index.md) to distinguish a
 - Architecture: one SchedulingSession authority, shared Conversation, strict supplied HTTP, real ZEN plus structural guards, public RapidFuzz, separate journal/recording/budget paths and thin AnyWidget. [Walkthrough](as-built/code-walkthrough.md) links actual symbols/tests.
 - Methods: cumulative native Spec-Kit through Implement; original sketch written with tests is not retrospective TDD. Corrective red/green regressions, real component tests, disjoint parallel ownership and one independent review with three reproduced fixes. Eight persona journeys are acceptance additions, not historical implementation-red claims.
 - Replay correction actually shown later: explicit capture before preferences/identity/availability/select/confirm, seal five events, open and jump to original completed revision 5 with no missing evidence and `core_semantic_parity=true`; typed unknown-API fork recomputed unknown/blocking in the isolated actual core while the patient retained completed. Reopening the original restored completed simulation, not a live write.
-- Limits: no real PHI/authentication/staff/API/deployment, branding private-only, small model sample, unknown historical cost, transitive dependencies not locked. [Performance](performance-notes.md) measures local HTTP completion, not frame timing or SLA. Version-1 stills do not prove the later same-core correction. Even the corrected replay does not claim full browser draft/focus/acknowledgement or private receipt parity.
+- Limits: no real PHI/authentication/staff/API/deployment; branded synthetic assets are approved in this exact public-source repository, not for general relicensing or external media publication. Small model sample, unknown historical cost and unlocked transitive dependencies remain. [Performance](performance-notes.md) measures local HTTP completion, not frame timing or SLA. Version-1 stills do not prove the later same-core correction. Renderer/private-receipt parity remains outside the qualified core; later ordered browser observations are separately source-bound below.
 - Team change: modify one public label or typo-suggestion cutoff, first add a regression and then rerun affected/full tests; preserve identity/consent/effect boundaries. No automatic generated-test execution from replay import.
 
 Use the [demo runbook](demo.md) for timing and reproducibility, [decisions](../product/decisions.md) for rationale and [next steps](../product/next-steps.md) for unfinished work. Update the date and replace placeholders as work completes; the video Agent should ask about unresolved facts rather than inventing them.
@@ -195,6 +198,10 @@ new support access or takeover. Reuse the earlier approved read-only support
 original with its historical boundary. There is no new takeover-sequence still;
 use an explicitly explanatory control card backed by the runbook/source, not
 an implied live demonstration.
+
+Those IAB failures describe that historical run. The later
+[limited IAB supplement](#completeness-iab-supplement--2026-10-10) records subsequent
+observations with retained warnings, not a warning-free browser qualification.
 
 Launch verification found a fresh export needs its `.bob-local` parent created
 before a nested namespace. The README now makes that preparation explicit;

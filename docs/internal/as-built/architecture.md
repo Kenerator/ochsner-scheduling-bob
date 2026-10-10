@@ -1,5 +1,28 @@
 # As-built architecture
 
+## Stage-one quality delta — 2026-10-10
+
+Updated/reviewed runtime/test source:
+`56fc4e8bc10ec4a15dc2befabb76208f2d64a807` (candidate, not an integrated RC).
+`InteractionService._summary` publishes bounded memory-only OFF inspection grants;
+`_open_off_inspection` checks session ownership and fixed expiry, then exposes
+current sanitized events/API/model metadata with requested/current revisions.
+It is not historical state, RecordingStore, full replay, fork or exact export.
+Opening it clears the caller's previous in-memory replay target. Paired Support
+retains the same session-scoped diagnostic access; foreign patients do not.
+[Six OFF-reference contracts](../../../tests/test_off_reference.py) cover no
+effects/storage, privacy, expiry/no renewal, bounded history and replay switching.
+
+Widget browser ESM bytes are unchanged, now explicitly classified by
+[package.json](../../../src/ochsner_bob/package.json) for Node verification.
+The [offline workflow](../../../.github/workflows/bob-offline.yml) uses the
+[adapted profile](../qualification.json), standard Ubuntu, compatible Python/Node
+and official full-SHA actions with a read-only token; actual run status belongs
+in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md).
+No diagram topology/effect-authority change: sanitized inspection is internal to
+InteractionService and does not follow the recording-store arrow. Existing
+diagrams retain their historical rendered-source qualification below.
+
 ## Completeness delta — 2026-10-10
 
 Updated/reviewed 2026-10-10. Code/test source

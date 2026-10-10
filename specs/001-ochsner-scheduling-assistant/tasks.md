@@ -1,5 +1,91 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Stage-one quality corrections — 2026-10-10
+
+Approved consolidated SM/MLX brief; baseline `517a9b27d9ccc9cd863f3c8e868acd6e8f5b6710`.
+Sole BOB writer, existing checkout/scoped branch; read-only documentation drafting
+may run in parallel. No comparator re-audit, architecture expansion or stage-two
+adversarial review/remediation. Exact candidate must receive independent delta
+review and selection before ordinary protected integration.
+
+- [x] T057 [US4] Reproduce OFF-reference failure; tests first for bounded owned
+  sanitized inspection without recording-store/API/model/state effects. Deny
+  foreign/unknown/invalid references, expire grants, preserve paired-session
+  privacy and exact recording/replay/fork/export guards.
+- [x] T058 [P] [US6] Explicit widget ESM classification; prove seven shipped JS
+  checks with/without Node detection, then combined tests. Document Node as a
+  verification prerequisite, not application runtime.
+- [x] T059 [P] [US6] Improve README/task guide and separate actual BOB operations,
+  UAT and adapted qualification from retained bootstrap maintainer tooling;
+  reconcile current merge/public-source/video evidence wording and policy map.
+- [x] T060 [US6] Add minimal offline CI from adapted profile using official
+  full-SHA actions/read-only token/compatible Python+Node/standard runner; qualify
+  the actual exact job before a green claim. No new required context or secrets.
+- [x] T061 [P] [US6] Set truthful GitHub About description/topics with no invented
+  homepage/license/endorsement; retain settings/security/refs.
+- [x] T062 [US6] Check documented nested namespace in one disposable owned launch;
+  distinguish prerequisite consistency from a reproduced defect.
+- [x] T063 [US6] Integrate and verify focused/full tests, demos, setup/navigation,
+  staged credential guard and concise existing-review summary; send exact PR/head
+  and evidence for independent delta review. Stop at stage-one handoff.
+
+Runtime/test source `56fc4e8bc10ec4a15dc2befabb76208f2d64a807`. Initial OFF
+contracts reproduced five missing-feature errors; the additional truncation
+contract failed before correction. Six OFF contracts now pass. Seven existing JS
+checks failed with detection disabled before explicit ESM classification; all
+eight current checks pass with/without detection under Node 22.14.0. The new
+explicit-import regression was observed red before the fix. One owned nested
+namespace launch passed after the documented private-parent preparation; no
+launcher repair was needed.
+
+Fresh parent combined suite: 422 tests passed (24.018 s); all three supplied-HTTP
+booking demos and retained starter success/failure passed. Clean committed export
+qualification passed seven steps, including fresh venv/editable install, pip
+check, combined tests, eight unchanged supplied-HTTP scenarios, booking demos
+and shipped-widget boundaries. Python 3.11.13/macOS ARM; profile SHA-256
+`697809cdf69ba24119e380c3e78ee7a1e7bb91cfce80c997fc9c19d30d578f39`.
+Browser/live-model/remote-clone not checked. Pre-runtime-commit whole-index guard:
+378 files, 119 binary, six existing exact-blob synthetic exceptions, zero unresolved
+findings/symlinks/submodules. Final documentation guard/navigation and exact-head
+CI/PR handoff evidence follows; integration is not claimed by these task markers.
+
+Two independent domain reviews approved this exact runtime/engineering commit,
+no actionable findings. OFF review: six regressions inspected, nine bounded
+in-memory/socket-denied probes passed, API/model/store/record grants/exact replays
+all zero. Engineering review: ESM, nested launch test, pip-check profile and
+read-only full-SHA workflow approved. Independent exact-object documentation
+review reproduced the navigation result below and found only one P3 wording
+issue: the old RC-2 next-steps checkpoint was labeled current. That label is now
+historical. Reuse approved reviews and review only affected bytes if changed.
+
+Final changed-document navigation check: 17 Markdown files, 316 local targets,
+29 anchors, zero errors; staged diff check passed. Whole-index guard: 378 files,
+119 binary, six existing exact-blob synthetic exceptions, zero unresolved
+findings/symlinks/submodules. This pattern scan does not decode images/archives
+or certify secret-free history/PHI. No new images or diagram topology were added.
+
+[PR #5](https://github.com/Kenerator/ochsner-scheduling-bob/pull/5), initial full
+candidate `654c2f4f3619b00df3dd40f1d2fa900c3962c972`, was handed to MLX/SM for
+independent review while CI ran. Actual
+[run 38070507724](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38070507724)
+/ job `114266762276` succeeded at 2026-10-10 17:09:57 UTC. Its report binds that
+exact committed-export source and the profile hash above: Python 3.11.17,
+Node 22.14.0, standard Ubuntu/Linux x86_64; all seven steps passed, exit zero,
+no timeouts/skips. Combined 422 tests (28.847 s), supplied-HTTP nine tests covering
+eight scenarios, all booking demos, eight widget checks (0.366 s), install and
+pip check passed. Browser/live-model/remote-clone remain not checked.
+This small documentation-only closure needs final delta selection and current-
+head CI before normal protected integration. Merge/main synchronization and
+stage-one freeze remain pending; no new required protection context or RC tag.
+
+About description/topics were updated/read back; homepage remains absent and
+visibility/settings/refs are not changed by that metadata operation. The six
+topics are `decision-engine`, `marimo`, `proof-of-concept`, `python`, `scheduling`,
+`synthetic-data`. See the concise
+[stage-one correction summary](../../docs/internal/reviews/adversarial-review.md#stage-one-correction-summary--2026-10-10).
+No paid/model calls, new capture, Operator trial control, tag movement, deployment
+or media publication. Stage-two review and all its remediation remain held.
+
 ## Original-scope completeness repair — 2026-10-10
 
 Later integration/targeted UI evidence: PR #3 normally merged at

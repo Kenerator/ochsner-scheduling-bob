@@ -1,5 +1,25 @@
 # Persona → story → executable acceptance
 
+## Stage-one quality evidence — 2026-10-10
+
+Runtime/test source `56fc4e8bc10ec4a15dc2befabb76208f2d64a807` (candidate).
+US4 Sam-Rae's inspectability constraint maps to
+[`InteractionService._open_off_inspection`](../../src/ochsner_bob/interaction_service.py)
+and [six OFF-reference contracts](../../tests/test_off_reference.py): owned,
+bounded current sanitized diagnostics, fixed expiry, no historical state or live
+effects, no recording store and no inherited fork/export target. US5 Morgan-Rae's
+paired-session privacy boundary is retained; another patient's reference is denied.
+US6 reviewer/maintainer setup maps to explicit widget ESM classification,
+[Node regressions](../../tests/test_widget_projection.py), the
+[nested namespace launch check](../../tests/test_browser_launch.py) and adapted
+[qualification profile](qualification.json). Fresh combined 422 tests and all
+profile steps passed locally, including a clean committed export/install on
+Python 3.11.13/macOS ARM. Node 22.14.0 checks passed with syntax detection both
+enabled and disabled. This is offline contract/setup evidence, not new browser,
+live-model, accessibility or user-research validation. Actual CI/review status
+belongs only in [native T057–T063](../../specs/001-ochsner-scheduling-assistant/tasks.md).
+The exact persona pins and historical journeys below are unchanged.
+
 ## Completeness repair evidence — 2026-10-10
 
 US4/US6 Sam-Rae and US5 Morgan-Rae: [ordered receipt tests](../../tests/test_view_receipt_capture.py)

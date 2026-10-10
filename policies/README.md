@@ -37,3 +37,24 @@ Invalid facts / unavailable or malformed engine results deny; no raw exception
 or private fact enters the rule explanation. The graph is source-relative and
 qualified for editable/source-export setup, not a standalone-wheel claim.
 Historical scaffold checkpoints are retained in Git, not current guidance.
+
+## Stable rule provenance
+
+These are specified-source mappings into the [native spec](../specs/001-ochsner-scheduling-assistant/spec.md),
+not a second policy implementation or an additional runtime table.
+
+| Rule ID in `bob.json` | Source section / purpose |
+| --- | --- |
+| `invalid_facts` | FR-013: reject unsupported categorical facts |
+| `effect_unknown`, `effect_blocked` | FR-009/010/010a: deny protected writes |
+| `public_discovery` | US1, FR-002: public discovery without identity |
+| `handoff_ready` | US3/US5, FR-012: handoff only with clear effect authority |
+| `identity_required`, `verified_read` | US2, FR-003/004/007: verified identity for private reads/booking |
+| `proposal_required`, `confirmation_required`, `booking_ready` | US1, FR-008/009: exact proposal and separate confirmation |
+| `default_deny` | FR-013: deny when no permission matches |
+
+The top-level [bob.json](bob.json) owns ordered first-match decisions.
+`Policy.evaluate` also produces `engine_error` on engine failure; it is not a
+graph row. `SchedulingSession._guard` independently enforces structural authority.
+The `rules/`, `tables/` and `scenarios/` directories retain extension guidance;
+they are not alternate implementations of BOB's adopted graph.

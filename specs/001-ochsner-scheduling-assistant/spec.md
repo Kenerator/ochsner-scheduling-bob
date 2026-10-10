@@ -129,7 +129,7 @@ As a reviewer or maintainer, I want a clean supported Mac setup, deterministic C
 - **FR-016**: Developer Mode MUST be visible below the patient flow and show sanitized timeline/state/rules/model projection, timing, certainty, replay, and fork controls; its PoC toggle MUST NOT be production authorization.
 - **FR-017**: The system MUST provide paired patient/support views with acknowledged-screen fidelity, freshness, session isolation, known/missing/uncertain context, and explicit simulated takeover/return while preserving guards.
 - **FR-018**: The system MUST adopt all seven pinned persona hypotheses before implementation and map material constraints to stories, design, and tests, including keyboard-first choices, plain labels, recoverable corrections, no email demand, and Morgan-Rae support coverage without inventing a console or delivery permission.
-- **FR-019**: The system MUST preserve supplied mock/API/scenario/data provenance and approved Ochsner branding provenance for private/internal review; it MUST use synthetic data only and make no certification, endorsement, public redistribution, or production-readiness claim.
+- **FR-019**: The system MUST preserve supplied mock/API/scenario/data and approved Ochsner branding provenance, and MUST use synthetic data only. Public source and retained branded synthetic assets are approved for this exact repository; this does not authorize application deployment, external media publication, general third-party relicensing, endorsement or certification, or establish production readiness.
 - **FR-020**: The system MUST provide a clean macOS ARM path with explicit Python 3.11+, pinned disposable dependencies, owned loopback mock lifecycle, reset, CLI/UI parity, demos, source-bound video notes/stills, README index, product planning docs, and as-built walkthrough/architecture from actual code/tests.
 
 ### Key Entities
@@ -158,8 +158,8 @@ As a reviewer or maintainer, I want a clean supported Mac setup, deterministic C
 ## Assumptions
 
 - Supplied HTTP mock, OpenAPI, policies, fixtures, scenarios, and RFP manifest are authoritative and remain unmodified; original PoCs remain unchanged.
-- macOS ARM is the only required qualification target. Linux/Minty, mobile, screen-reader, production authentication, durable distributed idempotency, live model credentials, and public delivery are deferred unless separately authorized.
+- macOS ARM is the only required qualification target. Linux/Minty product qualification, mobile, screen-reader, production authentication, durable distributed idempotency, live model credentials, application deployment and external media publication are deferred unless separately authorized. Offline CI on an additional standard runner is not broader product/platform qualification.
 - Marimo is initial; a dedicated frontend is permitted only after a concrete documented interaction/handoff blocker, without weakening this contract.
 - Synthetic identity matching demonstrates workflow behavior, not authentication or authorization; no real PHI, credentials, live human routing, or clinical decision support is in scope.
-- Approved Ochsner branding is private/internal review only with provenance in the UI asset index; broader rights remain a delivery limitation.
+- This exact BOB repository has approved public source and retained branded synthetic assets, with provenance in the UI asset index. Internal-use PoC scope remains; broader rights, application deployment and external media publication require separate authority.
 - Genuine-model qualification is required for full completion after offline behavior; credentials, spend, and model choice require an applicable grant.
