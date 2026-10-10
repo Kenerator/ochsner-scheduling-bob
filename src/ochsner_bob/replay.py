@@ -796,7 +796,7 @@ class _RecordedPort:
     def arm(self, observation):
         self.observation, self.gap = deepcopy(observation), False
 
-    def _result(self, method, kind=None):
+    def _result(self, method, kind=None, patient=None):
         from .http_mock import ApiError, UnknownOutcome
         api, self.observation = self.observation, None
         if api is None or api["method"] != method:
@@ -819,6 +819,18 @@ class _RecordedPort:
         result = []
         for ref in api["fixture_refs"]:
             item = self.catalog.get(ref)
+            if method == "appointments" and item is not None and item["kind"] == "slot":
+                # A host-approved slot stands for a validated appointment's
+                # public projection. The private receipt never enters replay;
+                # this fixed placeholder is confined to the simulation core.
+                if not any(entry["kind"] == "patient" and entry["value"].get("patientId") == patient
+                           for entry in self.catalog.values()):
+                    self.gap = True
+                    raise RuntimeError("Approved fixture unavailable.")
+                result.append({"appointmentId": "simulation-only", "patientId": patient,
+                               **{key: item["value"][key] for key in ("providerId", "specialty", "location", "startTime")},
+                               "status": "scheduled"})
+                continue
             if item is None or item["kind"] != kind:
                 self.gap = True
                 raise RuntimeError("Approved fixture unavailable.")
@@ -835,7 +847,7 @@ class _RecordedPort:
         return self._result("availability", "slot")
 
     def appointments(self, patient):
-        return self._result("appointments", "appointment")
+        return self._result("appointments", "appointment", patient)
 
     def book(self, patient, slot):
         return self._result("book")

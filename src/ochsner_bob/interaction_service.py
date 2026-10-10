@@ -26,7 +26,7 @@ from time import monotonic, perf_counter, time
 
 from .browser_service import BrowserService
 from .conversation import Conversation
-from .http_mock import ApiError, UnknownOutcome
+from .http_mock import ApiError, UnknownOutcome, _APPOINTMENT, _object
 from .language import LanguageOutcome, _INSTRUCTIONS, _schema
 from .recording_store import RecordingStore, StoreError, StoreFull
 from .replay import Limits, Recording, Replay, import_recording, make_provenance, _core_projection
@@ -348,7 +348,7 @@ class InteractionService(BrowserService):
         context = {"active": None, "last": None, "gaps": [], "dropped": 0, "bytes": 0,
                    "observations": None, "language_pending": None, "model": None}
         self._contexts[session.id] = context
-        session.api = _ObservedAPI(session.api, lambda *args: self._observe(context, self._api_observation, *args))
+        session.api = _ObservedAPI(session.api, lambda *args: self._observe(context, self._api_observation, session, *args))
         language = None if self._language is None else _ObservedLanguage(self._language,
             lambda outcome: self._observe_language(session, context, outcome),
             lambda: self._language_wait(session, context))
@@ -385,7 +385,24 @@ class InteractionService(BrowserService):
             raise ValueError("unbound fixture outcome")
         return matches[0]
 
-    def _api_observation(self, context, method, value, error, delay):
+    def _appointment_binding(self, value, identity):
+        if any(item["kind"] == "appointment" and item["value"] == value for item in self._catalog.values()):
+            # Preserve rejection of ambiguous static bindings; fallback is only
+            # for rows absent from the static appointment catalog.
+            return self._binding("appointment", value)
+        # New supplied-mock bookings have fresh private receipt IDs. Bind
+        # only their validated public slot projection, never the raw row.
+        self._binding("patient", identity)
+        if not _object(value, _APPOINTMENT) or value["patientId"] != identity["patientId"]:
+            raise ValueError("unbound fixture outcome")
+        fields = ("providerId", "specialty", "location", "startTime")
+        matches = [ref for ref, item in self._catalog.items() if item["kind"] == "slot"
+                   and all(item["value"].get(key) == value[key] for key in fields)]
+        if len(matches) != 1:
+            raise ValueError("unbound fixture outcome")
+        return matches[0]
+
+    def _api_observation(self, context, session, method, value, error, delay):
         if context["active"] is None or context["observations"] is None:
             return
         try:
@@ -403,7 +420,8 @@ class InteractionService(BrowserService):
                 if type(value) is not list:
                     raise ValueError("unbound fixture outcome")
                 kind = {"providers": "provider", "availability": "slot", "appointments": "appointment"}[method]
-                refs = [self._binding(kind, item) for item in value]
+                refs = [self._appointment_binding(item, session.identity) if method == "appointments"
+                        else self._binding(kind, item) for item in value]
                 status = "ok" if value else "empty"
             if delay > 60000:
                 raise ValueError("outcome delay exceeds recording bound")
