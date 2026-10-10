@@ -1,5 +1,19 @@
 # Persona → story → executable acceptance
 
+## Completeness repair evidence — 2026-10-10
+
+US4/US6 Sam-Rae and US5 Morgan-Rae: [ordered receipt tests](../../tests/test_view_receipt_capture.py)
+bind actual acknowledgement API observations to delivered revisions, distinguish
+missing/partial evidence from full replay and reject imported authority.
+[Recording-OFF diagnostic tests](../../tests/test_live_diagnostics.py) exercise
+actual browser/CLI constructors, isolated/restored sessions, final API certainty,
+public model context/field categories/timing and nonmutating inspection. These
+are offline service/renderer contracts, not new actual-browser or paid-model
+qualification. Reviewed code/test source `c8463252251dd840ac443641702656fd3134eebc`
+/ RC-2: 415 tests/all demos passed; independent repair-delta review clear.
+Repair base `00ed37d`; native T056 holds the PR/results/limits.
+The exact persona pins and historical source-bound journeys below are unchanged.
+
 ## Current follow-on evidence — 2026-10-10
 
 Source `e2dfa7e9f471513921063d568bb3bc890eff1800` / immutable RC-1.

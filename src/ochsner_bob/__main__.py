@@ -1,14 +1,15 @@
 """Multi-turn CLI; offline by default, bounded language only on explicit opt-in."""
 
 import argparse
-from collections import deque
 from contextlib import ExitStack
 import getpass
+import json
 from pathlib import Path
 import shlex
 import sys
 
 from .conversation import Conversation
+from .diagnostics import Diagnostics, ObservedAPI
 from .cli_namespace import CliNamespace
 from .http_mock import HttpMockAdapter
 from .language import LanguageAdapter
@@ -26,6 +27,7 @@ _COMMANDS = """Offline deterministic commands (synthetic HTTP data; no model cal
   specialty VALUE | location VALUE | dates START END | start DATE | end DATE
   clear provider|location|specialty|dates|start|end
   /confirm  (separate control for the exact summary just displayed)
+  /diagnostics  (sanitized inspection only; no workflow/model/effect command)
   decline | help | medical | unsupported | handoff [REASON] | reset | /quit
 """
 
@@ -73,15 +75,16 @@ def main(argv=None, *, input_stream=None, output_stream=None):
 
 
 def _run(args, source, output, resources):
-    events = deque(maxlen=2000)
+    diagnostics = Diagnostics()
     try:
         namespace = resources.enter_context(CliNamespace(args.journal))
-        api = HttpMockAdapter(args.api_url, scenario=args.scenario, event_sink=events.append)
+        api = ObservedAPI(HttpMockAdapter(args.api_url, scenario=args.scenario), diagnostics.api)
         # One ledger for CLI, browser and qualification. No override/reset flag;
         # construction does not dispatch, reserve a call, or read credentials.
         language = LanguageAdapter(budget=ModelBudget(ROOT / ".bob-local/model-budget.json")) if args.openai else None
         conversation = Conversation(SchedulingSession(api, journal_path=namespace.journal.path,
-                                    session_id=namespace.session_id, event_sink=events.append), language=language)
+                                    session_id=namespace.session_id), language=language,
+                                    diagnostic_sink=diagnostics.language)
     except (ValueError, RuntimeError, OSError):
         print("Cannot initialize the loopback API, private CLI namespace/journal or shared model budget. "
               "Legacy, lost, corrupt or already active namespace is blocked; no silent migration. Check local setup.", file=output)
@@ -112,6 +115,10 @@ def _run(args, source, output, resources):
             # Input may have waited while files were lost/changed. Validate before
             # any local command or optional language dispatch, not only at startup.
             namespace.check()
+            if text == "/diagnostics":
+                print(json.dumps({"events": conversation.session.trace(), **diagnostics.snapshot()}, sort_keys=True), file=output)
+                output.flush()
+                continue
             revision = view["revision"]
             if text == "/confirm":
                 # Bind only the snapshot displayed BEFORE this turn. Never fetch

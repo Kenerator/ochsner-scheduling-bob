@@ -1,5 +1,62 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Original-scope completeness repair — 2026-10-10
+
+Current repair branch starts at `00ed37d`. Historical qualification below is
+retained, not evidence that these newly reproduced gaps were covered.
+
+- [x] T053 [US4] Capture bounded ordered browser acknowledgements separately from
+  recomputed core state; missing required receipts/presentation must report
+  incomplete capture, never fabricated full replay. New receipt regressions on
+  the baseline: 3 failures/2 missing-feature errors; baseline suite 398 passed.
+  Eight new contracts green; actual supplied HTTP plus shipped JS pure receipt
+  boundary completed a booking with five ordered observations, no gaps, core
+  parity true/renderer parity false. This is not actual-browser qualification.
+  Historical no-receipt tests now explicitly require incomplete capture while
+  retaining their original core/certainty/privacy/no-live-effect assertions.
+- [x] T054 [US4] Actual browser/CLI constructors expose bounded sanitized API/model
+  diagnostics with recording OFF, including final outcome/error, public model
+  context, field disposition and timing. Nine diagnostic regressions green after
+  initial 2 failures/2 missing-feature errors and a subsequent rejected-field
+  regression. Final API observation is after adapter validation (malformed 201
+  remains unknown), not a bare transport status. Per-session bounds, restoration,
+  privacy, stale-model status and CLI effect-free inspection are exercised.
+- [x] T055 [P] [US6] Replace stale current policy/table indexes and add brief future
+  production-design notes only (monitoring, rollout/rollback, reschedule/cancel,
+  authenticated support/replay). No production implementation.
+- [x] T056 [US6] Update affected as-built/persona/video/next-step references; one
+  independent whole-diff review, full suite/demos/credential guard and protected
+  PR. Create only the next unused immutable annotated RC after verified flows.
+
+Independent whole-diff review found four Important issues (no Critical): imported
+receipt privacy, forward-clock receipt binding, delayed diagnostic publication,
+and write-404 classification. All reproduced red and minimally repaired with
+regressions; the minor required-marker byte-budget finding was also repaired.
+The two freshness tests separately prove lock ownership and no older-revision
+replacement. The 404 regression was not weakened. Independent delta-only rereview
+found no actionable findings; 16 targeted offline tests passed independently
+(HTTP-service test excluded by that review's no-service scope).
+No authenticity claim is made for re-signed imported history: digests identify
+data, not trust; `full_replay` describes declared internal capture completeness,
+never genuine-browser/renderer proof or live authority.
+
+Working candidate: 415 tests passed (22.447 s), all three supplied-HTTP booking
+demos and starter success/failure passed. The first updated guard correctly
+flagged the new nonworking token-shaped privacy sentinel; an exact path/rule/blob
+exception retains that regression without broad exclusion. Whole-index guard
+fresh readback: 370 files, 116 binary, six exact synthetic allowed findings, zero
+unresolved findings/symlinks/submodules. Changed Markdown navigation:
+ten files/238 targets/20 anchors, zero
+errors. Reviewed code/test source `c8463252251dd840ac443641702656fd3134eebc`;
+immutable annotated RC-2 object `136cb900924f6d496996831bbb63d99b6a80c3d9`.
+Only the repair branch and RC-2 were pushed; normal protected
+[PR #3](https://github.com/Kenerator/ochsner-scheduling-bob/pull/3) is open for
+integration. RC-1 object/source are unchanged. This later documentation binds
+the qualified source without moving any tag. Merge/main synchronization remain
+an integration handoff, not a completed merge claim.
+No paid calls, new actual-browser recording, Operator-trial changes, media upload
+or production deployment in this follow-on.
+
 ## Ownership correction — 2026-10-10
 
 - [x] Transfer the existing public BOB repository from `nxus-SYSTEMS` to the Operator-selected `Kenerator/ochsner-scheduling-bob`, preserving ID `1412468983`/node `R_kgDOVDCQ9w`. The broker PAT's HTTP 403 was reported without a blind alternate-route retry; the explicitly reviewed existing Kenerator CLI login was then verified and its one normal transfer succeeded. All 11 advertised refs matched at transfer, including main `ac78af3`, RC-1/older annotated objects and peeled targets, and PR #1's head. Old web URL redirects HTTP 301. Canonical SSH origin was verified and updated; no copy/recreation/deletion/force or auth configuration changes.

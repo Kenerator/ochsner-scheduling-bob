@@ -46,7 +46,7 @@ class LiveCoreReplayTests(unittest.TestCase):
 
     def opened(self):
         report = self.service.capture(self.token, False)
-        self.assertEqual(report["recording"], "full_replay", report)
+        self.assertEqual(report["recording"], "incomplete_capture", report)
         return self.service.replay(self.token, "open", {"reference": report["reference"]})
 
     def test_success_uses_actual_core_without_disk_journal_or_live_port(self):
@@ -65,7 +65,8 @@ class LiveCoreReplayTests(unittest.TestCase):
             self.assertEqual(replayed["state"]["core"]["certainty"], "completed")
             self.assertTrue(replayed["fidelity"]["core_semantic_parity"])
             self.assertFalse(replayed["fidelity"]["core_renderer_parity"])
-            self.assertEqual(replayed["missing"], [])
+            self.assertTrue(replayed["missing"])
+            self.assertTrue(all("browser acknowledgement" in gap for gap in replayed["missing"]))
             second = self.service.replay(self.token, "open", {"reference": opened["reference"]})
             self.assertNotEqual(second["state"]["namespace"], opened["state"]["namespace"])
         self.assertEqual(self.port.writes, writes)
@@ -236,7 +237,7 @@ class LiveCoreReplayTests(unittest.TestCase):
         actual = service.text(token, "Find primary care providers", 0)
         self.assertEqual(actual["state"], "providers")
         report = service.capture(token, False)
-        self.assertEqual(report["recording"], "full_replay", report)
+        self.assertEqual(report["recording"], "incomplete_capture", report)
         service.replay(token, "open", {"reference": report["reference"]})
         service.replay(token, "fork", {"index": 0, "changes": {"model_category": "invalid"}})
         result = service.replay(token, "jump", {"index": 2})
@@ -258,7 +259,7 @@ class LiveCoreReplayTests(unittest.TestCase):
         second = service.command(token, "identity", {"zip": "70115"}, 1)
         self.assertEqual(second["identity_status"], "verified")
         report = service.capture(token, False)
-        self.assertEqual(report["recording"], "full_replay", report)
+        self.assertEqual(report["recording"], "incomplete_capture", report)
         service.replay(token, "open", {"reference": report["reference"]})
         self.assertEqual(service.replay(token, "jump", {"index": 0})["state"]["core"]["state"], "ambiguous")
         self.assertEqual(service.replay(token, "step", {})["state"]["core"]["state"], "ready")
@@ -292,7 +293,7 @@ class LiveCoreReplayTests(unittest.TestCase):
                 revision = actual["revision"]
             self.assertEqual(actual["current_result"]["status"], "completed")
             report = service.capture(token, False)
-            self.assertEqual(report["recording"], "full_replay", report)
+            self.assertEqual(report["recording"], "incomplete_capture", report)
             audits = server.wait_for_audits(4)
             journal = service.journal_path.read_bytes()
             registry = service.registry.read_bytes()

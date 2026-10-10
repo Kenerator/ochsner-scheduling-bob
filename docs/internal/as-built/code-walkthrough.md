@@ -1,6 +1,32 @@
 # As-built code walkthrough
 
-Updated/reviewed 2026-10-10: current code/test source `e2dfa7e9f471513921063d568bb3bc890eff1800` (RC-1).
+## Completeness delta — 2026-10-10
+
+Updated/reviewed 2026-10-10. Code/test source
+`c8463252251dd840ac443641702656fd3134eebc` / immutable RC-2; repair base `00ed37d`.
+415 tests/all demos passed; independent repair-delta review clear. Native T056
+records the [protected PR](https://github.com/Kenerator/ochsner-scheduling-bob/pull/3)
+handoff and limitations. This later documentation records that source; it does
+not move the tag to include itself.
+[diagnostics.py](../../../src/ochsner_bob/diagnostics.py) owns bounded final
+API/model metadata; [Conversation](../../../src/ochsner_bob/conversation.py)
+publishes public context, accepted/rejected categories, stale/application status
+and model-port latency. [CLI](../../../src/ochsner_bob/__main__.py) exposes
+inspection without interpreting it. [InteractionService](../../../src/ochsner_bob/interaction_service.py)
+keeps this live evidence separate from capture observers and hooks actual
+delivered views/acknowledgements into [Recording](../../../src/ochsner_bob/replay.py).
+Replay exposes ordered original observations separately from recomputed core.
+Imported drafts reuse the live privacy gate. Clock/order variants omit original
+browser observations, and required-receipt markers obey both byte ceilings.
+Model decoration and metadata share the service freshness lock; older diagnostic
+revisions cannot overwrite newer ones. Write diagnostics retain the core's
+400/409 rejection versus 404/503 failure versus uncertain-outcome distinction.
+See [new constructor tests](../../../tests/test_live_diagnostics.py) and
+[receipt tests](../../../tests/test_view_receipt_capture.py). The unchanged
+diagram topology is in [architecture](architecture.md#completeness-delta--2026-10-10).
+Historical RC-1 source/digests/counts below retain their original scope.
+
+Historical checkpoint reviewed 2026-10-10: code/test source `e2dfa7e9f471513921063d568bb3bc890eff1800` (RC-1).
 Documentation finalized after that tested source checkpoint. See the
 [architecture snapshot](architecture.md#reviewed-source-and-verification) for
 code digests and verification limits.

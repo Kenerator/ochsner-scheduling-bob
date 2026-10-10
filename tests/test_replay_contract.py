@@ -98,7 +98,7 @@ class ReplayContractTests(unittest.TestCase):
         imported = replay.import_recording(recording.export_json(reviewed=True),
             fixture_refs=FIXTURES, expected_provenance=self.provenance, now=NOW)
         self.assertEqual(imported.to_dict(), recording.to_dict())
-        self.assertEqual(imported.availability(now=NOW), "full_replay")
+        self.assertEqual(imported.availability(now=NOW), "incomplete_capture")
         self.assertEqual(imported.to_dict()["expires_at"] - NOW, 86400)
         self.assertEqual(self.provenance["policy"], sha256(b"policy").hexdigest())
         self.assertEqual(imported.compatibility["drift"], [])

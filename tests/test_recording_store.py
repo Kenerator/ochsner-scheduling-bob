@@ -81,7 +81,7 @@ class RecordingStoreTests(unittest.TestCase):
         self.assertIsInstance(loaded, replay.Recording)
         self.assertEqual(loaded.to_dict(), original.to_dict())
         self.assertEqual(loaded.compatibility["drift"], [])
-        self.assertEqual(self.store.status(reference, now=NOW), "full_replay")
+        self.assertEqual(self.store.status(reference, now=NOW), "incomplete_capture")
         self.assertEqual(self.store.stats(now=NOW)["bytes"], sum(file.stat().st_size for file in self.root.glob("rec-*.json")))
         self.assertEqual(original.to_dict()["expires_at"] - NOW, 86400)
 
@@ -91,7 +91,8 @@ class RecordingStoreTests(unittest.TestCase):
         recording.seal()
         reference = self.store.save(recording, now=NOW)
         self.assertEqual(self.store.status(reference, now=NOW), "incomplete_capture")
-        self.assertEqual(self.store.load(reference, now=NOW).missing, ["step 1: api"])
+        self.assertEqual(self.store.load(reference, now=NOW).missing,
+                         ["step 1: api", "browser acknowledgement capture unavailable"])
 
     def test_restoration_validates_with_the_explicit_host_retention_clock(self):
         recording = self.recording()
@@ -197,7 +198,7 @@ class RecordingStoreTests(unittest.TestCase):
     def test_ttl_boundary_erases_payload_and_reference_stays_expired_across_reopen(self):
         recording = self.recording(text="approved synthetic payload")
         reference = self.store.save(recording, now=NOW)
-        self.assertEqual(self.store.status(reference, now=NOW + 86399), "full_replay")
+        self.assertEqual(self.store.status(reference, now=NOW + 86399), "incomplete_capture")
         self.assertEqual(self.store.status(reference, now=NOW + 86400), "expired")
         self.assertIsNone(self.store.load(reference, now=NOW + 86400))
         payload = self.saved_path().read_text()
@@ -212,7 +213,7 @@ class RecordingStoreTests(unittest.TestCase):
         bounded = self.open_store(max_total_bytes=2 * size - 1)
         fresh = bounded.save(self.recording(now=NOW + 86400), now=NOW + 86400)
         self.assertEqual(bounded.status(old, now=NOW + 86400), "expired")
-        self.assertEqual(bounded.status(fresh, now=NOW + 86400), "full_replay")
+        self.assertEqual(bounded.status(fresh, now=NOW + 86400), "incomplete_capture")
         self.assertLessEqual(bounded.stats(now=NOW + 86400)["bytes"], bounded.max_total_bytes)
 
     def test_purge_and_expiry_never_touch_effect_journal_capabilities_or_unknown_files(self):
