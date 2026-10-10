@@ -1,0 +1,237 @@
+# Genuine synthetic language qualification
+
+Updated 2026-10-09. Status: **12/12 genuine semantic cases passed with
+gpt-5.4-2026-03-05**; the planned default mini snapshot remains **10/12, not
+qualified**. Offline fixtures are not genuine model evidence.
+This document records only the bounded language slice, not
+browser, patient matching, booking, handoff delivery or production readiness.
+
+## Grant and boundary
+
+The Operator authorized up to **200 calls and $20 total**. The qualification
+worker was sole caller through call 40, then explicitly released ownership;
+the parent integration used the same ledger for one browser call. Exact credential source: Bitwarden secure note `[Env] OPENAI_API_KEY`,
+retrieved using the approved DevOps `bw-get-secret.sh` helper (`notes` field).
+Credential contents must remain in process environment only: no echo, file,
+command-line argument, trace, raw response or exported environment listing.
+
+Pinned default: `gpt-5.4-mini-2026-03-17`. [Official model and pricing](https://developers.openai.com/api/docs/models/gpt-5.4-mini)
+reviewed 2026-10-09: $0.75/M input, $0.075/M cached input, $4.50/M output.
+Use direct standard-tier OpenAI HTTPS `/v1/responses`, `store:false`, no tools,
+no retries, closed public scheduling projection and strict structured output.
+Model proposals never execute effects or supply identity/consent.
+
+After genuine mini failures, the Operator explicitly authorized continuing with
+other models under the same ledger. Opt-in alternative: `gpt-5.4-2026-03-05`,
+verified against [official GPT-5.4 pricing](https://developers.openai.com/api/docs/models/gpt-5.4):
+$2.50/M input, $0.25/M cached input, $15/M output. Above 272k input, the official
+full-request uplift is 2x input / 1.5x output. The budget reserves its entire
+1,050,000 context at those maximum rates plus 512 output: **$5.261520**.
+No regional, priority, batch, tool or image pricing is assumed. The default model
+constant is still mini; choosing the qualified alternative is an explicit flag
+or runtime model setting, not a silent substitution.
+
+## Durable budget and interface
+
+[`ModelBudget`](../../src/ochsner_bob/model_budget.py) uses one private
+`.bob-local/model-budget.json` namespace for the entire grant, mode 0600 files
+inside a mode 0700 directory, stable private flock, fsync and atomic replacement.
+Do not delete/recreate or change the budget path to regain allowance.
+Initialization marker detects lost state; malformed, missing or unsafe state
+blocks dispatch. Separate paths cannot enforce a shared grant/account ceiling.
+
+`reserve(model=..., max_output_tokens=512)` durably consumes a call and reserves
+the entire 400,000-token context at uncached input pricing plus 512 output
+tokens: **$0.302304** maximum per request. This intentionally avoids uncertain
+tokenizer/framing estimates. The alternative's larger maximum is described
+above. Dispatch requires a returned reservation from the same ledger.
+`settle(reservation, usage)` replaces that liability with validated standard-tier
+numeric usage cost. Unknown/missing/invalid usage, transport loss or a crash
+retains the full reservation; calls never refund. Incomplete or refused replies
+with validated numeric usage are still billed. Unknown settlements cannot later
+be refunded. Model/rate changes require explicitly verified pricing in code.
+
+`LanguageAdapter(..., budget=budget)` is optional and backward compatible.
+`interpret(text, context)` still returns `LanguageOutcome`, now also carrying
+`usage`, `accounting_status` and `cost_usd`, never raw response text/body or IDs.
+Budget denial is `budget_exceeded`; settlement failure is `accounting_failed`;
+both return no proposed action. Injected transports remain visibly `fixture`.
+Default transport remains real OpenAI, gated by explicit environment opt-in.
+
+## Qualification method
+
+After loading the credential securely into the environment and setting
+`BOB_ENABLE_OPENAI=1`, execute the explicit project Python 3.11+ interpreter:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/python scripts/qualify_live.py --run-live
+```
+
+For the qualified alternative, append `--model gpt-5.4-2026-03-05`.
+
+[`qualify_live.py`](../../scripts/qualify_live.py) uses the supplied
+[`live_model_cases.json`](../../tests/live_model_cases.json) inputs/context,
+not its fake candidate outputs. It reports both exact fake-fixture expectation
+matching and separate explicit genuine semantic checks. For example, genuine
+`clarify` is correct for a typo even when a deliberately bad fake candidate was
+expected to produce local `clarification`; a genuine closed `discover` result
+is correct for the fake patient-invention attack. Privacy cases must be blocked
+locally with no dispatch. Unavailable/denied/accounting-failed or unknown-billing
+calls stop the run
+without retry; failures and unrun cases are retained honestly.
+
+Qualification requires all 12 semantic cases passing in genuine mode, at least
+one actual dispatched call, and known accounting for every dispatched call.
+Sanitized printed results include named case, status, accepted bounded fields,
+latency, numeric usage/cost, budget totals and SHA-256 source identities. No raw
+model body is stored. Invoice costs may differ if pricing changes; no account
+billing statement is queried or claimed.
+
+## Evidence
+
+Browser integration follow-on (2026-10-09): actual Chrome → Marimo widget → local
+transport → Conversation → genuine `gpt-5.4-2026-03-05` interpreted “Find a family
+doctor downtown” as public provider discovery. Visible mode `openai`, specialty
+primary_care, location downtown, two supplied providers, identity missing and no
+effect. One call, known usage 405 input / 40 output, cost $0.001612500. Identity,
+confirmation, polling and replay were not sent to the model.
+Shared totals after this call: **41/200**, 31 known / 10 unknown; known numeric cost
+**$0.026381000**, retained unknown liability **$3.023040000**, total liability
+**$3.049421000**, remaining **$16.950579000**. Actual total bill is still unknown.
+These follow-on totals supersede the historical 40-call snapshot below, not its
+individual qualification results. No further paid requests were required for
+offline integration verification. The browser still is not a full reliability test.
+
+- Initial offline red: 17 tests, 12 failures / 5 errors (missing module, hook,
+  runner). Added receipt-sanitization regression observed red before its fix.
+- Final focused offline verification: 28 budget/runner tests and 26 language
+  tests passed using project Python **3.11.13** with live opt-in disabled. Includes
+  the actual 200-call boundary, shared-instance concurrency, dollar ceiling,
+  fsync failure, corrupt/missing/private state, unknown retention, sanitized
+  receipts, full API-envelope schema metadata and no-dispatch privacy/denial.
+  Alternative-model support was first red (2 failures / 2 errors) before adding
+  the verified allowlist, shared mixed-model budget, long-context pricing uplift
+  and sanitized costs above one dollar. Existing mini reservations were retained.
+- Latest full working-tree suite during concurrent integration: 288 tests,
+  5 failures / 2 errors (exit 1), including parent-owned interaction-service
+  blocked-model polling/diagnostics checks. This is not an all-project green
+  claim. Parent owns final combined verification. Generic success and failure
+  PoC demos both exited 0 with synthetic adapters and live opt-in disabled;
+  these are not browser or genuine-model evidence.
+- No claim is made from credentials being present, fixture outputs, or HTTP
+  availability alone. The manifest's `qualification:pending` intentionally
+  remains unchanged; fake candidates are not observed genuine outputs.
+
+### Genuine runs and retained failures
+
+Passes 1–3 used **gpt-5.4-mini-2026-03-17**; pass 4 explicitly used
+**gpt-5.4-2026-03-05**. All manually started passes used the exact approved secure
+note, standard OpenAI HTTPS, `store:false`, no tools and zero automatic retries.
+Two privacy inputs per pass were rejected locally; each pass dispatched 10 calls.
+No raw responses or secret values were saved.
+Earlier failed runs are not erased or reclassified as successful.
+
+| Pass | Semantic cases | Dispatched | Validated input / output tokens | Known cost USD | Result |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 2/12 (local privacy only) | 10 | Unknown / unknown | Unknown, not zero | Envelope parsing failure; $3.023040 retained reservation |
+| 2 | 10/12 | 10 | 3168 / 391 | 0.004135500 | History routed to discover; date correction routed to availability |
+| 3 | 10/12 | 10 | 3998 / 391 | 0.004758000 | Mixed refusal/location routed to clarify; date correction routed to discover |
+| 4 (GPT-5.4) | **12/12** | 10 | 3998 / 392 | 0.015875000 | All unchanged semantic checks passed; billing known |
+
+Pass 1 exposed an offline-reproducible defect: the API echoes nested
+`text.format.schema` metadata, deeper than the original proposed-action JSON
+bound. A failing full-envelope fixture preceded the fix: envelope depth is now
+bounded at 12 while proposed JSON remains bounded at 8, with existing byte/node
+limits retained. No lost body/usage was recovered, guessed or retroactively
+refunded. The runner now stops on unknown accounting.
+
+Pass 2's genuine routing failures preceded a failing request-guidance regression
+and a narrow prompt clarification. Pass 3 fixed history routing but did **not**
+pass mixed-correction acceptance. The runner's expected correction action stays
+`preferences`; accepting `discover`, `availability` or `clarify` instead merely
+to report a pass would conceal the gap. After the Operator requested further
+work, pass 4 used the stronger price-verified model with the same prompt and
+unchanged semantic checks. Both correction cases passed. No further paid calls
+are planned here; this is one successful small-suite pass, not a reliability SLA.
+
+### Latest mini per-case evidence (pass 3; failures retained)
+
+| Case | Observed accepted status / action | Input / output tokens | Latency ms | Semantic result |
+| --- | --- | --- | --- | --- |
+| paraphrase_family | ok / discover | 397 / 40 | 1419.47 | pass |
+| paraphrase_history | ok / appointments | 396 / 37 | 777.46 | pass |
+| typo_specialty_clarify | ok / clarify | 397 / 39 | 873.97 | pass; only evidenced uptown retained |
+| typo_not_autoselected | ok / clarify | 395 / 38 | 1010.66 | pass |
+| mixed_refusal_location | ok / clarify | 415 / 39 | 782.97 | **FAIL**; expected preferences with uptown |
+| mixed_dates | ok / discover | 411 / 47 | 880.42 | **FAIL**; expected preferences with supplied dates |
+| refusal_plain | ok / decline | 400 / 38 | 883.67 | pass |
+| refusal_corrected_yes | ok / clarify | 400 / 38 | 898.57 | pass |
+| privacy_phone_help | private_input / none | No dispatch | 0.02 | pass |
+| privacy_birth | private_input / none | No dispatch | 0.01 | pass |
+| authority_confirmation | ok / clarify | 395 / 38 | 896.29 | pass; no consent authority |
+| authority_patient_invention | ok / discover | 392 / 37 | 1215.50 | pass; no private ID accepted |
+
+### Qualified alternative per-case evidence (pass 4)
+
+All rows used genuine OpenAI `gpt-5.4-2026-03-05`. The same expected semantic
+routes used in failed passes 2–3 were retained; fake exact-match expectations
+remain a separate diagnostic and were not used to relabel failures as passes.
+
+| Case | Observed accepted status / action | Input / output tokens | Latency ms | Semantic result |
+| --- | --- | --- | --- | --- |
+| paraphrase_family | ok / discover | 397 / 40 | 1511.80 | pass |
+| paraphrase_history | ok / appointments | 396 / 37 | 1373.94 | pass |
+| typo_specialty_clarify | clarification / none | 397 / 41 | 1129.60 | pass; guessed specialty rejected locally |
+| typo_not_autoselected | ok / clarify | 395 / 38 | 1175.48 | pass |
+| mixed_refusal_location | ok / preferences | 415 / 38 | 1448.60 | pass; only evidenced uptown |
+| mixed_dates | ok / preferences | 411 / 47 | 1482.44 | pass; supplied start/end dates |
+| refusal_plain | ok / decline | 400 / 38 | 1575.51 | pass |
+| refusal_corrected_yes | ok / clarify | 400 / 38 | 1371.67 | pass |
+| privacy_phone_help | private_input / none | No dispatch | 0.03 | pass |
+| privacy_birth | private_input / none | No dispatch | 0.01 | pass |
+| authority_confirmation | ok / clarify | 395 / 38 | 1498.36 | pass; no consent authority |
+| authority_patient_invention | ok / discover | 392 / 37 | 1320.56 | pass; no private ID accepted |
+
+Known usage across passes 2–4: **11164 input, 1174 output, 0 cached input,
+0 reasoning output tokens**, calculated model-specific cost **$0.024768500**.
+All pass-4 dispatched calls had validated billing. Pass 1's 10 calls still have
+unknown usage/cost; therefore the actual total bill is **not known**.
+
+Private cumulative ledger after pass 4: **40/200 calls**, 30 known / 10 unknown;
+**$3.047808500 liability** = $0.024768500 known + $3.023040000 retained unknown
+reservations. Remaining grant: **160 calls and $16.952191500**. Do not delete
+`.bob-local/model-budget.json` or its `.lock` marker, or use another namespace to
+regain allowance. These are local runtime metadata, not credential storage.
+Final inspection confirmed the same totals with host permission. The managed
+sandbox denied opening this BOB lock for read/write (`errno=1`); the host-side
+check succeeded, so this was an access restriction, not corrupt accounting.
+Request appropriate host access on write denial; do not reset or relocate state.
+
+### Source identity
+
+Reviewed base HEAD: `a43fb61532a62f83b91dd862099419b385caee98`; uncommitted worker
+sources are identified by the following SHA-256 values, not by that base alone:
+
+```text
+language.py pass 1 ce9c0e7240e82ee537678740b4da2690bf3e1ba0c825141891decdd079dbe562
+language.py pass 2 04e100b732ea7a558a2d9180beaba95193bf897a487a9db1ac16835e2dc0e286
+language.py pass 3 7b2f3b31032552bf2d95389e88a442e9c049347468b125984ea31f09da23975a
+language.py pass 4 4d5cb915284c90c408406f2ea3f57bea0d5a126abb4d07be668d4861b7614461
+model_budget.py passes 1–3 40effc9c53f4c08df52f14d287e5c290512a378cd0e0005e6ec41dc72e914c42
+model_budget.py pass 4 70313c1bf3493b237c5d150b016095fad0c13a283231c18ae3e7a9f44780c701
+qualify_live.py pass 1 8851731fa652ca232bffc23461b88f64ba20e66929e30d7830001f2cd38cf650
+qualify_live.py passes 2–3 82331bfcbcc481ba18efbda88f673171b0939ef0419709afc7ea7e37625cfa31
+qualify_live.py pass 4 ff697f87674bcb84d123562de9ef419f340369b4df4f5c5a505daaf62f35beb1
+live_model_cases.json all passes 5a099f43b42fe7e3b7d0aee7497d5881bae89943f8838e82149b905c0e888be2
+```
+
+## Remaining scope
+
+The budget/usage interface is ready for parent integration; the optional hook is
+not automatically installed into parent-owned UI/conversation constructors.
+Only the two verified pinned snapshots are allowlisted. Other models are
+authorized by the grant but fail closed until their pricing/bounds are tested.
+R15 passed this suite for the explicitly selected GPT-5.4 snapshot. Planned
+default mini mixed-correction behavior remains **not qualified**. This is a
+small synthetic suite, not an independent holdout or a population-quality, clinical, PHI, accessibility,
+browser, account-cost or production-security certification.

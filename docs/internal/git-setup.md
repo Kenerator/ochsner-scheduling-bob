@@ -4,7 +4,7 @@ Reviewed: 2026-10-07. Local scaffolding and optional remote setup are separate o
 
 ## Local repository and native hooks
 
-Bootstrap initializes local `main` by default, without a commit or remote. `--no-git` opts out. Spec-Kit 1.1.0's bundled Git extension is optional (`--git-extension`) and requires the isolated [tool profile](development.md#spec-kit-tool-profile). Normal feature stages do not install it implicitly.
+Bootstrap initializes local `main` by default, without a commit or remote. `--no-git` opts out. Spec-Kit 1.1.0's bundled Git extension is optional (`--git-extension`) and requires the isolated [tool profile](development.md#inherited-spec-kit-maintainer-tooling-not-bob-runtime-setup). Normal feature stages do not install it implicitly.
 
 The separate [credential guard](security.md) is a local Git pre-commit hook, not a Spec-Kit stage hook. It is installed by Git-enabled bootstrap unless existing hook configuration conflicts; no configuration is overwritten. Clones need explicit local installation. Its manual scan reads the staged index and redacts findings. Resolve actual findings or scan errors before committing; existing-hook conflicts may use a manual scan or deliberate integration, not removal of another safeguard.
 

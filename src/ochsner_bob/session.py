@@ -16,12 +16,25 @@ LOCATIONS = ("downtown", "uptown", "lakeside")
 REASONS = ("user_requested", "identity_unclear", "unsupported_request", "medical_advice", "api_failure", "no_availability", "other")
 
 
+def _calendar(value):
+    # Parser exceptions can contain the submitted birth date. Never surface them.
+    if type(value) is not str or not re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", value):
+        return False
+    try:
+        return date.fromisoformat(value).isoformat() == value
+    except ValueError:
+        return False
+
+
 class SchedulingSession:
     """All commands serialize here. Views and model output never execute effects."""
-    def __init__(self, api, *, journal_path=None, session_id=None, policy=None, event_sink=None):
+    def __init__(self, api, *, journal_path=None, session_id=None, policy=None, event_sink=None, _replay_journal=None):
         self.api = api
         self.id = session_id or uuid4().hex
-        self.journal = EffectJournal(Path(journal_path or ".bob-local/effects.json"))
+        # Private in-process simulation seam; never exposed through a command or
+        # transport. Production construction retains the durable journal default.
+        self.journal = (_replay_journal if _replay_journal is not None else
+                        EffectJournal(Path(journal_path or ".bob-local/effects.json")))
         self.policy = policy or Policy()
         self._lock = RLock()
         self._sink = event_sink
@@ -124,6 +137,7 @@ class SchedulingSession:
             old_proposal = deepcopy(self.proposal)
             self.last_policy = None
             self._invalidate()
+            self.suggestions = []
             self.revision += 1
             try:
                 if not isinstance(data, dict):
@@ -143,6 +157,9 @@ class SchedulingSession:
                         self.state = "providers"
                         self.message = "Choose a provider or refine your search." if self.providers else "No providers matched. Change your search or ask for help."
                 elif action == "availability":
+                    # A failed refresh cannot leave previously returned options
+                    # available for a fresh proposal after an outage/rejection.
+                    self.slots = []
                     self._guard("availability")
                     if not self.preferences.get("specialty"):
                         raise ValueError("Choose Primary care or Dermatology first.")
@@ -173,6 +190,8 @@ class SchedulingSession:
                     self._guard("booking", confirming=True)
                     self._effect("booking", lambda: self.api.book(self.identity["patientId"], old_proposal["slot"]))
                 elif action == "appointments":
+                    # Clear BEFORE policy/I/O, including 404 and transport errors.
+                    self.appointment_results = []
                     self._guard("lookup")
                     self.appointment_results = self.api.appointments(self.identity["patientId"])
                     self.state = "appointments"
@@ -234,6 +253,7 @@ class SchedulingSession:
     def _identity(self, data):
         self.identity = None
         self.identity_status = "missing"
+        self.state = "identity_required"
         self.appointment_results = []
         self.slots = []
         # Corrections revoke authority even when the corrected field is invalid.
@@ -244,9 +264,9 @@ class SchedulingSession:
         phone, dob, zip_code = merged.get("phone", ""), merged.get("dob", ""), merged.get("zip", "")
         if not isinstance(phone, str) or not re.fullmatch(r"[0-9()+ -]{7,20}", phone):
             raise ValueError("Enter the synthetic phone in the private controls.")
-        if not isinstance(dob, str) or date.fromisoformat(dob).isoformat() != dob:
+        if not _calendar(dob):
             raise ValueError("Enter a calendar-valid birth date as YYYY-MM-DD.")
-        if zip_code and (not isinstance(zip_code, str) or not re.fullmatch(r"[0-9]{5}", zip_code)):
+        if type(zip_code) is not str or (zip_code != "" and not re.fullmatch(r"[0-9]{5}", zip_code)):
             raise ValueError("Enter a five-digit ZIP in the private controls.")
         self._identity_input = merged
         matches = self.api.search_patients(phone, dob)
@@ -271,18 +291,26 @@ class SchedulingSession:
         merged = {**self.preferences, **data}
         for key, allowed in (("specialty", SPECIALTIES), ("location", LOCATIONS)):
             value = merged.get(key)
-            if value is not None and value not in allowed:
+            if value is not None and (type(value) is not str or value not in allowed):
                 from .suggestions import suggest
-                self.suggestions = [{"field": key, "value": s} for s in suggest(str(value), allowed)]
+                try:
+                    self.suggestions = suggest(value, key)
+                except ValueError:
+                    self.suggestions = []
                 raise ValueError("That preference is unsupported. Select a suggestion explicitly or ask for help.")
         for key in ("start_date", "end_date"):
             value = merged.get(key)
-            if value is not None and (not isinstance(value, str) or date.fromisoformat(value).isoformat() != value):
+            if value is not None and not _calendar(value):
                 raise ValueError("Use a calendar-valid date as YYYY-MM-DD.")
         if merged.get("start_date") and merged.get("end_date") and merged["start_date"] > merged["end_date"]:
             raise ValueError("The start date must be on or before the end date. The previous valid range is retained.")
         provider = merged.get("provider_id")
-        if provider and provider not in {p["providerId"] for p in self.providers}:
+        if provider is not None and (type(provider) is not str or provider not in {p["providerId"] for p in self.providers}):
+            from .suggestions import suggest
+            try:
+                self.suggestions = suggest(provider, "provider", providers=self.providers)
+            except ValueError:
+                self.suggestions = []
             raise ValueError("Select a provider from the current returned providers, or clear the provider filter.")
         self.preferences = {k: v for k, v in merged.items() if v is not None}
         self.slots = []
@@ -322,8 +350,15 @@ class SchedulingSession:
     def acknowledge(self, view_receipt):
         """Only semantic browser receipts are mirrored; they confer no authority."""
         with self._lock:
-            if not isinstance(view_receipt, dict) or set(view_receipt) - {"revision", "renderer", "visible", "draft", "focus", "scroll", "expanded"}:
+            if not isinstance(view_receipt, dict) or set(view_receipt) - {"revision", "renderer", "visible", "draft", "focus", "scroll", "expanded", "presentation"}:
                 raise ValueError("Invalid view acknowledgement.")
+            if "presentation" in view_receipt:
+                item=view_receipt["presentation"]
+                if (type(item) is not dict or set(item) not in ({"notice","pending","dirty"}, {"notice","pending","dirty","can_confirm"})
+                        or type(item["notice"]) is not str or item["notice"] not in {"none","domain","working","ready","stale","pairing","grant","invalid","unavailable","ack_unavailable"}
+                        or type(item["pending"]) is not bool or type(item["dirty"]) is not bool
+                        or "can_confirm" in item and type(item["can_confirm"]) is not bool):
+                    raise ValueError("Invalid categorical presentation acknowledgement.")
             if view_receipt.get("revision") != self.revision or view_receipt.get("renderer") != "bob-v1":
                 raise ValueError("Outdated renderer acknowledgement.")
             import json

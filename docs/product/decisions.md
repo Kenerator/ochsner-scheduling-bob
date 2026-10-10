@@ -1,9 +1,15 @@
 # Key decisions
 
-- Reusable core with effects at a synthetic adapter; thin CLI for deterministic demonstrations.
-- Confirmation binds an exact instance-scoped proposal. Cached results avoid replay in one sequential in-memory service, not across processes or concurrent distributed callers.
-- Known unavailability hands off without automatic retries; unexpected programming errors remain visible.
-- Personas and research are pinned inputs, not authority or validated facts by default.
-- Optional profiles are disabled; introducing real services/security requires explicit design and qualification.
+Reviewed 2026-10-09; implementation progress belongs in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md).
 
-Record project-specific assumptions and tradeoffs briefly here. Use Spec-Kit feature tasks for implementation progress and next steps for future work—not a second status ledger.
+- `SchedulingSession` owns identity, preferences, proposal revisions, policy and effect certainty. CLI/browser use shared `Conversation`; no notebook kernel, model, diagnostic reference or support mirror owns booking authority.
+- Actual supplied HTTP service and synthetic data are vendored unchanged with [hash provenance](../../vendor/reference/PROVENANCE.md). Actual standalone ZEN and RapidFuzz are used; fake adapters/sketch tests are not integration evidence.
+- Minimal private atomic claims precede booking/handoff I/O. Concurrent claims serialize; unresolved writes survive reset/restart as unknown. A validated definite failure permits a fresh separately confirmed attempt; lost/malformed write receipts do not. This is local crash protection, not distributed idempotency or server reconciliation.
+- Loopback capabilities are opaque, role-bound, time-limited and separate from replay references. Support sees the last acknowledged semantic screen, freshness and separately labeled current context; never a usable confirmation nonce or private identity draft.
+- Marimo/AnyWidget is the first framework. A canonical service outside reactive kernels and stable DOM keep polling effect-free. Public draft/disclosure continuity is tested across refresh. Reconnect warnings and remaining final-UI fidelity checks are recorded in [feasibility](../internal/marimo-feasibility.md); no fallback has been selected.
+- Bounded optional real language proposes only public intent/preferences. Local help/medical boundaries run before model work; private identity and explicit confirmation never come from a model. Fixture, offline and genuine modes stay distinct; conservative privacy heuristics are not general de-identification.
+- Operator authorized up to 200 synthetic OpenAI calls and $20 total, permitting other models as needed. No tools/retries, bounded requests/responses, and runtime-only credentials remain in force. [Qualification](../internal/live-qualification.md) records actual access/results/cost rather than assuming success.
+- Exact synthetic recordings require explicit opt-in and private bounded retention. Sanitized diagnostics are not exact transcripts. Replay/forks are isolated simulations; incomplete capture or provenance drift must remain visible and cannot revive live consent/effects.
+- Seven pinned [personas](personas.md) are adopted design/test hypotheses, not validated research or permissions. No email prerequisite, basic-phone delivery, clinical suitability inference, live representative or admin console is invented.
+- Required observed Ochsner theme/logo is approved only for private/internal review; [asset provenance](../internal/ui-assets.md) retains redistribution limits. Private repository approval is not a public publication grant.
+- Direct project-local video exception: no duration limit, short preferred, Operator intro/wrap, minimal effects and screenshots/animated stills. No continuous screen recording or external publication is implied. Shared Template Constitution and original four PoCs remain unchanged.

@@ -44,7 +44,7 @@ class SuppliedServer(_Lifecycle):
         self._condition = threading.Condition()
 
     def __enter__(self):
-        path = Path(__file__).resolve().parents[1] / "docs/product/RFP/source/mock-api/server.py"
+        path = Path(__file__).resolve().parents[1] / "vendor/reference/mock-api/server.py"
         spec = importlib.util.spec_from_file_location("bob_owned_supplied_http", path)
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)

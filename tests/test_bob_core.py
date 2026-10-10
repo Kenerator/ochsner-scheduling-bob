@@ -1,6 +1,7 @@
 import unittest
 
-from ochsner_bob import BobSession, MockSchedulingApi, UnknownOutcome
+# Historical sketch evidence only, deliberately outside the public product API.
+from ochsner_bob.core import BobSession, MockSchedulingApi, UnknownOutcome
 from ochsner_bob.adapters import parse_language_output, policy_decision
 from ochsner_bob.replay import fork, promote
 

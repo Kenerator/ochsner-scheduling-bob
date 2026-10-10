@@ -1,10 +1,16 @@
 # Milestones and optional UX refinement
 
-Updated: not yet populated. No checkpoint tags created by bootstrap.
+Updated: 2026-10-09. These are private checkpoints, not release claims.
 
 | Tag | Source commit | Purpose / timing | Relevant docs or demo |
 | --- | --- | --- | --- |
-| Pending | Pending | Scaffold only | Pending |
+| `poc/unfinished-baseline` | `a43fb61532a62f83b91dd862099419b385caee98` | Reviewed unfinished design/core baseline; credential guard 196 files, zero findings; remote main and tag verified. Browser, genuine model and completion evidence still pending. | [Native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md) |
+
+Approved private destination: `nxus-SYSTEMS/ochsner-scheduling-bob`. Preferred
+SSH alias could not access that repository; the explicitly approved
+`kenerator-github.com` fallback was verified and used. No force push or public
+publication occurred. Active implementation after the baseline is not implied
+to be included in that checkpoint.
 
 Create **annotated, immutable tags** for useful reviewed milestones—not each tool call. Suggested names: `poc/scaffold`, `poc/planned`, `poc/mvp`, `poc/ux-01-before`, `poc/ux-01-after`, `poc/submitted`. Use `poc/budget-baseline` only when the Operator directs capture of an actual agreed work-window baseline. Names are suggestions, not mandatory gates; tags do not confer release/publication authority.[^tagging]
 

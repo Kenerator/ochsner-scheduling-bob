@@ -13,8 +13,9 @@ Story wording is inferred from explicitly accepted B01–B18 requirements and pi
 persona needs. Origin is distinct from scope acceptance. The exact catalog pins
 and ancestry in [persona cards](../../docs/product/personas.md) bind each named
 persona in these native stories. B01–B18/R01–R16 in
-[intake 002](../../docs/product/intake/002.md) and the effect/replay/support
-contracts in [intake 003](../../docs/product/intake/003.md) refine these stories.
+private local intake `002.md` and the effect/replay/support contracts in `003.md`
+refine these stories. Originals are intentionally excluded from Git/clean exports;
+the reconciled requirements below are the exported execution contract.
 The eight required scenario IDs are `happy_path_booking`, `provider_lookup`,
 `no_patient_match`, `multiple_patient_matches`, `slot_conflict`, `no_availability`,
 `api_failure`, and `unsupported_request` (the supplied medical-advice scenario).
@@ -124,7 +125,7 @@ As a reviewer or maintainer, I want a clean supported Mac setup, deterministic C
 - **FR-012**: The system MUST submit minimized context to the unmodified mock, validate queued handoff receipts, and distinguish API state from local simulated support.
 - **FR-013**: The system MUST use one standalone ZEN policy with closed categorical facts, stable reasons, and provenance; invalid/unknown facts or engine failure MUST fail closed where safety requires, and allow MUST NOT bypass structural guards.
 - **FR-014**: CLI and browser constructors MUST attach a sanitized event sink exposing intent/workflow, rule decisions, API outcome/error, escalation, latency, and certainty without sensitive identity data; inspection/render/export MUST be effect-free.
-- **FR-015**: The system MUST provide references, replay, before/after inspection, comparison, isolated typed variants, provenance/diff, and reviewed fixture promotion without history rewriting or live effect replay.
+- **FR-015**: The system MUST provide references, replay, before/after inspection, comparison, isolated typed variants, provenance/diff, and reviewed fixture promotion without history rewriting or live effect replay. As required by the accepted architecture intake, same-version recorded replay MUST use the shared domain core to reproduce deterministic outcomes and semantic view projections through recorded-only simulation adapters. Missing inputs/outcomes/clock/acknowledgements MUST be disclosed as capture gaps, not silently replaced with invented history or a full-replay claim. Historical credentials, identity and consent confer no live authority.
 - **FR-016**: Developer Mode MUST be visible below the patient flow and show sanitized timeline/state/rules/model projection, timing, certainty, replay, and fork controls; its PoC toggle MUST NOT be production authorization.
 - **FR-017**: The system MUST provide paired patient/support views with acknowledged-screen fidelity, freshness, session isolation, known/missing/uncertain context, and explicit simulated takeover/return while preserving guards.
 - **FR-018**: The system MUST adopt all seven pinned persona hypotheses before implementation and map material constraints to stories, design, and tests, including keyboard-first choices, plain labels, recoverable corrections, no email demand, and Morgan-Rae support coverage without inventing a console or delivery permission.

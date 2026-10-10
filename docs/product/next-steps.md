@@ -1,37 +1,36 @@
-# Next steps
+# BOB handoff and next steps
 
-- Validate selected persona needs with intended users/support staff.
-- Add real application authorization, handoff and side-effect tests where relevant.
-- Run bootstrap UAT with a real small concept; record useful friction. Later automatic Spec-Kit stages and optional executable profiles remain separate follow-ons.
-- Choose licensing and review sharing scope before publication.
+Updated 2026-10-09. Detailed completion/open work belongs in the
+[native ledger](../../specs/001-ochsner-scheduling-assistant/tasks.md), not this memo.
 
-## Real-use prerequisites
+Use [README](../../README.md), [demo](../internal/demo.md),
+[as-built boundaries](../internal/as-built/architecture.md) and
+[persona evidence](../internal/persona-story-test-index.md) for review. Validate
+the seven hypotheses with intended users/support staff; synthetic personas are
+not user research. The Operator supplies video intro/wrap and final assembly
+from [source-bound stills/notes](../internal/video-notes.md); no finished video
+or external publication is claimed.
 
-- Replace synthetic fixtures with real APIs only after reviewing contracts, failure handling and durable duplicate protection.
-- Add actual user/admin authentication, action authorization, credential handling and data/privacy controls as appropriate.
-- Define a real support/handoff path and test interrupted/ambiguous effects and recovery.
-- Record required deployment/security/compliance decisions; synthetic tests are not production readiness.
+Explicitly deferred: production authentication/authorization, real PHI/APIs,
+distributed idempotency and reconciliation, live support routing, deployment,
+Linux/mobile/assistive-technology qualification, locked transitive dependencies,
+load/capacity qualification, broader branding rights and public redistribution.
+Each needs its own design, evidence and authority before adoption.
 
-## Roadmap questions
+Replay version 1 remains historical typed-interpreter evidence. The corrected
+recorded-only shared-core path passed regression and actual-UI booking capture,
+replay and unknown-fork checks. Semantic core parity is conditional on complete
+matching evidence; browser draft/focus/acknowledgement and private receipt parity
+are not claimed. Variants are counterfactual simulations, not historical parity.
+Reference grants are process-memory-only; restart does not restore recording
+access from a reference alone. Retention does not remove effect protection.
 
-- Validate pain/personas and UAT with intended users, support and administrators.
-- Select a thin UI, documentation site, Marimo or optional reasoning adapter only when useful.
-- Measure interactive performance if needed; distinguish useful feedback from completion.
-- Record a project-specific video up to five minutes and try the team modification exercise.
+Model follow-on: small-sample GPT-5.4 qualification passed; mini remained 10/12.
+Expand reviewed holdout tests before claiming reliability. Preserve the shared
+ledger and all unknown reservations; actual historical cost remains uncertain.
+No additional calls are scheduled by this handoff.
 
-## Scale and rollout questions
-
-These are follow-on planning prompts, not new PoC implementation gates. Mark irrelevant items explicitly; replace unknowns with agreed project targets when practical.
-
-- **Will it scale?** Define dataset/workload sizes, concurrent users, peak requests/effects per second or minute, growth and upstream rate limits. Set latency/error/resource targets; measure representative peak load and failure/recovery behavior before claiming capacity.
-- **Deployment:** choose environments, safe setup, credentials, observability and rollback. If operating alongside an existing system, name the system of record and single effect owner; plan synchronization/reconciliation and prevent duplicated writes or actions.
-- **UAT:** identify user, support and admin participants, representative scenarios, permitted data and acceptance criteria. Decide whether parallel comparison is read-only/shadow or explicitly routed to one write owner; prevent test traffic from affecting real users and reconcile differences.
-- **GA rollout:** choose pilot/cohorts, cutover/rollback triggers, monitoring, support and migration. Define coexistence with the old system, duplicate-effect protection, reconciliation and eventual retirement; deployment or UAT success alone does not establish GA readiness.
-
-## Deferred-selection example
-
-# Selected personas
-
-## Persona selection deferred
-
-Select and validate a constraint-rich persona as soon as practical.
+Optional post-MVP UX refinement was considered and deferred; baseline fixes here
+address required behavior. Future refinement can use immutable before/after
+checkpoints and affected-behavior tests. Sponsor/platform conventions and public
+delivery rights remain questions for a separately authorized phase, not new MVP gates.

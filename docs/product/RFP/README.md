@@ -3,7 +3,7 @@
 Supplied through Bootstrapper `--rfp DIRECTORY`. If no local manifest exists,
 no RFP has been supplied yet.
 
-When supplied, the local [manifest](manifest.json) indexes every file under
+When supplied, the private local `manifest.json` indexes every file under
 `source/`, with preserved relative paths, byte counts, SHA-256 and text/attachment
 classification. Read **all text entries**, including requirements, policies,
 scenarios and reference code, as input to native Spec-Kit Specify. Read
@@ -23,3 +23,9 @@ before sharing. Git ignore is not access control, a secret scan or permission to
 publish client material. If sharing originals is explicitly permitted, choose a
 reviewed tracked location and update references deliberately; do not force-add
 the ignored tree by default.
+
+For this BOB, the accepted derived requirements live in the
+[native specification](../../../specs/001-ochsner-scheduling-assistant/spec.md).
+The approved byte-identical synthetic runtime subset has
+[tracked provenance](../../../vendor/reference/PROVENANCE.md). A clean clone
+does not contain the original manifest/source; that is expected, not missing setup.

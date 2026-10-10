@@ -2,6 +2,12 @@
 
 Reviewed: **2026-10-07**. No added dependency, global Git setting or online scan.
 
+BOB project override reviewed 2026-10-09: `.gitignore` excludes the entire
+`docs/product/intake/` tree plus the RFP source/manifest and `.bob-local/`.
+The generic template paragraph below describes tracked-capable intake defaults,
+not this BOB's stricter rule. Derived native specs/docs and approved synthetic
+vendor assets still require review and whole-index scanning before commit.
+
 Fresh Git-enabled scaffolds install a local pre-commit guard. It checks the **whole staged index**, including intake/docs and existing tracked files—not just changed lines or the working copy. Partial staging and Git's temporary commit index are respected. Recognizable tokens, private-key headers, likely literal credential assignments and force-added credential files block the commit. Findings report **path, line and rule only**, never suspected values.
 
 ```sh

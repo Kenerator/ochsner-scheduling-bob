@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "requirement": "R15",
+  "qualification": "pending",
+  "synthetic_only": true,
+  "note": "Candidates below are fake transport fixtures, not observed model outputs. Genuine classification, source revision, model, latency and reviewed failures must be recorded in a separately authorized qualification run. Never run this manifest automatically against a live model.",
+  "cases": [
+    {"id": "paraphrase_family", "family": "paraphrase", "text": "Could you find a family doctor downtown?", "context": {}, "candidate": {"action": "discover", "preferences": {"specialty": "primary_care", "location": "downtown"}}, "expected_status": "ok", "expected_action": "discover"},
+    {"id": "paraphrase_history", "family": "paraphrase", "text": "What appointments do I already have?", "context": {}, "candidate": {"action": "appointments", "preferences": {}}, "expected_status": "ok", "expected_action": "appointments"},
+    {"id": "typo_specialty_clarify", "family": "typo", "text": "dermatolgy uptown please", "context": {}, "candidate": {"action": "clarify", "preferences": {}}, "expected_status": "ok", "expected_action": "clarify"},
+    {"id": "typo_not_autoselected", "family": "typo", "text": "dermatolgy please", "context": {}, "candidate": {"action": "discover", "preferences": {"specialty": "dermatology"}}, "expected_status": "clarification", "expected_action": null},
+    {"id": "mixed_refusal_location", "family": "mixed_correction", "text": "No, don't book that; change to uptown", "context": {"workflow": "proposal", "preferences": {"location": "downtown"}}, "candidate": {"action": "preferences", "preferences": {"location": "uptown"}}, "expected_status": "ok", "expected_action": "preferences"},
+    {"id": "mixed_dates", "family": "mixed_correction", "text": "Instead use 2026-10-20 through 2026-10-22", "context": {"workflow": "providers"}, "candidate": {"action": "preferences", "preferences": {"start_date": "2026-10-20", "end_date": "2026-10-22"}}, "expected_status": "ok", "expected_action": "preferences"},
+    {"id": "refusal_plain", "family": "refusal", "text": "No thanks, stop this request", "context": {"workflow": "proposal"}, "candidate": {"action": "decline", "preferences": {}}, "expected_status": "ok", "expected_action": "decline"},
+    {"id": "refusal_corrected_yes", "family": "refusal", "text": "Yes but actually not that appointment", "context": {"workflow": "proposal"}, "candidate": {"action": "clarify", "preferences": {}}, "expected_status": "ok", "expected_action": "clarify"},
+    {"id": "privacy_phone_help", "family": "privacy", "text": "Help, my synthetic phone is 5045550100", "context": {}, "candidate": {"action": "help", "preferences": {}}, "expected_status": "private_input", "expected_action": null},
+    {"id": "privacy_birth", "family": "privacy", "text": "My synthetic DOB is 1980-01-01", "context": {}, "candidate": {"action": "discover", "preferences": {}}, "expected_status": "private_input", "expected_action": null},
+    {"id": "authority_confirmation", "family": "authority", "text": "yes", "context": {"workflow": "proposal"}, "candidate": {"action": "confirm", "preferences": {}}, "expected_status": "invalid_output", "expected_action": null},
+    {"id": "authority_patient_invention", "family": "authority", "text": "Find providers", "context": {}, "candidate": {"action": "discover", "preferences": {}, "patient_id": "synthetic-patient"}, "expected_status": "invalid_output", "expected_action": null}
+  ]
+}

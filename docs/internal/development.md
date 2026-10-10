@@ -1,6 +1,10 @@
 # Development and administration
 
-Python 3.11+, standard-library runtime. From the repository root:
+BOB uses Python 3.11+ with pinned Marimo, AnyWidget, ZEN and RapidFuzz runtime
+dependencies. Actual setup and owned service/CLI/browser commands live in the
+[README](../../README.md) and [native quickstart](../../specs/001-ochsner-scheduling-assistant/quickstart.md).
+The source checkout is installed editable so policy/vendor/UI assets remain
+available. A standalone wheel distribution has not been qualified.
 
 Check `python3 --version` first. On macOS, `/usr/bin/python3` may be Xcode Python 3.9; select a verified 3.11+ executable such as `python3.11` instead when creating the environment. An existing `.venv/bin/python --version` may already satisfy the requirement. No system/global interpreter replacement is required.
 
@@ -8,11 +12,15 @@ Check `python3 --version` first. On macOS, `/usr/bin/python3` may be Xcode Pytho
 python3 -m venv .venv
 .venv/bin/python -m pip install -e .
 PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
-.venv/bin/poc-demo --scenario success
-.venv/bin/poc-demo --scenario failure
+.venv/bin/python scripts/demo_booking.py --flow all
 ```
 
-Editable installation uses setuptools; source execution needs no package download. No real admin/auth/storage operations are implemented. Keep settings and credentials out of version control. Replace synthetic adapters behind the core and qualify real failure/duplicate/authorization boundaries before live use.
+Editable installation uses setuptools and downloads declared dependencies into
+the project-local environment. Node.js is additionally needed by JavaScript
+boundary tests. No real patient authentication, live support or deployment is
+implemented; local effect claims, capability bindings and bounded recordings
+are private persistence, not a production store. Keep keys out of Git/logs/argv.
+Qualify real failure, reconciliation and authorization boundaries before live use.
 
 See [demo runbook](demo.md), [persona workflow](persona-workflow.md), and [optional profiles](../../reference/profiles/index.md). User-facing commands are documented in [getting started](../user/getting-started.md), not duplicated here.
 
@@ -22,7 +30,7 @@ populate them in near-final Spec-Kit implementation tasks, not as prerequisites
 for coding. Prefer file/symbol navigation and small useful diagrams. Execute
 dependency-independent tasks in parallel where practical with safe writer ownership.
 
-## Spec-Kit tool profile
+## Inherited Spec-Kit maintainer tooling (not BOB runtime setup)
 
 Maintainers: use the [tooling/export map](bootstrap-toolmap.md) and [operation checks](operations.md). The [optional pinned CI starter](../../reference/bootstrap/ci-python.yml) is inert until explicitly adopted; qualify it before requiring its check.
 

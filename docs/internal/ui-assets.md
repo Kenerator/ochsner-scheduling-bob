@@ -1,17 +1,19 @@
-# UI assets and familiar interaction
+# UI assets and audience
 
-Updated: not yet populated. No sponsor kit or reuse permission is assumed.
+Updated 2026-10-09. Direct Operator approval requires the observed Ochsner color
+theme and permits this logo for Ochsner-internal/private review only. This is not
+a certified brand kit, endorsement, or general redistribution grant. No contrary
+supplied package branding instruction was found in the reviewed assignment.
 
-| Asset / local path | Source and date | Intended use / alt text | License or approved audience | Status |
-| --- | --- | --- | --- | --- |
-| Pending selection | Pending | Pending | Pending | Scaffold only |
+| Asset | Provenance / intended use | Audience |
+| --- | --- | --- |
+| [Observed logo](../../assets/ui/branding/ochsner-health-observed.svg) | Embedded public homepage logo, staged 2026-10-07; SHA-256 `a10693d454c93b7d036d2e03bc7ce75ab55eb7bc53dc6386190da20d1e421050`; image alt “Ochsner Health”. Reviewed static paths/fills, no scripts, links or tracking. | Approved private/internal review only |
+| Blue `#13477D`, gold `#E0A42E` | Observed logo colors; project-owned CSS, system fonts. Gold is an accent with dark text, not white small text. | Same private product presentation |
+| [Synthetic UI still originals](../../assets/ui/stills/) | Actual Chrome/Marimo captures; source/mode/hash boundaries in [video manifest](video-notes.md#adopted-original-still-manifest). Version-1 replay still is historical, not full replay qualification. No animation derivatives yet. | Same private/internal audience; no public redistribution grant |
 
-Use `assets/ui/branding/`, `images/`, `icons/` and `themes/` for small runtime assets. Keep video recordings elsewhere. Intake may describe assets or reference their paths/URLs; `--input` accepts intake documents, **not binary asset uploads**. Bootstrap exports the Template's existing `assets/ui/` files; it does not automatically download references or copy files mentioned in intake. The project owner adopts permitted assets during normal Plan/Tasks/Implement work.
-
-Supplied assignment guidance takes precedence. If missing, research the sponsor's public colors, logos and interaction conventions only as useful; record observations as observations, not an approved brand kit. Ask whether sponsor, platform or incumbent-product UI conventions should guide the design. A coherent familiar workflow is more valuable than copying a screen. Missing branding normally uses a neutral fallback rather than blocking the MVP; an explicitly required branding conflict must be surfaced, not silently waived.
-
-Use local, reviewed assets rather than tracking scripts or hotlinks. Check image/SVG content before adoption; preserve third-party attribution and authorized scope. Prefer system fonts unless a permitted font package is needed. Test keyboard/focus, contrast, readable labels and meaningful status/error feedback in the actual UI.[^accessibility]
-
-Research, asset selection and documentation may overlap implementation; this index is not a new review gate. Link the actual theme/UI files from the [walkthrough](as-built/code-walkthrough.md), [architecture](as-built/architecture.md) and [video notes](video-notes.md).
-
-[^accessibility]: [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/). Reviewed 2026-10-07. Check keyboard/focus, contrast, readable labels and meaningful error/status feedback. Limit: Targeted PoC checks do not establish full conformance.
+Source: [Ochsner homepage](https://www.ochsner.org/); retained local preparation
+manifest supplied the bytes/hash. Cached website CSS/HTML, tracking, Epic imagery,
+prior Oscar video assets and proprietary UI kits are not adopted. The patient
+renderer uses readable labels, visible focus, numbered choices and status
+messages; actual keyboard/browser qualification remains in the native tasks.
+No full WCAG, mobile or screen-reader conformance is claimed.

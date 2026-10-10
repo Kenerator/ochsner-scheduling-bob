@@ -20,7 +20,7 @@ Personas composed in a task-owned external catalog can be selected with `--perso
 
 ## 2. Optional automatic Specify
 
-Install the [isolated tool profile](development.md#spec-kit-tool-profile) and authenticate your selected native CLI normally. No permission bypass is required.
+Install the [isolated tool profile](development.md#inherited-spec-kit-maintainer-tooling-not-bob-runtime-setup) and authenticate your selected native CLI normally. No permission bypass is required.
 
 ```sh
 PYTHONPATH=src .venv-speckit/bin/python -m poc_template bootstrap \

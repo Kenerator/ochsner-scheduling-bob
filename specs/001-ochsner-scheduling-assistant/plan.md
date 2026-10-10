@@ -65,7 +65,7 @@ src/ochsner_bob/
 ├── browser_service.py  # capability pairing, leases and projections
 ├── local_transport.py  # exact-origin loopback JSON transport
 ├── widget.py           # thin Marimo custom-widget wrapper
-└── replay.py           # strict recordings and pure simulation
+└── replay.py           # strict recordings and recorded-only shared-core simulation
 apps/scheduling_app.py
 tests/test_*.py
 scripts/demo_*.py

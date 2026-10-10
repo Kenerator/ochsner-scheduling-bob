@@ -2,7 +2,7 @@
 import json
 import unittest
 
-from ochsner_bob import BobSession, MockSchedulingApi
+from ochsner_bob.core import BobSession, MockSchedulingApi
 
 
 class InitialAuthorityRegressions(unittest.TestCase):

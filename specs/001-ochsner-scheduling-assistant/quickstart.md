@@ -1,13 +1,52 @@
-# Quickstart Validation Guide
+# Quickstart and qualification
 
-Required target: macOS ARM with an explicit Python 3.11+ executable and disposable project environment. Use only synthetic fixtures.
+Updated 2026-10-09. macOS ARM with explicit Python 3.11+ is the required target.
+The qualified working environment used Python 3.11.13. System Python 3.9 is not
+supported. Follow the exact setup and terminal commands in [README](../../README.md).
 
-1. Create/activate the project-local environment and install pinned application/UI dependencies; do not modify global Python.
-2. Start the supplied mock API on the documented loopback port and verify the owned process; keep API and UI ports distinct.
-3. Run `PYTHONPATH=src python3 -m unittest discover -s tests -v` with the explicit compatible interpreter.
-4. Run the success demo: public discovery → local identity → returned slot → immutable proposal → separate confirmation → validated receipt.
-5. Run failure demos for identity correction, invalid date, no match, 409, outage, unknown booking, unknown handoff, help/medical boundary, replay, and support takeover/return.
-6. Launch the Marimo patient/support views, exercise two isolated synthetic sessions, and inspect the lower Developer Mode panel.
-7. Reset only BOB-owned mock/application processes and confirm no stale receipt or proposal survives outside the documented boundary.
+```sh
+python3.11 --version
+python3.11 -m venv .venv
+.venv/bin/python -m pip install -e .
+.venv/bin/python -m pip check
+PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python scripts/demo_booking.py --flow all
+.venv/bin/python scripts/measure_local.py --samples 30
+```
 
-Expected evidence and state definitions are in [data-model.md](data-model.md) and [interaction-contract.md](contracts/interaction-contract.md). Full completion also requires source-bound `docs/internal/video-notes.md`, UI asset provenance, persona/story/test crosswalk, and as-built docs updated from actual code/tests.
+Node.js is needed for shipped-JavaScript boundary tests. No model account is
+needed for this sequence. The fixture service and policy are local vendored
+files with [hash provenance](../../vendor/reference/PROVENANCE.md), not a remote
+real healthcare API. Direct dependencies are pinned; transitive resolution is
+not locked. Do not install the optional bootstrap profile for normal BOB use.
+
+Browser terminals: `scripts/serve_browser.py` owns the mock and backend at
+127.0.0.1:28451; Marimo serves `apps/scheduling_app.py` at 127.0.0.1:28450.
+Use the numeric URL, not an alternate hostname: backend Host/Origin checks are
+intentional. The JavaScript widget currently requires those default ports;
+launcher port options are for transport checks, not automatic widget configuration.
+The CLI's separately owned mock uses 4010. Never stop another project's listener
+to acquire a port. Ctrl-C stops only each owned process.
+
+Manual acceptance: follow [demo runbook](../../docs/internal/demo.md) for returned
+options, separate confirmation, correction, safety/help, paired support and pure
+replay. Do not substitute starter `poc-demo` output as BOB evidence. Scripted
+unknown deliberately hides an accepted booking's receipt at the adapter boundary;
+it is not a supplied server scenario or proof of a real network failure.
+
+Reset clears local workflow, not uncertain effects. Restart/reconnect cannot
+restore identity/consent; the same private journal/namespace retains protection.
+When deliberately starting a fresh supplied mock, use an explicitly new backend
+`--namespace .bob-local/run-N` or CLI `--journal .bob-local/run-N/effects.json`.
+Retain prior namespaces; do not reinterpret prior unknowns. Model allowance always
+uses the same root ledger, regardless of mock namespace.
+
+Optional genuine language requires `--openai`, the three explicit environment
+settings in README and the existing Operator budget. Never paste keys into
+commands/logs/browser. No model calls on construction, view, poll, support or
+replay. See [genuine qualification](../../docs/internal/live-qualification.md)
+for the qualified alternative, mini failures, unknown cost and exact grant.
+
+Source-bound clean-copy verification and final outcomes are recorded in the
+[native task ledger](tasks.md), not assumed from this procedure. See
+[data model](data-model.md) and [contract](contracts/interaction-contract.md).

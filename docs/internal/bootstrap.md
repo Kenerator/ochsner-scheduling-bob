@@ -2,7 +2,7 @@
 
 Current UAT focus is targets **0 and 1**. Target 4 retains the cumulative runner; targets 5–6 remain experimental. Manual native stage prompts are available for all remaining stages. See [UAT quick start](uat.md).
 
-Run from the template checkout with Python 3.11+. The baseline and target 0 need no model, SDK or Spec-Kit runtime. Targets 1–6 require the [isolated pinned tool profile](development.md#spec-kit-tool-profile), an installed Codex or Claude CLI, and its normal authentication/permissions.
+Run from the template checkout with Python 3.11+. The baseline and target 0 need no model, SDK or Spec-Kit runtime. Targets 1–6 require the [isolated pinned tool profile](development.md#inherited-spec-kit-maintainer-tooling-not-bob-runtime-setup), an installed Codex or Claude CLI, and its normal authentication/permissions.
 
 ```sh
 PYTHONPATH=src .venv-speckit/bin/python -m poc_template bootstrap \
@@ -18,7 +18,7 @@ and engine-neutral: scaffolding neither installs nor enables ZEN/CLIPSpy. Adopt
 an engine in native Plan only when useful, with its pinned reviewer setup and
 behavior tests; original client policies remain in the ignored RFP source tree.
 
-`--input -` reads stdin once through EOF as UTF-8 Markdown, preserving its bytes and position among repeated file inputs. It works with interactive typing/pasting, quoted heredocs and pipes; see the [README examples](../../README.md#type-paste-or-pipe-intake). On macOS/Linux, finish interactive input with Ctrl-D on an empty line. At most one `-` is allowed. Empty/whitespace-only or invalid UTF-8 stdin and content over 1 MiB fail before destination creation; combined intakes retain the 16 MiB limit. Preview consumes stdin without saving a project, so supply it again on execution. The generated intake file, not stdin, supplies any subsequent native stage/resume.
+`--input -` reads stdin once through EOF as UTF-8 Markdown, preserving its bytes and position among repeated file inputs. It works with interactive typing/pasting, quoted heredocs and pipes; see the [README examples](../../reference/bootstrap/launch-example.json). On macOS/Linux, finish interactive input with Ctrl-D on an empty line. At most one `-` is allowed. Empty/whitespace-only or invalid UTF-8 stdin and content over 1 MiB fail before destination creation; combined intakes retain the 16 MiB limit. Preview consumes stdin without saving a project, so supply it again on execution. The generated intake file, not stdin, supplies any subsequent native stage/resume.
 
 ## Portable launch manifest
 

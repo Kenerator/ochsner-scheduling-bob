@@ -10,11 +10,11 @@ from test_session_contract import FixturePort
 
 class LocalTransportTests(unittest.TestCase):
     def setUp(self):
-        from ochsner_bob.browser_service import BrowserService
+        from ochsner_bob.interaction_service import InteractionService
         from ochsner_bob.local_transport import make_server
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.service = BrowserService(FixturePort, Path(self.temp.name) / "effects.json")
+        self.service = InteractionService(FixturePort, Path(self.temp.name) / "effects.json")
         self.server = make_server(self.service, port=0, allowed_origin="http://127.0.0.1:28450")
         self.thread = Thread(target=self.server.serve_forever, daemon=True)
         self.thread.start()
@@ -55,3 +55,46 @@ class LocalTransportTests(unittest.TestCase):
         status, view = self.call("POST", "/command", {"action":"help","data":{},"revision":0}, token)
         self.assertEqual(status, 200)
         self.assertEqual(view["state"], "help")
+
+    def test_text_diagnostics_and_replay_routes_are_closed_and_effect_free(self):
+        # Real service methods are tested separately. This boundary catches a
+        # missing/wrong route or accidental command dispatch during inspection.
+        self.service.text = lambda token,text,revision: {"message":text,"revision":revision}
+        self.service.diagnostics = lambda token: {"recording":"off"}
+        self.service.capture = lambda token,enabled,synthetic: {"recording":"off"}
+        self.service.replay = lambda token,operation,data: {"simulation_only":True}
+        token = self.call("POST", "/create", {})[1]["token"]
+        self.assertEqual(self.call("POST","/text",{"text":"help","revision":0},token)[0],200)
+        self.assertEqual(self.call("GET","/diagnostics",token=token)[1],{"recording":"off"})
+        self.assertEqual(self.call("POST","/capture",{"enabled":True,"synthetic":True},token)[0],200)
+        self.assertEqual(self.call("POST","/replay",{"operation":"step","data":{}},token)[1],{"simulation_only":True})
+        self.assertEqual(self.call("POST","/replay",{"operation":"step","data":{},"nonce":"forged"},token)[0],400)
+        self.assertEqual(self.service.read(token)["revision"],0)
+
+    def test_real_capture_open_step_roundtrip_through_json_boundary(self):
+        token=self.call("POST","/create",{})[1]["token"]
+        self.assertEqual(self.call("POST","/capture",{"enabled":True,"synthetic":True},token)[0],200)
+        self.assertEqual(self.call("POST","/command",{"action":"help","data":{},"revision":0},token)[0],200)
+        status,report=self.call("POST","/capture",{"enabled":False,"synthetic":True},token)
+        self.assertEqual(status,200)
+        status,opened=self.call("POST","/replay",{"operation":"open","data":{"reference":report["reference"]}},token)
+        self.assertEqual(status,200,opened)
+        status,stepped=self.call("POST","/replay",{"operation":"step","data":{}},token)
+        self.assertEqual(status,200,stepped)
+        self.assertEqual(stepped["index"],0)
+        self.assertTrue(stepped["simulation_only"])
+        self.assertEqual(self.service.read(token)["revision"],1)
+
+    def test_bounded_recording_import_above_normal_command_size(self):
+        from ochsner_bob.replay import Recording
+        token=self.call("POST","/create",{})[1]["token"]
+        record=Recording(self.service.provenance,fixture_refs=self.service._catalog,synthetic=True)
+        for _ in range(200):
+            record.append({"action":"help","data":{}})
+        record.seal()
+        payload=record.export_json(reviewed=True)
+        self.assertGreater(len(payload),16384)
+        status,imported=self.call("POST","/replay",{"operation":"import","data":{"payload":payload}},token)
+        self.assertEqual(status,200,imported)
+        self.assertTrue(imported["simulation_only"])
+        self.assertEqual(self.service.read(token)["revision"],0)

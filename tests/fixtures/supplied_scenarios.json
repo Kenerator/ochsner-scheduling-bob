@@ -1,0 +1,14 @@
+{
+  "source_binding": "Approved ID-only projection of supplied synthetic scheduling scenarios.yaml, adopted 2026-10-09. Runtime source and fixture hashes remain in vendor/reference/PROVENANCE.md. No raw source text or execution authority is included.",
+  "source_sha256": "45ba748144ad8115e4ddea84a50e5cb0c22f4e8dc6006bc11c54b62fcf9ec318",
+  "scenario_ids": [
+    "happy_path_booking",
+    "provider_lookup",
+    "no_patient_match",
+    "multiple_patient_matches",
+    "slot_conflict",
+    "no_availability",
+    "api_failure",
+    "unsupported_request"
+  ]
+}
