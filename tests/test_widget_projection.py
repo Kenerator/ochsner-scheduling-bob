@@ -50,6 +50,12 @@ class WidgetProjectionTests(unittest.TestCase):
         result=subprocess.run([shutil.which("node"),str(script)],capture_output=True,text=True,timeout=5)
         self.assertEqual(result.returncode,0,result.stderr)
 
+    def test_actual_support_renderer_does_not_invent_legacy_presentation_observations(self):
+        script=Path(__file__).with_name("widget_harness.mjs")
+        result=subprocess.run([shutil.which("node"),str(script),"--support-presentation"],
+                              capture_output=True,text=True,timeout=5)
+        self.assertEqual(result.returncode,0,result.stderr)
+
     def project(self,view,role="patient"):
         path=Path(__file__).resolve().parents[1]/"src/ochsner_bob/widget.js"
         self.assertTrue(path.is_file(),"shared patient/support renderer missing")

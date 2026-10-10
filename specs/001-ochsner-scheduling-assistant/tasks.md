@@ -23,7 +23,7 @@ and applied 2026-10-09 after the earlier automatic-review rejections.
 
 ## Phase 2: Foundational
 
-- [x] T005 Write failing domain invariant tests for identity provenance, proposal generations, confirmation consumption, unknown latches, and session isolation in `tests/test_session_contract.py and tests/test_transition_acceptance.py`.
+- [x] T005 Write failing domain invariant tests for identity provenance, proposal generations, confirmation consumption, unknown latches, and session isolation in `tests/test_session_contract.py` and `tests/test_transition_acceptance.py`.
 - [x] T006 [P] Implement immutable domain records and session state in `src/ochsner_bob/session.py` using constraints from `data-model.md`.
 - [x] T007 [P] Implement deterministic state transitions and safe reset/reconnect behavior in `src/ochsner_bob/session.py`.
 - [x] T008 [P] Implement sanitized allowlisted diagnostic events and effect-free projections in `src/ochsner_bob/session.py`.
@@ -37,7 +37,7 @@ and applied 2026-10-09 after the earlier automatic-review rejections.
 
 **Independent test**: Public discovery → local identity → returned slot → immutable proposal → current confirmation → one validated receipt; correction, decline, invalid input, conflict, concurrency, and unknown paths stay safe.
 
-- [x] T014 [P] [US1] Add failing journey tests for B01/B02/B04/B07/B08 and R03/R05/R07/R09 in `tests/test_session_contract.py and tests/test_transition_acceptance.py`.
+- [x] T014 [P] [US1] Add failing journey tests for B01/B02/B04/B07/B08 and R03/R05/R07/R09 in `tests/test_session_contract.py` and `tests/test_transition_acceptance.py`.
 - [x] T015 [P] [US1] Implement public discovery, date/provider filters, and returned-slot selection in `src/ochsner_bob/session.py`.
 - [x] T016 [US1] Implement proposal creation, immutable summaries, explicit confirmation consumption, and booking effect certainty in `src/ochsner_bob/session.py`.
 - [x] T017 [US1] Implement shared multi-turn CLI with local identity controls and current confirmation in `src/ochsner_bob/__main__.py` and `src/ochsner_bob/conversation.py`.
@@ -48,7 +48,7 @@ and applied 2026-10-09 after the earlier automatic-review rejections.
 
 **Independent test**: Zero/multiple/unique identity, ZIP correction, invalid ZIP, appointment empty/404/outage; no candidate disclosure and no stale private authority.
 
-- [x] T020 [P] [US2] Add failing identity regression tests for B03 and R01/R02 in `tests/test_session_contract.py and tests/test_transition_acceptance.py`.
+- [x] T020 [P] [US2] Add failing identity regression tests for B03 and R01/R02 in `tests/test_session_contract.py` and `tests/test_transition_acceptance.py`.
 - [x] T021 [US2] Implement local identity entry, ZIP resolution, and generation revocation in `src/ochsner_bob/session.py`.
 - [x] T022 [US2] Implement current-identity appointment lookup and stale-result clearing in `src/ochsner_bob/session.py`.
 - [x] T023 [US2] Add identity correction and appointment lookup controls to `apps/scheduling_app.py` and `src/ochsner_bob/conversation.py`.
@@ -66,8 +66,8 @@ and applied 2026-10-09 after the earlier automatic-review rejections.
 
 **Independent test**: Reference/open/step/compare/fork/promote never performs a booking or handoff and preserves provenance.
 
-- [ ] T028 [P] [US4] Add failing replay/privacy/variant tests for B12-B15 and R14-R16 in `tests/test_replay_contract.py and tests/test_interaction_service.py`.
-- [ ] T029 [US4] Implement sanitized trace references, replay controls, isolated forks, typed fault/time/order changes, and diffs in `src/ochsner_bob/replay.py`.
+- [x] T028 [P] [US4] Add failing replay/privacy/variant tests for B12-B15 and R14-R16 in `tests/test_replay_contract.py` and `tests/test_interaction_service.py`.
+- [x] T029 [US4] Implement sanitized trace references, replay controls, isolated forks, typed fault/time/order changes, and diffs in `src/ochsner_bob/replay.py`.
 - [x] T030 [US4] Implement reviewed minimal regression fixture promotion in `src/ochsner_bob/replay.py`.
 - [x] T031 [US4] Add the lower Developer Mode panel and effect-free inspect/replay controls in `apps/scheduling_app.py`.
 
@@ -75,7 +75,7 @@ and applied 2026-10-09 after the earlier automatic-review rejections.
 
 **Independent test**: Two isolated sessions, freshness, acknowledged screen, known/missing/uncertain context, takeover/return, and queued/rejected/unknown handoff are truthful.
 
-- [x] T032 [P] [US5] Add failing paired-view and handoff tests for B10/B16 and R08/R10 in `tests/test_browser_service.py and tests/test_supplied_http.py`.
+- [x] T032 [P] [US5] Add failing paired-view and handoff tests for B10/B16 and R08/R10 in `tests/test_browser_service.py` and `tests/test_supplied_http.py`.
 - [x] T033 [US5] Implement support mirror, freshness, isolation, and explicit takeover/return in `src/ochsner_bob/browser_service.py`.
 - [x] T034 [US5] Implement mock handoff receipt validation and separate local demo-support state in `src/ochsner_bob/session.py`.
 - [x] T035 [US5] Add paired support view, outcome history, and support controls in `apps/scheduling_app.py`.
@@ -85,10 +85,10 @@ and applied 2026-10-09 after the earlier automatic-review rejections.
 **Independent test**: Clean Mac setup, owned mock/reset, tests, success/failure demos, UI/CLI parity, and source-bound docs work without source edits.
 
 - [x] T036 [P] [US6] Add persona-linked acceptance tests for Jules, Billy-June, Amy-Lou, Ellie-Rae, Nina-Jean, Morgan-Rae, and Sam-Rae in `tests/test_persona_acceptance.py`.
-- [ ] T037 [P] [US6] Add clean setup, CLI, reset, and demo smoke tests in `tests/test_browser_launch.py and tests/test_cli_restart.py`.
+- [ ] T037 [P] [US6] Add clean setup, CLI, reset, and demo smoke tests in `tests/test_browser_launch.py` and `tests/test_cli_restart.py`.
 - [x] T038 [US6] Populate `docs/internal/persona-story-test-index.md` with pinned constraints, native stories, code paths, and test evidence.
 - [x] T039 [US6] Adopt approved Ochsner assets into `assets/ui/` and update `docs/internal/ui-assets.md` with provenance/private audience limits.
-- [ ] T040 [US6] Update `docs/internal/video-notes.md` with source-bound narrative/still manifest, tested states, modes, and limitations.
+- [x] T040 [US6] Update `docs/internal/video-notes.md` with source-bound narrative/still manifest, tested states, modes, and limitations.
 
 ## Phase 9: Polish and completion evidence
 
@@ -99,10 +99,10 @@ and applied 2026-10-09 after the earlier automatic-review rejections.
 - [ ] T045 Run `quickstart.md`, success/failure demos, explicit Mac interpreter check, mock cleanup, and final delta review; record any incomplete genuine-model qualification honestly in `tasks.md`.
 - [x] T046 [P] Add all eight exact scenario IDs from `docs/product/RFP/source/scenarios.yaml` to `tests/test_supplied_http.py`; select additional transitions from `reference/testing/transition-scenarios.md`.
 - [x] T047 [P] Add measured local feedback/latency evidence for SC-007 and the 400 ms target in `tests/test_latency_evidence.py` and `docs/internal/performance-notes.md`.
-- [ ] T048 Run the staged credential guard with the explicit compatible interpreter and inspect `docs/internal/security.md` before any commit; record incomplete scans without excluding tests/docs.
+- [x] T048 Run the staged credential guard with the explicit compatible interpreter and inspect `docs/internal/security.md` before any commit; record incomplete scans without excluding tests/docs.
 - [x] T049 Persist minimal atomic write-ahead effect claims before I/O in `src/ochsner_bob/journal.py`; restored in-flight claims become unknown and corrupt restoration fails closed. Test restart/reset/trace-expiry in `tests/test_effect_journal.py`.
 - [x] T050 Prove early Marimo two-view isolation, acknowledgements/freshness, drafts/focus/disclosures, zero-effect reconnect/replay and safe stale submissions in `docs/internal/marimo-feasibility.md` before substantial UI work; use authorized fallback only on a concrete recorded blocker.
-- [x] T051 Qualify genuine bounded synthetic language for R15 using `tests/live_model_cases.json` and `docs/internal/live-qualification.md`; surface exact credential/model/cost decision if no applicable grant. Required for full completion; pending while unrun.
+- [x] T051 Qualify genuine bounded synthetic language for R15 using `tests/live_model_cases.json` and `docs/internal/live-qualification.md`; surface exact credential/model/cost decision if no applicable grant. Required for full completion; genuine alternative qualification is recorded below.
 - [x] T052 Review baseline staged content, commit with credential guard, verify/create approved private destination, configure approved SSH origin, and non-force push meaningful annotated milestones per `docs/internal/git-setup.md` and `docs/internal/milestones.md`.
 
 ## Dependencies & Execution Order
@@ -168,17 +168,25 @@ returned option, exact summary, separate confirmation, one completed outcome,
 disabled confirmation and read-only reload passed. Final offline keyboard `1` +
 Enter selection passed. Earlier paired actual tabs passed last acknowledged
 screen/private-field exclusion, takeover/suggestion/return and patient acceptance.
-A final new-recipient pairing retest was tool-blocked pending specific human
-approval; it is not claimed as run. Current warning/pending/enabled-state receipt
-extensions have separate strict service/shipped-renderer tests.
+A final new-recipient read-only pairing retest subsequently received specific
+human approval and passed: fresh observed revision 5/completed, confirmation
+observed disabled, all private identity inputs empty/disabled. The separate
+final takeover attempt was outside that narrow approval, rejected and not
+bypassed; earlier actual takeover evidence is not relabeled as a final rerun.
+The second test tab was closed. Strict service/shipped-renderer tests remain separate.
 
 Actual version-1 Developer Mode passed capture/help/discover/seal/open/step,
 play/pause/bookmark/jump/before-after/fork/compare/reviewed proposal and 2,024-byte
 export/reimport. Live state stayed unchanged/no effect. This is explicitly typed
-semantic simulation, NOT faithful live-core replay. **T028/T029 remain open**:
-final reconciliation of the accepted architecture contract requires same-version
-core outcomes/semantic projections, and a same-core recorded-only adapter is in
-progress. No scope downgrade or full-completion claim is made.
+semantic simulation, NOT faithful live-core replay. The subsequent T028/T029
+correction now drives actual SchedulingSession through fixed recorded-only
+fixtures and memory claims. Seventeen same-core regressions and an actual UI
+five-event booking capture/open/jump/unknown-fork check passed. Original complete
+matching capture reported core_semantic_parity=true/no gaps; the variant reported
+false historical parity and recomputed unknown/blocking. Network, disk journal
+and legacy interpreter are prohibited in the supplied-HTTP replay regression.
+Browser-renderer/private-record/draft/focus/acknowledgement parity remains outside
+that qualified semantic core projection.
 
 Genuine qualification T051: GPT-5.4 alternative 12/12 semantic checks, mini 10/12
 not qualified; one actual browser public-language request also passed. Shared
@@ -197,3 +205,26 @@ idle retention, missing acknowledged stale warning); all three original diagnost
 were rechecked after fixes, 28 focused tests passed. New faithful-core replay is
 outside that bounded review. Final setup/source-bound docs, credential guard,
 fresh combined verification and integration checkpoint remain open below.
+
+## Private integration checkpoint and clean-export correction — 2026-10-09
+
+Commit `9625185fa799816ee7456275785348cc83567e3b`, annotated immutable
+`poc/integrated-core-01`, was non-force pushed to the approved private destination;
+main and annotated/peeled tag refs were verified. Parent stable combined run:
+378 tests passed, 19.094 s; actual booking/conflict/unknown demos passed. Both
+actual as-built Mermaid diagrams rendered in local Marimo/Chrome, including the
+isolated recorded-only branch. Navigation audit: 36 docs/290 local targets/21
+anchors, zero broken or ignored-only targets; remaining labels were corrected.
+
+Whole-index precommit and hook scans: 245 files, five binary images, zero unresolved
+findings, zero symlinks/submodules. Five reviewed short nonworking test placeholders
+use three exact path/rule/staged-blob exceptions, not a directory exclusion.
+No raw intake, runtime state, environment or credential was staged.
+
+Clean committed export of that checkpoint installed successfully in a fresh
+Python 3.11.13 arm64 environment but failed the combined suite (1 failure/41 errors):
+provenance startup required a Git checkout. This is retained failure evidence,
+not a clean-setup pass. T037/T045 remain open while a tests-first bounded archive
+revision-metadata correction is integrated. No extra paid call occurred. A small
+independent renderer correction also preserves 'not reported' for absent legacy
+pending/dirty observations rather than inventing a disabled/clean patient state.

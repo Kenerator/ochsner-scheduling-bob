@@ -1,7 +1,8 @@
 # Client requirements / RFP
 
-Supplied through Bootstrapper `--rfp DIRECTORY`. If no local manifest exists,
-no RFP has been supplied yet.
+Initial-bootstrap guidance: supplied through `--rfp DIRECTORY`; before intake,
+no manifest means none has been supplied. In an exported BOB the intentionally
+excluded manifest does not mean requirements were absent or unreviewed.
 
 When supplied, the private local `manifest.json` indexes every file under
 `source/`, with preserved relative paths, byte counts, SHA-256 and text/attachment

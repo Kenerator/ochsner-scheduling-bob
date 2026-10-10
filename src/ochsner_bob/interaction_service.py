@@ -16,8 +16,10 @@ from contextlib import contextmanager
 from datetime import date, timedelta
 from hashlib import sha256
 import json
+import os
 from pathlib import Path
 import re
+import stat
 import subprocess
 from threading import local
 from time import monotonic, perf_counter, time
@@ -76,20 +78,55 @@ def _catalog(value):
     return value
 
 
+def _archive_revision():
+    """One fixed export-subst artifact; a revision label, never trust/authority."""
+    path = _ROOT / ".git_archival.txt"
+    before = path.lstat()
+    if not stat.S_ISREG(before.st_mode) or before.st_nlink != 1 or not 0 < before.st_size <= 128:
+        raise ValueError("invalid archive metadata")
+    with os.fdopen(os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK), "rb") as stream:
+        opened = os.fstat(stream.fileno())
+        if (not stat.S_ISREG(opened.st_mode) or opened.st_nlink != 1 or opened.st_size > 128
+                or (before.st_dev, before.st_ino) != (opened.st_dev, opened.st_ino)):
+            raise ValueError("invalid archive metadata")
+        payload = stream.read(129)
+    match = re.fullmatch(rb"revision=([0-9a-f]{40}|[0-9a-f]{64})\n", payload)
+    if match is None or set(match[1]) == {ord("0")}:
+        raise ValueError("invalid archive revision")
+    return match[1].decode("ascii")
+
+
 def build_provenance(fixture_catalog):
     """Fixed local artifacts only; no environment/credentials or arbitrary imports.
 
-    source_revision is HEAD; schema also binds exact working source bytes so dirty
-    code is not mislabeled as HEAD-identical. Dependencies hash pinned project
-    metadata, not a nonexistent resolved dependency lock. Hashes confer no trust.
+    Use HEAD only for this exact repository root, otherwise strict git-archive
+    metadata. The archive label does not establish clean/exact commit bytes:
+    archive working-tree state is unknown (conservatively dirty for legacy
+    boolean consumers). Actual source bytes are still hashed independently.
+    Dependencies hash pinned project metadata, not a resolved lock. No trust is
+    conferred by either revision labels or digests. This is a source-tree layout,
+    not a wheel provenance or signature-verification mechanism.
     """
     try:
         def git(*arguments):
             return subprocess.run(["git", "--no-optional-locks", "-c", "core.fsmonitor=false", *arguments],
                 cwd=_ROOT, capture_output=True, check=True, timeout=3).stdout.strip()
-        revision = git("rev-parse", "HEAD").decode("ascii")
-        dirty = bool(git("status", "--porcelain", "--untracked-files=normal", "--",
-                         "src/ochsner_bob", "policies", "pyproject.toml", "vendor/reference/data"))
+        try:
+            own_repository = Path(git("rev-parse", "--show-toplevel").decode("utf-8")).resolve() == _ROOT.resolve()
+        except (OSError, UnicodeError, subprocess.SubprocessError):
+            own_repository = False
+        if own_repository:
+            revision = git("rev-parse", "HEAD").decode("ascii")
+            dirty = bool(git("status", "--porcelain", "--untracked-files=normal", "--",
+                             "src/ochsner_bob", "policies", "pyproject.toml", "vendor/reference/data"))
+            basis, state = "git", "dirty" if dirty else "clean"
+        else:
+            # A broken own checkout must not mask Git errors with a stale export
+            # label. Ancestor Git metadata is explicitly not this project's.
+            if (_ROOT / ".git").exists() or (_ROOT / ".git").is_symlink():
+                raise ValueError("own repository unavailable")
+            revision = _archive_revision()
+            basis, state, dirty = "git_archive", "unknown", True
         code = b"\0".join(name.encode() + b"\0" + (_ROOT / "src/ochsner_bob" / name).read_bytes() for name in _SOURCE)
         # Canonicalize schema array ordering (enum/required are unordered sets).
         def canonical(value):
@@ -104,6 +141,7 @@ def build_provenance(fixture_catalog):
             policy=(_ROOT / "policies/bob.json").read_bytes(), prompt=_INSTRUCTIONS.encode(),
             schema=code + b"\0" + _json(canonical(_schema())), fixtures=_json(fixture_catalog))
         return provenance, {"override": False, "working_tree_dirty": dirty,
+                            "revision_basis": basis, "working_tree_state": state,
                             "code_digest": sha256(code).hexdigest(), "dependency_basis": "pinned_project_metadata"}
     except (OSError, ValueError, UnicodeError, subprocess.SubprocessError):
         raise RuntimeError("Recording provenance unavailable; capture disabled.") from None

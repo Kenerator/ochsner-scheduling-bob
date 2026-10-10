@@ -1,8 +1,8 @@
 # Feature Specification: Ochsner Best-of-Breed Scheduling Assistant
 
-**Feature Branch**: `001-ochsner-scheduling-assistant`
+**Feature identifier**: `001-ochsner-scheduling-assistant` (working Git branch: `main`)
 **Created**: 2026-10-09
-**Status**: Draft
+**Status**: Accepted for implementation under the Operator-approved scope; completion evidence remains in `tasks.md`.
 **Input**: Reconciled docs/product/intake/001.md through 013.md, docs/product/RFP/README.md, docs/product/user-stories.md, and docs/product/personas.md.
 
 ## User Scenarios & Testing *(mandatory)*

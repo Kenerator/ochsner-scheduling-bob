@@ -18,7 +18,7 @@ and engine-neutral: scaffolding neither installs nor enables ZEN/CLIPSpy. Adopt
 an engine in native Plan only when useful, with its pinned reviewer setup and
 behavior tests; original client policies remain in the ignored RFP source tree.
 
-`--input -` reads stdin once through EOF as UTF-8 Markdown, preserving its bytes and position among repeated file inputs. It works with interactive typing/pasting, quoted heredocs and pipes; see the [README examples](../../reference/bootstrap/launch-example.json). On macOS/Linux, finish interactive input with Ctrl-D on an empty line. At most one `-` is allowed. Empty/whitespace-only or invalid UTF-8 stdin and content over 1 MiB fail before destination creation; combined intakes retain the 16 MiB limit. Preview consumes stdin without saving a project, so supply it again on execution. The generated intake file, not stdin, supplies any subsequent native stage/resume.
+`--input -` reads stdin once through EOF as UTF-8 Markdown, preserving its bytes and position among repeated file inputs. It works with interactive typing/pasting, quoted heredocs and pipes; see the [launch-manifest example](../../reference/bootstrap/launch-example.json). On macOS/Linux, finish interactive input with Ctrl-D on an empty line. At most one `-` is allowed. Empty/whitespace-only or invalid UTF-8 stdin and content over 1 MiB fail before destination creation; combined intakes retain the 16 MiB limit. Preview consumes stdin without saving a project, so supply it again on execution. The generated intake file, not stdin, supplies any subsequent native stage/resume.
 
 ## Portable launch manifest
 
