@@ -1,7 +1,7 @@
 # As-built code walkthrough
 
-Updated/reviewed 2026-10-09: baseline `a43fb61532a62f83b91dd862099419b385caee98`
-plus **uncommitted integration**, not that commit alone. See the
+Updated/reviewed 2026-10-09: code/test source `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`.
+Documentation finalized after that tested source checkpoint. See the
 [architecture snapshot](architecture.md#reviewed-source-and-verification) for
 code digests and verification limits.
 
@@ -178,3 +178,12 @@ worker; it establishes that specific journey, not complete paired-renderer,
 reconnect, accessibility or replay/core parity. The native ledger owns remaining
 acceptance. CLI restart protection is tested at actual main reentry; this does
 not claim remote idempotency or persistent restoration of the private workflow.
+
+Source/export boundary: build_provenance uses only this exact Git root or fixed
+bounded regular archive revision metadata, never an ancestor repository or an
+environment-supplied revision. Archive state stays unknown/conservatively dirty;
+actual source bytes are independently hashed. See
+[8 provenance regressions](../../../tests/test_source_provenance.py).
+The final clean committed export passed 387 combined tests plus supplied-HTTP,
+demo and shipped-renderer checks; the earlier Git-free startup failure is retained
+in native tasks. A Git-free archive is supported, not a standalone wheel.

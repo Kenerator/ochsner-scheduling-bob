@@ -76,10 +76,30 @@ the private budget. See [framework evidence](marimo-feasibility.md) and
 No card, API journey, injected fixture or parent-reported observation is labeled
 an independently completed browser acceptance suite here.
 
-Still unproven here: final combined UI/reload checks, browser keyboard/focus and
-assistive-technology usability across these persona journeys, unsupported-hour
-explanations, comparative/low-confidence user testing, and clean-copy setup.
+Not established by these eight tests alone: full browser/assistive-technology
+usability across these persona journeys, unsupported-hour explanations,
+comparative/low-confidence user testing or clean-copy setup. The final parent
+section below supplies separate bounded operational/browser evidence.
 Actual channel availability, language and research validation remain unknown
 for all seven pins. Basic-phone access, real staff delivery, clinical suitability,
 production authentication and mobile/screen-reader/platform certification are
 not supplied capabilities. The persona index must not turn these into passes.
+
+## Final parent integration evidence — 2026-10-09
+
+Reviewed code/test revision `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`: parent 387 combined tests passed
+(21.155 s), then a fresh clean committed export passed the same 387 tests
+(19.282 s), all eight supplied scenarios, demos and six renderer checks. Earlier
+360-test snapshots above are historical. Clean-copy setup is now qualified on
+this Mac/Python target, not inferred from a persona card or starter tests.
+
+Actual Chrome evidence remains bounded to the described journeys: returned-slot
+booking/separate confirmation, keyboard numbered selection, read-only reload,
+shared-core booking capture/replay and isolated unknown fork; final specifically
+approved read-only paired tab showed fresh revision 5/completed and empty/disabled
+private fields. Final takeover was outside that narrow grant and not rerun;
+earlier actual takeover/suggestion/return evidence remains separate. Source/mode
+boundaries and still hashes are in [video notes](video-notes.md).
+Full seven-persona browser/assistive-technology usability, unsupported-hour
+explanations and comparative/user-research hypotheses remain unproven. No
+production, real-staff, basic-phone or mobile capability is invented.

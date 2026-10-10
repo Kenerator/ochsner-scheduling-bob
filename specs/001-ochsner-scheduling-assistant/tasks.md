@@ -85,18 +85,18 @@ and applied 2026-10-09 after the earlier automatic-review rejections.
 **Independent test**: Clean Mac setup, owned mock/reset, tests, success/failure demos, UI/CLI parity, and source-bound docs work without source edits.
 
 - [x] T036 [P] [US6] Add persona-linked acceptance tests for Jules, Billy-June, Amy-Lou, Ellie-Rae, Nina-Jean, Morgan-Rae, and Sam-Rae in `tests/test_persona_acceptance.py`.
-- [ ] T037 [P] [US6] Add clean setup, CLI, reset, and demo smoke tests in `tests/test_browser_launch.py` and `tests/test_cli_restart.py`.
+- [x] T037 [P] [US6] Add clean setup, CLI, reset, and demo smoke tests in `tests/test_browser_launch.py` and `tests/test_cli_restart.py`.
 - [x] T038 [US6] Populate `docs/internal/persona-story-test-index.md` with pinned constraints, native stories, code paths, and test evidence.
 - [x] T039 [US6] Adopt approved Ochsner assets into `assets/ui/` and update `docs/internal/ui-assets.md` with provenance/private audience limits.
 - [x] T040 [US6] Update `docs/internal/video-notes.md` with source-bound narrative/still manifest, tested states, modes, and limitations.
 
 ## Phase 9: Polish and completion evidence
 
-- [ ] T041 [P] Add final CLI/browser transition coverage and run the full unittest suite in `tests/`.
-- [ ] T042 [P] Populate `docs/internal/as-built/code-walkthrough.md` from actual code/tests with navigation links and reviewed source revision.
-- [ ] T043 [P] Populate `docs/internal/as-built/architecture.md` from actual components/tests with Mermaid diagrams, boundary explanation, and disclosed rendering verification.
-- [ ] T044 Verify README links, docs navigation, UI asset provenance, security guard instructions, and product planning handoff documents.
-- [ ] T045 Run `quickstart.md`, success/failure demos, explicit Mac interpreter check, mock cleanup, and final delta review; record any incomplete genuine-model qualification honestly in `tasks.md`.
+- [x] T041 [P] Add final CLI/browser transition coverage and run the full unittest suite in `tests/`.
+- [x] T042 [P] Populate `docs/internal/as-built/code-walkthrough.md` from actual code/tests with navigation links and reviewed source revision.
+- [x] T043 [P] Populate `docs/internal/as-built/architecture.md` from actual components/tests with Mermaid diagrams, boundary explanation, and disclosed rendering verification.
+- [x] T044 Verify README links, docs navigation, UI asset provenance, security guard instructions, and product planning handoff documents.
+- [x] T045 Run `quickstart.md`, success/failure demos, explicit Mac interpreter check, mock cleanup, and final delta review; record any incomplete genuine-model qualification honestly in `tasks.md`.
 - [x] T046 [P] Add all eight exact scenario IDs from `docs/product/RFP/source/scenarios.yaml` to `tests/test_supplied_http.py`; select additional transitions from `reference/testing/transition-scenarios.md`.
 - [x] T047 [P] Add measured local feedback/latency evidence for SC-007 and the 400 ms target in `tests/test_latency_evidence.py` and `docs/internal/performance-notes.md`.
 - [x] T048 Run the staged credential guard with the explicit compatible interpreter and inspect `docs/internal/security.md` before any commit; record incomplete scans without excluding tests/docs.
@@ -228,3 +228,51 @@ not a clean-setup pass. T037/T045 remain open while a tests-first bounded archiv
 revision-metadata correction is integrated. No extra paid call occurred. A small
 independent renderer correction also preserves 'not reported' for absent legacy
 pending/dirty observations rather than inventing a disabled/clean patient state.
+
+## Final qualified code/test source — 2026-10-09
+
+Reviewed source `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`. The prior clean-export
+failure is retained above, not erased. Eight red/green provenance regressions
+now require this exact Git root or fixed bounded regular archive metadata;
+ancestor HEAD, malformed/unexpanded identifiers and unsafe files are rejected.
+Archive state is unknown/conservatively dirty and actual bytes remain independently
+hashed. The six shipped-widget checks include a red/green legacy receipt case:
+missing pending/dirty/enabled observations say not reported, not invented states.
+Normal four-field receipts and authority are unchanged.
+
+Parent final working-source run: **387 tests passed, 21.155 s**. Final success,
+conflict-recovery and unknown/block demos passed. Refreshed 30-request local
+measurement: p50 1.202 ms/p95 2.807 ms/max 2.849 ms, zero effects/model calls,
+not browser paint or capacity. Whole-index and commit-hook scans: **248 files,
+6 binary originals, 5 exact-blob allowed synthetic matches, 0 unresolved findings,
+0 symlinks/submodules**. Existing hooks/configuration were retained.
+
+Native clean committed export on that exact source: fresh Python 3.11.13 arm64
+venv and editable install passed; **387 tests passed, 19.282 s**; 9 supplied-HTTP
+checks (all 8 exact scenarios plus the private-source absence regression), all
+3 booking demos and 6 shipped-widget checks passed. Profile SHA-256:
+`360b20ef914961240f58812111a0bbcdb1fa835ff48425a1986ab640164b2e1f`.
+The helper qualifies product/service-integration/ui-static only; browser, live
+model and remote-clone are not claimed by its categories. Manual actual Chrome
+and genuine model evidence remain separately scoped above and in their notes.
+No standalone-wheel, mobile, assistive-technology, real-service or production
+qualification is asserted.
+
+As-built walkthrough/architecture now bind that actual code/test revision and
+refreshed source/test/native manifests, with rendered diagrams and linked tests.
+README/product planning/user recovery/video-still navigation is maintained.
+Final read-only navigation audit: 36 docs, 296 local targets and 21 anchors;
+zero broken links, ignored-only targets or missing anchors. The one stale demo
+replay description was corrected to the shared-core/limited-renderer contract.
+The audit also matched 92 code/test/runtime files to the reviewed revision,
+all five vendor hashes, six still hashes and the qualification-profile hash.
+Operator-owned final video assembly and separately authorized real-world/platform
+work remain in the linked next steps, not unfinished hidden implementation tasks.
+The bounded optional independent review's three original reproductions were
+resolved/rechecked; it is not rebranded as a review of later changes or a security
+certification. No new proof-cycle gate was introduced.
+
+Final documentation checkpoint delivery is recorded in milestones. Shared budget
+rechecked unchanged: **41/200 calls**, known cost $0.026381, retained unknown
+liability $3.023040, total liability $3.049421, remaining $16.950579. Actual total
+historical bill remains unknown; no further paid calls were made or scheduled.

@@ -40,8 +40,10 @@ Open lower Developer Mode, explicitly Start synthetic recording, perform Help
 and public provider discovery, Seal, then Open the returned reference. Step / play /
 pause / jump, before-after, typed fork, compare and reviewed fixture proposal are
 data-only simulation: no API/model writes, identity or live consent. Export/import
-is strict, host-fixture-bound, private and size/TTL-limited. Replay is **not** the
-same interpreter or exact renderer as live Session; missing boundaries are reported.
+is strict, host-fixture-bound, private and size/TTL-limited. Replay uses the actual
+SchedulingSession with recorded-only fixtures and isolated memory claims. Complete
+matching captures qualify semantic core projections, **not** exact browser-renderer
+parity; missing evidence and mismatches are reported explicitly.
 
 ## Reset, cleanup and team exercise
 

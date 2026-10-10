@@ -1,7 +1,7 @@
 # As-built architecture
 
-Updated/reviewed 2026-10-09: baseline `a43fb61532a62f83b91dd862099419b385caee98`
-**plus uncommitted integration**. [Walkthrough](code-walkthrough.md),
+Updated/reviewed 2026-10-09: code/test source `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`.
+Documentation finalized after that tested source checkpoint. [Walkthrough](code-walkthrough.md),
 [spec](../../../specs/001-ochsner-scheduling-assistant/spec.md),
 [plan](../../../specs/001-ochsner-scheduling-assistant/plan.md),
 [native task ledger](../../../specs/001-ochsner-scheduling-assistant/tasks.md),
@@ -137,6 +137,17 @@ outcomes and overflow report explicit gaps, not invented history. Provenance
 binds revision, working source, policy, prompt, schema, fixtures and pinned project
 metadata; hashes confer no trust and metadata is not a resolved dependency lock.
 
+Source provenance uses Git HEAD only when Git resolves exactly to this project
+root. Git-free archives use the fixed bounded regular
+[archive revision artifact](../../../.git_archival.txt), substituted by the
+additive `.gitattributes` export rule. Unexpanded/malformed metadata, symlinks,
+hardlinks and broken own checkouts fail closed; an ancestor repository is not
+this source. Archive working-tree state is explicitly unknown (conservatively
+dirty for legacy boolean consumers), while actual bytes are independently hashed.
+This is identifier/drift evidence, not a signature, clean-byte proof or wheel
+qualification. [Provenance regressions](../../../tests/test_source_provenance.py)
+exercise actual archive substitution and offline capture/replay without Git.
+
 Replay now runs the actual `SchedulingSession` using a fixed recorded-only port
 and private in-memory effect claims. The normal production constructor still
 uses the durable EffectJournal. Every replay gets a fresh opaque namespace;
@@ -208,14 +219,15 @@ booking qualification; this documentation worker performed no live calls.
 
 ## Reviewed source and verification
 
-Baseline `a43fb61532a62f83b91dd862099419b385caee98` plus uncommitted integration,
-2026-10-09. Digests identify inspected bytes, not a clean/released/approved commit:
+Reviewed code/test source `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`, 2026-10-09.
+Clean committed-export qualification passed. Digests identify inspected bytes,
+not production approval or a dependency lock:
 
 | Snapshot | SHA-256 | Scope |
 | --- | --- | --- |
-| Integration code manifest | `1e3b7a28ac40dfe879d384d8556f39fddd374b95a6c2247bd93dd6aac46c4893` | Sorted path/SHA-256 lines: `.py/.js/.mjs/.json` under src/ochsner_bob, apps, scripts, policies; includes sketches/probes, excludes docs/assets/vendor/dependency metadata. |
-| Test code manifest | `95dcf48c7e09eac6a49edca080f61ce021b460e2142da0e68703fad68f18c7bb` | Same method: `.py/.mjs` under tests; excludes JSON/YAML fixture bytes. |
-| Native capture source | `d277ff90e4c04d00e082bfaf5bac46a624faaba4618a9fc1184fd04760f2bd9b` | build_provenance `_SOURCE` order: session, conversation, browser_service, interaction_service, replay, recording_store, journal, policy, language, http_mock `.py`; excludes CLI namespace/budget/widget/launchers. |
+| Integration code manifest | `b555b5b6cf8439377f07d1b1892eb2f4f2dae83214cf6e34dd0876c17654e554` | Sorted path/SHA-256 lines: `.py/.js/.mjs/.json` under src/ochsner_bob, apps, scripts, policies; includes sketches/probes, excludes docs/assets/vendor/dependency metadata. |
+| Test code manifest | `d700c79e03e65b0ff788e8ca840952b46b203411115c5017c343e605273935e3` | Same method: `.py/.mjs` under tests; excludes JSON/YAML fixture bytes. |
+| Native capture source | `118327af911fccf9cadb6a94c80432f830b70b15fb80a289341b5783b06f4aca` | build_provenance `_SOURCE` order: session, conversation, browser_service, interaction_service, replay, recording_store, journal, policy, language, http_mock `.py`; excludes CLI namespace/budget/widget/launchers. |
 
 Reproduce broader manifests from the repository root; filename lines and their
 final newlines are part of the hash:
@@ -233,8 +245,8 @@ Fresh review evidence, 2026-10-09:
 
 - Explicit `/Users/ken/codeRepos/ochsner-scheduling-bob/.venv/bin/python`, Python
   3.11.13; `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src` and
-  `-m unittest discover -s tests -v`: **351 tests passed, 18.328 seconds** after
-  the CLI namespace fix, categorical receipts and idle-retention loop wiring.
+  `-m unittest discover -s tests -v`: **387 tests passed, 21.155 seconds**, including same-core replay, archive
+  provenance and explicit unknown legacy-observation labels.
   Historical/unit fixtures are included; not every test is acceptance evidence.
 - `scripts/demo_booking.py --flow all` passed using that interpreter: supplied
   success completed, supplied conflict rejected then freshly completed, and the
@@ -279,3 +291,15 @@ These are launcher tests, not supplied-service or remote-idempotency evidence.
 Native tasks/integration review own other remaining work.
 No live human delivery, production authentication, browser-renderer replay parity
 or deployment readiness is claimed.
+
+Final clean-source qualification on `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`: fresh Python 3.11.13
+arm64 venv/editable install, 387 tests (19.282 s), 9 supplied-HTTP checks including
+all eight exact scenarios, success/conflict/unknown demos and 6 widget boundary
+checks passed. Profile SHA-256 `360b20ef914961240f58812111a0bbcdb1fa835ff48425a1986ab640164b2e1f`.
+This native helper does not claim browser/live-model/remote-clone coverage; actual
+manual browser and genuine-language evidence retain their separate source limits.
+The earlier export failure at 9625185 is retained in the native task ledger.
+
+Refreshed source-bound performance at this revision: 30 sequential loopback
+requests, p50 1.202 ms, p95 2.807 ms, max 2.849 ms, zero effects/model calls.
+It is decoded HTTP completion, not browser paint or a capacity/SLA guarantee.

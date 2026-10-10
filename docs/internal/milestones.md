@@ -5,6 +5,16 @@ Updated: 2026-10-09. These are private checkpoints, not release claims.
 | Tag | Source commit | Purpose / timing | Relevant docs or demo |
 | --- | --- | --- | --- |
 | `poc/unfinished-baseline` | `a43fb61532a62f83b91dd862099419b385caee98` | Reviewed unfinished design/core baseline; credential guard 196 files, zero findings; remote main and tag verified. Browser, genuine model and completion evidence still pending. | [Native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md) |
+| `poc/integrated-core-01` | `9625185fa799816ee7456275785348cc83567e3b` | 378-test integration with actual booking/shared-core replay and approved read-only pairing. Private main and annotated/peeled tag refs verified. Its later clean export failed on missing Git provenance; not a clean-setup completion tag. | [Retained failure and corrective evidence](../../specs/001-ochsner-scheduling-assistant/tasks.md) |
+| `poc/qualified-01` | `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961` | Annotated code/test milestone: fresh committed export/install, 387 tests, all eight supplied scenarios, demos and six widget checks passed. Not production, browser-wide, remote-clone or finished-video certification. | [Exact source/evidence](../../specs/001-ochsner-scheduling-assistant/tasks.md), [as built](as-built/architecture.md) |
+
+Qualified code/test source: `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`.
+Fresh committed export/install, 387 tests, eight supplied scenarios, demos and
+six renderer checks passed. This following documentation-only checkpoint records
+that exact source binding. `poc/qualified-01` points to the qualified code/test
+commit above, not to this later documentation commit; no tag is moved to include
+its own record. Final authorized private remote verification is reported in the
+completion chat. The milestone does not certify production/public release.
 
 Approved private destination: `nxus-SYSTEMS/ochsner-scheduling-bob`. Preferred
 SSH alias could not access that repository; the explicitly approved

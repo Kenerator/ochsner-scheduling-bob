@@ -27,3 +27,12 @@ shipped pending-request guard, but is a DOM double rather than browser timing.
 Deferred: browser frame/assistive-tech timing, representative load, non-Mac hosts,
 real upstream service latency and production targets. Re-measure after boundary
 or dependency changes; do not claim these numbers as general capacity.
+
+## Final-source refresh — 2026-10-09
+
+Code/test revision `5e7ae0c6b1ae29d198f734a0c26e2c96e525b961`; same explicit Python 3.11.13,
+Darwin arm64. Reran 30 sequential requests: p50 **1.202 ms**, p95 **2.807 ms**,
+max **2.849 ms**, no model call or effect; p95 remained below the 400 ms local
+transport target. This supersedes the earlier dirty-source sample, not its
+limitations. Browser paint, accessibility, concurrent load/capacity and external
+service/model latency were not measured by this script.
