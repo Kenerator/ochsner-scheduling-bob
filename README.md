@@ -9,11 +9,14 @@ standalone ZEN policy, public-only RapidFuzz suggestions, and optional bounded
 OpenAI interpretation. No PHI, clinical advice, production authentication, real
 staff contact, sponsor endorsement or general third-party relicensing is implied.
 
-Current code checkpoint: annotated immutable **RC-1**, source
+Historical qualified checkpoint: annotated immutable **RC-1**, source
 `e2dfa7e9f471513921063d568bb3bc890eff1800` (2026-10-10): 398 tests and all three
 booking demos passed both locally and in a fresh committed export/install on
 Python 3.11.13/macOS ARM. See the [evidence ledger](specs/001-ochsner-scheduling-assistant/tasks.md)
 for historical failures and qualification limits. No application license is selected.
+Original-scope completeness repair is tracked there as T053–T056. Current replay
+requires observed browser receipts; older no-gap labels do not prove they were
+captured. Recording-OFF diagnostics now have their own bounded, sanitized path.
 
 ## Start here
 
@@ -68,6 +71,7 @@ Restarting Marimo alone does not restart the backend or perform a write.
 Start `.venv/bin/python scripts/mock_lifecycle.py --port 4010`, then in another
 terminal run `.venv/bin/python -m ochsner_bob`. Type `help` for deterministic commands.
 Identity uses `/identity 555-0101 1985-04-12 70112`; exact confirmation uses `/confirm`.
+Use `/diagnostics` for sanitized inspection without changing the workflow.
 The browser and CLI use the same Conversation/Session behavior, not the inherited
 `poc-demo` sketch.
 
@@ -87,6 +91,7 @@ model fallback. View/poll/replay never invokes a model. See
 - User help: [patient, Support and Developer guide](docs/user/getting-started.md), [recovery and irreversible purge](docs/user/recovery.md).
 - As built: [walkthrough](docs/internal/as-built/code-walkthrough.md), [architecture](docs/internal/as-built/architecture.md), [UI provenance](docs/internal/ui-assets.md), [mock provenance](vendor/reference/PROVENANCE.md).
 - Delivery: [credential guard](docs/internal/security.md), [milestones](docs/internal/milestones.md), [independent review](docs/internal/reviews/adversarial-review.md).
+- Future design only: [cost/monitoring, rollout/rollback and authenticated support](docs/product/production-design-notes.md); [actual adopted ZEN model](policies/README.md#adopted-policy-index).
 
 Inherited `poc_template`/`poc_demo` modules remain scaffold support/history, not BOB
 authority or evidence. Detailed completion and open limitations live only in the

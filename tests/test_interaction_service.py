@@ -91,7 +91,7 @@ class InteractionServiceTests(unittest.TestCase):
         self.service.capture(self.token,True,synthetic=True)
         self.service.command(self.token,"help",{},0)
         report=self.service.capture(self.token,False,synthetic=True)
-        self.assertEqual(report["recording"],"full_replay")
+        self.assertEqual(report["recording"],"incomplete_capture")
         reference=report["reference"]
         before=self.service.read(self.token)["revision"]
         inspected=self.service.replay(self.token,"open",{"reference":reference})
@@ -224,7 +224,7 @@ class InteractionServiceTests(unittest.TestCase):
         service.capture(token, True)
         view = service.text(token, "providers primary_care downtown", 0)
         report = service.capture(token, False)
-        self.assertEqual(report["recording"], "full_replay")
+        self.assertEqual(report["recording"], "incomplete_capture")
         opened = service.replay(token, "open", {"reference": report["reference"]})
         self.assertEqual(opened["event_count"], 2)
         preferences = service.replay(token, "inspect", {"index": 0})["event"]
@@ -233,7 +233,8 @@ class InteractionServiceTests(unittest.TestCase):
         self.assertEqual(event["input"], {"action": "discover", "data": {}})
         self.assertEqual(event["outcomes"]["api"]["fixture_refs"], ["provider-a"])
         self.assertEqual(event["outcomes"]["api"]["status"], "ok")
-        self.assertEqual(event["view"]["revision"], view["revision"])
+        self.assertIsNone(event["view"], "Server projections are not browser observations")
+        self.assertEqual(event["core"]["view"]["revision"], view["revision"])
         self.assertEqual(service.replay(token, "jump", {"index": 1})["state"]["providers"], ["provider-a"])
 
     def test_representative_booking_simulates_actual_certainty_without_reusing_ports_or_journal(self):
@@ -242,7 +243,7 @@ class InteractionServiceTests(unittest.TestCase):
         actual = self.booking(service, token)
         self.assertEqual(actual["current_result"]["status"], "completed")
         report = service.capture(token, False)
-        self.assertEqual(report["recording"], "full_replay")
+        self.assertEqual(report["recording"], "incomplete_capture")
         journal = service.journal_path.read_bytes()
         registry = service.registry.read_bytes()
         reads, writes = deepcopy(self.port.reads), deepcopy(self.port.writes)
@@ -345,7 +346,7 @@ class InteractionServiceTests(unittest.TestCase):
         view = service.text(token, "Find primary care providers", 0)
         self.assertEqual(view["state"], "providers")
         report = service.capture(token, False)
-        self.assertEqual(report["recording"], "full_replay")
+        self.assertEqual(report["recording"], "incomplete_capture")
         opened = service.replay(token, "open", {"reference": report["reference"]})
         event = service.replay(token, "inspect", {"index": 0})["event"]
         self.assertEqual(event["input"]["action"], "language")
@@ -693,7 +694,7 @@ class InteractionServiceTests(unittest.TestCase):
             self.assertTrue(waiting.result(timeout=1)["stale"])
         first, second = service.capture(token, False), service.capture(other, False)
         self.assertEqual(first["recording"], "incomplete_capture")
-        self.assertEqual(second["recording"], "full_replay")
+        self.assertEqual(second["recording"], "incomplete_capture")
         service.replay(other, "open", {"reference": second["reference"]})
         event = service.replay(other, "inspect", {"index": 0})["event"]
         self.assertEqual(event["input"]["data"]["text"], "Show providers uptown")
@@ -727,7 +728,7 @@ class InteractionServiceTests(unittest.TestCase):
         for path in service.recording_directory.glob("rec-*.json"):
             self.assertNotIn("Find primary care providers", path.read_text())
             self.assertNotIn('"nonce"', path.read_text())
-        self.assertIsNone(service.diagnostics(token)["model"])
+        self.assertEqual(service.diagnostics(token)["model"]["application"], "stale")
 
     def import_document(self, service, *, now=None):
         recording = Recording(service.provenance, fixture_refs=CATALOG, synthetic=True,
@@ -785,7 +786,7 @@ class InteractionServiceTests(unittest.TestCase):
         journal = service.journal_path.read_bytes()
         payload = service.replay(token, "export", {"reviewed": True})["payload"]
         imported = import_recording(payload, fixture_refs=CATALOG, expected_provenance=service.provenance)
-        self.assertEqual(imported.availability(), "full_replay")
+        self.assertEqual(imported.availability(), "incomplete_capture")
         for private in ("555-0130", "1978-09-22", "pat_1003", "slot_4001", '"nonce"', '"patientId"'):
             self.assertNotIn(private, payload)
         self.assertEqual(service.journal_path.read_bytes(), journal)

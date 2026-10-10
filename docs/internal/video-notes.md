@@ -4,6 +4,14 @@ Updated: 2026-10-10. Status: source-bound feature-completion still supplement de
 video assembly and Operator bookends remain with the media owner.
 The existing video task owns narration/assembly; this is not a finished video.
 
+Completeness correction, 2026-10-10: RC-1/R04's historical no-gap label qualified
+the narrower core projection, not retained browser receipt history. New code
+captures ordered acknowledgements and labels absent required observations
+incomplete; renderer parity remains false. Recording-OFF API/model diagnostics
+are repaired separately. Existing images/scripts are not evidence of these new
+behaviors; no new capture, upload or paid QA is part of this repair. See
+[native T053–T056](../../specs/001-ochsner-scheduling-assistant/tasks.md).
+
 Audience update 2026-10-10: the Operator approved branded synthetic assets in
 this exact public-source repository. BOB remains an internal-use PoC, not a
 publicly deployed application. Earlier private-only notes below describe the

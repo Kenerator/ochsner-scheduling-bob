@@ -1,6 +1,36 @@
 # As-built architecture
 
-Updated/reviewed 2026-10-10: current code/test source `e2dfa7e9f471513921063d568bb3bc890eff1800` (RC-1).
+## Completeness delta — 2026-10-10
+
+Repair base `00ed37d`; final reviewed source will be recorded in native T056.
+[Diagnostics](../../../src/ochsner_bob/diagnostics.py) observes validated API
+outcomes (not a bare HTTP 201) and public model context/disposition/timing through
+actual CLI/InteractionService constructors, independently of exact recording.
+Per-session bounded memory and categorical drop counts keep raw identity,
+inputs/output, receipts and exceptions out of diagnostics. CLI `/diagnostics`
+and browser inspection are effect-free.
+
+[Recording/Replay](../../../src/ochsner_bob/replay.py) now retain bounded ordered
+browser receipts bound to delivered core-step revisions. Presentation includes
+notice/loading/dirty/confirmation-enabled observations; drafts/focus/disclosures
+remain public-only. They are original observations, never variant predictions
+or confirmation authority. Required missing/legacy partial receipts make capture
+incomplete while core parity is reported independently. Strict import, TTL,
+aggregate limits and isolated core effects remain in force, including required
+receipt markers. Ordering/clock variants drop original receipts rather than
+transplanting them to different commands or simulation clocks. Imported drafts
+also pass the live privacy/opaque-ID gate. Capture completeness is an internal
+schema/evidence assessment, not authenticity: a re-signed imported document is
+still untrusted history, and its digest confers no authority or browser proof.
+Model metadata publishes under the service freshness lock; delayed older
+revisions cannot replace newer diagnostics. Write 404 is failure, not rejection;
+400/409 remain rejection and lost/malformed receipts remain unknown.
+Tests: [receipt contracts](../../../tests/test_view_receipt_capture.py),
+[recording-OFF constructors](../../../tests/test_live_diagnostics.py).
+Topology/authority diagrams below are unchanged; their source/count paragraphs
+remain historical RC-1 evidence, not new qualification.
+
+Historical checkpoint reviewed 2026-10-10: code/test source `e2dfa7e9f471513921063d568bb3bc890eff1800` (RC-1).
 Documentation finalized after that tested source checkpoint. [Walkthrough](code-walkthrough.md),
 [spec](../../../specs/001-ochsner-scheduling-assistant/spec.md),
 [plan](../../../specs/001-ochsner-scheduling-assistant/plan.md),

@@ -47,7 +47,7 @@ class SourceProvenanceTests(unittest.TestCase):
             result = service.text(token, "help", 0)
             self.assertEqual(result["state"], "help")
             report = service.capture(token, False)
-            self.assertEqual(report["recording"], "full_replay", report)
+            self.assertEqual(report["recording"], "incomplete_capture", report)
             service.replay(token, "open", {"reference": report["reference"]})
             replayed = service.replay(token, "step", {})
             self.assertEqual(replayed["state"]["core"]["state"], "help")

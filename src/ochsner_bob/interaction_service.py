@@ -22,10 +22,11 @@ import re
 import stat
 import subprocess
 from threading import local
-from time import monotonic, perf_counter, time
+from time import monotonic, time
 
 from .browser_service import BrowserService
 from .conversation import Conversation
+from .diagnostics import Diagnostics, ObservedAPI as _ObservedAPI
 from .http_mock import ApiError, UnknownOutcome, _APPOINTMENT, _object
 from .language import LanguageOutcome, _INSTRUCTIONS, _schema
 from .recording_store import RecordingStore, StoreError, StoreFull
@@ -34,7 +35,7 @@ from .replay import Limits, Recording, Replay, import_recording, make_provenance
 
 _ROOT = Path(__file__).resolve().parents[2]
 _SOURCE = ("session.py", "conversation.py", "browser_service.py", "interaction_service.py",
-           "replay.py", "recording_store.py", "journal.py", "policy.py", "language.py", "http_mock.py")
+           "replay.py", "recording_store.py", "journal.py", "policy.py", "language.py", "http_mock.py", "diagnostics.py")
 _KINDS = {"patient": {"patientId", "firstName", "lastName", "dateOfBirth", "phone", "zipCode", "establishedPatient"},
           "provider": {"providerId", "name", "specialty", "locations", "modalities"},
           "slot": {"slotId", "providerId", "specialty", "location", "startTime", "available"},
@@ -147,28 +148,6 @@ def build_provenance(fixture_catalog):
         raise RuntimeError("Recording provenance unavailable; capture disabled.") from None
 
 
-class _ObservedAPI:
-    """Live port is reachable only by the real session, never by Replay."""
-    def __init__(self, delegate, observer):
-        self._delegate, self._observer = delegate, observer
-
-    def __getattr__(self, name):
-        method = getattr(self._delegate, name)
-        if name not in {"providers", "search_patients", "availability", "appointments", "book", "handoff"}:
-            return method
-
-        def call(*args, **kwargs):
-            start = perf_counter()
-            try:
-                result = method(*args, **kwargs)
-            except Exception as error:
-                self._observer(name, None, error, (perf_counter() - start) * 1000)
-                raise
-            self._observer(name, result, None, (perf_counter() - start) * 1000)
-            return result
-        return call
-
-
 class _ObservedLanguage:
     def __init__(self, delegate, observer, guard):
         self._delegate, self._observer = delegate, observer
@@ -188,9 +167,13 @@ class _ObservedLanguage:
 
 class _SharedConversation(Conversation):
     """Serialize presentation publication, not the potentially slow interpreter."""
-    def __init__(self, session, language, lock):
-        super().__init__(session, language)
+    def __init__(self, session, language, lock, diagnostics):
+        super().__init__(session, language, diagnostic_sink=diagnostics.language)
         self._service_lock = lock
+
+    def _publication(self):
+        # Freshness decoration and metadata publication share one boundary.
+        return self._service_lock
 
     def _decorate(self, view, mode="offline", status="ok"):
         with self._service_lock:
@@ -346,13 +329,14 @@ class InteractionService(BrowserService):
         if session.id in self._contexts:
             return self._contexts[session.id]
         context = {"active": None, "last": None, "gaps": [], "dropped": 0, "bytes": 0,
-                   "observations": None, "language_pending": None, "model": None}
+                   "observations": None, "language_pending": None, "model": None,
+                   "diagnostics": Diagnostics(limit=self.limits.max_events)}
         self._contexts[session.id] = context
         session.api = _ObservedAPI(session.api, lambda *args: self._observe(context, self._api_observation, session, *args))
         language = None if self._language is None else _ObservedLanguage(self._language,
             lambda outcome: self._observe_language(session, context, outcome),
             lambda: self._language_wait(session, context))
-        context["conversation"] = _SharedConversation(session, language, self.lock)
+        context["conversation"] = _SharedConversation(session, language, self.lock, context["diagnostics"])
         original = session.command
 
         def command(action, data=None, *, expected_revision=None, actor="patient"):
@@ -403,6 +387,7 @@ class InteractionService(BrowserService):
         return matches[0]
 
     def _api_observation(self, context, session, method, value, error, delay):
+        context["diagnostics"].api(method, value, error, delay)
         if context["active"] is None or context["observations"] is None:
             return
         try:
@@ -473,8 +458,8 @@ class InteractionService(BrowserService):
             turn["core"] = {"version": 1, "action": "begin_input", "data": {}, "actor": actor,
                             "api": None, "view": _core_projection(session, self._catalog)}
             return
-        view = {"revision": after["revision"], "renderer": "core-v1", "visible": [after["state"]],
-                "enabled": [], "validation": "", "loading": False}
+        # Domain projections cannot stand in for browser-rendered evidence.
+        view = None
         outcomes = {}
         core_data = {}
         policy = session.last_policy
@@ -599,7 +584,42 @@ class InteractionService(BrowserService):
                 # Base read publishes too early for subclass fields. Ack must
                 # copy the completed patient response, never a support poll.
                 self.delivered[session.id] = deepcopy(view)
+                self._observe(context, self._require_view, target["revision"])
             return view
+
+    def _require_view(self, context, revision):
+        recording = context["active"]
+        if recording is None or recording.availability(now=self.wall_clock()) == "expired":
+            return
+        events = recording.to_dict()["events"]
+        if events and isinstance(events[-1].get("core"), dict) and events[-1]["core"]["view"]["revision"] == revision:
+            remaining = self.max_total_bytes - self._stored_bytes - sum(c["bytes"] for c in self._contexts.values() if c is not context)
+            if not recording.require_view(len(events), max_bytes=remaining):
+                self._gap(context, "browser_requirement_overflow")
+            context["bytes"] = len(_json(recording.to_dict()))
+
+    def ack(self, token, receipt):
+        with self.lock:
+            result = super().ack(token, receipt)
+            session, _ = self._resolve(token, "patient")
+            context = self._attach(session)
+            self._observe(context, self._capture_ack, receipt)
+            return result
+
+    def _capture_ack(self, context, receipt):
+        recording = context["active"]
+        if recording is None or recording.availability(now=self.wall_clock()) == "expired":
+            return
+        events = recording.to_dict()["events"]
+        if not events or not isinstance(events[-1].get("core"), dict):
+            return
+        if events[-1]["core"]["view"]["revision"] != receipt["revision"]:
+            self._gap(context, "unbound_browser_acknowledgement")
+            return
+        remaining = self.max_total_bytes - self._stored_bytes - sum(c["bytes"] for c in self._contexts.values() if c is not context)
+        if not recording.acknowledge(len(events), receipt, self.wall_clock(), max_bytes=remaining):
+            self._gap(context, "browser_acknowledgement_overflow")
+        context["bytes"] = len(_json(recording.to_dict()))
 
     def command(self, token, action, data, revision):
         with self.lock:
@@ -633,6 +653,7 @@ class InteractionService(BrowserService):
                     if key in result:
                         view[key] = result[key]
                 self.delivered[session.id] = deepcopy(view)
+                self._observe(context, self._require_view, view["revision"])
                 return view
         finally:
             turn["value"], turn["token"] = None, None
@@ -643,7 +664,7 @@ class InteractionService(BrowserService):
             session, _ = self._resolve(token)
             context = self._attach(session)
             return {**self._summary(session), "events": session.trace(), "provenance": deepcopy(self.provenance),
-                    "source": deepcopy(self.source), "fidelity": deepcopy(_FIDELITY), "model": deepcopy(context["model"]),
+                    "source": deepcopy(self.source), "fidelity": deepcopy(_FIDELITY), **context["diagnostics"].snapshot(),
                     "trace_dropped": session.dropped_events, "simulation_only": False,
                     "retention": deepcopy(self._retention_status),
                     "browser_mode": "live", "submission_pending": context["language_pending"] is not None}
@@ -661,7 +682,7 @@ class InteractionService(BrowserService):
                     return self._summary(session)
                 self._stored_bytes = self._store().stats(now=self.wall_clock())["bytes"]
                 context.update(active=Recording(self.provenance, fixture_refs=self._catalog,
-                    synthetic=True, now=self.wall_clock(), limits=self.limits), gaps=[], dropped=0)
+                    synthetic=True, now=self.wall_clock(), limits=self.limits, capture_views=True), gaps=[], dropped=0)
                 context["bytes"] = len(_json(context["active"].to_dict()))
                 if session.revision or session.view()["booking_blocked"] or session.view()["handoff_blocked"]:
                     self._gap(context, "capture_started_after_initial_state")
@@ -715,7 +736,8 @@ class InteractionService(BrowserService):
         report["fidelity"] = replay.fidelity
         if report["missing"] and report["recording"] != "expired":
             report["recording"] = "incomplete_capture"
-            report["fidelity"]["core_semantic_parity"] = False
+            if any("browser acknowledgement" not in gap and "browser presentation" not in gap for gap in report["missing"]):
+                report["fidelity"]["core_semantic_parity"] = False
 
     def _replay_response(self, replay, metadata, **extra):
         self._qualify_report(replay, metadata["report"])

@@ -6,8 +6,10 @@ Offline mode accepts explicit commands; it never impersonates model interpretati
 """
 
 from datetime import date
+from contextlib import nullcontext
 import re
 import unicodedata
+from time import perf_counter
 
 from .language import ACTIONS, LOCATIONS, SPECIALTIES, LanguageAdapter, LanguageOutcome
 
@@ -49,9 +51,10 @@ class Conversation:
     Model results always apply against the revision captured BEFORE the model wait.
     """
 
-    def __init__(self, session, language=None):
+    def __init__(self, session, language=None, *, diagnostic_sink=None):
         self.session = session
         self.language = language
+        self._diagnostic_sink = diagnostic_sink
         # Reuse the bounded adapter's privacy/input gate with runtime opt-in absent.
         # This gate cannot call a model, even if the host environment enables one.
         self._privacy = LanguageAdapter(environ={})
@@ -65,6 +68,9 @@ class Conversation:
         if not view.get("stale"):
             self._presentation = (view["revision"], mode, status)
         return view
+
+    def _publication(self):
+        return nullcontext()
 
     def view(self):
         view = self.session.view()
@@ -188,30 +194,56 @@ class Conversation:
             # A correction is public scheduling context, not a language workflow.
             workflow = "start"
         context = {"workflow": workflow, "preferences": {k: v for k, v in prepared["preferences"].items() if k in _PREFERENCES}}
+        started = perf_counter()
         try:
             outcome = self.language.interpret(text, context)
         except Exception:
             outcome = None
+        model_elapsed = (perf_counter() - started) * 1000
+
+        def publish(view, status="ok", application="not_applied"):
+            with self._publication():
+                return publish_locked(view, status, application)
+
+        def publish_locked(view, status, application):
+            result = self._decorate(view, mode, status)
+            valid = isinstance(outcome, LanguageOutcome) and self._proposal(outcome)
+            fields = list(outcome.preferences) if valid else []
+            model_status = outcome.status if isinstance(outcome, LanguageOutcome) and type(outcome.status) is str else "unavailable"
+            if result.get("stale"):
+                application = "stale"
+            if self._diagnostic_sink:
+                try:
+                    self._diagnostic_sink(context=context, status=model_status,
+                        accepted=fields if application == "applied" else [],
+                        rejected=["structured_output"] if not valid and status == "invalid_output" else
+                            fields if application in {"rejected", "stale"} else
+                            ["structured_output"] if model_status in {"invalid_output", "clarification"} else [],
+                        application=application, revision=revision, elapsed=model_elapsed)
+                except Exception:
+                    pass  # Diagnostics cannot turn a validated effect into failure.
+            return result
+
         if self.session.revision != revision:
-            return self._decorate(self.session.command("begin_input", expected_revision=revision), mode, "stale")
+            return publish(self.session.command("begin_input", expected_revision=revision), "stale", "stale")
         if outcome is None:
-            return self._decorate(prepared, mode, "unavailable")
+            return publish(prepared, "unavailable")
         if not isinstance(outcome, LanguageOutcome):
-            return self._decorate(prepared, mode, "invalid_output")
+            return publish(prepared, "invalid_output")
         if type(outcome.status) is not str:
-            return self._decorate(prepared, mode, "invalid_output")
+            return publish(prepared, "invalid_output")
         if outcome.status != "ok":
-            return self._decorate(prepared, mode, outcome.status if outcome.status in _NOTICE else "invalid_output")
+            return publish(prepared, outcome.status if outcome.status in _NOTICE else "invalid_output")
         if not self._proposal(outcome):
-            return self._decorate(prepared, mode, "invalid_output")
+            return publish(prepared, "invalid_output", "rejected")
         if outcome.action == "clarify":
-            return self._decorate(prepared, mode, "clarification")
+            return publish(prepared, "clarification", "clarification")
         if outcome.preferences:
             desired = {**prepared["preferences"], **outcome.preferences}
             changed = self.session.command("preferences", outcome.preferences, expected_revision=revision)
             if changed.get("stale") or changed["preferences"] != desired or changed["state"] != "preferences":
-                return self._decorate(changed, mode)
+                return publish(changed, application="rejected")
             prepared, revision = changed, changed["revision"]
         if outcome.action == "preferences":
-            return self._decorate(prepared, mode)
-        return self._decorate(self.session.command(outcome.action, expected_revision=revision), mode)
+            return publish(prepared, application="applied")
+        return publish(self.session.command(outcome.action, expected_revision=revision), application="applied")

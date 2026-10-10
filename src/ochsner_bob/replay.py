@@ -399,10 +399,45 @@ def _changes(value, allowed, limits):
             raise ValueError("invalid event ordering")
 
 
+def _browser_receipt(receipt, limits):
+    """Closed observation schema; private controls/authority are never imported."""
+    from .language import _private_input
+    _fields(receipt, {"revision", "renderer", "visible", "draft", "focus", "scroll", "expanded"}, {"presentation"})
+    _integer(receipt["revision"], 2**31)
+    _enum(receipt["renderer"], {"bob-v1"})
+    controls = {"message", "specialty", "location", "start_date", "end_date", "local-controls", "developer"}
+    for key in ("visible", "expanded"):
+        if type(receipt[key]) is not list or len(receipt[key]) > 40:
+            raise ValueError("invalid browser controls")
+        for control in receipt[key]:
+            _enum(control, controls)
+    if receipt["focus"] is not None:
+        _enum(receipt["focus"], controls)
+    _integer(receipt["scroll"], 1000000)
+    _fields(receipt["draft"], optional={"message", "specialty", "location", "start_date", "end_date"})
+    for key, value in receipt["draft"].items():
+        # Match the live acknowledgement privacy gate, including opaque IDs.
+        public = "appointment date " + value if key in {"start_date", "end_date"} and type(value) is str else value
+        if type(public) is not str or _private_input(public) or re.search(r"\b[0-9a-f]{32}\b", public):
+            raise ValueError("private browser draft")
+        if key in {"start_date", "end_date"} and value:
+            _preferences({"date_from": value}, ())
+        else:
+            _text(value, limits)
+    if "presentation" in receipt:
+        presentation = receipt["presentation"]
+        _fields(presentation, {"notice", "pending", "dirty"}, {"can_confirm"})
+        _enum(presentation["notice"], {"none", "domain", "working", "ready", "stale", "pairing", "grant",
+                                         "invalid", "unavailable", "ack_unavailable"})
+        if any(type(presentation[key]) is not bool for key in presentation if key != "notice"):
+            raise ValueError("invalid browser presentation")
+
+
 def _validate(document, allowed, limits):
     _tree(document, limits)
     _fields(document, {"version", "id", "created_at", "expires_at", "timezone", "provenance",
-                       "fixture_refs", "events", "complete", "dropped", "purged", "branch", "digest"})
+                       "fixture_refs", "events", "complete", "dropped", "purged", "branch", "digest"},
+            {"view_receipts"})
     if type(document["version"]) is not int or document["version"] != 1:
         raise ValueError("unsupported recording version")
     if type(document["id"]) is not str or not _UUID.fullmatch(document["id"]):
@@ -445,6 +480,35 @@ def _validate(document, allowed, limits):
             if (not isinstance(following, dict) or following.get("action") != "discover"
                     or following.get("data") != event["input"]["data"]):
                 raise ValueError("unbound compound-command projection")
+    if "view_receipts" in document:
+        receipts = document["view_receipts"]
+        _fields(receipts, {"required", "observed"})
+        for key in ("required", "observed"):
+            if type(receipts[key]) is not list or len(receipts[key]) > limits.max_events:
+                raise ValueError("view receipt count limit")
+        required = receipts["required"]
+        for step in required:
+            _integer(step, len(document["events"]))
+        if required != sorted(set(required)):
+            raise ValueError("view requirements must be ordered and unique")
+        for step in required:
+            _integer(step, len(document["events"]))
+            if not step or not isinstance(document["events"][step - 1].get("core"), dict):
+                raise ValueError("view receipt requires a core boundary")
+        previous_step, previous_clock = 0, document["created_at"]
+        for observation in receipts["observed"]:
+            _fields(observation, {"step", "clock", "receipt"})
+            step = observation["step"]
+            _integer(step, len(document["events"]))
+            _number(observation["clock"])
+            if step not in required or step < previous_step or observation["clock"] < previous_clock:
+                raise ValueError("view receipts must bind ordered delivered boundaries")
+            if not document["events"][step - 1]["clock"] <= observation["clock"] < document["expires_at"]:
+                raise ValueError("view receipt clock outside capture")
+            _browser_receipt(observation["receipt"], limits)
+            if observation["receipt"]["revision"] != document["events"][step - 1]["core"]["view"]["revision"]:
+                raise ValueError("view receipt revision mismatch")
+            previous_step, previous_clock = step, observation["clock"]
     if any(type(document[key]) is not bool for key in ("complete", "purged")):
         raise ValueError("invalid capture flags")
     _integer(document["dropped"], 2**31)
@@ -539,7 +603,7 @@ class Recording:
     """
 
     def __init__(self, provenance, *, fixture_refs=(), synthetic=False, now=None,
-                 timezone="UTC", limits=None):
+                 timezone="UTC", limits=None, capture_views=False):
         if synthetic is not True:
             raise PermissionError("explicit synthetic recording opt-in required")
         self.limits = limits or Limits()
@@ -555,6 +619,8 @@ class Recording:
             "branch": {"id": "original", "parent": None, "parent_digest": None,
                        "at": None, "changes": {}}}
         self._mutable = True
+        if capture_views:
+            self._data["view_receipts"] = {"required": [], "observed": []}
         self._expected = None
         _validate(self.to_dict(), self._allowed, self.limits)
 
@@ -588,7 +654,55 @@ class Recording:
                 channel = None  # A structural denial legitimately performs no I/O.
             if channel is not None and channel not in event["outcomes"]:
                 missing.append(f"step {event['seq']}: {channel}")
+        receipts = self._data.get("view_receipts")
+        if receipts is None or not receipts["required"] and self._data["events"]:
+            missing.append("browser acknowledgement capture unavailable")
+        else:
+            for step in receipts["required"]:
+                observed = [item["receipt"] for item in receipts["observed"] if item["step"] == step]
+                if not observed:
+                    missing.append(f"step {step}: browser acknowledgement")
+                elif any(set(item.get("presentation", {})) != {"notice", "pending", "dirty", "can_confirm"}
+                         for item in observed):
+                    missing.append(f"step {step}: browser presentation")
         return missing
+
+    def require_view(self, step, *, max_bytes=None):
+        """A delivered response is evidence to await, not evidence of rendering."""
+        if not self._mutable:
+            raise RuntimeError("recording is sealed")
+        candidate = self.to_dict()
+        receipts = candidate.setdefault("view_receipts", {"required": [], "observed": []})
+        if step in receipts["required"]:
+            return True
+        receipts["required"].append(step)
+        candidate["digest"] = _digest(candidate)
+        _validate(candidate, self._allowed, self.limits)
+        ceiling = self.limits.max_record_bytes if max_bytes is None else min(self.limits.max_record_bytes, max_bytes)
+        if len(_canonical(candidate).encode()) > ceiling:
+            self._data["dropped"] += 1
+            return False
+        self._data["view_receipts"] = receipts
+        return True
+
+    def acknowledge(self, step, receipt, clock, *, max_bytes=None):
+        if not self._mutable:
+            raise RuntimeError("recording is sealed")
+        receipts = self._data.setdefault("view_receipts", {"required": [], "observed": []})
+        if len(receipts["observed"]) >= self.limits.max_events:
+            self._data["dropped"] += 1
+            return False
+        candidate = self.to_dict()
+        observation = {"step": step, "clock": clock, "receipt": deepcopy(receipt)}
+        candidate["view_receipts"]["observed"].append(observation)
+        candidate["digest"] = _digest(candidate)
+        _validate(candidate, self._allowed, self.limits)
+        if len(_canonical(candidate).encode()) > min(self.limits.max_record_bytes,
+                                                     self.limits.max_record_bytes if max_bytes is None else max_bytes):
+            self._data["dropped"] += 1
+            return False
+        receipts["observed"].append(observation)
+        return True
 
     def append(self, command, *, outcomes=None, view=None, clock=None, core=...):
         if not self._mutable or self._data["purged"]:
@@ -640,6 +754,7 @@ class Recording:
     def purge(self):
         """Erase only this memory recording; references remain expired evidence."""
         self._data["events"] = []
+        self._data.pop("view_receipts", None)
         self._data["purged"] = True
         self._data["complete"] = False
         self._mutable = False
@@ -930,12 +1045,16 @@ class Replay:
     def fidelity(self):
         doc = self._recording._data
         return {"core_semantic_parity": bool(doc["complete"] and not doc["purged"] and not doc["dropped"]
-                    and doc["branch"]["id"] == "original" and not self.missing
+                    and doc["branch"]["id"] == "original" and not self.core_missing
                     and self._recording.compatibility["checked"] and not self._recording.compatibility["drift"]),
                 "core_renderer_parity": False, "representation": "scheduling_core_v1",
-                "limitations": ["Semantic core projections, not browser drafts, focus or acknowledgement parity.",
+                "limitations": ["Recorded browser receipts are observations, not recomputed renderer parity.",
                                 "Private records and receipt identifiers are omitted.",
                                 "Variants recompute core decisions; unchanged recorded API observations are counterfactual stubs."]}
+
+    @property
+    def core_missing(self):
+        return [gap for gap in self.missing if "browser acknowledgement" not in gap and "browser presentation" not in gap]
 
     def _core_states(self, index):
         from .session import SchedulingSession
@@ -1030,7 +1149,10 @@ class Replay:
 
     def state(self):
         self._active()
-        return _escaped({**self._state_at(self.index), "namespace": self.namespace})
+        observed = self._recording._data.get("view_receipts", {}).get("observed", [])
+        return _escaped({**self._state_at(self.index), "namespace": self.namespace,
+            "observed_views": [deepcopy(item) for item in observed if item["step"] <= self.index + 1],
+            "view_evidence": "original_observation_not_variant_prediction"})
 
     def jump(self, index):
         self._index(index, initial=True)
@@ -1147,6 +1269,10 @@ class Replay:
                 raise ValueError("ordering must cover the selected suffix")
             doc["events"][index:] = [suffix[position] for position in changes["order"]]
         reordered = {event["seq"]: seq for seq, event in enumerate(doc["events"], 1)}
+        # Changed ordering/clocks cannot transplant original observations.
+        # Retain parent provenance, but do not relabel original views as variant output.
+        if "order" in changes or "clock" in changes:
+            doc.pop("view_receipts", None)
         for seq, event in enumerate(doc["events"], 1):
             event["seq"] = seq
             if isinstance(event.get("core"), dict) and "model_step" in event["core"]:

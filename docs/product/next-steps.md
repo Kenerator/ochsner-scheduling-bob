@@ -42,3 +42,10 @@ with that owner. Purged references remain expired, even with an external export.
 The exact public-source repository and retained branding/assets are now approved;
 repository settings/readback are [verified](../internal/security.md#bob-public-source-settings-readback--2026-10-10) separately from video production.
 There is no public application deployment or external video-publication grant.
+
+Completeness follow-on: [native T053–T056](../../specs/001-ochsner-scheduling-assistant/tasks.md)
+supersede any assumption that RC-1 captured browser acknowledgement history or
+fully exposed recording-OFF diagnostics. New ordered receipts are observations,
+not regenerated browser parity; absent required receipts remain incomplete even
+when core parity passes. Historical stills keep their exact source/limitations.
+[Future production notes](production-design-notes.md) are design only.
