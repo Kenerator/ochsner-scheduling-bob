@@ -17,6 +17,13 @@ supplied package branding instruction was found in the reviewed assignment.
 | [Genuine-AI quickstart](../../assets/ui/stills/genuine-quickstart-20261009/manifest.json) | Ten native 1700×543 JPEG viewports, exact public natural-language request through separately confirmed mock completion; [sanitized model evidence](../../assets/ui/stills/genuine-quickstart-20261009/model-evidence.json). Source `3427c59`, disclosed isolated capture plumbing; one genuine call, later controls local. Final history is outcome history, not appointment lookup. | Same private/internal audience; no publication grant |
 | [Feature-completion supplement](../../assets/ui/stills/feature-completion-20261010/manifest.json) | 87 native unedited JPEGs; per-entry source, dimensions, visible anchors and hashes. Ordinary/fault captures bind `c3e6df2`; repaired replay/Support binds `e2dfa7e`. Separate fault launcher and one accepted-booking proof are included. Rejected frames excluded. See [current feature notes](video-notes.md#feature-completion-supplement--2026-10-10). | Internal-use PoC; approved exact public-source repository |
 
+The [completeness IAB supplement](../../assets/ui/stills/completeness-smoke-20261010/manifest.json)
+adds only three native 1280×720 JPEG viewports at `96b9bb8`: recording-OFF
+state/API/model-null and original replay observations. Disclosed disposable port
+change, [actual UI JSON](../../assets/ui/stills/completeness-smoke-20261010/ui-evidence.json),
+warnings and test-only partial-receipt coverage remain explicit. Same approved
+exact-repository audience; no external media publication.
+
 Earlier “private/internal” table entries record original capture authorization,
 not a continuing prohibition on this exact repository. The 2026-10-10 Operator
 decision above governs current source/asset accessibility; it does not authorize

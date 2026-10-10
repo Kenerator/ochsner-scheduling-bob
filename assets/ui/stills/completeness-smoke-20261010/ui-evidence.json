@@ -1,0 +1,4086 @@
+{
+  "source_revision": "96b9bb8ec21392d9bf5962f79c61adaca7a3ee1a",
+  "recording_off": {
+    "recording": "off",
+    "reference": "BOB-c92fb90e20574566a5cf5e7d574619c4/step/1/branch/original",
+    "missing": [],
+    "dropped": 0,
+    "stored": false,
+    "events": [
+      {
+        "seq": 1,
+        "action": "discover",
+        "before": {
+          "revision": 0,
+          "state": "start",
+          "identity": "missing",
+          "proposal": false,
+          "provider_count": 0,
+          "slot_count": 0,
+          "appointment_count": 0,
+          "booking_certainty": "not_attempted",
+          "takeover": false
+        },
+        "after": {
+          "revision": 1,
+          "state": "providers",
+          "identity": "missing",
+          "proposal": false,
+          "provider_count": 2,
+          "slot_count": 0,
+          "appointment_count": 0,
+          "booking_certainty": "not_attempted",
+          "takeover": false
+        },
+        "latency_ms": 2.545,
+        "policy": {
+          "allow": true,
+          "reason": "Public provider discovery does not require identity.",
+          "rule": "public_discovery",
+          "engine": "zen-engine",
+          "policy_digest": "57623ce5384491d1dd55618b1c223141b5f818db481bf79425f59f41d4299800"
+        }
+      }
+    ],
+    "provenance": {
+      "source_revision": "96b9bb8ec21392d9bf5962f79c61adaca7a3ee1a",
+      "dependencies": "cac7cd62c3313576c62501bdf1d3ae0dd2c4022b721ae2071acf263a5878cded",
+      "policy": "57623ce5384491d1dd55618b1c223141b5f818db481bf79425f59f41d4299800",
+      "prompt": "ef50e426cecfe858e158f206ce01e0f189ef5ad2e81ba1125c8423f5860312a8",
+      "schema": "12ea63a5718a83a3d005c7bb14924b6d94382b8c3868694224123100d67c46db",
+      "fixtures": "b145d2fc18097c3f2f9c5eba00b4dd911cff5ead0ad2875f19bfcfc556abfb02"
+    },
+    "source": {
+      "override": false,
+      "working_tree_dirty": true,
+      "revision_basis": "git_archive",
+      "working_tree_state": "unknown",
+      "code_digest": "f54f80a48e0370997b1cbedfef9904d85f70fcc9c2d3cea24f8befd8fee586c8",
+      "dependency_basis": "pinned_project_metadata"
+    },
+    "fidelity": {
+      "core_semantic_parity": false,
+      "core_renderer_parity": false,
+      "representation": "scheduling_core_v1",
+      "limitations": [
+        "Compound commands may project into multiple recording steps.",
+        "Fixture references and receipt certainty, not private records or receipt identifiers.",
+        "Server projections are not proof of browser acknowledgement, drafts or focus.",
+        "Full core semantic fidelity is qualified against captured projections on replay."
+      ]
+    },
+    "api_events": [
+      {
+        "seq": 1,
+        "method": "providers",
+        "outcome": "ok",
+        "error": "none",
+        "http_status": null,
+        "latency_ms": 1.874
+      }
+    ],
+    "model": null,
+    "diagnostic_dropped": 0,
+    "trace_dropped": 0,
+    "simulation_only": false,
+    "retention": {
+      "status": "ok",
+      "error": null
+    },
+    "browser_mode": "live",
+    "submission_pending": false
+  },
+  "sealed": {
+    "reference": "BOB-1e8c32f7c7ce4dc6b09bb68f1391ce73/step/1/branch/original",
+    "recording": "full_replay",
+    "missing": [],
+    "dropped": 0,
+    "stored": true,
+    "expires_at": 1791727191.1314921,
+    "fidelity": {
+      "core_semantic_parity": false,
+      "core_renderer_parity": false,
+      "representation": "scheduling_core_v1",
+      "limitations": [
+        "Compound commands may project into multiple recording steps.",
+        "Fixture references and receipt certainty, not private records or receipt identifiers.",
+        "Server projections are not proof of browser acknowledgement, drafts or focus.",
+        "Full core semantic fidelity is qualified against captured projections on replay."
+      ]
+    },
+    "events": [
+      {
+        "seq": 1,
+        "action": "help",
+        "before": {
+          "revision": 0,
+          "state": "start",
+          "identity": "missing",
+          "proposal": false,
+          "provider_count": 0,
+          "slot_count": 0,
+          "appointment_count": 0,
+          "booking_certainty": "not_attempted",
+          "takeover": false
+        },
+        "after": {
+          "revision": 1,
+          "state": "help",
+          "identity": "missing",
+          "proposal": false,
+          "provider_count": 0,
+          "slot_count": 0,
+          "appointment_count": 0,
+          "booking_certainty": "not_attempted",
+          "takeover": false
+        },
+        "latency_ms": 0.003,
+        "policy": null
+      },
+      {
+        "seq": 2,
+        "action": "medical",
+        "before": {
+          "revision": 1,
+          "state": "help",
+          "identity": "missing",
+          "proposal": false,
+          "provider_count": 0,
+          "slot_count": 0,
+          "appointment_count": 0,
+          "booking_certainty": "not_attempted",
+          "takeover": false
+        },
+        "after": {
+          "revision": 2,
+          "state": "medical",
+          "identity": "missing",
+          "proposal": false,
+          "provider_count": 0,
+          "slot_count": 0,
+          "appointment_count": 0,
+          "booking_certainty": "not_attempted",
+          "takeover": false
+        },
+        "latency_ms": 0.004,
+        "policy": null
+      }
+    ],
+    "provenance": {
+      "source_revision": "96b9bb8ec21392d9bf5962f79c61adaca7a3ee1a",
+      "dependencies": "cac7cd62c3313576c62501bdf1d3ae0dd2c4022b721ae2071acf263a5878cded",
+      "policy": "57623ce5384491d1dd55618b1c223141b5f818db481bf79425f59f41d4299800",
+      "prompt": "ef50e426cecfe858e158f206ce01e0f189ef5ad2e81ba1125c8423f5860312a8",
+      "schema": "12ea63a5718a83a3d005c7bb14924b6d94382b8c3868694224123100d67c46db",
+      "fixtures": "b145d2fc18097c3f2f9c5eba00b4dd911cff5ead0ad2875f19bfcfc556abfb02"
+    },
+    "source": {
+      "override": false,
+      "working_tree_dirty": true,
+      "revision_basis": "git_archive",
+      "working_tree_state": "unknown",
+      "code_digest": "f54f80a48e0370997b1cbedfef9904d85f70fcc9c2d3cea24f8befd8fee586c8",
+      "dependency_basis": "pinned_project_metadata"
+    },
+    "api_events": [],
+    "model": null,
+    "diagnostic_dropped": 0,
+    "trace_dropped": 0,
+    "simulation_only": false,
+    "retention": {
+      "status": "ok",
+      "error": null
+    },
+    "browser_mode": "live",
+    "submission_pending": false
+  },
+  "replay_open": {
+    "simulation_only": true,
+    "index": -1,
+    "reference": "BOB-1e8c32f7c7ce4dc6b09bb68f1391ce73/step/0/branch/original",
+    "browser_mode": "replay",
+    "submission_pending": false,
+    "state": {
+      "revision": 0,
+      "identity_fixture": null,
+      "preferences": {},
+      "providers": [],
+      "options": [],
+      "selection": null,
+      "outcome": "not_attempted",
+      "unknown": false,
+      "history": [],
+      "clock": 1791640791.1314921,
+      "message": "I am an AI scheduling assistant for synthetic data. Find providers, book, or look up appointments. Help is always available.",
+      "simulation_only": true,
+      "executable_authority": false,
+      "core": {
+        "revision": 0,
+        "state": "start",
+        "identity_status": "missing",
+        "preferences": {},
+        "provider_count": 0,
+        "slot_count": 0,
+        "appointment_count": 0,
+        "proposal": false,
+        "certainty": "not_attempted",
+        "history": [],
+        "booking_blocked": false,
+        "handoff_blocked": false,
+        "takeover": false,
+        "policy": null
+      },
+      "namespace": "3e7554c5837f4beda6cc166f0787ab21",
+      "observed_views": [],
+      "view_evidence": "original_observation_not_variant_prediction"
+    },
+    "recording": "full_replay",
+    "event_count": 2,
+    "missing": [],
+    "fidelity": {
+      "core_semantic_parity": true,
+      "core_renderer_parity": false,
+      "representation": "scheduling_core_v1",
+      "limitations": [
+        "Recorded browser receipts are observations, not recomputed renderer parity.",
+        "Private records and receipt identifiers are omitted.",
+        "Variants recompute core decisions; unchanged recorded API observations are counterfactual stubs."
+      ]
+    },
+    "compatibility": {
+      "checked": true,
+      "drift": []
+    },
+    "bookmarks": {}
+  },
+  "replay_step_1": {
+    "simulation_only": true,
+    "index": 0,
+    "reference": "BOB-1e8c32f7c7ce4dc6b09bb68f1391ce73/step/1/branch/original",
+    "browser_mode": "replay",
+    "submission_pending": false,
+    "state": {
+      "revision": 1,
+      "identity_fixture": null,
+      "preferences": {},
+      "providers": [],
+      "options": [],
+      "selection": null,
+      "outcome": "not_attempted",
+      "unknown": false,
+      "history": [],
+      "clock": 1791640806.798481,
+      "message": "I can prepare a mock handoff. No email is required. This browser demo does not provide basic-phone access or real staff contact.",
+      "simulation_only": true,
+      "executable_authority": false,
+      "core": {
+        "revision": 1,
+        "state": "help",
+        "identity_status": "missing",
+        "preferences": {},
+        "provider_count": 0,
+        "slot_count": 0,
+        "appointment_count": 0,
+        "proposal": false,
+        "certainty": "not_attempted",
+        "history": [],
+        "booking_blocked": false,
+        "handoff_blocked": false,
+        "takeover": false,
+        "policy": null
+      },
+      "namespace": "3e7554c5837f4beda6cc166f0787ab21",
+      "observed_views": [
+        {
+          "clock": 1791640806.809723,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": true
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640806.813119,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640807.2577548,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640807.7585971,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640808.264139,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640808.765415,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640809.2609012,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640809.763807,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640810.266143,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640811.257699,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640811.768841,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640812.2588868,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640812.757653,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640813.259508,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640813.765147,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640814.2693172,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640814.768884,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640815.2692852,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640815.75966,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640816.263081,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640816.7604249,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640817.268575,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640817.759247,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640818.264686,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640818.770415,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640819.266289,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640819.765195,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640820.268681,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640820.767207,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640821.258045,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640821.766355,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640822.271172,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640822.768615,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640823.2642581,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640823.6799,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "working",
+              "pending": true
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        }
+      ],
+      "view_evidence": "original_observation_not_variant_prediction"
+    },
+    "recording": "full_replay",
+    "event_count": 2,
+    "missing": [],
+    "fidelity": {
+      "core_semantic_parity": true,
+      "core_renderer_parity": false,
+      "representation": "scheduling_core_v1",
+      "limitations": [
+        "Recorded browser receipts are observations, not recomputed renderer parity.",
+        "Private records and receipt identifiers are omitted.",
+        "Variants recompute core decisions; unchanged recorded API observations are counterfactual stubs."
+      ]
+    },
+    "compatibility": {
+      "checked": true,
+      "drift": []
+    },
+    "bookmarks": {}
+  },
+  "replay_step_2": {
+    "simulation_only": true,
+    "index": 1,
+    "reference": "BOB-1e8c32f7c7ce4dc6b09bb68f1391ce73/step/2/branch/original",
+    "browser_mode": "replay",
+    "submission_pending": false,
+    "state": {
+      "revision": 2,
+      "identity_fixture": null,
+      "preferences": {},
+      "providers": [],
+      "options": [],
+      "selection": null,
+      "outcome": "not_attempted",
+      "unknown": false,
+      "history": [],
+      "clock": 1791640823.683491,
+      "message": "I cannot give medical advice or triage. I can prepare a medical-advice handoff request.",
+      "simulation_only": true,
+      "executable_authority": false,
+      "core": {
+        "revision": 2,
+        "state": "medical",
+        "identity_status": "missing",
+        "preferences": {},
+        "provider_count": 0,
+        "slot_count": 0,
+        "appointment_count": 0,
+        "proposal": false,
+        "certainty": "not_attempted",
+        "history": [],
+        "booking_blocked": false,
+        "handoff_blocked": false,
+        "takeover": false,
+        "policy": null
+      },
+      "namespace": "3e7554c5837f4beda6cc166f0787ab21",
+      "observed_views": [
+        {
+          "clock": 1791640806.809723,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": true
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640806.813119,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640807.2577548,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640807.7585971,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640808.264139,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640808.765415,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640809.2609012,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640809.763807,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640810.266143,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640811.257699,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640811.768841,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640812.2588868,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640812.757653,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640813.259508,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640813.765147,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640814.2693172,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640814.768884,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640815.2692852,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640815.75966,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640816.263081,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640816.7604249,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640817.268575,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640817.759247,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640818.264686,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640818.770415,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640819.266289,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640819.765195,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640820.268681,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640820.767207,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640821.258045,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640821.766355,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640822.271172,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640822.768615,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640823.2642581,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640823.6799,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "working",
+              "pending": true
+            },
+            "renderer": "bob-v1",
+            "revision": 1,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 1
+        },
+        {
+          "clock": 1791640823.6969118,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": true
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640823.702222,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640823.7592802,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640824.266261,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640824.764833,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640825.26644,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640825.76745,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640826.263447,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640826.7652202,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640827.26544,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640827.7682052,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640828.269021,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640828.769027,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640829.257958,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640829.7605062,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640830.270901,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640830.7761889,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "domain",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640831.761905,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640832.271345,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640832.775997,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640833.7678761,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640834.265588,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640834.7651808,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640835.2737439,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640836.27165,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640836.774587,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640837.272751,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640837.764693,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640838.2699788,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640838.7683,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640839.274963,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640839.776255,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640840.269191,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640841.26229,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640841.7776809,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "ack_unavailable",
+              "pending": false
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        },
+        {
+          "clock": 1791640842.214714,
+          "receipt": {
+            "draft": {
+              "end_date": "",
+              "location": "",
+              "message": "",
+              "specialty": "",
+              "start_date": ""
+            },
+            "expanded": [
+              "developer"
+            ],
+            "focus": null,
+            "presentation": {
+              "can_confirm": false,
+              "dirty": false,
+              "notice": "working",
+              "pending": true
+            },
+            "renderer": "bob-v1",
+            "revision": 2,
+            "scroll": 0,
+            "visible": [
+              "message",
+              "specialty",
+              "location",
+              "start_date",
+              "end_date",
+              "local-controls",
+              "developer"
+            ]
+          },
+          "step": 2
+        }
+      ],
+      "view_evidence": "original_observation_not_variant_prediction"
+    },
+    "recording": "full_replay",
+    "event_count": 2,
+    "missing": [],
+    "fidelity": {
+      "core_semantic_parity": true,
+      "core_renderer_parity": false,
+      "representation": "scheduling_core_v1",
+      "limitations": [
+        "Recorded browser receipts are observations, not recomputed renderer parity.",
+        "Private records and receipt identifiers are omitted.",
+        "Variants recompute core decisions; unchanged recorded API observations are counterfactual stubs."
+      ]
+    },
+    "compatibility": {
+      "checked": true,
+      "drift": []
+    },
+    "bookmarks": {}
+  }
+}

@@ -2,6 +2,19 @@
 
 ## Original-scope completeness repair — 2026-10-10
 
+Later integration/targeted UI evidence: PR #3 normally merged at
+`96b9bb8ec21392d9bf5962f79c61adaca7a3ee1a`, identical reviewed repair tree;
+local/remote main synchronized and RC-1/RC-2 unchanged. One SM-selected offline
+actual-IAB smoke at that source is recorded in the
+[minimal still manifest](../../assets/ui/stills/completeness-smoke-20261010/manifest.json):
+recording-OFF diagnostics and ordered delivered-step observations passed with
+explicit reconnect/acknowledgement warnings and renderer/authenticity limits.
+Fresh 17 receipt/diagnostic tests passed (0.127 s), including absent/partial
+receipts; those failure states were not naturally captured in UI and are not
+claimed as browser evidence. Only three native stills adopted; no broad rerun,
+paid call, trial control or RC movement. Historical pre-merge wording below
+remains the state at its earlier documentation checkpoint.
+
 Current repair branch starts at `00ed37d`. Historical qualification below is
 retained, not evidence that these newly reproduced gaps were covered.
 

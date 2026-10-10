@@ -247,3 +247,33 @@ pairing, real PHI/staff contact or publication occurred. Owned capture services
 and tab were closed; the active Operator trial was not controlled or reset.
 Video assembly/bookend filming remain with the video owner; still delivery is
 not a finished-video claim.
+
+### Completeness IAB supplement — 2026-10-10
+
+Reviewed runtime source: `96b9bb8ec21392d9bf5962f79c61adaca7a3ee1a`, the
+normal PR #3 merge with the reviewed repair tree unchanged. The
+[three-still manifest](../../assets/ui/stills/completeness-smoke-20261010/manifest.json)
+and [actual UI evidence](../../assets/ui/stills/completeness-smoke-20261010/ui-evidence.json)
+bind the one isolated actual-IAB smoke: recording-OFF discovery diagnostics,
+then a fresh independent synthetic patient opting in before Help/Medical,
+sealing, opening and stepping twice. No paid calls or private identity input.
+
+Still 01 shows recording OFF and state; 02 shows the same inspection's providers
+API outcome/error/timing and honestly empty model history. Still 03 shows actual
+`observed_views` and revision-1 presentation, not all replay fields. UI JSON
+records 71 ordered observations (35 for step/revision 1, 36 for step/revision 2),
+no declared gaps, core semantic parity true and renderer parity false. These
+are observations, not recomputed renderer parity or authenticated imported history.
+Missing/partial receipt behavior is supported by fresh source-bound tests only;
+no naturally occurring incomplete-capture UI state was obtained or manufactured.
+
+All three are unedited 1280×720 scrolled native JPEG viewports. The disposable
+archive changed only the widget backend literal 28451 → 28681; UI used 28680,
+owned supplied mock and private namespace. Existing Python 3.11.13 environment
+was reused; no fresh-install claim. Archive working state remains unknown/dirty.
+Intermittent acknowledgement/reconnect warnings and denied host Marimo metadata
+writes are retained limitations, not a warning-free IAB claim. The initial nested
+namespace launch failure was resolved by a direct owned namespace. Seventeen
+focused receipt/diagnostic tests passed in 0.127 s on exact merged source.
+Owned tab/services closed; Operator trial, historical stills, model ledger and
+immutable RC tags untouched. Final video assembly/QA remains with its owner.
