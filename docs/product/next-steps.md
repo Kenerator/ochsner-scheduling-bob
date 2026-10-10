@@ -40,5 +40,5 @@ Current handoff: immutable [RC-1](../internal/milestones.md) records the repaire
 is delivered for media assembly; Operator intro/wrap and finished-video QA remain
 with that owner. Purged references remain expired, even with an external export.
 The exact public-source repository and retained branding/assets are now approved;
-repository settings/readback are being finalized separately from video production.
+repository settings/readback are [verified](../internal/security.md#bob-public-source-settings-readback--2026-10-10) separately from video production.
 There is no public application deployment or external video-publication grant.

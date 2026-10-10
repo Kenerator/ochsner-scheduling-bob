@@ -1,5 +1,39 @@
 # Basic credential hygiene
 
+## BOB public-source settings readback — 2026-10-10
+
+Exact repository: [nxus-SYSTEMS/ochsner-scheduling-bob](https://github.com/nxus-SYSTEMS/ochsner-scheduling-bob).
+Operator-approved public visibility was applied after source/docs/content checks;
+the application remains internal-use with no public deployment or external video
+publication. Raw intake, runtime credentials, journals, capabilities and the model
+ledger remain excluded. No root license was selected or third-party ownership changed.
+
+Fresh authenticated REST readback verified:
+
+- Public repository, default `main`, Pages off, auto-merge off, merged-topic-branch deletion on; existing merge methods retained.
+- Active `main-integrity` ruleset **24834842**: deletion and non-fast-forward restrictions on `refs/heads/main`.
+- Active `main-pull-request` **24834844**: PR plus resolved conversations, zero mandatory approvals, no code-owner/last-pusher requirement and no invented required CI contexts.
+- Active `all-tags-integrity` **24834848**: update/deletion restrictions for all tags; tag creation remains allowed. All three rulesets have empty bypass lists. Future main updates use normal PRs, not direct pushes or administrative bypass.
+- Secret scanning and repository push protection enabled; Dependabot alerts enabled (successful alerts-status endpoint), security updates enabled/not paused.
+- Actions enablement retained, GitHub-authored actions only, full-SHA pinning required, read-only workflow tokens, workflow PR approval disabled and approval required for all external fork contributors.
+
+The external-fork endpoint initially returned HTTP 422 because GitHub disallows
+this policy on private repositories. After the approved public transition, its
+normal configuration/readback succeeded; no alternate credential or safeguard
+bypass was used. Visibility/settings work preserved main and every annotated tag
+object/peeled target, including RC-1 (`ca101e7ce6bfeb2768d7a78f6327049e850f6e22`
+→ `e2dfa7e9f471513921063d568bb3bc890eff1800`). Main at that readback was the
+reviewed docs/assets checkpoint `980b882c936dcc23e43c2b11d7ede297ac0a9ca1`;
+this later readback record follows the required PR workflow.
+
+Scope/limits: settings verified by REST, not destructive force-push/tag-deletion
+experiments. No original-four-PoC settings/source, collaborators, global auth,
+plan subscription, application workflow or deployment changed. Administrators
+can still edit rules; tags are not cryptographically immutable. Whole-index and
+historical-tree pattern scans are documented in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md),
+not secret-free/history/PHI/vulnerability-free certification. The prior guard
+documentation below remains its exact implementation/limitations contract.
+
 Reviewed: **2026-10-07**. No added dependency, global Git setting or online scan.
 
 BOB project override reviewed 2026-10-09: `.gitignore` excludes the entire
