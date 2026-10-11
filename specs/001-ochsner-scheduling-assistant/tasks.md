@@ -21,7 +21,7 @@ describe that checkpoint, not the later explicit remediation approval.
   validation and perform no I/O until valid. No draft mirroring/persistence/model.
 - [x] T067 [US4/US5] A04: operation-specific safe Replay reference recovery;
   preserve anti-enumeration, valid capabilities and Support notice mirroring.
-- [ ] T068 [US6] Update affected source-bound as-built/persona/user/video details
+- [x] T068 [US6] Update affected source-bound as-built/persona/user/video details
   and navigation after code is stable; deliver verified A04 contract/text/tests to
   existing video owner. No automatic recording/render/publication.
 - [ ] T069 [US6] Run the coherent committed candidate's adapted profile once,
@@ -50,6 +50,28 @@ Runtime/test checkpoint `f7f852c613e306123041866b379a093255582543`.
 Integrated affected suite: 105 tests passed (14.951 s). The checkpoint commit
 completed with the existing credential hook; final whole-index scan and committed
 candidate qualification are recorded below when actually obtained.
+
+Committed candidate `4e42a4ac2f678cfde890f7364608f4c09a6e19fd` passed the adapted
+profile once from a clean committed local export/fresh venv and editable install:
+all seven steps exit zero, no timeouts/skips, pip check clear; combined 433 tests
+(21.394 s), nine supplied-HTTP tests covering all eight unchanged scenarios,
+all three booking demos (success/conflict recovery/unknown with retry blocked),
+nine shipped-widget checks (0.428 s). Python 3.11.13/macOS ARM, Node 22.14.0;
+unchanged profile SHA-256 `697809cdf69ba24119e380c3e78ee7a1e7bb91cfce80c997fc9c19d30d578f39`.
+Product/service-integration/ui-static passed; browser/live-model/remote-clone and
+the separate starter category were not declared/checked by the profile. Retained
+starter success/failure demos separately returned their expected synthetic states.
+
+Changed-document navigation: nine Markdown files, 252 local targets, 26 anchors,
+zero errors; staged diff check clear. Whole-index guard: 381 files, 119 binary,
+six existing exact-blob synthetic exceptions, zero unresolved findings, symlinks
+or submodules. Same pattern-scan limits in [security](../../docs/internal/security.md)
+apply; no secret-free history/PHI certification. A04 source/text/contracts/tests
+delivered to the existing media owner under the natively verified human standing
+coordination grant; first send was denied for missing visible grant evidence,
+then the actual human approval and matching question were read before a successful
+retry. No workaround, capture, render or model call occurred. Candidate review,
+exact-head CI and protected integration remain pending; T069 stays open.
 
 Implementation choice within A03's bounded-draft design: retain at most the
 valid field maximum plus one character (phone 21, DOB 11, ZIP 6). Oversized input
