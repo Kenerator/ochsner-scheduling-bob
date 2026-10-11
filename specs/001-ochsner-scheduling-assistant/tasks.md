@@ -24,7 +24,7 @@ describe that checkpoint, not the later explicit remediation approval.
 - [x] T068 [US6] Update affected source-bound as-built/persona/user/video details
   and navigation after code is stable; deliver verified A04 contract/text/tests to
   existing video owner. No automatic recording/render/publication.
-- [ ] T069 [US6] Run the coherent committed candidate's adapted profile once,
+- [x] T069 [US6] Run the coherent committed candidate's adapted profile once,
   demos/credential guard, exact-head CI and one final whole-diff review (affected-
   only rereview after fixes). Send candidate promptly for review parallel with CI;
   no self-merge before exact selected-head approval; preserve RC-1/RC-2.
@@ -72,6 +72,35 @@ coordination grant; first send was denied for missing visible grant evidence,
 then the actual human approval and matching question were read before a successful
 retry. No workaround, capture, render or model call occurred. Candidate review,
 exact-head CI and protected integration remain pending; T069 stays open.
+
+Final review/CI closure (later than the checkpoint above):
+[PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6), exact selected
+head `80ef13c27d042e37643a3d1d5aef798d81c1554a`, tree
+`b805ab41b2a0795451ad22f68dec2bff68f9f773`, against baseline `5d6510d`.
+SM independently reviewed all 22 changed files/runtime/tests/source-bound docs
+and evidence: no remaining actionable findings. The sole clarification was
+the historical conditional model allowance; SM personally verified the actual
+human $20/200 and later conditional 2× directives. No new spend was inferred
+from repair/review authority and no paid call occurred.
+
+Actual [CI run 38112429759](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38112429759)
+/ [job 114390589537](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38112429759/job/114390589537)
+succeeded at 2026-10-11 04:43:41 UTC. Its report binds exact source `80ef13c`
+and the unchanged profile hash above: all seven steps exit zero/no timeouts,
+433 combined tests (24.607 s), nine HTTP tests/all eight scenarios (0.330 s),
+all three booking demos, nine widget checks (0.369 s), install/pip check clear.
+Standard Linux x86_64/Python 3.11.17/Node 22.14.0 is additional offline runner
+evidence, not broader product/browser/live-model qualification.
+
+SM selected exact `80ef13c` after review/CI. This native closure is documentation
+only; runtime, tests, scripts, profile and workflow remain identical to the
+qualified source. Local full qualification is not repeated for unchanged bytes.
+Protected integration is still pending: this changed documentation head requires
+affected-only review, its own automatic exact-head CI and selection before normal
+match-head merge. No administrative bypass/force/new required context/new RC is
+introduced. Remote main remains baseline `5d6510d`; RC-1/RC-2 objects and peeled
+targets were read back unchanged. These markers record delivered repair/review
+work, not a future merge or media completion claim.
 
 Implementation choice within A03's bounded-draft design: retain at most the
 valid field maximum plus one character (phone 21, DOB 11, ZIP 6). Oversized input
