@@ -1,5 +1,22 @@
 # Persona → story → executable acceptance
 
+## Adversarial recovery evidence — 2026-10-10
+
+Runtime/test source `f7f852c613e306123041866b379a093255582543`; exact persona pins
+below are unchanged. US2 Jules/Billy-June's recoverable-correction requirement maps
+to [private draft recovery tests](../../tests/test_identity_draft_recovery.py):
+correct only the invalid field, never reuse prior verified authority, no private
+draft mirroring/model/persistence. US4 Sam-Rae maps to
+[empty Replay regressions](../../tests/test_replay_empty.py), including unchanged
+historical imports with explicit gaps and no live effects. US4/US5 Morgan-Rae's
+truthful Support context maps to [HTTP recovery tests](../../tests/test_local_transport.py)
+and [shipped-widget checks](../../tests/test_widget_projection.py): unavailable
+references do not imply failed pairing, and the same fixed notice is mirrored.
+US6 maintainer reliability maps to [owned acquisition tests](../../tests/test_mock_acquisition.py).
+Integrated affected suite: 105 passed; offline service/renderer/lifecycle evidence,
+not new browser, accessibility, user-research or model qualification. Final
+qualification/review progress remains solely in [native T064–T069](../../specs/001-ochsner-scheduling-assistant/tasks.md).
+
 ## Stage-one quality evidence — 2026-10-10
 
 Runtime/test source `56fc4e8bc10ec4a15dc2befabb76208f2d64a807` (candidate).

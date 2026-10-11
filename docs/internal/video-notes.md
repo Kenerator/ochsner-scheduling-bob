@@ -4,6 +4,27 @@ Updated: 2026-10-10. Status: source-bound feature-completion still supplement de
 video assembly and Operator bookends remain with the media owner.
 The existing video task owns narration/assembly; this is not a finished video.
 
+## A04 source contract for the media owner — 2026-10-10
+
+Runtime/test source `f7f852c613e306123041866b379a093255582543` (candidate;
+independent review/CI/integration pending). The fixed Replay notice is:
+
+> This recording reference is unavailable or not granted. Check the reference or import an approved recording into this session. No effect was retried.
+
+Well-formed unknown/foreign/ungranted references share `reference_unavailable`;
+true capability/join failures retain pairing guidance. Valid capabilities remain
+usable. The patient notice, Support mirror and captured receipt use the same
+closed `reference` category. [HTTP contracts](../../tests/test_local_transport.py)
+and [shipped-widget tests](../../tests/test_widget_projection.py) passed in the
+30-test affected A04 suite; these are offline evidence, not new browser stills.
+The [interaction contract](../../specs/001-ochsner-scheduling-assistant/contracts/interaction-contract.md)
+and [native T067–T069](../../specs/001-ochsner-scheduling-assistant/tasks.md)
+own behavior/progress. Historical R5 missing-reference imagery remains bound to
+its old source and is not evidence of this repair. Existing media owner/SM owns
+the separately approved VID-A01/VID-A02 scene correction/QA sequencing; no new
+capture, render or publication is claimed here. Caption deferral and human-closed
+audio flags are unchanged; VID-P01 pacing remains unselected.
+
 Completeness correction, 2026-10-10: RC-1/R04's historical no-gap label qualified
 the narrower core projection, not retained browser receipt history. New code
 captures ordered acknowledgements and labels absent required observations

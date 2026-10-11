@@ -46,6 +46,11 @@ A04 reproduced wrong HTTP/renderer denial categories and rejected notice schema;
 30 focused transport/widget/receipt/OFF-reference tests then passed. These are
 offline contracts, not a new real-browser/media or live-model qualification.
 
+Runtime/test checkpoint `f7f852c613e306123041866b379a093255582543`.
+Integrated affected suite: 105 tests passed (14.951 s). The checkpoint commit
+completed with the existing credential hook; final whole-index scan and committed
+candidate qualification are recorded below when actually obtained.
+
 Implementation choice within A03's bounded-draft design: retain at most the
 valid field maximum plus one character (phone 21, DOB 11, ZIP 6). Oversized input
 therefore stays invalid until that field is corrected; it never silently reuses
