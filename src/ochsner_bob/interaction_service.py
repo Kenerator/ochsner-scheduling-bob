@@ -30,7 +30,7 @@ from .diagnostics import Diagnostics, ObservedAPI as _ObservedAPI
 from .http_mock import ApiError, UnknownOutcome, _APPOINTMENT, _object
 from .language import LanguageOutcome, _INSTRUCTIONS, _schema
 from .recording_store import RecordingStore, StoreError, StoreFull
-from .replay import Limits, Recording, Replay, import_recording, make_provenance, _core_projection
+from .replay import Limits, Recording, Replay, ReferenceUnavailable, import_recording, make_provenance, _core_projection
 
 
 _ROOT = Path(__file__).resolve().parents[2]
@@ -736,13 +736,13 @@ class InteractionService(BrowserService):
         key = self._reference_key(reference)
         metadata = self._records.get(key)
         if metadata is None or metadata["sid"] != session.id:
-            raise PermissionError("Recording reference is not granted to this local session.")
+            raise ReferenceUnavailable("Recording reference unavailable or not granted.")
         return key, metadata
 
     def _open_off_inspection(self, session, digest, reference, now):
         references = self._attach(session)["inspection_refs"]
         if reference not in references:
-            raise PermissionError("Inspection reference is not granted to this local session.")
+            raise ReferenceUnavailable("Recording reference unavailable or not granted.")
         # Switching to OFF inspection cannot leave a previous exact replay as
         # the implicit target of subsequent fork/export commands.
         previous = self._replays.pop(digest, None)

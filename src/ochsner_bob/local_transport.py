@@ -3,6 +3,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 import re
 
+from .replay import ReferenceUnavailable
+
 
 def _pairs(items):
     result = {}
@@ -148,6 +150,8 @@ def make_server(service, *, port=28451, allowed_origin="http://127.0.0.1:28450")
                         raise ValueError("invalid replay operation")
                     result = service.replay(token, data["operation"], data["data"])
                 self.reply(201 if self.path == "/create" else 200, result)
+            except ReferenceUnavailable:
+                self.reply(403, {"error":"reference_unavailable"})
             except PermissionError:
                 self.reply(403, {"error":"capability_or_current_lease_required"})
             except (ValueError, UnicodeError, RecursionError, TypeError):

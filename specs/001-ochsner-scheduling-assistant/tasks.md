@@ -1,5 +1,60 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Approved adversarial repairs A01–A04 — 2026-10-10
+
+Resumed after explicit Operator system-availability confirmation and SM sequencing.
+Baseline/main `5d6510d50e202f11d56dc968fd53985d443d3298`, tree
+`f907536304b5688c3d597e82caeaaf619c6d431c`; existing checkout, sole BOB writer,
+scoped branch `codex/bob-adversarial-repairs`. Approved design: DevOps review
+`5088c493`, `reviews-20261010/bob-adversarial-review-and-plan.md` A01–A04.
+No new architecture, dependencies, H01 pruning, VID-P01 pacing, model calls,
+Operator service control or broad capture. Historical stage-one holds below
+describe that checkpoint, not the later explicit remediation approval.
+
+- [x] T064 [US4] A01: reproduce empty-read Replay fixtures; canonicalize both
+  observations and recorded-port behavior. Preserve historical originals and
+  classify contradictory imported evidence honestly incomplete, with no live I/O.
+- [x] T065 [P] [US6] A02: reproduce owned acquisition cancellation; clean up own
+  child and both pipe ends on unsuccessful startup, re-raising cancellation.
+- [x] T066 [P] [US2] A03: reproduce partial invalid identity recovery; retain only
+  bounded private discriminator drafts, revoke authority/results/proposal before
+  validation and perform no I/O until valid. No draft mirroring/persistence/model.
+- [x] T067 [US4/US5] A04: operation-specific safe Replay reference recovery;
+  preserve anti-enumeration, valid capabilities and Support notice mirroring.
+- [ ] T068 [US6] Update affected source-bound as-built/persona/user/video details
+  and navigation after code is stable; deliver verified A04 contract/text/tests to
+  existing video owner. No automatic recording/render/publication.
+- [ ] T069 [US6] Run the coherent committed candidate's adapted profile once,
+  demos/credential guard, exact-head CI and one final whole-diff review (affected-
+  only rereview after fixes). Send candidate promptly for review parallel with CI;
+  no self-merge before exact selected-head approval; preserve RC-1/RC-2.
+
+Pre-flight: A01 and A04 share the existing Replay service surface but change
+different boundaries; integrate sequentially. A02/A03 have disjoint source slices
+and `[P]` eligibility, but the explicit sole-writer constraint keeps edits here;
+independent final review runs alongside CI. Native tasks remain the sole ledger.
+
+Baseline combined suite: 422 tests passed (21.885 s). A01 reproduced three
+nonempty fixture-list failures plus missing contradiction classification, and a
+separate recorded-port failure; focused Replay/post-booking suite 23 passed.
+A02 reproduced four cancellation cleanup failures (select/read × KeyboardInterrupt/
+SystemExit); seven acquisition/owned-launch tests then passed, using fake children
+for cancellation and only an owned free-port backend for launch.
+A03 reproduced ZIP/phone/DOB partial recovery and oversized recovery failures;
+49 focused session/interaction tests passed after the bounded private-draft repair.
+A04 reproduced wrong HTTP/renderer denial categories and rejected notice schema;
+30 focused transport/widget/receipt/OFF-reference tests then passed. These are
+offline contracts, not a new real-browser/media or live-model qualification.
+
+Implementation choice within A03's bounded-draft design: retain at most the
+valid field maximum plus one character (phone 21, DOB 11, ZIP 6). Oversized input
+therefore stays invalid until that field is corrected; it never silently reuses
+an older valid discriminator. Unsupported keys/non-text types clear the candidate
+and reject. Existing in-memory/reset lifespan is unchanged; no new persistence,
+mirroring or model input. Historical contradictory empty Replay recordings remain
+byte/digest-preserving imports but explicitly incomplete; the simulation returns
+no results instead of trusting retained fixtures.
+
 ## Stage-one quality corrections — 2026-10-10
 
 Approved consolidated SM/MLX brief; baseline `517a9b27d9ccc9cd863f3c8e868acd6e8f5b6710`.

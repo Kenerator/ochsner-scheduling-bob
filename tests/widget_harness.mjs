@@ -1,7 +1,7 @@
 // Minimal DOM boundary double, not browser/accessibility qualification. Exercise
 // the shipped request guard and truthful support observation wording.
 import assert from 'node:assert/strict';
-import widget from '../src/ochsner_bob/widget.js';
+import widget,{mirroredNotice} from '../src/ochsner_bob/widget.js';
 const nodes=[];
 class Element {
   constructor(tag){this.tag=tag;this.tagName=tag.toUpperCase();this.textContent='';this.value='';this.children=[];this.listeners={};this.classList={add(){},toggle(){}};nodes.push(this);}
@@ -27,7 +27,30 @@ globalThis.fetch=async(url,request)=>{
 };
 const named=text=>nodes.find(n=>n.tag==='button'&&n.textContent===text);
 const flush=async()=>{for(let n=0;n<4;n++)await new Promise(setImmediate);};
-if(process.argv.includes('--support-status')){
+if(process.argv.includes('--reference-recovery')){
+  for(const [path,category,kind] of [['/replay','reference_unavailable','reference'],
+      ['/replay','capability_or_current_lease_required','grant'],['/join','reference_unavailable','grant']]){
+    nodes.length=0;values.clear();values.set('bob-v1-token','local-fixture-capability');values.set('bob-v1-role','patient');acks.length=0;
+    globalThis.fetch=async(url,request)=>{
+      const route=new URL(url).pathname;
+      if(route===path)return {ok:false,status:403,json:async()=>({error:category})};
+      if(route==='/ack'){acks.push(JSON.parse(request.body).receipt);return {ok:true,json:async()=>({})};}
+      return {ok:true,json:async()=>view};
+    };
+    const cleanup=widget.render({model:{get:()=>''},el:new Element('root')});await flush();
+    if(path==='/replay')nodes.find(n=>n.tag==='label'&&n.textContent==='Interaction reference').children[0].value='BOB-'+ '0'.repeat(32)+'/step/0/branch/original';
+    await named(path==='/replay'?'Open reference':'Join demo support').onclick();await flush();
+    const notice=nodes.find(n=>n.tag==='p'&&n.className?.startsWith('notice'));
+    assert.equal(acks.at(-1).presentation.notice,kind,'recovery must distinguish reference denial from capability/join denial');
+    assert.equal(mirroredNotice(acks.at(-1),view),notice.textContent,'Support must mirror the actual patient recovery notice');
+    assert.equal(values.get('bob-v1-token'),'local-fixture-capability','reference denial must not discard a valid capability');
+    if(kind==='reference'){
+      assert.ok(notice.textContent.includes('Check the reference or import an approved recording into this session'));
+      assert.ok(!notice.textContent.includes('pairing grant'));
+    }else assert.ok(notice.textContent.includes('fresh pairing grant'));
+    cleanup();
+  }
+}else if(process.argv.includes('--support-status')){
   for(const [control,lease,observed] of [['inactive',0,null],['inactive',0,view],['active',300,view],['inactive',0,view]]){
     nodes.length=0;values.clear();values.set('bob-v1-token','local-fixture-support');values.set('bob-v1-role','support');
     const mirror={patient:view,observed_patient:observed,last_observed:null,fresh:false,

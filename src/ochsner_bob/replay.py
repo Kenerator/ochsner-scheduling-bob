@@ -27,6 +27,12 @@ _API_ACTIONS = frozenset({"discover", "availability", "appointments", "confirm",
 _API_STATUS = frozenset({"ok", "empty", "completed", "rejected", "failed", "unknown"})
 _MODEL_STATUS = frozenset({"accepted", "clarify", "invalid", "timeout", "unavailable"})
 _PROVENANCE = frozenset({"source_revision", "dependencies", "policy", "prompt", "schema", "fixtures"})
+
+
+class ReferenceUnavailable(PermissionError):
+    """Generic denial; never distinguishes existence from reference ownership."""
+
+
 _LABEL = re.compile(r"[A-Za-z][A-Za-z0-9_-]{0,63}\Z")
 _HEX = re.compile(r"[0-9a-f]{64}\Z")
 _UUID = re.compile(r"[0-9a-f]{32}\Z")
@@ -427,7 +433,7 @@ def _browser_receipt(receipt, limits):
     if "presentation" in receipt:
         presentation = receipt["presentation"]
         _fields(presentation, {"notice", "pending", "dirty"}, {"can_confirm"})
-        _enum(presentation["notice"], {"none", "domain", "working", "ready", "stale", "pairing", "grant",
+        _enum(presentation["notice"], {"none", "domain", "working", "ready", "stale", "pairing", "grant", "reference",
                                          "invalid", "unavailable", "ack_unavailable"})
         if any(type(presentation[key]) is not bool for key in presentation if key != "notice"):
             raise ValueError("invalid browser presentation")
@@ -649,6 +655,12 @@ class Recording:
         missing = []
         for event in self._data["events"]:
             action = event["input"]["action"]
+            core = event.get("core")
+            observations = (event["outcomes"].get("api"), core.get("api") if isinstance(core, dict) else None)
+            # Preserve historical bytes/digests, but never certify contradictory
+            # empty-result evidence as a faithful capture.
+            if any(api is not None and api["status"] == "empty" and api["fixture_refs"] for api in observations):
+                missing.append(f"step {event['seq']}: contradictory empty API observation")
             channel = "api" if action in _API_ACTIONS else "model" if action == "language" else None
             if isinstance(event.get("core"), dict) and event["core"]["api"] is None and channel == "api":
                 channel = None  # A structural denial legitimately performs no I/O.
@@ -931,6 +943,9 @@ class _RecordedPort:
         if api["status"] not in {"ok", "empty"}:
             self.gap = True
             raise RuntimeError("Recorded data unavailable.")
+        if api["status"] == "empty":
+            self.gap = bool(api["fixture_refs"])
+            return []
         result = []
         for ref in api["fixture_refs"]:
             item = self.catalog.get(ref)
@@ -1240,6 +1255,8 @@ class Replay:
             api = event["outcomes"].setdefault("api", {"status": "unknown", "fixture_refs": [], "delay_ms": 0})
             if "api_status" in changes:
                 api["status"] = changes["api_status"]
+                if api["status"] == "empty":
+                    api["fixture_refs"] = []
             if "api_delay_ms" in changes:
                 api["delay_ms"] = changes["api_delay_ms"]
         evidence = event.get("core")
@@ -1256,6 +1273,8 @@ class Replay:
                     evidence["api"].update(status=status, error="api" if status in {"rejected", "failed"} else
                                            "unknown" if status == "unknown" else "none",
                                            http_status=409 if status == "rejected" else 503 if status == "failed" else None)
+                    if status == "empty":
+                        evidence["api"]["fixture_refs"] = []
         elif "preferences" in changes and "core" in event:
             # Compound discover's projected preferences are not a second core
             # command. Its variant belongs to the following actual boundary.
