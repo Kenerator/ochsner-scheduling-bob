@@ -261,14 +261,20 @@ class SchedulingSession:
         self._identity_input = {}
         if set(merged) - {"phone", "dob", "zip"}:
             raise ValueError("Identity must come from the private phone, birth date and ZIP controls.")
-        phone, dob, zip_code = merged.get("phone", ""), merged.get("dob", ""), merged.get("zip", "")
+        if any(type(value) is not str for value in merged.values()):
+            raise ValueError("Use text in the private phone, birth date and ZIP controls.")
+        # Private drafts retain the invalid correction, not verified authority.
+        # One character beyond each valid maximum preserves invalidity without
+        # retaining arbitrarily large input; lifespan/reset boundaries are unchanged.
+        bounds = {"phone": 20, "dob": 10, "zip": 5}
+        self._identity_input = {key: value[:bounds[key] + 1] for key, value in merged.items()}
+        phone, dob, zip_code = (self._identity_input.get(key, "") for key in ("phone", "dob", "zip"))
         if not isinstance(phone, str) or not re.fullmatch(r"[0-9()+ -]{7,20}", phone):
             raise ValueError("Enter the synthetic phone in the private controls.")
         if not _calendar(dob):
             raise ValueError("Enter a calendar-valid birth date as YYYY-MM-DD.")
         if type(zip_code) is not str or (zip_code != "" and not re.fullmatch(r"[0-9]{5}", zip_code)):
             raise ValueError("Enter a five-digit ZIP in the private controls.")
-        self._identity_input = merged
         matches = self.api.search_patients(phone, dob)
         if zip_code:
             matches = [p for p in matches if p["zipCode"] == zip_code]
@@ -355,7 +361,7 @@ class SchedulingSession:
             if "presentation" in view_receipt:
                 item=view_receipt["presentation"]
                 if (type(item) is not dict or set(item) not in ({"notice","pending","dirty"}, {"notice","pending","dirty","can_confirm"})
-                        or type(item["notice"]) is not str or item["notice"] not in {"none","domain","working","ready","stale","pairing","grant","invalid","unavailable","ack_unavailable"}
+                        or type(item["notice"]) is not str or item["notice"] not in {"none","domain","working","ready","stale","pairing","grant","reference","invalid","unavailable","ack_unavailable"}
                         or type(item["pending"]) is not bool or type(item["dirty"]) is not bool
                         or "can_confirm" in item and type(item["can_confirm"]) is not bool):
                     raise ValueError("Invalid categorical presentation acknowledgement.")

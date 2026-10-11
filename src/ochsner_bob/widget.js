@@ -15,6 +15,7 @@ export function semanticReceipt(revision,draft,focus,scroll,expanded,presentatio
 export function mirroredNotice(receipt,view) {
   const messages={none:'',working:'Working locally… No action will be retried automatically.',ready:'Ready',stale:'This screen is out of date. Review the current screen before acting.',
     pairing:'Share this one-use grant only with the other local demo tab. It expires in five minutes.',grant:'This local grant is missing, expired, or not permitted. Start a patient session or use a fresh pairing grant. No effect was retried.',
+    reference:'This recording reference is unavailable or not granted. Check the reference or import an approved recording into this session. No effect was retried.',
     invalid:'That input is not supported. Review the current controls or ask for help. No effect was retried.',unavailable:'Local connection unavailable. Check the sidecar and refresh; no effect was retried.',
     ack_unavailable:'Support acknowledgement unavailable. Keep private information in the local identity controls; the support mirror may be stale.'};
   return messages[receipt?.presentation?.notice]??view?.message??'';
@@ -55,10 +56,16 @@ export default {render({model,el}) {
   const showNotice=(text,warning=false,kind='domain')=>{noticeKind=text?kind:'none';notice.textContent=text;notice.hidden=!text;notice.className='notice'+(warning?' warning':'');};
   async function api(path,body) {
     const response=await fetch(base+path,{method:body===undefined?'GET':'POST',cache:'no-store',headers:{'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},...(body===undefined?{}:{body:JSON.stringify(body)})});
-    if(!response.ok) {const error=new Error('local');error.status=response.status;throw error;}return response.json();
+    if(!response.ok) {
+      const error=new Error('local');error.status=response.status;
+      // Only a closed Replay denial category selects reference recovery. Never
+      // display raw response text or confuse a real capability/join failure.
+      if(path==='/replay'&&response.status===403){try{error.referenceUnavailable=(await response.json()).error==='reference_unavailable';}catch{}}
+      throw error;
+    }return response.json();
   }
   function saveCapability(){sessionStorage.setItem(storage+'token',token);sessionStorage.setItem(storage+'role',role);}
-  async function run(fn,allowDuringWait=false){if(working&&!allowDuringWait)return;pendingRequests++;working=true;showNotice('Working locally… No action will be retried automatically.',false,'working');updateEnabled();ack().catch(()=>{});const start=performance.now();try{await fn();if(notice.textContent.startsWith('Working locally'))showNotice('Ready · '+Math.round(performance.now()-start)+' ms',false,'ready');}catch(error){showNotice(error.status===403?'This local grant is missing, expired, or not permitted. Start a patient session or use a fresh pairing grant. No effect was retried.':error.status===400?'That input is not supported. Review the current controls or ask for help. No effect was retried.':'Local connection unavailable. Check the sidecar and refresh; no effect was retried.',true,error.status===403?'grant':error.status===400?'invalid':'unavailable');}finally{pendingRequests--;working=pendingRequests>0;updateEnabled();ack().catch(()=>{});}}
+  async function run(fn,allowDuringWait=false){if(working&&!allowDuringWait)return;pendingRequests++;working=true;showNotice('Working locally… No action will be retried automatically.',false,'working');updateEnabled();ack().catch(()=>{});const start=performance.now();try{await fn();if(notice.textContent.startsWith('Working locally'))showNotice('Ready · '+Math.round(performance.now()-start)+' ms',false,'ready');}catch(error){const kind=error.referenceUnavailable?'reference':error.status===403?'grant':error.status===400?'invalid':'unavailable';showNotice(mirroredNotice({presentation:{notice:kind}},null),true,kind);}finally{pendingRequests--;working=pendingRequests>0;updateEnabled();ack().catch(()=>{});}}
   async function command(action,data={}) {const revision=(state?.patient||state)?.revision;if(!Number.isInteger(revision))throw new Error('no current view');const result=await api('/command',{action,data,revision});showNotice(result.message||result.patient?.message||'Local command processed',!!result.stale,result.stale?'stale':'domain');await refresh();return result;}
   button('Start independent patient',async()=>{const created=await api('/create',{});token=created.token;role='patient';saveCapability();renderedRevision=-1;message.value='';dirty=false;persistPublic();await refresh();});
   const grant=field('One-use pairing grant',toolbar);grant.maxLength=128;

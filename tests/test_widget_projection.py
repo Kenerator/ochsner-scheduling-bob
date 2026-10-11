@@ -9,6 +9,12 @@ import tempfile
 
 
 class WidgetProjectionTests(unittest.TestCase):
+    def test_reference_recovery_is_operation_specific_and_mirrors_without_losing_capability(self):
+        script = Path(__file__).with_name("widget_harness.mjs")
+        result = subprocess.run([shutil.which("node"), str(script), "--reference-recovery"],
+                                capture_output=True, text=True, timeout=5)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def test_widget_import_is_explicit_esm_without_node_syntax_detection(self):
         path = Path(__file__).resolve().parents[1] / "src/ochsner_bob/widget.js"
         script = "import widget,{semanticReceipt} from " + json.dumps(path.as_uri()) + "; console.log(JSON.stringify({render:typeof widget.render,revision:semanticReceipt(0,{},null,0,[]).revision}));"

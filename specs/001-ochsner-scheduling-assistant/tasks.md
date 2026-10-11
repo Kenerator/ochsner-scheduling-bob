@@ -1,5 +1,116 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Approved adversarial repairs A01–A04 — 2026-10-10
+
+Resumed after explicit Operator system-availability confirmation and SM sequencing.
+Baseline/main `5d6510d50e202f11d56dc968fd53985d443d3298`, tree
+`f907536304b5688c3d597e82caeaaf619c6d431c`; existing checkout, sole BOB writer,
+scoped branch `codex/bob-adversarial-repairs`. Approved design: DevOps review
+`5088c493`, `reviews-20261010/bob-adversarial-review-and-plan.md` A01–A04.
+No new architecture, dependencies, H01 pruning, VID-P01 pacing, model calls,
+Operator service control or broad capture. Historical stage-one holds below
+describe that checkpoint, not the later explicit remediation approval.
+
+- [x] T064 [US4] A01: reproduce empty-read Replay fixtures; canonicalize both
+  observations and recorded-port behavior. Preserve historical originals and
+  classify contradictory imported evidence honestly incomplete, with no live I/O.
+- [x] T065 [P] [US6] A02: reproduce owned acquisition cancellation; clean up own
+  child and both pipe ends on unsuccessful startup, re-raising cancellation.
+- [x] T066 [P] [US2] A03: reproduce partial invalid identity recovery; retain only
+  bounded private discriminator drafts, revoke authority/results/proposal before
+  validation and perform no I/O until valid. No draft mirroring/persistence/model.
+- [x] T067 [US4/US5] A04: operation-specific safe Replay reference recovery;
+  preserve anti-enumeration, valid capabilities and Support notice mirroring.
+- [x] T068 [US6] Update affected source-bound as-built/persona/user/video details
+  and navigation after code is stable; deliver verified A04 contract/text/tests to
+  existing video owner. No automatic recording/render/publication.
+- [x] T069 [US6] Run the coherent committed candidate's adapted profile once,
+  demos/credential guard, exact-head CI and one final whole-diff review (affected-
+  only rereview after fixes). Send candidate promptly for review parallel with CI;
+  no self-merge before exact selected-head approval; preserve RC-1/RC-2.
+
+Pre-flight: A01 and A04 share the existing Replay service surface but change
+different boundaries; integrate sequentially. A02/A03 have disjoint source slices
+and `[P]` eligibility, but the explicit sole-writer constraint keeps edits here;
+independent final review runs alongside CI. Native tasks remain the sole ledger.
+
+Baseline combined suite: 422 tests passed (21.885 s). A01 reproduced three
+nonempty fixture-list failures plus missing contradiction classification, and a
+separate recorded-port failure; focused Replay/post-booking suite 23 passed.
+A02 reproduced four cancellation cleanup failures (select/read × KeyboardInterrupt/
+SystemExit); seven acquisition/owned-launch tests then passed, using fake children
+for cancellation and only an owned free-port backend for launch.
+A03 reproduced ZIP/phone/DOB partial recovery and oversized recovery failures;
+49 focused session/interaction tests passed after the bounded private-draft repair.
+A04 reproduced wrong HTTP/renderer denial categories and rejected notice schema;
+30 focused transport/widget/receipt/OFF-reference tests then passed. These are
+offline contracts, not a new real-browser/media or live-model qualification.
+
+Runtime/test checkpoint `f7f852c613e306123041866b379a093255582543`.
+Integrated affected suite: 105 tests passed (14.951 s). The checkpoint commit
+completed with the existing credential hook; final whole-index scan and committed
+candidate qualification are recorded below when actually obtained.
+
+Committed candidate `4e42a4ac2f678cfde890f7364608f4c09a6e19fd` passed the adapted
+profile once from a clean committed local export/fresh venv and editable install:
+all seven steps exit zero, no timeouts/skips, pip check clear; combined 433 tests
+(21.394 s), nine supplied-HTTP tests covering all eight unchanged scenarios,
+all three booking demos (success/conflict recovery/unknown with retry blocked),
+nine shipped-widget checks (0.428 s). Python 3.11.13/macOS ARM, Node 22.14.0;
+unchanged profile SHA-256 `697809cdf69ba24119e380c3e78ee7a1e7bb91cfce80c997fc9c19d30d578f39`.
+Product/service-integration/ui-static passed; browser/live-model/remote-clone and
+the separate starter category were not declared/checked by the profile. Retained
+starter success/failure demos separately returned their expected synthetic states.
+
+Changed-document navigation: nine Markdown files, 252 local targets, 26 anchors,
+zero errors; staged diff check clear. Whole-index guard: 381 files, 119 binary,
+six existing exact-blob synthetic exceptions, zero unresolved findings, symlinks
+or submodules. Same pattern-scan limits in [security](../../docs/internal/security.md)
+apply; no secret-free history/PHI certification. A04 source/text/contracts/tests
+delivered to the existing media owner under the natively verified human standing
+coordination grant; first send was denied for missing visible grant evidence,
+then the actual human approval and matching question were read before a successful
+retry. No workaround, capture, render or model call occurred. Candidate review,
+exact-head CI and protected integration remain pending; T069 stays open.
+
+Final review/CI closure (later than the checkpoint above):
+[PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6), exact selected
+head `80ef13c27d042e37643a3d1d5aef798d81c1554a`, tree
+`b805ab41b2a0795451ad22f68dec2bff68f9f773`, against baseline `5d6510d`.
+SM independently reviewed all 22 changed files/runtime/tests/source-bound docs
+and evidence: no remaining actionable findings. The sole clarification was
+the historical conditional model allowance; SM personally verified the actual
+human $20/200 and later conditional 2× directives. No new spend was inferred
+from repair/review authority and no paid call occurred.
+
+Actual [CI run 38112429759](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38112429759)
+/ [job 114390589537](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38112429759/job/114390589537)
+succeeded at 2026-10-11 04:43:41 UTC. Its report binds exact source `80ef13c`
+and the unchanged profile hash above: all seven steps exit zero/no timeouts,
+433 combined tests (24.607 s), nine HTTP tests/all eight scenarios (0.330 s),
+all three booking demos, nine widget checks (0.369 s), install/pip check clear.
+Standard Linux x86_64/Python 3.11.17/Node 22.14.0 is additional offline runner
+evidence, not broader product/browser/live-model qualification.
+
+SM selected exact `80ef13c` after review/CI. This native closure is documentation
+only; runtime, tests, scripts, profile and workflow remain identical to the
+qualified source. Local full qualification is not repeated for unchanged bytes.
+Protected integration is still pending: this changed documentation head requires
+affected-only review, its own automatic exact-head CI and selection before normal
+match-head merge. No administrative bypass/force/new required context/new RC is
+introduced. Remote main remains baseline `5d6510d`; RC-1/RC-2 objects and peeled
+targets were read back unchanged. These markers record delivered repair/review
+work, not a future merge or media completion claim.
+
+Implementation choice within A03's bounded-draft design: retain at most the
+valid field maximum plus one character (phone 21, DOB 11, ZIP 6). Oversized input
+therefore stays invalid until that field is corrected; it never silently reuses
+an older valid discriminator. Unsupported keys/non-text types clear the candidate
+and reject. Existing in-memory/reset lifespan is unchanged; no new persistence,
+mirroring or model input. Historical contradictory empty Replay recordings remain
+byte/digest-preserving imports but explicitly incomplete; the simulation returns
+no results instead of trusting retained fixtures.
+
 ## Stage-one quality corrections — 2026-10-10
 
 Approved consolidated SM/MLX brief; baseline `517a9b27d9ccc9cd863f3c8e868acd6e8f5b6710`.

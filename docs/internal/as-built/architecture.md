@@ -1,5 +1,31 @@
 # As-built architecture
 
+## Adversarial repair delta — 2026-10-10
+
+Updated against runtime/test source `f7f852c613e306123041866b379a093255582543`;
+independent candidate review/integration remain pending in
+[native T064–T069](../../../specs/001-ochsner-scheduling-assistant/tasks.md).
+Topology and effect authority are unchanged. Replay empty variants clear both
+recorded result lists; the recorded-only port also returns no results for empty.
+Contradictory historical imports retain their bytes/digest but disclose incomplete
+evidence instead of trusting retained fixtures. No live fallback is introduced.
+Private identity candidates retain bounded invalid corrections separately from
+verified authority; every edit still revokes identity/results/proposal before
+validation and no read occurs until the whole candidate is valid.
+
+Unavailable Replay references use one anti-enumeration category, independent of
+capability/pairing denial. The widget mirrors a fixed categorical recovery notice;
+no reference existence, private input or authority is added to acknowledgements.
+Unsuccessful mock acquisition cleans only its owned child and pipe descriptors,
+preserving cancellation. Boundary regressions:
+[empty Replay](../../../tests/test_replay_empty.py),
+[identity recovery](../../../tests/test_identity_draft_recovery.py),
+[mock acquisition](../../../tests/test_mock_acquisition.py),
+[HTTP denial/notice](../../../tests/test_local_transport.py) and
+[shipped renderer](../../../tests/test_widget_projection.py).
+These are offline contracts, not new browser/capture/accessibility evidence;
+existing diagram topology and historical rendered-source claims below are unchanged.
+
 ## Stage-one quality delta — 2026-10-10
 
 Updated/reviewed runtime/test source:

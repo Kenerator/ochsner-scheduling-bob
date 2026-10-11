@@ -284,7 +284,7 @@ class BrowserService:
                 presentation=receipt["presentation"]
                 if (type(presentation) is not dict or set(presentation) not in ({"notice","pending","dirty"},{"notice","pending","dirty","can_confirm"})
                         or type(presentation["notice"]) is not str or presentation["notice"] not in {
-                            "none","domain","working","ready","stale","pairing","grant","invalid","unavailable","ack_unavailable"}
+                            "none","domain","working","ready","stale","pairing","grant","reference","invalid","unavailable","ack_unavailable"}
                         or type(presentation["pending"]) is not bool or type(presentation["dirty"]) is not bool
                         or ("can_confirm" in presentation and type(presentation["can_confirm"]) is not bool)):
                     raise ValueError("Invalid categorical presentation acknowledgement.")

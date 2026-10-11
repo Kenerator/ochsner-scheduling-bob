@@ -1,5 +1,32 @@
 # As-built code walkthrough
 
+## Adversarial repair delta — 2026-10-10
+
+Updated against runtime/test source `f7f852c613e306123041866b379a093255582543`;
+review/integration status belongs in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md).
+In [replay.py](../../../src/ochsner_bob/replay.py), `Replay.fork` canonicalizes
+empty results, `_RecordedPort._result` defensively returns none, and
+`Recording.missing` identifies contradictory historical empty observations without
+rewriting imports. [Tests](../../../tests/test_replay_empty.py) cover discovery,
+availability, appointments, export/import and effect-free suffix recomputation.
+In [session.py](../../../src/ochsner_bob/session.py), `_identity` keeps a private
+candidate bounded to valid field maximum plus one, retaining invalidity until
+correction while revoking authority first.
+[Recovery tests](../../../tests/test_identity_draft_recovery.py) cover all three
+discriminators, oversized/non-text/unsupported input, reset and privacy.
+
+[OwnedMock.__enter__](../../../scripts/mock_lifecycle.py) closes its child on
+unexpected startup exits before re-raising; [fake-child acquisition tests](../../../tests/test_mock_acquisition.py)
+exercise select/read interruption, descriptor cleanup and terminate/kill fallback.
+`ReferenceUnavailable` is mapped by [local_transport.py](../../../src/ochsner_bob/local_transport.py)
+to the closed `reference_unavailable` response. [widget.js](../../../src/ochsner_bob/widget.js)
+recognizes it only for Replay 403; join/invalid-capability failures retain their
+own guidance. Session, BrowserService and Recording accept the same closed
+`reference` notice category. [HTTP tests](../../../tests/test_local_transport.py)
+and the [actual-widget harness](../../../tests/widget_harness.mjs) verify denial
+indistinguishability, valid-capability retention and Support/recorded mirroring.
+No component or diagram topology changed; see [architecture](architecture.md#adversarial-repair-delta--2026-10-10).
+
 ## Stage-one quality delta — 2026-10-10
 
 Updated/reviewed runtime/test source:

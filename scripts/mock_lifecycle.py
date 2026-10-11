@@ -76,6 +76,14 @@ class OwnedMock:
                         self.base_url = f"http://127.0.0.1:{port}"
         except (OSError, ValueError):
             failed = True
+        except BaseException as error:
+            # __enter__ has not returned: __exit__ cannot own this cleanup.
+            # Preserve cancellation/unexpected failure, never target other PIDs.
+            try:
+                self.close()
+            except Exception:
+                error.add_note("Owned synthetic child cleanup could not be verified.")
+            raise
         finally:
             os.close(read_fd)
         if failed:

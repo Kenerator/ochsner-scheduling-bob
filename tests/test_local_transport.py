@@ -98,3 +98,36 @@ class LocalTransportTests(unittest.TestCase):
         self.assertEqual(status,200,imported)
         self.assertTrue(imported["simulation_only"])
         self.assertEqual(self.service.read(token)["revision"],0)
+
+    def test_reference_denials_are_indistinguishable_and_preserve_valid_session(self):
+        token = self.call("POST", "/create", {})[1]["token"]
+        other = self.call("POST", "/create", {})[1]["token"]
+        own = self.service.diagnostics(token)["reference"]
+        foreign = self.service.diagnostics(other)["reference"]
+        before = self.service.read(token)
+        denials = []
+        for reference in (foreign, "BOB-" + "0" * 32 + "/step/0/branch/original",
+                          own.replace("/step/0/", "/step/7/")):
+            denials.append(self.call("POST", "/replay", {"operation": "open", "data": {"reference": reference}}, token))
+        self.assertEqual(denials, [(403, {"error": "reference_unavailable"})] * 3)
+        self.assertEqual(self.service.read(token), before)
+        self.assertEqual(self.call("GET", "/state", token=token), (200, before))
+        status, result = self.call("POST", "/replay", {"operation": "open", "data": {"reference": own}}, token)
+        self.assertEqual((status, result["recording"]), (200, "off"))
+        invalid = self.call("POST", "/replay", {"operation": "open", "data": {"reference": foreign}}, "invalid-capability")
+        self.assertEqual(invalid, (403, {"error": "capability_or_current_lease_required"}))
+
+    def test_reference_recovery_notice_is_accepted_mirrored_and_recorded_as_category_only(self):
+        token = self.call("POST", "/create", {})[1]["token"]
+        support = self.service.join(self.service.pair(token))
+        self.service.capture(token, True)
+        view = self.service.command(token, "help", {}, 0)
+        receipt = {"revision": view["revision"], "renderer": "bob-v1", "visible": [],
+            "draft": {}, "focus": None, "scroll": 0, "expanded": [],
+            "presentation": {"notice": "reference", "pending": False, "dirty": False, "can_confirm": False}}
+        self.assertEqual(self.call("POST", "/ack", {"receipt": receipt}, token)[0], 200)
+        self.assertEqual(self.service.read(support)["last_observed"]["presentation"], receipt["presentation"])
+        report = self.service.capture(token, False)
+        opened = self.service.replay(token, "open", {"reference": report["reference"]})
+        observed = self.service.replay(token, "jump", {"index": opened["event_count"] - 1})["state"]["observed_views"]
+        self.assertEqual(observed[-1]["receipt"]["presentation"], receipt["presentation"])

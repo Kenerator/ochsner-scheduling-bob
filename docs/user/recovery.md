@@ -12,6 +12,14 @@ supplied local mock, never a real appointment or staff contact.
   Keep the private effect namespace and reconcile before any real-service retry.
 - **No identity match/ambiguous:** correct local phone/DOB/ZIP. No candidates are
   disclosed. Every correction revokes the prior match, results and proposal.
+- **Invalid identity field:** correct that field; blank controls keep the other
+  bounded entries privately in this session. The invalid value is not replaced
+  by an older valid one. Verification stays missing until all fields are valid;
+  Reset clears these entries. Do not enter identity in public chat.
+- **Replay reference unavailable/not granted:** check the reference or import an
+  approved recording into this current session. This does not mean pairing has
+  failed; keep a valid session. A reference alone never grants access, and no
+  effect is retried. True session/pairing failures retain their separate guidance.
 - **Stale screen:** review the current screen before acting; stale submissions
   never obtain a fresh confirmation token automatically.
 - **Support stale:** last acknowledged screen is not necessarily current backend

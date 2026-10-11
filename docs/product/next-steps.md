@@ -3,6 +3,14 @@
 Updated 2026-10-10. Detailed completion/open work belongs in the
 [native ledger](../../specs/001-ochsner-scheduling-assistant/tasks.md), not this memo.
 
+Current bounded follow-on: approved adversarial A01–A04 repairs are implemented
+at `f7f852c613e306123041866b379a093255582543`; candidate qualification, exact-head
+CI and selected independent whole-diff approval precede protected integration.
+See native T064–T069 and the [A04 media contract](../internal/video-notes.md#a04-source-contract-for-the-media-owner--2026-10-10).
+Historical RC-1/RC-2 and captures remain unchanged. Optional H01 memory pruning
+and VID-P01 pacing are not selected; no new model calls or Operator-service
+control are needed for these repairs.
+
 Use [README](../../README.md), [demo](../internal/demo.md),
 [as-built boundaries](../internal/as-built/architecture.md) and
 [persona evidence](../internal/persona-story-test-index.md) for review. Validate
