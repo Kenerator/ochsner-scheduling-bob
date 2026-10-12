@@ -101,3 +101,43 @@ integration evidence. Genuine-model qualification remains required for full
 completion; surface its exact credential/model/cost decision if no applicable
 grant exists. Preserve a reviewed baseline/private milestone early, excluding
 raw intake, credentials, environments and private native state.
+
+## Approved launch, training and Flight Deck delta — 2026-10-12
+
+Scope: FR-021–FR-024, principally US6 with US1–US5 flow/control coverage.
+The approved plan baseline is DevOps `7da4364fdfb3822681026ae444e90c40d576921d`;
+human confirmation is MLX turn `01a13245-6a8c-76c2-b626-c6cebcafe2cc`,
+message `01a13245-8239-77d3-8adb-03fab212d260`. This records plan selection,
+not a new credential, spend, media-publication or product-repair grant.
+
+W1 is independent: inventory native scenarios/control labels; implement a standard-
+library read-only structural checker with temporary-file tests. The checker consumes
+`docs/user/walkthroughs/catalog.json` and `assets/ui/walkthroughs/manifest.json`;
+it resolves native story/requirement IDs and the public-safe supplied scenario ID
+projection without importing app code or making network requests. W1's draft
+catalog may fail while W2/W3 artifacts remain missing; no empty template passes
+as a completed collection. Share reviewed reusable checker bytes with SM for
+Template integration, never write the Template/shared source from BOB.
+
+F6 waits for SM's reviewed Flight Deck export/manifest, then pins identical shared
+bytes plus BOB's thin `docs/internal/flight-deck/project.yaml`. L4 waits for the
+reviewed `tools/poc-runtime/` bundle, then adds BOB config, constructor/privacy/
+lifecycle tests and the validated public loopback backend URL trait. Neither
+bundle is invented locally. Keep canonical `.bob-local/model-budget.json` and
+existing effect namespaces; no paid startup probe. The separately approved
+today-only unlimited mechanism is not active until implemented and verified.
+
+W2/W3 final captures and launch instructions follow stable BOB/L4 routing. Use
+isolated synthetic states/free ports, only materially needed stills and separate
+annotation layers. Preserve actual acknowledgement/reconnect warnings and product
+gaps; no UI repair or new video under the documentation grant. Reconcile public
+source rights/privacy before staging assets. Finish with one independent integrated
+BOB diff review, affected-delta repairs, full tests/demos and candidate-bound CI/
+normal protected integration; immutable RCs remain unchanged.
+
+Ruling: use this native `tasks.md` for task progress and decisions, not an additional
+SDD progress ledger, because the project/approved assignment requires one native
+completion ledger. Isolate work in an ignored local BOB clone while the Operator
+checkout stays untouched; sequential execution protects the single-owner native
+files and shared source remains SM-owned. Independent SM bundle work can proceed
+in parallel with W1.

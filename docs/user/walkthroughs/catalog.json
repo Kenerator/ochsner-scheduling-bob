@@ -1,0 +1,1308 @@
+{
+  "schema_version": 1,
+  "flows": [
+    {
+      "id": "happy-path-booking",
+      "source_ids": [
+        "happy_path_booking",
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/happy-path-booking.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "provider-lookup",
+      "source_ids": [
+        "provider_lookup",
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/provider-lookup.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "no-patient-match",
+      "source_ids": [
+        "no_patient_match",
+        "US2"
+      ],
+      "document": "docs/user/walkthroughs/no-patient-match.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "multiple-patient-matches",
+      "source_ids": [
+        "multiple_patient_matches",
+        "US2"
+      ],
+      "document": "docs/user/walkthroughs/multiple-patient-matches.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "slot-conflict",
+      "source_ids": [
+        "slot_conflict",
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/slot-conflict.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "no-availability",
+      "source_ids": [
+        "no_availability",
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/no-availability.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "api-failure",
+      "source_ids": [
+        "api_failure",
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/api-failure.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "unsupported-request",
+      "source_ids": [
+        "unsupported_request",
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/unsupported-request.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "correct-private-identity",
+      "source_ids": [
+        "US2"
+      ],
+      "document": "docs/user/walkthroughs/correct-private-identity.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "lookup-appointments",
+      "source_ids": [
+        "US2"
+      ],
+      "document": "docs/user/walkthroughs/lookup-appointments.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "empty-appointment-lookup",
+      "source_ids": [
+        "US2"
+      ],
+      "document": "docs/user/walkthroughs/empty-appointment-lookup.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "change-preferences",
+      "source_ids": [
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/change-preferences.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "decline-and-reselect",
+      "source_ids": [
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/decline-and-reselect.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "accept-spelling-suggestion",
+      "source_ids": [
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/accept-spelling-suggestion.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "request-help",
+      "source_ids": [
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/request-help.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "medical-boundary",
+      "source_ids": [
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/medical-boundary.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "unsupported-intent",
+      "source_ids": [
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/unsupported-intent.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "submit-mock-handoff",
+      "source_ids": [
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/submit-mock-handoff.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "unknown-booking-outcome",
+      "source_ids": [
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/unknown-booking-outcome.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "reset-and-reconnect",
+      "source_ids": [
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/reset-and-reconnect.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "pair-support",
+      "source_ids": [
+        "US5"
+      ],
+      "document": "docs/user/walkthroughs/pair-support.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "support-take-and-return-control",
+      "source_ids": [
+        "US5"
+      ],
+      "document": "docs/user/walkthroughs/support-take-and-return-control.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "patient-adopts-support-suggestion",
+      "source_ids": [
+        "US5"
+      ],
+      "document": "docs/user/walkthroughs/patient-adopts-support-suggestion.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "recording-off-diagnostics",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/recording-off-diagnostics.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "capture-and-seal",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/capture-and-seal.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "replay-navigation-and-bookmarks",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/replay-navigation-and-bookmarks.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "replay-typed-variant-comparison",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/replay-typed-variant-comparison.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "review-regression-proposal",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/review-regression-proposal.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "export-and-import-recording",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/export-and-import-recording.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "purge-disposable-recording",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/purge-disposable-recording.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    },
+    {
+      "id": "unavailable-replay-reference",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/unavailable-replay-reference.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "specs/001-ochsner-scheduling-assistant/spec.md"
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "start-independent-patient",
+      "label": "Start independent patient",
+      "role": "both",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": []
+    },
+    {
+      "id": "public-request",
+      "label": "Public scheduling request",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": []
+    },
+    {
+      "id": "send-request",
+      "label": "Send scheduling request",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": []
+    },
+    {
+      "id": "specialty",
+      "label": "Specialty",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": []
+    },
+    {
+      "id": "location",
+      "label": "Location",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": []
+    },
+    {
+      "id": "from-date",
+      "label": "From date",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": []
+    },
+    {
+      "id": "through-date",
+      "label": "Through date",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": []
+    },
+    {
+      "id": "apply-preferences",
+      "label": "Apply preferences",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": []
+    },
+    {
+      "id": "find-providers",
+      "label": "Find providers",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": []
+    },
+    {
+      "id": "choose-provider",
+      "label": "Choose provider {number}",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": []
+    },
+    {
+      "id": "spelling-suggestion",
+      "label": "Use {value}",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": []
+    },
+    {
+      "id": "private-disclosure",
+      "label": "2 · Private synthetic identity",
+      "role": "both",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": []
+    },
+    {
+      "id": "synthetic-phone",
+      "label": "Synthetic phone",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": []
+    },
+    {
+      "id": "date-of-birth",
+      "label": "Date of birth",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": []
+    },
+    {
+      "id": "zip-discriminator",
+      "label": "ZIP discriminator",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": []
+    },
+    {
+      "id": "check-identity",
+      "label": "Check or correct identity",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": []
+    },
+    {
+      "id": "get-availability",
+      "label": "Get current availability",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": []
+    },
+    {
+      "id": "lookup-appointments",
+      "label": "Look up my appointments",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": []
+    },
+    {
+      "id": "select-option",
+      "label": "Select option {number}",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": []
+    },
+    {
+      "id": "confirm-appointment",
+      "label": "Confirm appointment",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": []
+    },
+    {
+      "id": "decline",
+      "label": "Decline / change my mind",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": []
+    },
+    {
+      "id": "help",
+      "label": "Help",
+      "role": "both",
+      "group": "help-and-outcomes",
+      "document": "docs/user/controls/help-and-outcomes.md",
+      "visual_ids": []
+    },
+    {
+      "id": "medical-boundary",
+      "label": "Medical boundary",
+      "role": "both",
+      "group": "help-and-outcomes",
+      "document": "docs/user/controls/help-and-outcomes.md",
+      "visual_ids": []
+    },
+    {
+      "id": "unsupported-request",
+      "label": "Unsupported request",
+      "role": "both",
+      "group": "help-and-outcomes",
+      "document": "docs/user/controls/help-and-outcomes.md",
+      "visual_ids": []
+    },
+    {
+      "id": "submit-handoff",
+      "label": "Submit mock handoff",
+      "role": "patient",
+      "group": "help-and-outcomes",
+      "document": "docs/user/controls/help-and-outcomes.md",
+      "visual_ids": []
+    },
+    {
+      "id": "reset-workflow",
+      "label": "Reset local workflow",
+      "role": "patient",
+      "group": "help-and-outcomes",
+      "document": "docs/user/controls/help-and-outcomes.md",
+      "visual_ids": []
+    },
+    {
+      "id": "pairing-grant",
+      "label": "One-use pairing grant",
+      "role": "both",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": []
+    },
+    {
+      "id": "join-support",
+      "label": "Join demo support",
+      "role": "both",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": []
+    },
+    {
+      "id": "create-pairing",
+      "label": "Create support pairing grant",
+      "role": "patient",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": []
+    },
+    {
+      "id": "take-control",
+      "label": "Take demo control",
+      "role": "support",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": []
+    },
+    {
+      "id": "return-control",
+      "label": "Return patient control",
+      "role": "support",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": []
+    },
+    {
+      "id": "suggested-location",
+      "label": "Suggested public location",
+      "role": "support",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": []
+    },
+    {
+      "id": "suggest-preference",
+      "label": "Suggest preference — not adoption",
+      "role": "support",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": []
+    },
+    {
+      "id": "accept-suggestion",
+      "label": "Accept reviewed support suggestion",
+      "role": "patient",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": []
+    },
+    {
+      "id": "developer-disclosure",
+      "label": "Developer Mode · local PoC diagnostics and replay",
+      "role": "both",
+      "group": "developer-recording",
+      "document": "docs/user/controls/developer-recording.md",
+      "visual_ids": []
+    },
+    {
+      "id": "interaction-reference",
+      "label": "Interaction reference",
+      "role": "both",
+      "group": "developer-recording",
+      "document": "docs/user/controls/developer-recording.md",
+      "visual_ids": []
+    },
+    {
+      "id": "start-recording",
+      "label": "Start synthetic recording",
+      "role": "patient",
+      "group": "developer-recording",
+      "document": "docs/user/controls/developer-recording.md",
+      "visual_ids": []
+    },
+    {
+      "id": "seal-recording",
+      "label": "Seal recording",
+      "role": "both",
+      "group": "developer-recording",
+      "document": "docs/user/controls/developer-recording.md",
+      "visual_ids": []
+    },
+    {
+      "id": "inspect-diagnostics",
+      "label": "Inspect sanitized diagnostics",
+      "role": "both",
+      "group": "developer-recording",
+      "document": "docs/user/controls/developer-recording.md",
+      "visual_ids": []
+    },
+    {
+      "id": "open-reference",
+      "label": "Open reference",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": []
+    },
+    {
+      "id": "previous",
+      "label": "Previous",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": []
+    },
+    {
+      "id": "step",
+      "label": "Step",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": []
+    },
+    {
+      "id": "pause",
+      "label": "Pause",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": []
+    },
+    {
+      "id": "play",
+      "label": "Play recorded steps",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": []
+    },
+    {
+      "id": "replay-index",
+      "label": "Replay step index (zero based)",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": []
+    },
+    {
+      "id": "jump",
+      "label": "Jump / inspect before and after",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": []
+    },
+    {
+      "id": "bookmark-name",
+      "label": "Bookmark name",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": []
+    },
+    {
+      "id": "bookmark",
+      "label": "Bookmark current step",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": []
+    },
+    {
+      "id": "go-bookmark",
+      "label": "Go to bookmark",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": []
+    },
+    {
+      "id": "typed-variant",
+      "label": "Typed variant JSON",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": []
+    },
+    {
+      "id": "fork",
+      "label": "Fork isolated simulation",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": []
+    },
+    {
+      "id": "compare",
+      "label": "Compare with reference",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": []
+    },
+    {
+      "id": "propose-regression",
+      "label": "Propose reviewed regression fixture",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": []
+    },
+    {
+      "id": "export-recording",
+      "label": "Export reviewed synthetic recording",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": []
+    },
+    {
+      "id": "recording-json",
+      "label": "Reviewed recording JSON / import",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": []
+    },
+    {
+      "id": "import-recording",
+      "label": "Import bounded synthetic recording",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": []
+    },
+    {
+      "id": "purge-recording",
+      "label": "Purge selected recording only",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": []
+    }
+  ]
+}

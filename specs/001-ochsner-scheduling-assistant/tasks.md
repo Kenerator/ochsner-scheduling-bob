@@ -1,5 +1,65 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Approved launch/training/Flight Deck follow-on — 2026-10-12
+
+Native scope: FR-021–FR-024. Approved plan source and human confirmation are
+recorded in [plan.md](plan.md#approved-launch-training-and-flight-deck-delta--2026-10-12).
+Runtime baseline remains `d925f326dd604b3eba07d844914810e2f2574705`; current
+checker/docs candidate is isolated and not integrated. Prior completed
+work below retains its original scope and is not repeated as new qualification.
+
+- [x] T072 [US6] Reconcile the approved F6/L4/W1–W3 delta into native spec/plan/tasks;
+  retain sole BOB ownership and the native completion ledger. Record dependencies
+  and interrupted actual IAB observations without inventing a pass.
+- [x] T073 [P] [US1–US6] W1 local inventory and checker: reconcile 31 distinct flow
+  entries and 57 control families; write failing structural tests first, implement
+  the no-network checker and run its positive/negative fixtures and full suite.
+  This is a local candidate checkpoint, not W1 Template integration or final docs.
+- [ ] T074 [US6] Supply the source-bound reusable W1 checker/test candidate to SM;
+  integrate the reviewed reusable generation/export contract through its owner.
+- [ ] T075 [P] [US6] F6: consume exact reviewed shared Flight Deck export/manifest,
+  map six native elements without copied status, run doctor/generate and inspect
+  desktop/narrow artifacts. Depends on SM export; independent of W1.
+- [ ] T076 [P] [US6] L4: consume reviewed runtime bundle/config, tests first for
+  secret-free child scope, validated backend URL/CORS/Host routing, canonical budget
+  and owned cancellation/conflict behavior; verify no-call help/doctor/demos and
+  isolated UI smoke. Depends on SM launcher bundle; no generic key fallback.
+- [ ] T077 [US1–US6] W2: test manifest/hash/dimension/placement/provenance validation
+  first, capture/reuse actual seven-group visuals with clean originals and separate
+  annotation layers; inspect privacy, clipping and control correspondence. Depends
+  on stable T076 candidate; no live pairing grant in artifacts or Operator reset.
+- [ ] T078 [US1–US6] W3: deliver each catalog-resolved walkthrough with own Step 0/1,
+  actual inputs/interactive visuals/results/recovery/effects/cleanup; execute supported
+  steps on exact isolated candidate and retain honest unsupported/unverified gaps.
+  Depends on T073/T076/T077; structural passing is not execution certification.
+- [ ] T079 [US6] Reconcile README/getting-started/demo, current as-built architecture/
+  code walkthrough, persona-story-test index, UI assets/video notes and short next
+  steps from actual integrated candidate. Depends on relevant T075–T078 code/docs.
+- [ ] T080 [US6] One independent final integrated diff review, affected-delta repairs,
+  whole-index credential guard, full tests/success/failure demos, candidate CI and
+  ordinary protected PR integration/readback. No new RC/publication/budget namespace.
+
+T073 local evidence: checker absent → 20 expected failing tests; implementation →
+20 green; malformed-type/unknown-manifest-field regressions reproduced → 21 green.
+Full isolated suite: 454 tests passed, 24.590 s, Python 3.11.13. No app/model/vault
+operation occurs in checker tests. Individual documents/visual mappings remain
+unverified and the real collection intentionally does not pass the structural
+checker yet. See [inventory and IAB checkpoint](../../docs/user/walkthroughs/index.md).
+No product runtime source was changed by W1. Reusable checker review/integration,
+normal candidate CI and final collection verification are still open.
+
+Existing supplied-HTTP success, conflict-recovery and unknown/retry-blocked demos
+passed in the same isolated candidate without model calls. Pre-commit whole-index
+guard: 390 files, 119 binaries, six exact reviewed synthetic exceptions, zero
+unresolved findings, symlinks or submodules. The checker/test source hashes are
+retained in the owner handoff; no screenshot/runtime credential/state was staged.
+
+Ruling: native tasks are the sole completion ledger instead of a second SDD
+progress file; duplicated status would violate the working agreement. F6/L4 shared
+bytes remain SM-owned. The existing Operator checkout/session is never reset to
+make a synthetic walkthrough easier. Missing dedicated vault item is reported,
+not silently replaced with the historical generic item.
+
 ## Current-first documentation follow-on — 2026-10-12
 
 Reviewed runtime baseline `1c318f3e54508d522b18f57d5bc871c4c04ad9ff`, integrated
