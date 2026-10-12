@@ -1,5 +1,67 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Current-first documentation follow-on — 2026-10-12
+
+Reviewed runtime baseline `1c318f3e54508d522b18f57d5bc871c4c04ad9ff`, integrated
+through [PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6).
+This is a docs-only follow-on, not new runtime qualification or media production.
+Historical pending/status text below retains its original checkpoint scope.
+
+- [x] T070 [US4/US5/US6] Reorganize as-built architecture/walkthrough around
+  current code; source-check labeled overview/zoom-ins, add source-based guide
+  schematics and text alternatives, move interrupting history behind current
+  instructions, retain inbound anchors and verify local links/render legibility.
+- [x] T071 [US6] Run the existing whole-index credential guard, submit the exact
+  documentation candidate for the selected independent final diff review alongside
+  automatic CI, and prepare its source-bound closure for normal protected
+  integration of only the selected exact head. No runtime,
+  tests, dependencies, private intake, captures, paid calls or immutable tags change.
+
+T070 verification against the runtime baseline above: six Mermaid diagrams
+parsed/rendered with the locally installed engine in an isolated static page;
+standalone SVG exports and four native guide SVGs were rasterized and visually
+checked for labels, wrapping and control-location accuracy. This is documentation
+rendering, not a product launch, screenshot capture or browser qualification.
+Read-only navigation audit: 88 tracked non-intake Markdown files, 543 local
+targets, 73 anchor targets, all 74 old anchors in changed Markdown retained,
+zero missing targets/anchors. Existing inherently historical qualification,
+review and milestone records were retained rather than mechanically reordered.
+The private edited brief was not read or incorporated. Runtime/tests/profile
+remain unchanged; no local full-suite or paid-model rerun is claimed. Final
+candidate guard/review/automatic CI and integration were pending at this T070
+checkpoint; later pre-merge evidence follows below.
+
+Precommit whole-index guard: 385 files, 119 binary, six existing exact-blob
+synthetic exceptions, zero unresolved findings, symlinks or submodules. Staged
+diff check is clear. These are the existing pattern guard's bounded results,
+not secret-free/history/PHI certification; final review/CI/integration are pending.
+
+Pre-merge closure — 2026-10-12: independent final review found no material
+findings and selected exact documentation source
+`611f62a89883f57aa95dd5036b104ada5378b513`, tree
+`4511a900f382ff7c9ee9685e9035e4ac66340169`, against the runtime baseline above.
+Review covered all 13 changed files, targeted code boundaries, six rendered
+Mermaid diagrams and four guide schematics, history preservation and navigation.
+The independent changed-Markdown audit checked 322 local targets, 55 fragments
+and all 74 previous anchors with zero errors; the broader T070 audit remains
+separately scoped above. All four SVGs parsed with titles/descriptions and no
+active or external content. No new runtime/browser/model qualification is implied.
+
+Actual [CI run 38272702128](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38272702128)
+/ [job 114890597623](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38272702128/job/114890597623)
+succeeded for exact source `611f62a`, completed 2026-10-12 15:48:16 UTC,
+including installation and execution of the unchanged committed qualification
+profile. The existing local guard and commit hook both checked 385 files with
+zero unresolved findings, as scoped above.
+
+This two-file closure updates only this ledger and the current next-steps pointer.
+Its own affected-only approval and automatic exact-head CI precede normal
+match-head protected integration of [PR #7](https://github.com/Kenerator/ochsner-scheduling-bob/pull/7).
+Integration is still pending at this pre-merge checkpoint; no future merge is
+claimed here. The observed result will be reported after readback, without another
+status-only follow-on commit or new RC. Runtime/tests/profile, historical evidence,
+private material, completed media and paused production remain unchanged.
+
 ## Approved adversarial repairs A01–A04 — 2026-10-10
 
 Resumed after explicit Operator system-availability confirmation and SM sequencing.

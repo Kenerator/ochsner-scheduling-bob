@@ -1,23 +1,28 @@
 # BOB handoff and next steps
 
-Updated 2026-10-10. Detailed completion/open work belongs in the
+Updated 2026-10-12. Detailed completion/open work belongs in the
 [native ledger](../../specs/001-ochsner-scheduling-assistant/tasks.md), not this memo.
 
-Current bounded follow-on: approved adversarial A01–A04 repairs are implemented
-at `f7f852c613e306123041866b379a093255582543`; candidate qualification, exact-head
-CI and selected independent whole-diff approval precede protected integration.
-See native T064–T069 and the [A04 media contract](../internal/video-notes.md#a04-source-contract-for-the-media-owner--2026-10-10).
+A01–A04 are integrated through [PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6)
+at `1c318f3e54508d522b18f57d5bc871c4c04ad9ff`, after the source-bound
+433-test qualification, exact-head CI and selected independent review. This
+document update does not repeat or broaden that runtime qualification.
+Current documentation provides clearer as-built diagrams, source-based control
+schematics and current-first organization. Source-bound verification and the
+selected review/CI are in native T070–T071; PR #7 uses protected integration,
+not a new runtime qualification campaign. See native T064–T069 for A01–A04 and
+the [A04 media contract](../internal/video-notes.md#a04-source-contract-for-the-media-owner--2026-10-10).
 Historical RC-1/RC-2 and captures remain unchanged. Optional H01 memory pruning
 and VID-P01 pacing are not selected; no new model calls or Operator-service
-control are needed for these repairs.
+control are needed for this documentation follow-on.
 
 Use [README](../../README.md), [demo](../internal/demo.md),
 [as-built boundaries](../internal/as-built/architecture.md) and
 [persona evidence](../internal/persona-story-test-index.md) for review. Validate
 the seven hypotheses with intended users/support staff; synthetic personas are
-not user research. The Operator supplies video intro/wrap and final assembly
-from [source-bound stills/notes](../internal/video-notes.md); no finished video
-or external publication is claimed.
+not user research. Video production remains on hold; the historical intro/wrap and assembly plan
+in [source-bound stills/notes](../internal/video-notes.md) is not active work.
+No second video, finished video or external publication is claimed.
 
 Explicitly deferred: production authentication/authorization, real PHI/APIs,
 distributed idempotency and reconciliation, live support routing, deployment,

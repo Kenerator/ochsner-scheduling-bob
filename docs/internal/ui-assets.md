@@ -1,6 +1,6 @@
 # UI assets and audience
 
-Updated 2026-10-10. Direct Operator approval requires the observed Ochsner color
+Updated 2026-10-12. Direct Operator approval requires the observed Ochsner color
 theme. The later informed public-source decision approves retaining the logo,
 colors and branded synthetic screenshots in this exact public GitHub repository;
 the application remains an internal-use PoC. Historical captures below were made
@@ -10,6 +10,7 @@ supplied package branding instruction was found in the reviewed assignment.
 
 | Asset | Provenance / intended use | Audience |
 | --- | --- | --- |
+| [Guide schematics](../../assets/ui/guide/) | Four project-owned native SVG control-location drawings, 2026-10-12, reviewed against shipped `widget.js` at `1c318f3`. Meaningful title/description, adjacent Markdown text fallback; no identifiers, grant values, diagnostic output or patient data. Explicitly schematic, not screenshots or new UI qualification. | Internal-use PoC; exact public-source documentation |
 | [Observed logo](../../assets/ui/branding/ochsner-health-observed.svg) | Embedded public homepage logo, staged 2026-10-07; SHA-256 `a10693d454c93b7d036d2e03bc7ce75ab55eb7bc53dc6386190da20d1e421050`; image alt “Ochsner Health”. Reviewed static paths/fills, no scripts, links or tracking. | Internal-use PoC; approved exact public-source repository |
 | Blue `#13477D`, gold `#E0A42E` | Observed logo colors; project-owned CSS, system fonts. Gold is an accent with dark text, not white small text. | Same private product presentation |
 | [Synthetic UI still originals](../../assets/ui/stills/) | Actual Chrome/Marimo captures; source/mode/hash boundaries in [video manifest](video-notes.md#adopted-original-still-manifest), including corrected shared-core replay and specifically approved read-only pairing. Version-1 replay remains historical. No animation derivatives yet. | Same private/internal audience; no public redistribution grant |

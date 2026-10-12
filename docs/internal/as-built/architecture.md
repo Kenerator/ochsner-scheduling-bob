@@ -1,5 +1,350 @@
 # As-built architecture
 
+Updated 2026-10-12 against integrated source
+`1c318f3e54508d522b18f57d5bc871c4c04ad9ff`. This is the local synthetic
+scheduling PoC as implemented, not a production design or deployment approval.
+Runtime repairs were integrated through [PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6).
+This documentation reorganization changes no runtime behavior.
+
+Navigation: [overview](#components-and-authority) · [A interfaces](#a-interfaces-and-support) ·
+[B workflow](#b-shared-workflow-and-confirmation-authority) ·
+[C effects](#c-adapters-and-effect-protection) · [D inspection and Replay](#d-diagnostics-recording-and-isolated-replay) ·
+[state/privacy](#state-privacy-and-persistence) · [limits](#limitations) ·
+[history](#history-and-source-bound-evidence). For symbols/tests use the
+[walkthrough](code-walkthrough.md); [spec](../../../specs/001-ochsner-scheduling-assistant/spec.md),
+[plan](../../../specs/001-ochsner-scheduling-assistant/plan.md),
+[decisions](../../product/decisions.md) and [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md)
+retain requirements, design decisions and completion evidence respectively.
+
+## Components and authority
+
+Four review subsets organize the same system; they are not separate services or
+exclusive class ownership. `InteractionService` spans A's browser orchestration
+and D's observation hooks. Zoom-ins reuse A–D labels rather than adding a giant graph.
+
+```mermaid
+flowchart TB
+  A["A · Interfaces and Support"] -->|commands and views| B["B · Shared workflow authority"]
+  B -->|guarded reads and writes| C["C · Adapters and effect protection"]
+  C -->|strict loopback HTTP| X["Supplied synthetic API"]
+  B -. sanitized observations .-> D["D · Diagnostics and isolated Replay"]
+  A -. inspection controls .-> D
+```
+
+Solid arrows denote calls or routed requests; dotted arrows denote observation or
+inspection data/control, **not permission delegation**. Responses return to the
+caller unless explicitly drawn. These are logical relationships, not deployment
+or network-trust diagrams. Only the live `SchedulingSession` authorizes booking/
+handoff dispatch; C carries out and validates it. D's Replay uses a separate
+simulation core and has no path back to the live session's authority or adapters.
+
+## A: Interfaces and Support
+
+```mermaid
+flowchart TB
+  CLI["A · Multi-turn CLI"] --> BC["B · Conversation / SchedulingSession"]
+  UI["A · Marimo AnyWidget<br/>patient or Support role"] -->|loopback JSON| T["A · Local transport"]
+  T --> S["A · InteractionService<br/>extends BrowserService"]
+  S -->|text via Conversation / controls via Session| BC
+```
+
+[CLI](../../../src/ochsner_bob/__main__.py) uses shared `Conversation`;
+[browser controls](../../../src/ochsner_bob/widget.js) go through
+[transport](../../../src/ochsner_bob/local_transport.py) and the canonical service
+outside Marimo kernels. Explicit controls can call Session through BrowserService;
+not every command passes through Conversation. Host/Origin and closed JSON checks
+protect the local transport, while role-bound capabilities are distinct from
+diagnostic/recording references. Neither is production patient authentication.
+
+Support sees the last acknowledged patient projection with freshness plus
+separately labeled current context; confirmation nonces are removed. Pairing
+membership and takeover control are distinct: joined/inactive is valid. Support
+cannot issue identity, availability, appointment lookup, selection, confirmation
+or handoff commands. Suggestions require active control/current revision, then
+explicit patient adoption after return. Fresh means the acknowledged revision
+is current and its age is under five seconds; the separate takeover lease lasts
+at most 300 seconds. Poll/read/ack never dispatch models or
+booking writes, although a read may expire a lease and revoke control/proposals.
+See [browser observation and concurrency](#browser-observation-and-concurrency).
+
+## B: Shared workflow and confirmation authority
+
+```mermaid
+flowchart TB
+  CV["B · Conversation"] -->|local intent or bounded proposal| SS["B · SchedulingSession<br/>command"]
+  SS -->|closed categorical facts| P["B · ZEN policy"]
+  P -->|allow or deny| SS
+  SS -->|structural checks then dispatch| CFX["C · Journal / HTTP adapter"]
+```
+
+[Conversation](../../../src/ochsner_bob/conversation.py) routes local Help/medical/
+unsupported paths before model handling. [SchedulingSession](../../../src/ochsner_bob/session.py)
+owns revision, actor restrictions, verified synthetic identity, filters, returned
+options, proposal and outcome history. Corrections revoke dependent authority
+before validation. Bounded invalid private candidates can be corrected without
+silently restoring older valid values; no private I/O occurs until valid.
+
+Public provider discovery requires no identity; private availability/history
+requires a unique returned fixture match. [RapidFuzz](../../../src/ochsner_bob/suggestions.py)
+suggests only public vocabulary/current public providers, never patients or
+automatic selection. The real [ZEN graph](../../../policies/bob.json) receives
+five closed facts; error/unknown facts deny. Policy allow never overrides actor,
+identity, current proposal/nonce/revision or durable effect protection.
+
+## C: Adapters and effect protection
+
+```mermaid
+flowchart TB
+  BS["B · SchedulingSession<br/>_effect"] -->|claim before write / finish certainty| J["C · Private EffectJournal"]
+  BS -->|one guarded operation| H["C · HttpMockAdapter"]
+  H -->|bounded loopback HTTP| V["C · Unchanged supplied synthetic API"]
+```
+
+[HttpMockAdapter](../../../src/ochsner_bob/http_mock.py) validates reads and matching
+write receipts, permits numeric loopback HTTP with an explicit port only, and
+uses bounded timeout/body with no proxy, redirect or retry. Booking checks the
+submitted patient/provider/specialty/location/offset-aware `startTime`. Validated
+400/409 writes are rejected; a schema/code-matching supplied 503 is a definite
+failure. A raw POST 404 is not a recognized adapter error contract and remains
+unknown. Separately, Session classifies an injected `ApiError(404)` as failed;
+that unit-port behavior is not a strict HTTP guarantee. Lost/malformed/mismatched
+possible-write receipts also remain unknown.
+
+[EffectJournal](../../../src/ochsner_bob/journal.py) durably claims before POST.
+Persisted attempted becomes unknown on reconstruction. Reset/reconnect/restart
+in the same namespace cannot remove unresolved protection; missing/corrupt/unsafe
+storage denies. This is local duplicate/crash protection, **not remote idempotency,
+exactly-once delivery or reconciliation**. A handoff receipt means mock queued,
+not delivery to staff. [OwnedMock](../../../scripts/mock_lifecycle.py) starts and
+cleans only its own child, including interrupted acquisition; it does not manage
+unrelated listeners. [Vendor provenance](../../../vendor/reference/PROVENANCE.md)
+binds the unchanged supplied server and fixtures.
+
+### Consent and write certainty
+
+The focused sequence below concerns booking; handoff has its own guarded command
+and no appointment-proposal confirmation. The private-field and support routes
+cannot substitute for the dedicated patient confirmation.
+
+```mermaid
+sequenceDiagram
+  participant P as A · Patient
+  participant S as B · Session
+  participant J as C · Journal
+  participant H as C · HTTP adapter
+  P->>S: Select returned slot (current revision)
+  S-->>P: Proposal ID, nonce, revision, summary
+  Note over P,S: Selection is not consent<br/>Intervening input revokes proposal
+  P->>S: Separate exact confirmation
+  Note over S: Check actor/revision/proposal<br/>ZEN + structural guards
+  alt Guards and durable claim succeed
+    S->>J: Claim and sync before write
+    S->>H: One booking operation, no retry
+    H-->>S: Receipt / failure / uncertainty
+    S->>J: Finish certainty
+    S-->>P: Current result + prior history
+  else Denied, stale or blocked
+    S-->>P: No booking dispatch
+  end
+```
+
+## D: Diagnostics, recording and isolated Replay
+
+```mermaid
+flowchart TB
+  IS["D · InteractionService hooks"] -. sanitized metadata .-> DG["D · Diagnostics memory"]
+  IS -->|explicit synthetic capture / store| RS["D · Recording + private RecordingStore"]
+  IS -->|authorized open / fork| RP["D · Replay"]
+  RS -. validated document via service .-> RP
+  RP -->|recompute commands| SIM["B isolated copy · SchedulingSession"]
+  SIM -->|recorded reads / simulated writes| MP["D · _RecordedPort<br/>+ _MemoryClaims"]
+```
+
+[Diagnostics](../../../src/ochsner_bob/diagnostics.py) observes validated final API
+outcomes and bounded public model disposition/context/timing independently of
+capture. CLI `/diagnostics` and browser inspection do not invoke workflow effects.
+An owned recording-OFF reference opens **current sanitized inspection**, not
+historical Replay; grants are bounded, fixed-expiry and memory/session-scoped.
+Unknown/foreign/ungranted references share a generic denial. The widget gives
+reference-specific recovery without discarding a valid capability or retrying.
+
+Patient-only, explicitly enabled synthetic [Recording](../../../src/ochsner_bob/replay.py) replaces private values with
+approved host-fixture bindings and retains ordered original browser receipts.
+These are observations, not regenerated pixels or confirmation authority.
+[RecordingStore](../../../src/ochsner_bob/recording_store.py) is separate from
+effect claims/model accounting. The diagram's document arrow is data passed by
+InteractionService, not a direct RecordingStore-to-Replay call.
+
+Replay reconstructs an isolated SchedulingSession with `_RecordedPort` and
+`_MemoryClaims`, never the live HTTP/model/durable-journal adapters. Its simulation
+can show completed or unknown outcomes without executing a live effect. Empty
+read variants clear both result lists; contradictory historical empty imports
+retain bytes/digest but disclose gaps and yield no results. Inspect/fork/compare/
+fixture proposals cannot acquire live identity, nonces or consent. See the
+[fidelity and retention contract](#replay-fidelity-and-retention).
+
+## State, privacy and persistence
+
+| State | Owner/lifetime | Boundary |
+| --- | --- | --- |
+| Identity, filters, returned options, proposal, receipts | SchedulingSession memory | Corrections revoke private state first; failed reads clear stale private rows. Latest attempted result is separate from prior copied receipts. Full identity/history is not restart-persisted. |
+| Effect claims | Private EffectJournal file/lock/marker | Stable flock/thread lock, fsync/atomic replace; opaque keys only. Reset cannot clear uncertainty. |
+| CLI effect namespace | Private adjacent `.cli-namespace.json` plus stable lock/marker | Same journal resumes opaque session ID only; lifetime exclusive lock, atomic 0600 persistence, per-turn binding checks and foreign-claim rejection. No legacy migration or identity/consent restoration. |
+| Capability bindings | BrowserService private adjacent registry | Digests bind role/session/issuance; bounded count, 24-hour expiry. Restart restores effect namespace, not identity/consent. One-use five-minute pairing grants are memory-only. |
+| Public draft/disclosure and bearer capability | Widget per-tab sessionStorage | Private identity drafts not stored/mirrored; capability never enters URLs/trace references. Not production authentication. |
+| Last patient observation | BrowserService memory | Exact delivered response plus accepted semantic receipt; support nonce stripped, current server context separately labeled. |
+| Takeover/suggestion | BrowserService/session memory | Fresh acknowledgement, five-minute lease; no support identity/select/confirm. Explicit patient preference adoption after return. |
+| Captures/forks | Private RecordingStore envelopes | Typed synthetic projection, quota/TTL/tombstones/purge; separate from effects/budget. |
+| Model accounting | One project `.bob-local/model-budget.json` | Durable private reservation before dispatch; missing/corrupt/unsafe state denies. No prompts, credentials or raw responses. |
+
+ZEN hashes the exact loaded graph and uses five closed categorical facts;
+engine/schema failure denies, allow never overrides structural guards. RapidFuzz
+only suggests fixed public vocabularies/current returned public providers, never
+patients or automatic selection. See [walkthrough boundary tests](code-walkthrough.md#boundary-modules).
+
+## Browser observation and concurrency
+
+Acknowledgement contains bounded revision/renderer/visible/public-draft/focus/
+scroll/disclosure fields and must refer to an actually delivered response.
+Optional strictly typed `presentation: {notice, pending, dirty, can_confirm}`
+additionally mirrors categorical warning/pending/unsent-edit status and the
+observed confirmation-enabled state, never arbitrary notice text or consent.
+Legacy three-field presentation objects remain accepted by live acknowledgement;
+missing can_confirm makes exact capture incomplete, not a fully observed control. This does not convert
+semantic observation into pixel parity.
+Support's read-only patient renderer uses `observed_patient`, with age/staleness,
+not current server state mislabeled as seen. Both support projections strip the
+confirmation nonce. Semantic receipts are not pixel parity or proof of human understanding.
+
+InteractionService waits for language outside its global lock, binds results to
+turn/revision and permits polling, other sessions and local safety controls.
+Delivered views include final categorical notices. Widget safety buttons remain
+usable during pending text; dirty edits disable exact-snapshot confirmation.
+Poll/read/ack cannot schedule or invoke models, but reads may expire takeover
+(revocation-only). Host/Origin and closed JSON schemas are checked. The shipped
+widget sidecar URL is fixed at port 28451 (default UI origin 28450); launcher port
+changes alone do not reconfigure it.
+
+## Replay fidelity and retention
+
+Capture observes actual session/API/language boundaries, replaces private values
+with approved host fixture references and records categorical certainty. Late
+capture, unrepresentable commands/fields, ambiguous fixture bindings, missed
+outcomes and overflow report explicit gaps, not invented history. Provenance
+binds revision, working source, policy, prompt, schema, fixtures and pinned project
+metadata; hashes confer no trust and metadata is not a resolved dependency lock.
+
+Source provenance uses Git HEAD only when Git resolves exactly to this project
+root. Git-free archives use the fixed bounded regular
+[archive revision artifact](../../../.git_archival.txt), substituted by the
+additive `.gitattributes` export rule. Unexpanded/malformed metadata, symlinks,
+hardlinks and broken own checkouts fail closed; an ancestor repository is not
+this source. Archive working-tree state is explicitly unknown (conservatively
+dirty for legacy boolean consumers), while actual bytes are independently hashed.
+This is identifier/drift evidence, not a signature, clean-byte proof or wheel
+qualification. [Provenance regressions](../../../tests/test_source_provenance.py)
+exercise actual archive substitution and offline capture/replay without Git.
+
+Replay runs the actual `SchedulingSession` using a fixed recorded-only port
+and private in-memory effect claims. The default live constructor still
+uses the durable EffectJournal. Every replay gets a fresh opaque namespace;
+recorded fixture references resolve only against the approved host catalog.
+Fresh simulation proposals supply only simulation-local confirmation values,
+never imported IDs/nonces. The original's sanitized core projection is compared
+after every command: missing evidence, fixture gaps, source drift or mismatches
+prevent a `core_semantic_parity=true` claim. Legacy typed-interpreter recordings
+remain inspection-only/incomplete, not silently upgraded.
+
+Fidelity is `representation: scheduling_core_v1`, with independent
+`core_semantic_parity` and `core_renderer_parity=false` flags. Matching complete
+captures reproduce categorical core state, revisions, preferences, option counts,
+proposal presence, policy decisions and outcome/uncertainty history. They do not
+reproduce private records/receipt identifiers or execute the browser renderer.
+Ordered original browser receipts (including public drafts/focus/disclosures and
+categorical presentation) are retained separately as `observed_views` when captured, not reconstructed
+by core parity. Missing/partial required receipts make capture incomplete even
+when core parity matches. The replay panel is not the complete browser renderer.
+Compound language commands retain their recorded cause; changing the model category
+does not apply old model-generated commands. Variants recompute actual core guards
+but unchanged recorded API outcomes are explicitly counterfactual stubs, not
+historical parity or a newly qualified API/model experiment.
+
+Step/back/jump/play/tick/bookmark/fork/compare/regression proposals cannot reach
+live HTTP/models/durable effect journals. Typed forks preserve immutable lineage and recompute
+prerequisites without supplying live authority. References are locators, not
+capabilities; service access grants are memory-only/session-scoped. Restart keeps
+private files, not automatic grants. Reviewed exports remain untrusted input.
+
+Defaults: imports 1 MiB, 2,000 events, depth 12, strings 4,096 characters; each
+recording 10 MiB, aggregate 100 MiB, TTL 24 hours. Oversize exports report inability
+to reimport, not truncation. Strict imports reject private/authority/unknown fields,
+duplicate keys, nonfinite values and executable/endpoint configuration. Replay/store
+access checks expiry; store operations sweep expiry and explicit expire/purge
+APIs exist. Tombstones retain
+expiry status without payload; purge does not erase journals/budgets/unrelated
+files. Importing an external export cannot revive the same purged/tombstoned
+reference. Quota failure does not silently evict active captures. Evidence:
+[replay](../../../tests/test_replay_contract.py), [store](../../../tests/test_recording_store.py),
+[capture integration](../../../tests/test_interaction_service.py).
+The [same-core regressions](../../../tests/test_replay_live_core.py) additionally
+disable socket access, disk-journal construction and the legacy interpreter while
+replaying actual supplied-HTTP capture; live state, write count and journal bytes
+remain unchanged. They cover success/rejection/failure/unknown, identity ambiguity,
+invalid correction, stale confirmation, takeover and typed variants.
+The integrated `InteractionService.maintain_retention()` hook sweeps expired idle
+replays, active captures and stored payloads, including restored stores, without
+creating an unused recording store. Corrupt storage is preserved/reported while
+expired memory is purged first. A host must schedule this hook to guarantee idle
+cleanup without traffic. The integrated launcher assigns it to the server's
+`service_actions`, invoked by the serve-forever poll loop even without patient
+requests; no separate detached daemon or external scheduler is introduced.
+
+Retention sweeps recording payloads, active captures and open Replay memory;
+it is not blanket erasure of session identity/diagnostics, capabilities, effect
+journals or model accounting.
+
+## Optional language
+
+Offline deterministic interpretation is default. Explicit CLI/browser `--openai`
+constructs LanguageAdapter plus the canonical project ModelBudget; construction/
+view does not dispatch or reserve. Runtime `BOB_ENABLE_OPENAI`, `BOB_OPENAI_MODEL`,
+`OPENAI_API_KEY` gates still apply. Safety/privacy routing precedes model input;
+only public text/preferences/workflow is supplied. Closed structured proposals
+cannot supply identity/slot authority/consent. Bounded direct HTTPS, no tools,
+redirects or retries; failures are explicit, not silent offline fallback.
+
+The implemented ModelBudget caps a shared namespace at 200 calls/$20, including
+constructor bounds. A higher external allowance does not change those code limits
+or replenish the ledger. It reserves worst-case
+priced context plus bounded output before dispatch and settles validated numeric
+usage only. Unknown billing/crashes retain reservations; calls never refund.
+Another path cannot enforce the shared grant or legitimately replenish it. No
+account-wide invoice reconciliation is claimed.
+See [genuine qualification](../live-qualification.md) for separately source-bound
+model results; no live model call is part of this documentation change.
+
+## Limitations
+
+This is an internal-use, synthetic local PoC with approved public source and
+retained branded assets—not production authentication, clinical advice, real
+staff routing, application deployment, external media publication or endorsement.
+Core semantic parity is conditional on complete matching evidence; renderer
+parity stays false. Imported hashes identify bytes, not authentic history.
+Local effect protection does not reconcile a remote unknown write. Model usage
+reservations are conservative accounting, not account-wide invoice reconciliation.
+Mac ARM is the required product target; offline Linux CI is additional runner
+evidence, not browser/mobile/assistive-technology or platform-wide acceptance.
+Current tests/CI and historical manual-browser/model results retain their own
+source/method limits in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md)
+and the history below. Diagram rendering is documentation QA, not product UAT.
+
+## History and source-bound evidence
+
+The following dated checkpoints are preserved historical records. Their candidate,
+pending-integration, counts, digests and rendered-diagram statements describe
+those sources at those times—not the current integrated source or these diagrams.
+Current organization/source accuracy is reviewed against the revision at the top.
+
 ## Adversarial repair delta — 2026-10-10
 
 Updated against runtime/test source `f7f852c613e306123041866b379a093255582543`;
@@ -77,8 +422,10 @@ also pass the live privacy/opaque-ID gate. Capture completeness is an internal
 schema/evidence assessment, not authenticity: a re-signed imported document is
 still untrusted history, and its digest confers no authority or browser proof.
 Model metadata publishes under the service freshness lock; delayed older
-revisions cannot replace newer diagnostics. Write 404 is failure, not rejection;
-400/409 remain rejection and lost/malformed receipts remain unknown.
+revisions cannot replace newer diagnostics. Source-accuracy clarification (2026-10-12): an injected Session ApiError(404)
+is failure, not rejection; raw HTTP POST 404 remains unknown under the strict
+adapter. Recognized 400/409 writes remain rejection and lost/malformed receipts
+remain unknown. No historical execution result is changed by this clarification.
 Tests: [receipt contracts](../../../tests/test_view_receipt_capture.py),
 [recording-OFF constructors](../../../tests/test_live_diagnostics.py).
 Topology/authority diagrams below are unchanged; their source/count paragraphs
@@ -91,7 +438,7 @@ Documentation finalized after that tested source checkpoint. [Walkthrough](code-
 [native task ledger](../../../specs/001-ochsner-scheduling-assistant/tasks.md),
 [decisions](../../product/decisions.md). This describes actual source, not deployment readiness.
 
-## Components and authority
+### RC-1 component evidence — 2026-10-10
 
 The 2026-10-10 repair retains this topology and all live effect/privacy boundaries.
 [Post-booking replay tests](../../../tests/test_post_booking_replay.py) cover
@@ -110,214 +457,6 @@ identity, selection or confirmation authority is added. Parent and clean committ
 export both passed 398 tests and all three demos; actual browser evidence and
 renderer-parity limits are [separately source-bound](../video-notes.md#feature-completion-supplement--2026-10-10).
 
-```mermaid
-flowchart TB
-  CLI[Multi-turn CLI] --> Conversation[Shared Conversation]
-  Widget[Marimo AnyWidget patient and support tabs] --> Transport[Loopback JSON transport]
-  Transport --> Interaction[InteractionService over BrowserService]
-  Interaction --> Conversation
-  Interaction --> Session[SchedulingSession authority]
-  Conversation --> Session
-  Conversation --> Language[Optional bounded language proposal]
-  Language --> Budget[Shared durable model budget]
-  Session --> Policy[Real ZEN plus structural guards]
-  Session --> Journal[Durable effect journal]
-  Session --> HTTP[Strict HttpMockAdapter]
-  HTTP --> Supplied[Unchanged supplied HTTP and synthetic fixtures]
-  Interaction -. sanitized observation .-> Store[Private semantic recording store]
-  Store --> Replay[Recorded-only core simulation and comparison]
-  Replay --> SimCore[Isolated SchedulingSession]
-  SimCore --> SimPort[Fixed recorded fixtures and memory claims only]
-```
-
-Arrows are calls/data flow, not permission delegation. Only SchedulingSession
-crosses booking/handoff effect boundaries. Model proposals, ZEN allow, support
-acknowledgement and replay cannot replace local identity/fresh exact confirmation.
-Replay has no effect path. Capabilities are local demo access, not production
-patient authentication. CLI/browser share Conversation; explicit browser controls
-submit the same core commands. Sidecar authority lives outside Marimo kernels.
-The [owned launcher](../../../scripts/serve_browser.py) does not clean unrelated
-processes. [Vendored provenance](../../../vendor/reference/PROVENANCE.md) records
-the unchanged supplied server/four fixture files, not a replacement backend.
-
-## Consent and write certainty
-
-```mermaid
-sequenceDiagram
-  participant P as Patient control
-  participant S as SchedulingSession
-  participant Z as ZEN and structural guards
-  participant J as EffectJournal
-  participant H as Supplied HTTP API
-  P->>S: Select actual returned slot at revision
-  S-->>P: Proposal ID, nonce, revision and summary
-  Note over P,S: Selection is not consent. Intervening input revokes proposal
-  P->>S: Dedicated confirm of displayed exact snapshot
-  S->>Z: Closed facts and current authority checks
-  Z-->>S: Allow or deny
-  alt Guards allow and durable claim succeeds
-    S->>J: Claim opaque action key and fsync
-    S->>H: One POST, no retry
-    alt Validated success receipt
-      H-->>S: Matching booking receipt
-      S->>J: Finish completed
-    else Validated rejection or definite failure
-      H-->>S: Documented rejection or validated failure
-      S->>J: Finish rejected or failed
-    else Lost, malformed or mismatched response
-      H-->>S: No trustworthy receipt
-      S->>J: Finish unknown, retain block
-    end
-    S-->>P: Current certainty and copied prior history
-  else Stale, denied or blocked
-    S-->>P: Noncompletion, no POST
-  end
-```
-
-HTTP permits numeric loopback HTTP/explicit port only, no proxy/redirect/retry,
-bounded timeout/body and strict schema. Booking compares submitted patient,
-provider, specialty, location and offset-aware startTime. Validated 400/409 are
-rejection and validated 503 is definite failure; malformed 503 cannot prove
-nonexecution. ApiError is sanitized; possibly submitted writes with lost/malformed/
-mismatched receipts are UnknownOutcome. API events contain categorical method,
-normalized route, status and latency only.
-
-Journal protection is **local duplicate protection, not remote idempotency or
-exactly-once delivery**. Persisted attempted becomes unknown on new journal
-instances. Unknown survives reset/restart when the same effect namespace is used;
-missing/corrupt/unsafe storage denies. Rejection requires fresh options/summary
-before another confirmation. Handoff means mock queued, not real staff delivery.
-
-## State, privacy and persistence
-
-| State | Owner/lifetime | Boundary |
-| --- | --- | --- |
-| Identity, filters, returned options, proposal, receipts | SchedulingSession memory | Corrections revoke private state first; failed reads clear stale private rows. Latest attempted result is separate from prior copied receipts. Full identity/history is not restart-persisted. |
-| Effect claims | Private EffectJournal file/lock/marker | Stable flock/thread lock, fsync/atomic replace; opaque keys only. Reset cannot clear uncertainty. |
-| CLI effect namespace | Private adjacent `.cli-namespace.json` plus stable lock/marker | Same journal resumes opaque session ID only; lifetime exclusive lock, atomic 0600 persistence, per-turn binding checks and foreign-claim rejection. No legacy migration or identity/consent restoration. |
-| Capability bindings | BrowserService private adjacent registry | Digests bind role/session/issuance; bounded count, 24-hour expiry. Restart restores effect namespace, not identity/consent. One-use five-minute pairing grants are memory-only. |
-| Public draft/disclosure and bearer capability | Widget per-tab sessionStorage | Private identity drafts not stored/mirrored; capability never enters URLs/trace references. Not production authentication. |
-| Last patient observation | BrowserService memory | Exact delivered response plus accepted semantic receipt; support nonce stripped, current server context separately labeled. |
-| Takeover/suggestion | BrowserService/session memory | Fresh acknowledgement, five-minute lease; no support identity/select/confirm. Explicit patient preference adoption after return. |
-| Captures/forks | Private RecordingStore envelopes | Typed synthetic projection, quota/TTL/tombstones/purge; separate from effects/budget. |
-| Model accounting | One project `.bob-local/model-budget.json` | Durable private reservation before dispatch; missing/corrupt/unsafe state denies. No prompts, credentials or raw responses. |
-
-ZEN hashes the exact loaded graph and uses five closed categorical facts;
-engine/schema failure denies, allow never overrides structural guards. RapidFuzz
-only suggests fixed public vocabularies/current returned public providers, never
-patients or automatic selection. See [walkthrough boundary tests](code-walkthrough.md#boundary-modules).
-
-## Browser observation and concurrency
-
-Acknowledgement contains bounded revision/renderer/visible/public-draft/focus/
-scroll/disclosure fields and must refer to an actually delivered response.
-Optional strictly typed `presentation: {notice, pending, dirty, can_confirm}`
-additionally mirrors categorical warning/pending/unsent-edit status and the
-observed confirmation-enabled state, never arbitrary notice text or consent.
-Legacy three-field presentation receipts remain accepted. This does not convert
-semantic observation into pixel parity.
-Support's read-only patient renderer uses `observed_patient`, with age/staleness,
-not current server state mislabeled as seen. Both support projections strip the
-confirmation nonce. Semantic receipts are not pixel parity or proof of human understanding.
-
-InteractionService waits for language outside its global lock, binds results to
-turn/revision and permits polling, other sessions and local safety controls.
-Delivered views include final categorical notices. Widget safety buttons remain
-usable during pending text; dirty edits disable exact-snapshot confirmation.
-Poll/read/ack cannot schedule or invoke models, but reads may expire takeover
-(revocation-only). Host/Origin and closed JSON schemas are checked. The shipped
-widget sidecar URL is fixed at port 28451 (default UI origin 28450); launcher port
-changes alone do not reconfigure it.
-
-## Replay fidelity and retention
-
-Capture observes actual session/API/language boundaries, replaces private values
-with approved host fixture references and records categorical certainty. Late
-capture, unrepresentable commands/fields, ambiguous fixture bindings, missed
-outcomes and overflow report explicit gaps, not invented history. Provenance
-binds revision, working source, policy, prompt, schema, fixtures and pinned project
-metadata; hashes confer no trust and metadata is not a resolved dependency lock.
-
-Source provenance uses Git HEAD only when Git resolves exactly to this project
-root. Git-free archives use the fixed bounded regular
-[archive revision artifact](../../../.git_archival.txt), substituted by the
-additive `.gitattributes` export rule. Unexpanded/malformed metadata, symlinks,
-hardlinks and broken own checkouts fail closed; an ancestor repository is not
-this source. Archive working-tree state is explicitly unknown (conservatively
-dirty for legacy boolean consumers), while actual bytes are independently hashed.
-This is identifier/drift evidence, not a signature, clean-byte proof or wheel
-qualification. [Provenance regressions](../../../tests/test_source_provenance.py)
-exercise actual archive substitution and offline capture/replay without Git.
-
-Replay now runs the actual `SchedulingSession` using a fixed recorded-only port
-and private in-memory effect claims. The normal production constructor still
-uses the durable EffectJournal. Every replay gets a fresh opaque namespace;
-recorded fixture references resolve only against the approved host catalog.
-Fresh simulation proposals supply only simulation-local confirmation values,
-never imported IDs/nonces. The original's sanitized core projection is compared
-after every command: missing evidence, fixture gaps, source drift or mismatches
-prevent a `core_semantic_parity=true` claim. Legacy typed-interpreter recordings
-remain inspection-only/incomplete, not silently upgraded.
-
-Fidelity is `representation: scheduling_core_v1`, with independent
-`core_semantic_parity` and `core_renderer_parity=false` flags. Matching complete
-captures reproduce categorical core state, revisions, preferences, option counts,
-proposal presence, policy decisions and outcome/uncertainty history. They do not
-reproduce private records/receipt identifiers, browser drafts/focus or full
-acknowledgement history. The replay panel is not the complete browser renderer.
-Compound language commands retain their recorded cause; changing the model category
-does not apply old model-generated commands. Variants recompute actual core guards
-but unchanged recorded API outcomes are explicitly counterfactual stubs, not
-historical parity or a newly qualified API/model experiment.
-
-Step/back/jump/play/tick/bookmark/fork/compare/regression proposals cannot reach
-HTTP/models/journal. Typed forks preserve immutable lineage and recompute
-prerequisites without supplying live authority. References are locators, not
-capabilities; service access grants are memory-only/session-scoped. Restart keeps
-private files, not automatic grants. Reviewed exports remain untrusted input.
-
-Defaults: imports 1 MiB, 2,000 events, depth 12, strings 4,096 characters; each
-recording 10 MiB, aggregate 100 MiB, TTL 24 hours. Oversize exports report inability
-to reimport, not truncation. Strict imports reject private/authority/unknown fields,
-duplicate keys, nonfinite values and executable/endpoint configuration. Replay/store
-access checks expiry; store operations sweep expiry and explicit expire/purge
-APIs exist. Tombstones retain
-expiry status without payload; purge does not erase journals/budgets/unrelated
-files. Importing an external export cannot revive the same purged/tombstoned
-reference. Quota failure does not silently evict active captures. Evidence:
-[replay](../../../tests/test_replay_contract.py), [store](../../../tests/test_recording_store.py),
-[capture integration](../../../tests/test_interaction_service.py).
-The [same-core regressions](../../../tests/test_replay_live_core.py) additionally
-disable socket access, disk-journal construction and the legacy interpreter while
-replaying actual supplied-HTTP capture; live state, write count and journal bytes
-remain unchanged. They cover success/rejection/failure/unknown, identity ambiguity,
-invalid correction, stale confirmation, takeover and typed variants.
-The integrated `InteractionService.maintain_retention()` hook sweeps expired idle
-replays, active captures and stored payloads, including restored stores, without
-creating an unused recording store. Corrupt storage is preserved/reported while
-expired memory is purged first. A host must schedule this hook to guarantee idle
-cleanup without traffic. The integrated launcher now assigns it to the server's
-`service_actions`, invoked by the serve-forever poll loop even without patient
-requests; no separate detached daemon or external scheduler is introduced.
-
-## Optional language
-
-Offline deterministic interpretation is default. Explicit CLI/browser `--openai`
-constructs LanguageAdapter plus the canonical project ModelBudget; construction/
-view does not dispatch or reserve. Runtime `BOB_ENABLE_OPENAI`, `BOB_OPENAI_MODEL`,
-`OPENAI_API_KEY` gates still apply. Safety/privacy routing precedes model input;
-only public text/preferences/workflow is supplied. Closed structured proposals
-cannot supply identity/slot authority/consent. Bounded direct HTTPS, no tools,
-redirects or retries; failures are explicit, not silent offline fallback.
-
-The ledger permits at most 200 calls/$20 per shared namespace, reserves worst-case
-priced context plus bounded output before dispatch and settles validated numeric
-usage only. Unknown billing/crashes retain reservations; calls never refund.
-Another path cannot enforce the shared grant or legitimately replenish it. No
-account-wide invoice reconciliation is claimed. [Genuine language qualification](../live-qualification.md)
-separately reports the explicitly selected alternative's 12/12 semantic cases and
-retains the default mini model's 10/12 result. This is not whole-product/browser/
-booking qualification; this documentation worker performed no live calls.
 
 ## Reviewed source and verification
 
