@@ -1,100 +1,14 @@
 # Video production notes
 
-Updated: 2026-10-10. Status: source-bound feature-completion still supplement delivered;
-video assembly and Operator bookends remain with the media owner.
-The existing video task owns narration/assembly; this is not a finished video.
+Updated 2026-10-12. Video production is **on hold** under the current human plan;
+no second video, new bookends, capture, assembly or publication is initiated by
+these notes. Existing R6/assets stay unchanged. Caption work remains deferred,
+human-closed audio flags stay closed, and optional pacing remains unselected.
 
-## A04 source contract for the media owner — 2026-10-10
-
-Runtime/test source `f7f852c613e306123041866b379a093255582543` (candidate;
-independent review/CI/integration pending). The fixed Replay notice is:
-
-> This recording reference is unavailable or not granted. Check the reference or import an approved recording into this session. No effect was retried.
-
-Well-formed unknown/foreign/ungranted references share `reference_unavailable`;
-true capability/join failures retain pairing guidance. Valid capabilities remain
-usable. The patient notice, Support mirror and captured receipt use the same
-closed `reference` category. [HTTP contracts](../../tests/test_local_transport.py)
-and [shipped-widget tests](../../tests/test_widget_projection.py) passed in the
-30-test affected A04 suite; these are offline evidence, not new browser stills.
-The [interaction contract](../../specs/001-ochsner-scheduling-assistant/contracts/interaction-contract.md)
-and [native T067–T069](../../specs/001-ochsner-scheduling-assistant/tasks.md)
-own behavior/progress. Historical R5 missing-reference imagery remains bound to
-its old source and is not evidence of this repair. Existing media owner/SM owns
-the separately approved VID-A01/VID-A02 scene correction/QA sequencing; no new
-capture, render or publication is claimed here. Caption deferral and human-closed
-audio flags are unchanged; VID-P01 pacing remains unselected.
-
-Completeness correction, 2026-10-10: RC-1/R04's historical no-gap label qualified
-the narrower core projection, not retained browser receipt history. New code
-captures ordered acknowledgements and labels absent required observations
-incomplete; renderer parity remains false. Recording-OFF API/model diagnostics
-are repaired separately. Existing images/scripts are not evidence of these new
-behaviors; no new capture accompanied that repair checkpoint. The later
-[limited IAB supplement](#completeness-iab-supplement--2026-10-10) records three
-stills at merged source without relabeling earlier captures or proving warning-free
-operation. No upload or paid QA was part of this source repair. See
-[native T053–T056](../../specs/001-ochsner-scheduling-assistant/tasks.md).
-Reviewed repair source: `c8463252251dd840ac443641702656fd3134eebc` / RC-2,
-415 tests/all demos passed. This code checkpoint does not relabel existing stills
-or require new capture/media work; their original source bindings remain intact.
-
-Audience update 2026-10-10: the Operator approved branded synthetic assets in
-this exact public-source repository. BOB remains an internal-use PoC, not a
-publicly deployed application. Earlier private-only notes below describe the
-historical capture grant; they do not override this later decision. External
-video publication remains outside this grant.
-
-## Feature-completion supplement — 2026-10-10
-
-[Final manifest](../../assets/ui/stills/feature-completion-20261010/manifest.json):
-87 unedited native JPEG viewports with byte hashes, dimensions, visible target
-rectangles/anchors and per-entry source. No crop, pixel repair, continuous
-recording, model calls or access to the Operator's active trial was used.
-Default source metadata applies only to the ordinary set; never relabel all
-frames as RC-1. Three isolated capture sets are disclosed in `capture_sets`:
-
-| Set | Count / source | Actual change and evidence |
-| --- | --- | --- |
-| Ordinary | 64 / `c3e6df20dff2518014d763c162359ceb9de23d1d` | Backend literal changed to isolated port 28541; independent mock/private namespace. Historical incomplete post-booking replay retained. |
-| Receipt loss | 6 / same `c3e6df2` | Isolated port 28543 plus capture-only launcher using existing accepted-receipt-hiding wrapper. Launcher/proof hashes included; not transport-only. |
-| Repaired | 17 / `e2dfa7e9f471513921063d568bb3bc890eff1800` | Clean export/install qualified before sole backend-literal change to 28545. Actual complete core replay and separate Support status. |
-
-Use P50→P51 for fresh mismatch/correction (not original P25's session), and
-P52→P53 for pending typo→explicit Downtown acceptance (P23 is a later repetition,
-not P22's precursor). D30/D31 show actual sanitized diagnostics/provenance;
-P54/P55 show medical boundary and a validated **mock** handoff, not staff contact.
-R06/R07 pair readable reviewed fixture-proposal flags/provenance with control
-context; this is simulation-only and not an executed/adopted test. R14/R17 include
-step-index input, Jump and bookmarks. R11 is typed-invalid valid JSON, not a
-malformed-JSON parser demonstration.
-
-R01 shows actual appointment rows after booking, distinct from completed history.
-R02 seals complete evidence but does not yet evaluate parity; R04 shows eight
-events, no gaps, core semantic parity true and renderer parity false. The later
-unknown API variant changes the final **lookup**, not the completed booking.
-S30→S31→S32 shows joined/inactive → joined/active → joined/inactive; zero lease
-when inactive. Historical `not_joined` labels meant inactive takeover, not failed
-pairing. Private identity and confirmation authority remain excluded.
-
-F08/F09 show Reset retaining uncertainty; F10 shows a new verified selection
-still unable to Confirm. The [proof](../../assets/ui/stills/feature-completion-20261010/receipt-loss-proof.jsonl)
-records one validated accepted booking and an independent matching appointments
-read. Its receipt was deliberately hidden at the adapter boundary. No second
-Confirm action occurred; one proof entry remains. This is not a packet audit or
-actual outage. Rejected grant-bearing/framing frames remain scratch-only and are
-listed in the manifest, never adopted.
-
-R17 shows the selected disposable recording expired after Purge. An external
-export is retained, but the same tombstoned reference **cannot** be revived by
-re-import. Do not narrate restoration or removal of effect protection.
-IAB kernel/acknowledgement failures and Chrome fallback are retained, not hidden.
-The repaired capture launch also reported denied writes to Marimo's host recent-
-file/server registry; actual isolated UI flows and originals were observed, but
-successful capture is not evidence that those host metadata writes succeeded.
-Native Chrome viewport sizes vary; per-entry JPEG dimensions govern placement.
-Minimal effects, short preferred/no duration cap and Operator intro/wrap remain
-the approved video approach. Stills delivery is not a finished-video claim.
+A04 is integrated through [PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6)
+at `1c318f3e54508d522b18f57d5bc871c4c04ad9ff`. The [source contract](#a04-source-contract-for-the-media-owner--2026-10-10)
+and capture supplements below retain their original sources and limits; old
+imagery is not evidence of later runtime repairs. No finished video is claimed.
 
 Keep this file current as Specify, Plan and Implement establish the actual product. Record confirmed behavior, not aspirations; link to canonical specs/tests instead of copying them. Use synthetic data and keep credentials and personal data out of recordings.
 
@@ -305,3 +219,104 @@ namespace launch failure was resolved by a direct owned namespace. Seventeen
 focused receipt/diagnostic tests passed in 0.127 s on exact merged source.
 Owned tab/services closed; Operator trial, historical stills, model ledger and
 immutable RC tags untouched. Final video assembly/QA remains with its owner.
+
+## Historical source contracts and completion updates
+
+The following production handoff and candidate-status text is retained as dated
+history. It does not override the current hold or authorize new media work.
+
+Updated: 2026-10-10. Status: source-bound feature-completion still supplement delivered;
+video assembly and Operator bookends remain with the media owner.
+The existing video task owns narration/assembly; this is not a finished video.
+
+## A04 source contract for the media owner — 2026-10-10
+
+Runtime/test source `f7f852c613e306123041866b379a093255582543` (candidate;
+independent review/CI/integration pending). The fixed Replay notice is:
+
+> This recording reference is unavailable or not granted. Check the reference or import an approved recording into this session. No effect was retried.
+
+Well-formed unknown/foreign/ungranted references share `reference_unavailable`;
+true capability/join failures retain pairing guidance. Valid capabilities remain
+usable. The patient notice, Support mirror and captured receipt use the same
+closed `reference` category. [HTTP contracts](../../tests/test_local_transport.py)
+and [shipped-widget tests](../../tests/test_widget_projection.py) passed in the
+30-test affected A04 suite; these are offline evidence, not new browser stills.
+The [interaction contract](../../specs/001-ochsner-scheduling-assistant/contracts/interaction-contract.md)
+and [native T067–T069](../../specs/001-ochsner-scheduling-assistant/tasks.md)
+own behavior/progress. Historical R5 missing-reference imagery remains bound to
+its old source and is not evidence of this repair. Existing media owner/SM owns
+the separately approved VID-A01/VID-A02 scene correction/QA sequencing; no new
+capture, render or publication is claimed here. Caption deferral and human-closed
+audio flags are unchanged; VID-P01 pacing remains unselected.
+
+Completeness correction, 2026-10-10: RC-1/R04's historical no-gap label qualified
+the narrower core projection, not retained browser receipt history. New code
+captures ordered acknowledgements and labels absent required observations
+incomplete; renderer parity remains false. Recording-OFF API/model diagnostics
+are repaired separately. Existing images/scripts are not evidence of these new
+behaviors; no new capture accompanied that repair checkpoint. The later
+[limited IAB supplement](#completeness-iab-supplement--2026-10-10) records three
+stills at merged source without relabeling earlier captures or proving warning-free
+operation. No upload or paid QA was part of this source repair. See
+[native T053–T056](../../specs/001-ochsner-scheduling-assistant/tasks.md).
+Reviewed repair source: `c8463252251dd840ac443641702656fd3134eebc` / RC-2,
+415 tests/all demos passed. This code checkpoint does not relabel existing stills
+or require new capture/media work; their original source bindings remain intact.
+
+Audience update 2026-10-10: the Operator approved branded synthetic assets in
+this exact public-source repository. BOB remains an internal-use PoC, not a
+publicly deployed application. Earlier private-only notes below describe the
+historical capture grant; they do not override this later decision. External
+video publication remains outside this grant.
+
+## Feature-completion supplement — 2026-10-10
+
+[Final manifest](../../assets/ui/stills/feature-completion-20261010/manifest.json):
+87 unedited native JPEG viewports with byte hashes, dimensions, visible target
+rectangles/anchors and per-entry source. No crop, pixel repair, continuous
+recording, model calls or access to the Operator's active trial was used.
+Default source metadata applies only to the ordinary set; never relabel all
+frames as RC-1. Three isolated capture sets are disclosed in `capture_sets`:
+
+| Set | Count / source | Actual change and evidence |
+| --- | --- | --- |
+| Ordinary | 64 / `c3e6df20dff2518014d763c162359ceb9de23d1d` | Backend literal changed to isolated port 28541; independent mock/private namespace. Historical incomplete post-booking replay retained. |
+| Receipt loss | 6 / same `c3e6df2` | Isolated port 28543 plus capture-only launcher using existing accepted-receipt-hiding wrapper. Launcher/proof hashes included; not transport-only. |
+| Repaired | 17 / `e2dfa7e9f471513921063d568bb3bc890eff1800` | Clean export/install qualified before sole backend-literal change to 28545. Actual complete core replay and separate Support status. |
+
+Use P50→P51 for fresh mismatch/correction (not original P25's session), and
+P52→P53 for pending typo→explicit Downtown acceptance (P23 is a later repetition,
+not P22's precursor). D30/D31 show actual sanitized diagnostics/provenance;
+P54/P55 show medical boundary and a validated **mock** handoff, not staff contact.
+R06/R07 pair readable reviewed fixture-proposal flags/provenance with control
+context; this is simulation-only and not an executed/adopted test. R14/R17 include
+step-index input, Jump and bookmarks. R11 is typed-invalid valid JSON, not a
+malformed-JSON parser demonstration.
+
+R01 shows actual appointment rows after booking, distinct from completed history.
+R02 seals complete evidence but does not yet evaluate parity; R04 shows eight
+events, no gaps, core semantic parity true and renderer parity false. The later
+unknown API variant changes the final **lookup**, not the completed booking.
+S30→S31→S32 shows joined/inactive → joined/active → joined/inactive; zero lease
+when inactive. Historical `not_joined` labels meant inactive takeover, not failed
+pairing. Private identity and confirmation authority remain excluded.
+
+F08/F09 show Reset retaining uncertainty; F10 shows a new verified selection
+still unable to Confirm. The [proof](../../assets/ui/stills/feature-completion-20261010/receipt-loss-proof.jsonl)
+records one validated accepted booking and an independent matching appointments
+read. Its receipt was deliberately hidden at the adapter boundary. No second
+Confirm action occurred; one proof entry remains. This is not a packet audit or
+actual outage. Rejected grant-bearing/framing frames remain scratch-only and are
+listed in the manifest, never adopted.
+
+R17 shows the selected disposable recording expired after Purge. An external
+export is retained, but the same tombstoned reference **cannot** be revived by
+re-import. Do not narrate restoration or removal of effect protection.
+IAB kernel/acknowledgement failures and Chrome fallback are retained, not hidden.
+The repaired capture launch also reported denied writes to Marimo's host recent-
+file/server registry; actual isolated UI flows and originals were observed, but
+successful capture is not evidence that those host metadata writes succeeded.
+Native Chrome viewport sizes vary; per-entry JPEG dimensions govern placement.
+Minimal effects, short preferred/no duration cap and Operator intro/wrap remain
+the approved video approach. Stills delivery is not a finished-video claim.

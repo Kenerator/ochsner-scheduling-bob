@@ -1,5 +1,39 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Current-first documentation follow-on — 2026-10-12
+
+Reviewed runtime baseline `1c318f3e54508d522b18f57d5bc871c4c04ad9ff`, integrated
+through [PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6).
+This is a docs-only follow-on, not new runtime qualification or media production.
+Historical pending/status text below retains its original checkpoint scope.
+
+- [x] T070 [US4/US5/US6] Reorganize as-built architecture/walkthrough around
+  current code; source-check labeled overview/zoom-ins, add source-based guide
+  schematics and text alternatives, move interrupting history behind current
+  instructions, retain inbound anchors and verify local links/render legibility.
+- [ ] T071 [US6] Run the existing whole-index credential guard, submit the exact
+  documentation candidate for the selected independent final diff review alongside
+  automatic CI, and normally integrate only the selected exact head. No runtime,
+  tests, dependencies, private intake, captures, paid calls or immutable tags change.
+
+T070 verification against the runtime baseline above: six Mermaid diagrams
+parsed/rendered with the locally installed engine in an isolated static page;
+standalone SVG exports and four native guide SVGs were rasterized and visually
+checked for labels, wrapping and control-location accuracy. This is documentation
+rendering, not a product launch, screenshot capture or browser qualification.
+Read-only navigation audit: 88 tracked non-intake Markdown files, 543 local
+targets, 73 anchor targets, all 74 old anchors in changed Markdown retained,
+zero missing targets/anchors. Existing inherently historical qualification,
+review and milestone records were retained rather than mechanically reordered.
+The private edited brief was not read or incorporated. Runtime/tests/profile
+remain unchanged; no local full-suite or paid-model rerun is claimed. Final
+candidate guard/review/automatic CI and integration remain pending under T071.
+
+Precommit whole-index guard: 385 files, 119 binary, six existing exact-blob
+synthetic exceptions, zero unresolved findings, symlinks or submodules. Staged
+diff check is clear. These are the existing pattern guard's bounded results,
+not secret-free/history/PHI certification; final review/CI/integration are pending.
+
 ## Approved adversarial repairs A01–A04 — 2026-10-10
 
 Resumed after explicit Operator system-availability confirmation and SM sequencing.
