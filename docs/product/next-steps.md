@@ -7,9 +7,11 @@ A01–A04 are integrated through [PR #6](https://github.com/Kenerator/ochsner-sc
 at `1c318f3e54508d522b18f57d5bc871c4c04ad9ff`, after the source-bound
 433-test qualification, exact-head CI and selected independent review. This
 document update does not repeat or broaden that runtime qualification.
-Current follow-on is documentation-only: clearer as-built diagrams, guide
-schematics and current-first organization, followed by the selected final review.
-See native T064–T069 and the [A04 media contract](../internal/video-notes.md#a04-source-contract-for-the-media-owner--2026-10-10).
+Current documentation provides clearer as-built diagrams, source-based control
+schematics and current-first organization. Source-bound verification and the
+selected review/CI are in native T070–T071; PR #7 uses protected integration,
+not a new runtime qualification campaign. See native T064–T069 for A01–A04 and
+the [A04 media contract](../internal/video-notes.md#a04-source-contract-for-the-media-owner--2026-10-10).
 Historical RC-1/RC-2 and captures remain unchanged. Optional H01 memory pruning
 and VID-P01 pacing are not selected; no new model calls or Operator-service
 control are needed for this documentation follow-on.
