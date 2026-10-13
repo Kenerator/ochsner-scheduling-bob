@@ -149,6 +149,9 @@ class RuntimeLauncherTests(unittest.TestCase):
         self.assertNotIn("OPENAI_API_KEY", specs[0].environment)
 
     def test_normal_offline_cli_launch_runs_provider_read_and_cleans_api(self):
+        # Match the documented offline prerequisite in a clean committed export;
+        # the app creates only its immediate run namespace, not missing ancestors.
+        (ROOT / ".bob-local").mkdir(mode=0o700, exist_ok=True)
         api, _ = free_ports()
         environment = self.credentials.child_environment(os.environ, settings={"PYTHONPATH": str(ROOT / "src")})
         result = subprocess.run([sys.executable, str(RUNTIME / "launch.py"), "--offline", "--interface", "cli",

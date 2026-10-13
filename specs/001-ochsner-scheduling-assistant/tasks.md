@@ -854,3 +854,12 @@ the cause was inspected and corrected, not ignored. Final staged diff check is
 clear. These are bounded pattern-scan results, not secret-free/history/PHI claims.
 Exact committed-export qualification, independent SM review, PR/CI and protected
 integration/readback remain pending and will be bound to the committed candidate.
+
+First committed-export qualification at `eb4b134` failed one of 498 tests after
+successful fresh-venv installation/pip check: the actual CLI smoke omitted the
+documented private `.bob-local` parent prerequisite, which the preexisting local
+smoke state had supplied. Remaining 497 tests passed; later profile checks were
+correctly not run. The consumer test now creates that documented private parent
+before actual launch. No product/shared/runtime behavior or negative assertion
+changes; the original failure is retained. Corrected exact-head qualification
+and review/CI remain pending at this checkpoint.
