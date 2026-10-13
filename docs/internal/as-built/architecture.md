@@ -1,8 +1,10 @@
 # As-built architecture
 
-Updated 2026-10-13 against integrated baseline
-`c7c53a3f45b9b6955a4f7b2d09b3a61a7828e1d1` plus the isolated L4/runtime-policy delta,
-whose exact-head review/integration is pending in native T087–T097. This is the local synthetic
+Updated 2026-10-13 against reviewed source
+`79aeafd6269dd1e54f9429a3cdf49b30070b153c`, integrated as
+`d3c3a044575c5666c220ab89dcb680b8a456fcbb` with the identical selected tree.
+Native T087–T098 records review/qualification/CI/integration and the separate
+unperformed activation. This is the local synthetic
 scheduling PoC as implemented, not a production design or deployment approval.
 Earlier runtime repairs integrated through [PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6);
 budget/L3 through [PR #8](https://github.com/Kenerator/ochsner-scheduling-bob/pull/8).
@@ -359,8 +361,8 @@ expiry and older-reader incompatibility; never reset/truncate an over-cap ledger
 
 ## Indefinite runtime accounting — 2026-10-13
 
-Candidate source on integrated baseline `c7c53a3`; final reviewed revision/status
-is pending in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13).
+Reviewed source `79aeafd`, integrated as `d3c3a04`; exact review/qualification/CI
+and unperformed activation are in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#runtime-and-launcher-integration-closure--2026-10-13).
 [RuntimeLedger](../../../src/ochsner_bob/runtime_accounting.py) is a storage adapter
 behind ModelBudget, not new model or scheduling authority. Actual CLI/browser
 constructors and the functional qualifier select uncapped covered-execution policy.
@@ -379,7 +381,7 @@ Activate only with old writers quiescent; no live-format migration is performed.
 
 ## Limitations
 
-L4 consumer candidate, updated 2026-10-12 on integrated baseline `c7c53a3`:
+L4 consumer reviewed at `79aeafd`, integrated as `d3c3a04` on 2026-10-13:
 the managed [runtime manifest](../../../tools/poc-runtime/export-manifest.json)
 pins authoritative launcher bytes and [BOB config](../../../poc-launch.json)
 selects real model mode/default snapshot/exact Secure Note field. Preflight is
@@ -390,7 +392,7 @@ is updated separately above. Actual isolated
 offline UI creation/provider discovery succeeded on 29580/29581; IAB reconnect
 and acknowledgement warnings remain, not synchronized-screen qualification.
 The reviewed CLI ownership correction is adopted and consumer tests pass; final
-combined review/integration remain pending in
+combined review/integration are complete in
 [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12).
 
 This is an internal-use, synthetic local PoC with approved public source and

@@ -1,8 +1,10 @@
 # As-built code walkthrough
 
-Updated 2026-10-13 against integrated baseline
-`c7c53a3f45b9b6955a4f7b2d09b3a61a7828e1d1` plus the isolated L4/runtime-policy delta,
-whose exact-head review/integration is pending in native T087–T097. Follow the actual local synthetic
+Updated 2026-10-13 against reviewed source
+`79aeafd6269dd1e54f9429a3cdf49b30070b153c`, integrated as
+`d3c3a044575c5666c220ab89dcb680b8a456fcbb` with the identical selected tree.
+Native T087–T098 records review/qualification/CI/integration and the separate
+unperformed activation. Follow the actual local synthetic
 workflow from entry points to authority/effect boundaries, then inspection and
 optional language. This is a source map, not a second completion ledger or a
 production-readiness claim. Earlier repairs integrated through
@@ -173,7 +175,7 @@ pairs set it explicitly; the managed launcher sets it on the key-free viewer.
 constructors, role-scoped child environments, no-call readiness, configured
 renderer routing and real owned offline HTTP cleanup. This is not live-model
 qualification; [native L4 status](../../../specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12)
-records the adopted CLI correction and remaining combined final-review dependency.
+records the adopted CLI correction and completed review/CI/protected integration.
 
 ## Diagnostics, recording and Replay
 

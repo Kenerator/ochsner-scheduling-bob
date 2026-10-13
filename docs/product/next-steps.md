@@ -3,17 +3,21 @@
 Updated 2026-10-13. Detailed completion/open work belongs in the
 [native ledger](../../specs/001-ochsner-scheduling-assistant/tasks.md), not this memo.
 
-Current follow-on: budget/L3 integrated normally at `c7c53a3`. Existing isolated
-L4 work is preserved and now adopts reviewed shared source `17d4157`; all 25
-consumer tests pass, including CLI-owned API/cleanup. The verified indefinite
-runtime-only policy is implemented in the candidate with same-path transactional
-SQLite accounting, preserved history/unknown liabilities and excluded-generation
-configuration unchanged. Human clarification includes functional qualification:
-the candidate qualifier reuses the exact notes helper/canonical uncapped accounting.
-Combined updated qualification, staged guard, SM affected-delta review and protected
-integration remain; no live model request, service restart or ledger migration.
-SM reports old PIDs/ports absent on Oct 13; verify all actual writers quiescent
-before eventual activation rather than assuming the earlier services are running.
+Reviewed runtime/launcher source `79aeafd` integrated normally through
+[PR #9](https://github.com/Kenerator/ochsner-scheduling-bob/pull/9) as `d3c3a04`,
+identical selected tree; canonical main synchronized cleanly. Exact shared source
+`17d4157`, 25 consumer tests, 504-test clean committed Mac export/all seven checks,
+staged guard and SM base/affected review plus exact-head CI are source-bound in
+native closure. Functional qualification/testing/validation is covered, using the
+exact notes helper/canonical uncapped accounting; LLM code generation is excluded.
+
+Next operational choice is activation, not more policy proof: known old PIDs/ports
+are absent and canonical 0600 JSON accounting hash is unchanged. Verify any other
+old-format writers quiescent, preserve ledger/lock/effects namespace, then deliberately
+start the integrated runtime/qualifier for same-path atomic migration. No service
+start, real key lookup, successful genuine qualification or migration was performed
+in this integration; the initial invalid-synthetic-transport test mistake remains
+disclosed, not relabeled zero-transport.
 See [normal launch/setup](../../README.md#normal-model-first-launcher) and native
 T087–T092 for source-bound tests, partial browser evidence and remaining work.
 W1 walkthrough inventory stays separate; no W export, media work or new model

@@ -1,5 +1,12 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+Current runtime/launcher policy, 2026-10-13: exact reviewed `79aeafd` integrated
+through protected [PR #9](https://github.com/Kenerator/ochsner-scheduling-bob/pull/9)
+as `d3c3a04`, identical tree; canonical main synced cleanly. Functional qualification
+is included in covered execution. [Final source-bound closure](#runtime-and-launcher-integration-closure--2026-10-13)
+records actual review/tests/CI/merge and safe activation handoff. Historical pending
+checkpoints below retain their original scope; no live activation is claimed.
+
 ## Current-first documentation follow-on — 2026-10-12
 
 Reviewed runtime baseline `1c318f3e54508d522b18f57d5bc871c4c04ad9ff`, integrated
@@ -734,7 +741,7 @@ adoption. Native tasks remain the sole completion ledger.
   owned cleanup, no Operator service/state changes or paid requalification.
 - [x] T091 [US6] Reconcile launch/user/as-built/persona/video/next-step documentation,
   source lineage/navigation and existing whole-index credential guard.
-- [ ] T092 [US6] One final SM exact consumer-diff review/selection, candidate CI and
+- [x] T092 [US6] One final SM exact consumer-diff review/selection, candidate CI and
   normal protected integration/readback. No new tag/release or restoration gate.
 
 Baseline: 458 tests passed (22.806 s). Initial 18 consumer/widget tests failed for
@@ -793,10 +800,10 @@ and L4 widget/docs edits. No new writer, ledger, bootstrap or Spec-Kit stage.
   dated CLI/browser flags, not historical source-bound evidence.
 - [x] T095 [US6] Combine reviewed shared pin, full consumer/product regressions,
   supplied-HTTP scenarios/demos, privacy/lifecycle and affected docs/navigation.
-- [ ] T096 [US6] Existing whole-index staged credential guard, scoped candidate
+- [x] T096 [US6] Existing whole-index staged credential guard, scoped candidate
   commit/PR/CI and one SM exact consumer diff review, then selected protected
   integration/readback. No new tag, media, model call or generic approval gate.
-- [ ] T097 [US6] Report safe activation choice after integration: reconcile actual
+- [x] T097 [US6] Report safe activation choice after integration: reconcile actual
   old model writers, quiesce them before format migration, preserve canonical
   ledger/effects namespace. Do not activate/migrate the Operator runtime in this
   assignment. This task is a handoff, not a required unapproved restart.
@@ -910,3 +917,58 @@ contracts. The existing safe `budget_exceeded` status remains compatible, while 
 human-facing message now describes accounting/pre-dispatch validation unavailable,
 not an application spending cap. Exact committed qualification/CI and SM affected-
 delta selection remain pending; no new genuine model result is claimed.
+
+## Runtime and launcher integration closure — 2026-10-13
+
+Exact selected runtime/test/docs head `79aeafd6269dd1e54f9429a3cdf49b30070b153c`,
+tree `d937716bff959f84f669d76892a51cb71dd74c5f`, integrated normally through
+[PR #9](https://github.com/Kenerator/ochsner-scheduling-bob/pull/9) at
+`d3c3a044575c5666c220ab89dcb680b8a456fcbb`, merged 2026-10-13 18:26:43 UTC.
+Merge tree exactly equals the selected tree; canonical `main` fast-forwarded
+cleanly. No admin, force, bypass, new tag, credential lookup, service activation,
+IAB interaction or live accounting migration was used for integration.
+
+One SM base review covered all 31 `eb4b134` paths and the two-file `8d5020e`
+clean-export prerequisite correction, with 81 independent tests passing (3.101 s).
+The affected 23-path human-clarification delta at `79aeafd` was reviewed without
+restarting the base/shared review; 34 independent tests passed (0.307 s), no
+actionable blocking findings. The minor active exhausted-budget wording was
+corrected. Shared source/manifest `17d4157` is unchanged and its approved review
+is reused. Actual new genuine AI/UI/support-sync/media/activation qualification
+was explicitly declined as unrun, not claimed or silently added as a gate.
+
+Exact-head clean committed Mac ARM export passed all seven profile steps with
+Python 3.11.13: fresh venv/editable install/pip check, 504 combined tests (23.809 s),
+nine supplied-HTTP checks/all eight scenarios (0.356 s), all three success/conflict/
+unknown booking demos and nine shipped-widget checks (0.341 s). No skips/timeouts;
+profile SHA `697809cdf69ba24119e380c3e78ee7a1e7bb91cfce80c997fc9c19d30d578f39`.
+Product/service-integration/ui-static passed; browser/live-model/remote-clone and
+the separate starter category were not checked by this profile.
+
+Actual exact-head offline CI [run 38445510355](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38445510355)
+/ [job 115462714332](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38445510355/job/115462714332)
+completed successfully at 2026-10-13 18:18:48 UTC. Source head `79aeafd` and all
+workflow step results were read back; SM independently verified current PR/head,
+OPEN/CLEAN state and successful CheckRun before selecting the exact merge.
+This standard offline runner is not Mac/browser/production certification.
+Final code candidate guard checked 399 files/119 binary, six existing exact
+synthetic allowances, zero unresolved findings/symlinks/submodules. Updated
+changed-doc navigation: 13 files/428 local targets/88 fragments, zero errors.
+The earlier failed profile and invalid-synthetic-transport test setup are retained
+above; neither is relabeled genuine qualification or falsely zero-transport.
+
+Safe activation handoff delivered to SM: read-only owner checks found no listeners
+28450/28451 or old PIDs 92464/96962; nothing was stopped. Original canonical ledger
+remains private 0600 legacy JSON with unchanged SHA
+`5726e6565210f8acb68f9172cf8f78893e071bfe476ec83fc1b7e087ef2c0c80`.
+Verify/quiesce any other old-format model writer/qualifier before a deliberate
+integrated browser/CLI/functional-qualifier start. Preserve the canonical ledger,
+lock/marker and intended effects namespace; first covered construction atomically
+migrates in place. Old code cannot resume against SQLite. If an Operator trial is
+active, coordinate its stop/restart first. No new model/key/helper lookup, app
+start or migration is part of this handoff. T097 is completed advice, not activation.
+
+This ordinary docs-only closure updates native markers and reviewed-source lineage;
+runtime/tests/shared modules/profile/media are unchanged from the qualified tree.
+Its own affected-doc review and automatic exact-head CI precede protected delivery;
+no local full-suite/model/UI proof restart or future closure-merge claim is made.

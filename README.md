@@ -68,7 +68,8 @@ transitive dependencies are not a reproducible lock. No API key is needed offlin
 
 ### Normal model-first launcher
 
-L4/runtime-policy candidate, updated 2026-10-13; final review/CI/integration status is
+L4/runtime policy reviewed at `79aeafd`, integrated as `d3c3a04` on 2026-10-13;
+source-bound review/CI/integration and separate activation status are
 in [native tasks](specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12).
 The pinned [runtime manifest](tools/poc-runtime/export-manifest.json) identifies
 the managed Template bytes; BOB's public settings are in [poc-launch.json](poc-launch.json).
