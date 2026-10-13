@@ -37,6 +37,12 @@ import that sketch; passing them does not establish supplied-service acceptance.
 
 OwnedMock imports the unchanged vendored Store/Handler, binds its own ephemeral
 or explicit numeric loopback port and runs Popen with raw output suppressed.
+L3 candidate delta, 2026-10-12, based on budget source `10b1a71`: its child now
+receives only PATH/locale/TZ/temp/SYSTEMROOT plus forced bytecode suppression,
+not the parent model/vault/token/import environment. The actual child/vendor
+readiness and cleanup boundary is tested with private Boolean-only
+[canary reports](../../../tests/test_mock_child_environment.py). Integration
+remains pending in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#l3-secret-free-mock-child-prerequisite--2026-10-12).
 Cleanup terminates only its child, never an unrelated listener. See
 [vendor provenance](../../../vendor/reference/PROVENANCE.md) for source/fixture hashes.
 
