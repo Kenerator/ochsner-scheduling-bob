@@ -1,6 +1,6 @@
 # Video production notes
 
-Runtime policy note, 2026-10-13: the candidate implements indefinite Ochsner-key
+Runtime policy note, 2026-10-13: reviewed `79aeafd`, integrated as `d3c3a04`, implements indefinite Ochsner-key
 application usage including functional qualification/testing/validation and app-like
 evaluation; LLM creation/change of app/spec/test code and media grants do not expand.
 Same-path private SQLite accounting preserves history/unknown liabilities; safe

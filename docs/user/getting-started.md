@@ -155,7 +155,8 @@ longer accepted by application launchers. Historical counts/CI remain unchanged.
 
 ## Application runtime accounting
 
-Updated 2026-10-13 for the isolated candidate; integration/activation status remains
+Updated 2026-10-13 for reviewed `79aeafd`, integrated as `d3c3a04`; activation remains
+unperformed and its safe handoff is
 in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13).
 The Operator authorized Ochsner-key usage involved in **running BOB** without
 application call, dollar or time-window limits until further notice. No special
