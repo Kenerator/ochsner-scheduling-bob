@@ -211,10 +211,11 @@ and historical genuine-model qualification. Native tasks hold current gaps/statu
 
 ## Indefinite application runtime policy — 2026-10-13
 
-- **FR-027 [US6]**: Normal browser, CLI and direct application model paths MUST
+- **FR-027 [US6]**: Normal browser, CLI, direct application and functional
+  qualification/testing/validation/app-like evaluation model paths MUST
   permit Ochsner-key runtime usage without application-imposed call, dollar or
-  dated-window limits until further notice. This MUST NOT expand build, test
-  generation, qualification, research or media allowances. No special budget flag
+  dated-window limits until further notice. This MUST NOT expand LLM generation
+  or changes to application/spec/test code or unrelated research/media allowances. No special budget flag
   is required. Existing model/key/HTTP/output/context/retry/concurrency, identity,
   confirmation and effect protections remain.
 - **FR-027a [US6]**: Preserve the same canonical private accounting path, lock,
@@ -225,6 +226,9 @@ and historical genuine-model qualification. Native tasks hold current gaps/statu
   migration, reservation, model call or mutation. Atomic format migration may be
   activated only after all old-format writers are quiescent; never reset history.
 
-Origin: actual human MLX message `01a1363a-23ea-7802-80fa-a54d8668ba4a`, verified
-natively; SM selected same-path SQLite and runtime-only constructor selection.
+Origin: actual human MLX message `01a1363a-23ea-7802-80fa-a54d8668ba4a` and
+clarification `01a13665-6c25-70f1-9c4a-ad6ec6f5db40`, both verified natively.
+SM selected same-path SQLite and covered-execution constructor selection; functional
+qualification reuses the exact pinned notes helper, rejects off-canonical accounting,
+and retains explicit live opt-in/no duplicate paid runs.
 Status/evidence: [native tasks](tasks.md#indefinite-runtime-policy--2026-10-13).

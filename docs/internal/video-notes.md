@@ -1,7 +1,8 @@
 # Video production notes
 
 Runtime policy note, 2026-10-13: the candidate implements indefinite Ochsner-key
-application usage only; build/qualification/media allowances do not expand.
+application usage including functional qualification/testing/validation and app-like
+evaluation; LLM creation/change of app/spec/test code and media grants do not expand.
 Same-path private SQLite accounting preserves history/unknown liabilities; safe
 activation requires old writers quiescent. [Current guidance](../user/getting-started.md#application-runtime-accounting)
 and [native status](../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13)

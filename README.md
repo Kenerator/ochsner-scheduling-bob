@@ -171,9 +171,11 @@ For direct entrypoints, OpenAI is explicitly opt-in: add `--openai` to the sidec
 `BOB_ENABLE_OPENAI=1`, `BOB_OPENAI_MODEL`, and securely configured `OPENAI_API_KEY`
 in that process environment. Never put a key in arguments, source, browser or logs.
 Application runtime use of the Ochsner key is authorized **without application
-usage/spending limits until further notice**. This is not authorization for LLM
-work used to build, test-generate, qualify, research or produce media. The qualifier
-keeps its bounded defaults. One private canonical accounting path retains every
+usage/spending limits until further notice**. Covered execution includes functional
+qualification, testing, validation and app-like evaluation, using the same exact
+Ochsner key and canonical accounting. LLM work creating/changing application,
+specification or test code is excluded; unrelated research/media grants do not
+expand. One private canonical accounting path retains every
 call/reservation and unknown liability. No tools, automatic retries or silent
 model fallback. View/poll/replay never invokes a model. See
 [qualification and actual cost uncertainty](docs/internal/live-qualification.md).

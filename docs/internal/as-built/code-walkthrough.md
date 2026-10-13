@@ -250,10 +250,12 @@ cover captured observations, gaps and non-authoritative imported presentation.
 preferences/workflow only, proposes closed public actions and supplies no identity
 or consent. [ModelBudget](../../../src/ochsner_bob/model_budget.py) reserves before
 dispatch against `.bob-local/model-budget.json`, the CLI/browser path and
-qualifier default. The qualifier exposes a `--budget` override, which does not
-legitimately replenish the shared grant; construction/view does not dispatch.
-Actual application constructors select uncapped runtime accounting; bounded
-qualification/build-adjacent defaults do not inherit that authorization.
+qualifier default. The qualifier accepts `--budget` only when it is the canonical
+path, never a fresh-history override; construction/view does not dispatch.
+Actual application and functional qualification constructors select uncapped
+covered-execution accounting. The qualifier privately resolves the exact Ochsner
+Secure Note `notes` through the pinned helper, not an inherited key. Explicit live
+opt-in remains; LLM generation of app/spec/test code is outside this authorization.
 [RuntimeLedger](../../../src/ochsner_bob/runtime_accounting.py) stores indexed
 transactions at the same canonical path, migrates validated JSON atomically with
 all history/IDs/configuration, and retains private locking/marker and fail-safe

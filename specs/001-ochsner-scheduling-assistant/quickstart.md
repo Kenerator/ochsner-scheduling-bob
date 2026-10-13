@@ -51,7 +51,8 @@ shared mechanism tests alone are not consumer or cross-platform qualification.
 Direct optional genuine language requires `--openai`, the three explicit environment
 settings in README and the runtime-only policy in the
 [user guide](../../docs/user/getting-started.md#application-runtime-accounting).
-No dated budget flag is required; build/qualification work stays bounded. Never paste keys into
+No dated budget flag is required; functional qualification/testing/validation is
+covered too, while LLM creation/change of app/spec/test code remains excluded. Never paste keys into
 commands/logs/browser. No model calls on construction, view, poll, support or
 replay. See [genuine qualification](../../docs/internal/live-qualification.md)
 for the qualified alternative, mini failures, unknown cost and exact grant.

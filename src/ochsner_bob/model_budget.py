@@ -1,4 +1,4 @@
-"""Private durable accounting with separate runtime and qualification policies.
+"""Private durable accounting with separate covered-execution and generic policies.
 
 No prompts, response text, credentials or request identifiers are persisted.
 Standard direct OpenAI text pricing reviewed 2026-10-09:
@@ -99,7 +99,8 @@ class ModelBudget:
 
     Actual application entrypoints select application_runtime=True: uncapped
     runtime accounting at the same canonical path, using indexed SQLite storage.
-    Default callers remain bounded qualification work. Independent paths cannot
+    Functional qualification also explicitly selects this covered policy.
+    Default generic/non-application callers remain bounded. Independent paths cannot
     enforce an account-wide ceiling. Bounded limits may be stricter, never exceed the
     ordinary grant, and cannot change on reopen. Explicit unlimited_today opts
     into the fixed BOB-only window; it changes NEW-reservation policy only.

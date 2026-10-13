@@ -7,8 +7,10 @@ Current follow-on: budget/L3 integrated normally at `c7c53a3`. Existing isolated
 L4 work is preserved and now adopts reviewed shared source `17d4157`; all 25
 consumer tests pass, including CLI-owned API/cleanup. The verified indefinite
 runtime-only policy is implemented in the candidate with same-path transactional
-SQLite accounting, preserved history/unknown liabilities and bounded non-runtime
-defaults. Combined qualification, staged guard, one SM final review and protected
+SQLite accounting, preserved history/unknown liabilities and excluded-generation
+configuration unchanged. Human clarification includes functional qualification:
+the candidate qualifier reuses the exact notes helper/canonical uncapped accounting.
+Combined updated qualification, staged guard, SM affected-delta review and protected
 integration remain; no live model request, service restart or ledger migration.
 SM reports old PIDs/ports absent on Oct 13; verify all actual writers quiescent
 before eventual activation rather than assuming the earlier services are running.

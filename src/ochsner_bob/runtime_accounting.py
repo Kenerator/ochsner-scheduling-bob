@@ -237,7 +237,7 @@ class RuntimeLedger:
         return {key: value for key, value in {
             **totals, "unknown_calls": totals["calls"] - totals["known_calls"],
             "max_calls": self.owner.max_calls, "ceiling_usd": _money(self.owner.ceiling),
-            "policy": "application_runtime_unlimited" if runtime else "bounded_qualification",
+            "policy": "application_runtime_unlimited" if runtime else "bounded_nonapplication",
             "known_cost_usd": _money(totals["known_cost"]), "liability_usd": _money(totals["liability"]),
             "remaining_usd": None if runtime else _money(self.owner.ceiling - totals["liability"])
         }.items() if key not in {"known_cost", "liability"}}

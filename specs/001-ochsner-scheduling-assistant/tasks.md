@@ -788,7 +788,8 @@ and L4 widget/docs edits. No new writer, ledger, bootstrap or Spec-Kit stage.
 - [x] T094 [US6] Implement same-canonical-path indexed private SQLite accounting,
   atomic validated JSON migration, existing lock/marker, no cumulative-record
   cutoff and real I/O failure safety. Only actual application constructors select
-  runtime policy; qualifier/build-adjacent defaults remain bounded. Retire active
+  covered-execution policy; functional qualification is included by the later
+  human clarification below, while code-generation configuration is unchanged. Retire active
   dated CLI/browser flags, not historical source-bound evidence.
 - [x] T095 [US6] Combine reviewed shared pin, full consumer/product regressions,
   supplied-HTTP scenarios/demos, privacy/lifecycle and affected docs/navigation.
@@ -802,8 +803,9 @@ and L4 widget/docs edits. No new writer, ledger, bootstrap or Spec-Kit stage.
 
 Ruling: retain bounded-mode `unlimited_today` API only for historical compatibility
 contracts (SM explicitly accepted); no actual application entrypoint, UI or active
-instruction requires/propagates it. Default bounded qualifier keeps its existing
-limits. Runtime SQLite storage does not use that clock/byte/call/dollar gate.
+instruction requires/propagates it. Generic excluded code-generation callers keep
+their existing limits/configuration; functional qualification now explicitly selects
+covered execution. Runtime SQLite storage does not use that clock/byte/call/dollar gate.
 Cost if wrong: an old external caller needs an explicit policy review, not a new
 runtime waiver or accounting reset. Shared launcher contract is exactly
 `preflight_budget(path, model=model)`, always read-only accounting/storage readiness.
@@ -863,3 +865,48 @@ correctly not run. The consumer test now creates that documented private parent
 before actual launch. No product/shared/runtime behavior or negative assertion
 changes; the original failure is retained. Corrected exact-head qualification
 and review/CI remain pending at this checkpoint.
+
+### Functional qualification clarification — 2026-10-13
+
+Actual human MLX clarification `01a13665-6c25-70f1-9c4a-ad6ec6f5db40`, turn
+`01a13665-5505-7f20-8a6b-50d2033f50b2`, was verified natively. Functional
+qualification/testing/validation and app-running-like evaluation are included in
+the indefinite Ochsner-key policy. The earlier Manager/owner interpretation that
+excluded qualification was wrong and is superseded, not attributed to the human.
+Excluded is LLM creation/change of app/spec/test code. Both human references stay
+retained. Base review continues; only this affected delta is reviewed next.
+
+- [x] T098 [US6] RED→GREEN functional qualifier uses existing canonical uncapped
+  accounting and the pinned exact Ochsner notes resolver, not an inherited key or
+  alternate fresh ledger. Preserve explicit live opt-in, priced model override,
+  no retries and fixture-not-genuine assertions. Correct active source/docs scope.
+
+Six focused qualifier tests passed (0.037 s); initial guarded RED had three
+missing-policy/resolver/storage failures (0.018 s). Existing 28 accounting/runner
+tests pass (0.298 s) after test-only private ROOT/fake-resolver setup, preserving
+unknown-billing stop and fixture-not-genuine behavior. No actual vault lookup or
+usable real model credential was used. An earliest negative RED run omitted its
+explicit HTTPS guard and reached the old transport path with deliberately invalid
+synthetic credentials in disposable accounting; no successful model result or paid
+usage is evidenced. That run is not genuine qualification. Every new test now
+explicitly denies real HTTPS before invocation, including missing/alternate-path
+failures; guarded RED→GREEN was rerun before implementation. No live canonical
+ledger, service or IAB was touched. No duplicate paid proof is planned.
+
+SM's one base review covered all 31 paths at `eb4b134` and the two-file `8d5020e`
+clean-export prerequisite follow-up, independently matching shared module hashes
+and passing 81 focused tests (3.101 s). No blocking implementation findings in
+storage/L4/authority/privacy. Actual new AI/UI/support-sync/media/activation was
+declined as unrun and not claimed. Selection is held only for this qualifier scope
+correction/active wording and its exact-head qualification/CI. The corrected
+`8d5020e` committed-export profile passed all seven steps: fresh venv/install/pip
+check, 498 tests (23.793 s), nine supplied-HTTP checks (0.348 s), all three booking
+demos and nine widget checks (0.344 s), no timeouts/skips. This is prior-head
+evidence, not final qualification of the new clarification delta.
+
+Updated combined working suite: 504 tests passed (25.183 s), including all six
+functional qualifier regressions and unchanged effect/identity/model/HTTP/privacy
+contracts. The existing safe `budget_exceeded` status remains compatible, while its
+human-facing message now describes accounting/pre-dispatch validation unavailable,
+not an application spending cap. Exact committed qualification/CI and SM affected-
+delta selection remain pending; no new genuine model result is claimed.

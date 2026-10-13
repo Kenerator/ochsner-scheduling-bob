@@ -147,8 +147,8 @@ model or cross-platform qualification.
 ## Indefinite runtime accounting delta — 2026-10-13
 
 FR-027/027a supersede application spending/dated-window gating only. Actual CLI
-and browser constructors select `application_runtime=True`; bounded qualification
-defaults stay unchanged. ModelBudget delegates runtime storage to stdlib SQLite
+and browser plus functional qualification constructors select `application_runtime=True`;
+excluded code-generation/build-agent configuration stays unchanged. ModelBudget delegates runtime storage to stdlib SQLite
 at the existing canonical path, with the stable private lock/marker. Atomic
 validated JSON migration preserves all IDs/configuration/history and liabilities;
 indexed transactional inserts/updates remove the cumulative-record cutoff without

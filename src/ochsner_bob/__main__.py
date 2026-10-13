@@ -79,7 +79,8 @@ def _run(args, source, output, resources):
     try:
         namespace = resources.enter_context(CliNamespace(args.journal))
         api = ObservedAPI(HttpMockAdapter(args.api_url, scenario=args.scenario), diagnostics.api)
-        # Runtime authorization does not extend to qualification/build callers.
+        # Runtime-like functional qualification is covered; LLM generation of
+        # application/spec/test code remains outside this execution authorization.
         # Keep the same private history; construction never makes a model request.
         language = LanguageAdapter(budget=ModelBudget(ROOT / ".bob-local/model-budget.json", application_runtime=True)) if args.openai else None
         conversation = Conversation(SchedulingSession(api, journal_path=namespace.journal.path,

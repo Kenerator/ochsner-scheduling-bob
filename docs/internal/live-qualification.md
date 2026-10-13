@@ -8,6 +8,10 @@ browser, patient matching, booking, handoff delivery or production readiness.
 
 ## Grant and boundary
 
+The following is the historical Oct 9 qualification grant/source, not the current
+credential or spend contract. Current covered execution includes functional
+qualification under the Oct 13 human clarification; see the runtime policy delta.
+
 The Operator authorized up to **200 calls and $20 total**. The qualification
 worker was sole caller through call 40, then explicitly released ownership;
 the parent integration used the same ledger for one browser call, followed by
@@ -76,9 +80,12 @@ liability remains. The qualifier does not gain an override flag.
 ### Runtime policy delta — 2026-10-13
 
 Normal application CLI/browser constructors now select `application_runtime=True`
-under the verified indefinite runtime-only grant. Qualification/build-adjacent
-callers retain bounded defaults; `scripts/qualify_live.py` gains no override or
-new spending authority. Historical model results/costs are unchanged.
+under the verified indefinite grant and actual human clarification
+`01a13665-6c25-70f1-9c4a-ad6ec6f5db40`. Functional qualification/testing/validation
+and app-like evaluation are covered too; LLM creation/change of app/spec/test code
+is excluded. `scripts/qualify_live.py` explicitly selects the covered policy and
+same existing canonical accounting; an off-canonical `--budget` is rejected.
+Historical model results/costs are unchanged.
 [Runtime accounting](../../src/ochsner_bob/runtime_accounting.py) uses indexed,
 private SQLite at the same canonical path, preserving all validated legacy entries,
 IDs/configuration and unknown liabilities through atomic migration. Runtime has no
@@ -95,11 +102,15 @@ Current review/CI/activation status belongs in [native tasks](../../specs/001-oc
 
 ## Qualification method
 
-After loading the credential securely into the environment and setting
-`BOB_ENABLE_OPENAI=1`, execute the explicit project Python 3.11+ interpreter:
+For a useful missing genuine check only, configure the same trusted
+`POC_SECRET_HELPER`/`bw-get-secret` as normal launch. The qualifier privately
+resolves only `[Env] (Ochsner PoC) OPENAI_API_KEY`, Secure Note `notes`, with no
+inherited-key fallback. It requires existing canonical private accounting and
+explicit live/model enablement; help/no-opt-in never looks up a credential.
+Quiesce old-format writers before first new-format activation. For example:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/python scripts/qualify_live.py --run-live
+BOB_ENABLE_OPENAI=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/python scripts/qualify_live.py --run-live --model gpt-5.4-2026-03-05
 ```
 
 For the qualified alternative, append `--model gpt-5.4-2026-03-05`.

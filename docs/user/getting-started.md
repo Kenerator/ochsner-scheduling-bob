@@ -15,7 +15,7 @@ first-use accounting versus preservation of existing private ledger/unknown usag
 
 Custom free `--ui-port`/`--transport-port` pairs configure the public widget URL;
 no source edit is needed. Keep the matching exact UI Origin. Invalid/missing
-configuration, occupied ports or exhausted/unavailable budget stop visibly; do
+configuration, occupied ports or unavailable accounting/storage stop visibly; do
 not stop another listener or reset accounting. Ctrl-C cleans only owned children.
 L4 candidate review/CLI ownership status is in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12).
 
@@ -159,10 +159,11 @@ Updated 2026-10-13 for the isolated candidate; integration/activation status rem
 in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13).
 The Operator authorized Ochsner-key usage involved in **running BOB** without
 application call, dollar or time-window limits until further notice. No special
-budget flag is needed. Build-time LLM activity, test generation, qualification,
-research and media are excluded; their existing limits remain.
+budget flag is needed. The human clarification includes functional qualification,
+testing, validation and app-like evaluation. Excluded is LLM work that creates or
+changes app/spec/test code; unrelated research/media permissions do not expand.
 
-Normal browser/CLI model constructors select runtime accounting. Exact model/key
+Normal browser/CLI and functional qualification constructors select runtime accounting. Exact model/key
 selection, bounded input/output/context/HTTP timeouts, no tools/retries, privacy,
 identity, confirmation and effect guards remain. Every dispatch requires a durable
 reservation; known usage settles once and unknown usage retains its full liability.
@@ -183,3 +184,10 @@ Old processes cannot share this format migration and old code cannot read the ne
 format. Do not restore an old build against migrated accounting or reset/change
 the ledger to make it work. The current implementation assignment does not restart
 the Operator app or migrate its live ledger.
+
+For deliberate genuine qualification only, `scripts/qualify_live.py --run-live`
+requires explicit `BOB_ENABLE_OPENAI=1`, a supported priced model, the same existing
+canonical ledger and exact Ochsner Secure Note `notes` helper. It ignores an inherited
+generic key and rejects an alternate `--budget` path. Help/offline/unit tests never
+retrieve a key. Run only useful missing checks, not duplicate paid proof; see the
+[source-bound qualification method](../internal/live-qualification.md#qualification-method).

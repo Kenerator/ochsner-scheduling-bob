@@ -321,7 +321,8 @@ cannot supply identity/slot authority/consent. Bounded direct HTTPS, no tools,
 redirects or retries; failures are explicit, not silent offline fallback.
 
 Application runtime constructors select indefinite uncapped accounting, while
-qualification/build-adjacent callers retain bounded defaults. The same canonical
+functional qualification/testing/validation/app-like evaluation shares that policy;
+excluded LLM code-generation configuration stays unchanged. The same canonical
 path reserves worst-case
 priced context plus bounded output before dispatch and settles validated numeric
 usage only. Unknown billing/crashes retain reservations; calls never refund.
@@ -362,7 +363,10 @@ Candidate source on integrated baseline `c7c53a3`; final reviewed revision/statu
 is pending in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13).
 [RuntimeLedger](../../../src/ochsner_bob/runtime_accounting.py) is a storage adapter
 behind ModelBudget, not new model or scheduling authority. Actual CLI/browser
-constructors select uncapped application policy. The qualifier remains bounded.
+constructors and the functional qualifier select uncapped covered-execution policy.
+The qualifier privately reuses the pinned exact Ochsner notes resolver and rejects
+off-canonical accounting; explicit live opt-in remains. Generic non-application
+callers/build-agent configuration do not inherit new generation permissions.
 Private SQLite uses the same canonical ledger path and stable flock/marker;
 atomic migration copies every JSON history row with original IDs/configuration.
 Indexed inserts/updates retain unknown/reserved liabilities and late settlements

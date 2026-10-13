@@ -58,7 +58,10 @@ cover above-old-cap dispatch with fake transport, 2,001 durable entries, late
 settlement, stable IDs/config/history, unknown liabilities, concurrent reservations,
 corruption/privacy and read-only legacy/SQLite readiness. Actual CLI/browser
 [constructor tests](../../tests/test_budget_window_launch.py) select runtime-only
-policy with no dated flag; qualification defaults remain bounded. These are offline
+policy with no dated flag. Human clarification also covers functional qualification;
+[qualifier regressions](../../tests/test_qualification_policy.py) verify exact notes
+helper/no inherited fallback, canonical history and above-old-cap fake dispatch,
+without vault/network calls in unit tests. These are offline
 contracts, not new browser/model/media qualification. Candidate-bound review/CI and
 safe activation handoff remain in [native policy tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13).
 

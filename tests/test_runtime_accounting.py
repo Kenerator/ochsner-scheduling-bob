@@ -67,7 +67,7 @@ class RuntimeAccountingTests(unittest.TestCase):
         self.assertEqual(b"SQLite format 3\x00", self.path.read_bytes()[:16])
         self.assertEqual("known", runtime.settle(pending, usage())["status"])
         self.assertEqual(4, self.runtime(max_calls=3, ceiling_usd="1").reserve(model=MODEL))
-        # The runner's default bounded policy does not inherit runtime allowance.
+        # Generic excluded generation callers do not inherit covered execution.
         with self.assertRaises(model_budget.BudgetError):
             model_budget.ModelBudget(self.path, max_calls=3, ceiling_usd="1").reserve(model=MODEL)
 
