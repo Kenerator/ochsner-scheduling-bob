@@ -2,6 +2,8 @@
 
 Reviewed 2026-10-10; implementation progress belongs in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md).
 
+- Budget exception updated 2026-10-12: the Operator separately authorized unlimited BOB model spending for Oct 12 Central only. The isolated candidate requires explicit opt-in, fixed start/end `2026-10-12T05:00:00Z`/`2026-10-13T05:00:00Z`, and retains the same ledger/counters/unknown liability. Ordinary ceilings apply outside the window; late accounting remains possible. This supersedes numeric ceilings only within that window, not bounded inputs, verified pricing, credential, no-tools/retries or project boundaries. [Usage and limits](../user/getting-started.md#fixed-oct-12-model-budget-window); review/integration remain pending in native tasks.
+
 - `SchedulingSession` owns identity, preferences, proposal revisions, policy and effect certainty. CLI/browser use shared `Conversation`; no notebook kernel, model, diagnostic reference or support mirror owns booking authority.
 - Actual supplied HTTP service and synthetic data are vendored unchanged with [hash provenance](../../vendor/reference/PROVENANCE.md). Actual standalone ZEN and RapidFuzz are used; fake adapters/sketch tests are not integration evidence.
 - Minimal private atomic claims precede booking/handoff I/O. Concurrent claims serialize; unresolved writes survive reset/restart as unknown. A validated definite failure permits a fresh separately confirmed attempt; lost/malformed write receipts do not. This is local crash protection, not distributed idempotency or server reconciliation.

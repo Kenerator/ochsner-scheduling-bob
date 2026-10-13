@@ -101,3 +101,26 @@ integration evidence. Genuine-model qualification remains required for full
 completion; surface its exact credential/model/cost decision if no applicable
 grant exists. Preserve a reviewed baseline/private milestone early, excluding
 raw intake, credentials, environments and private native state.
+
+## Fixed-day BOB budget delta — 2026-10-12
+
+FR-025/025a extend US6 in the existing budget boundary, not the Session/effects
+architecture. Keep ordinary stored configuration at 200 calls/$20. Explicit
+constructor/launcher opt-in uses a fixed UTC half-open interval for Oct 12 Central;
+never persist or infer a renewable override. Move numeric ceiling enforcement to
+new-reservation preparation, retaining structural validation on every read so valid
+window entries remain readable/settleable after expiry.
+
+Reuse the canonical ledger/private flock/atomic writes and priced worst-case
+reservation. Preserve the existing byte limit and check space for every reserved
+call's largest valid late usage before accepting new work. Snapshot ordinary
+headroom honestly, even negative. Do not change journal namespaces or reset state.
+
+Expose `preflight_budget(path: Path, *, model: str, unlimited_today: bool=False)
+-> None` as existing-state-only readiness. Require the initialized marker and
+private ledger, reuse locked reservation preparation in memory, and forbid any
+creation/write/settlement. The actual model host must reserve again. Existing CLI
+and browser flags pass opt-in explicitly and reject offline use; SM owns shared
+launch integration. Offline tests precede code; full suite/demos/guard and one
+independent review precede selected protected integration. No live activation,
+credential lookup or paid readiness call is part of this candidate.

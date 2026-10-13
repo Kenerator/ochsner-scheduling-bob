@@ -1,5 +1,11 @@
 # Video production notes
 
+Budget-candidate note, 2026-10-12: the fixed Oct 12 Central model allowance is
+explicit launch opt-in, not live activation or new model qualification. Preserve
+existing media; no capture/render is initiated. [Usage and limitations](../user/getting-started.md#fixed-oct-12-model-budget-window)
+and [native candidate status](../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12)
+are canonical. Existing qualification stills must not imply this candidate ran live.
+
 Updated 2026-10-12. Video production is **on hold** under the current human plan;
 no second video, new bookends, capture, assembly or publication is initiated by
 these notes. Existing R6/assets stay unchanged. Caption work remains deferred,

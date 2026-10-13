@@ -37,6 +37,12 @@ import that sketch; passing them does not establish supplied-service acceptance.
 
 OwnedMock imports the unchanged vendored Store/Handler, binds its own ephemeral
 or explicit numeric loopback port and runs Popen with raw output suppressed.
+L3 candidate delta, 2026-10-12, based on budget source `10b1a71`: its child now
+receives only PATH/locale/TZ/temp/SYSTEMROOT plus forced bytecode suppression,
+not the parent model/vault/token/import environment. The actual child/vendor
+readiness and cleanup boundary is tested with private Boolean-only
+[canary reports](../../../tests/test_mock_child_environment.py). Integration
+remains pending in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#l3-secret-free-mock-child-prerequisite--2026-10-12).
 Cleanup terminates only its child, never an unrelated listener. See
 [vendor provenance](../../../vendor/reference/PROVENANCE.md) for source/fixture hashes.
 
@@ -231,9 +237,10 @@ or consent. [ModelBudget](../../../src/ochsner_bob/model_budget.py) reserves bef
 dispatch against `.bob-local/model-budget.json`, the CLI/browser path and
 qualifier default. The qualifier exposes a `--budget` override, which does not
 legitimately replenish the shared grant; construction/view does not dispatch.
-The implemented constructor caps remain 200 calls/$20; a higher external
-allowance does not change those code limits or reset accounting. Unknown billing
-keeps the reservation. [Language](../../../tests/test_language.py) and
+Ordinary constructor ceilings remain 200 calls/$20. The isolated fixed-day
+candidate adds explicit opt-in without resetting accounting; see the source-bound
+[budget delta](architecture.md#fixed-day-budget-candidate--2026-10-12). Unknown
+billing keeps the reservation. [Language](../../../tests/test_language.py) and
 [budget tests](../../../tests/test_model_budget.py) are offline evidence; injected
 model transports are explicitly fixtures, not genuine model qualification.
 The separately scoped [genuine language record](../live-qualification.md) retains
