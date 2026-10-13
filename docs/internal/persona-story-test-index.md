@@ -38,6 +38,8 @@ prove clean-copy installation or actual browser usability.
 
 ## US6 budget-candidate evidence — 2026-10-12
 
+Historical fixed-day mechanism; current runtime policy supersedes its spend gate.
+
 Sam-Rae's pinned adversarial/uncertain-outcome needs above also motivate inspectable
 model accounting; persona selection supplies no spending permission. FR-025/025a
 come from separate Operator direction. [ModelBudget](../../src/ochsner_bob/model_budget.py)
@@ -45,9 +47,32 @@ preserves unknown liability and late settlement after fixed-day expiry.
 [Window](../../tests/test_budget_window.py), [launch](../../tests/test_budget_window_launch.py)
 and [readiness](../../tests/test_budget_preflight.py) regressions test default denial,
 explicit opt-in, expiry, storage headroom and no readiness mutation. Source baseline
-`d925f326dd604b3eba07d844914810e2f2574705`; exact candidate/review status stays in
+`d925f326dd604b3eba07d844914810e2f2574705`; reviewed head `8908ef9` integrated as
+`c7c53a3`. Exact review/CI/restoration status stays in
 [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
 No patient/support authority, console, paid model or actual UI evidence is added.
+
+US6/FR-027/027a runtime follow-on, 2026-10-13: actual human authority, not a persona,
+permits indefinite application usage. [Runtime accounting tests](../../tests/test_runtime_accounting.py)
+cover above-old-cap dispatch with fake transport, 2,001 durable entries, late
+settlement, stable IDs/config/history, unknown liabilities, concurrent reservations,
+corruption/privacy and read-only legacy/SQLite readiness. Actual CLI/browser
+[constructor tests](../../tests/test_budget_window_launch.py) select runtime-only
+policy with no dated flag; qualification defaults remain bounded. These are offline
+contracts, not new browser/model/media qualification. Candidate-bound review/CI and
+safe activation handoff remain in [native policy tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13).
+
+L4 operational follow-on, updated 2026-10-12: reviewer/maintainer US6 and FR-026
+map to [consumer launcher tests](../../tests/test_runtime_launcher.py) and the
+validated [widget boundary](../../src/ochsner_bob/widget.py). Actual BOB browser/CLI
+constructors, synthetic transport/key boundaries, public renderer routing and
+real owned offline HTTP tests are distinct from shared Template qualification.
+The isolated IAB created an offline patient and returned the two Downtown primary
+care providers on the configured 29580/29581 pair; initial native-input failure,
+reconnect and acknowledgement warnings are retained. No identity, confirmation,
+takeover, paid request or broader accessibility/support-screen qualification.
+Current pin/CLI correction/final review status remains in
+[native T087–T092](../../specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12).
 
 ## Reproduction and limits
 

@@ -166,6 +166,8 @@ As a reviewer or maintainer, I want a clean supported Mac setup, deterministic C
 
 ## Fixed-day budget requirement — 2026-10-12
 
+Historical requirement, superseded for application runtime by FR-027 below.
+
 - **FR-025 [US6]**: Under the Operator's separate fixed-day BOB grant, the system
   MUST require explicit opt-in to bypass numeric ceilings only from
   `2026-10-12T05:00:00Z` inclusive to `2026-10-13T05:00:00Z` exclusive.
@@ -187,3 +189,42 @@ assignment by SM; not a persona-inferred permission. Acceptance uses fixed-clock
 late-settlement, launch-boundary and read-only file-identity tests. Actual live
 activation, independent review and protected integration are not inferred from
 offline tests; status belongs in [native tasks](tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
+
+## Model-first launcher integration — 2026-10-12
+
+- **FR-026 [US6]**: The normal BOB launcher MUST use the pinned reviewed shared
+  runtime and `bob`/`ochsner-bob` preset policy, selecting actual model mode with
+  default `gpt-5.4-2026-03-05` and explicit supported overrides. Resolve only the
+  exact Ochsner Secure Note `notes` field through the trusted helper; no inherited
+  or generic credential fallback. Help/doctor and supported explicit offline mode
+  MUST make no credential/model request. Only the actual model host receives the
+  scalar key; viewer and nested mock stay secret-free. Existing canonical accounting,
+  priced reservations/unknown liability and scheduling authority remain; FR-027
+  supersedes the former application spend/expiry gate.
+  Public backend routing MUST be validated numeric IPv4 loopback HTTP and retain
+  exact Host/Origin isolation. Owned lifecycle MUST not disrupt other listeners.
+
+Origin/scope: approved model-first design and L4 owner handoff from SM; not persona
+permission or a new spending/credential grant. Consumer constructor, no-call,
+privacy/lifecycle and isolated UI evidence are distinct from shared-mechanism tests
+and historical genuine-model qualification. Native tasks hold current gaps/status.
+
+## Indefinite application runtime policy — 2026-10-13
+
+- **FR-027 [US6]**: Normal browser, CLI and direct application model paths MUST
+  permit Ochsner-key runtime usage without application-imposed call, dollar or
+  dated-window limits until further notice. This MUST NOT expand build, test
+  generation, qualification, research or media allowances. No special budget flag
+  is required. Existing model/key/HTTP/output/context/retry/concurrency, identity,
+  confirmation and effect protections remain.
+- **FR-027a [US6]**: Preserve the same canonical private accounting path, lock,
+  initialized marker, history, reservation IDs/configuration, unknown liabilities
+  and late settlements. Use scalable transactional storage without a cumulative
+  row/byte authorization cutoff; real I/O, corruption and privacy failures deny
+  dispatch. Readiness MUST validate existing JSON or SQLite without initialization,
+  migration, reservation, model call or mutation. Atomic format migration may be
+  activated only after all old-format writers are quiescent; never reset history.
+
+Origin: actual human MLX message `01a1363a-23ea-7802-80fa-a54d8668ba4a`, verified
+natively; SM selected same-path SQLite and runtime-only constructor selection.
+Status/evidence: [native tasks](tasks.md#indefinite-runtime-policy--2026-10-13).

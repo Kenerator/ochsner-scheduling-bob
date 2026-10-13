@@ -637,8 +637,8 @@ historical bill remains unknown; no further paid calls were made or scheduled.
 
 Isolated existing clone, based on `d925f326dd604b3eba07d844914810e2f2574705`.
 FR-025/025a, US6; direct fixed-day grant forwarded by SM. Ordinary 200/$20
-configuration and original ledger survive. This candidate is not yet integrated
-or active in the running service. W1 remains a separate candidate; T072–T080 are
+configuration and original ledger survive. Reviewed head `8908ef9` was integrated
+by protected PR #8 as `c7c53a3` and the backend restored on that source. W1 remains a separate candidate; T072–T080 are
 reserved there, not duplicated here.
 
 - [x] T081 [US6] RED/GREEN fixed-window and CLI/browser explicit-opt-in tests;
@@ -650,9 +650,9 @@ reserved there, not duplicated here.
 - [x] T083 [US6] Run focused/full offline verification and three booking demos;
   update affected source-bound usage/as-built/persona/video references. Whole-index
   guard and exact committed handoff evidence are reported with the candidate.
-- [ ] T084 [US6] One SM independent exact-diff review, address findings, then await
-  selection before normal protected integration. Shared-launch integration is SM
-  owned. No main update, push/PR, live service restart or paid activation claimed.
+- [x] T084 [US6] SM independent exact-diff review and selection completed with no
+  actionable findings; exact-head CI passed and protected PR #8 merged. Shared-launch
+  integration remains SM owned. No paid startup/model-readiness request was made.
 
 Tests-first evidence: baseline budget suite 28 passed. Ten new window tests were
 RED for missing explicit API/byte-boundary behavior; four launch regressions had
@@ -672,7 +672,7 @@ genuine-model, invoice or unlimited-storage qualification. No new media or RC.
 SM independent budget review, 2026-10-12: exact `10b1a71273e51b4232c6876cc39fa45835e65d42`
 over `d925f326` reviewed across all 17 files/FR-025/025a/code/tests/docs; 23 new
 tests independently passed (0.510 s), no actionable findings. Selected for normal
-protected integration; T084 stays open until exact remote integration readback.
+protected integration; T084 closed after the actual remote integration readback below.
 
 ## L3 secret-free mock-child prerequisite — 2026-10-12
 
@@ -684,7 +684,7 @@ Native US6/FR-019 operational privacy applies; no new scheduling behavior.
   vault and unrelated-token canaries. Replace whole-parent environment copy with
   an allowlist of required OS/locale/temp settings and forced bytecode suppression;
   preserve vendor bytes and A02 exact-child/cancellation cleanup.
-- [ ] T086 [US6] SM affected-delta review/selection, exact-head CI and normal
+- [x] T086 [US6] SM affected-delta review/selection, exact-head CI and normal
   protected integration before approved backend restoration. Preserve the live
   UI/effects namespace/canonical ledger; no paid startup request or session reset.
 
@@ -697,3 +697,160 @@ writes Boolean presence/match results, never canary values, to a private tempora
 file. No live model, real credential or Operator service is touched by these tests.
 Exact local commit and existing staged credential-guard evidence accompany the
 delta callback. No new media, RC, vault query or generic credential fallback.
+
+Integration/restoration readback, 2026-10-12 Central: PR #8 exact head
+`8908ef969bcf4228b358eb4c899ff3822387786d` passed offline CI run `38329926873`.
+Normal protected merge `c7c53a3f45b9b6955a4f7b2d09b3a61a7828e1d1`
+retains the reviewed tree `11cd2769d7f02328a68a8a8cd08f2e66c15065b1`.
+Canonical main fast-forwarded cleanly; only backend 28451 was restored with
+explicit opt-in and the existing effects namespace/ledger. UI PID 92464 remained.
+Python 3.11.13; no-effect OPTIONS health returned 200. Before/after ledger SHA-256
+was unchanged: 45 calls, 35 known/10 unknown, known cost $0.032836,
+liability $3.055876. Opt-in was active and expires exclusively at
+2026-10-13T05:00:00Z. No paid startup request, reset or ledger replacement.
+
+Requested actual IAB support-join demo: separate synthetic patient and support
+tabs joined through a one-use local grant. Support showed joined/inactive control,
+read-only transaction controls, private identity missing and confirmation disabled.
+The acknowledgement warning remained; a transient kernel-not-found notice cleared
+without service restart. No takeover, booking, model call or reliable synchronized-
+screen claim. Both tabs were left open. This is bounded join evidence, not full UAT.
+
+## L4 model-first consumer — 2026-10-12
+
+Approved owner continuation from integrated `c7c53a3`; existing isolated branch,
+seven post-integration closure edits preserved. Selected shared Template HEAD
+`6e89464582dd62a977aaec778c8d6f8a0adf25c7`, manifest source
+`b7875452e3a999ca69ce170822c66e7f679b4442`/clean; all four hashes verified before
+adoption. Native tasks remain the sole completion ledger.
+
+- [x] T087 [US6] RED/GREEN consumer manifest/config/mode/override/actual-constructor,
+  credential-boundary, shared-budget/no-call and public transport tests.
+- [x] T088 [US6] Adopt exact selected runtime/config; validate browser and CLI
+  routing plus owned synthetic services without changing managed bytes locally.
+- [x] T089 [US6] Wire validated public backend trait and shipped renderer, preserving
+  default pair and exact Origin/Host checks; verify rejected unsafe destinations.
+- [x] T090 [US6] Full project suite/demos, isolated no-call browser smoke, privacy and
+  owned cleanup, no Operator service/state changes or paid requalification.
+- [x] T091 [US6] Reconcile launch/user/as-built/persona/video/next-step documentation,
+  source lineage/navigation and existing whole-index credential guard.
+- [ ] T092 [US6] One final SM exact consumer-diff review/selection, candidate CI and
+  normal protected integration/readback. No new tag/release or restoration gate.
+
+Baseline: 458 tests passed (22.806 s). Initial 18 consumer/widget tests failed for
+missing managed runtime/config, missing synced URL and hard-coded renderer port.
+Shared pin's CLI currently constructs only the application, not an owned mock;
+that consumer integration gap is referred to SM before CLI qualification. Browser
+integration continues independently. No live model/key or current service touched.
+
+SM confirmed the CLI gap and selected an authoritative shared correction, not a
+new external-service prerequisite. CLI final qualification/push waits for that
+reviewed pin; local managed bytes remain unchanged. Current 20 focused consumer
+tests and nine existing renderer tests passed. The old DOM double supplied empty
+values for every trait; it now supplies the actual Python default backend trait,
+while the separate custom-port renderer test proves non-default routing.
+
+Ruling: use native tasks instead of a duplicate SDD ledger; project agreement owns
+completion facts. Pin `notes` from the centrally resolved exact Secure Note rather
+than the plan's earlier illustrative `auto` sample. No repeat vault lookup; a wrong
+pin would fail safely before startup and requires a reviewed upstream correction.
+
+Interim exact-working-tree evidence before the shared CLI correction: full suite
+480 passed (23.308 s); all three synthetic success/conflict/unknown demos passed,
+unknown retry blocked. Actual isolated IAB on 29580/29581 created an offline
+patient and returned Dr. Elena Brooks/Dr. Marcus King at revision 1. Native text
+input first showed a connection/kernel warning; DOM input events then completed
+the harmless provider read. Reconnect/acknowledgement warnings remain. No private
+identity, takeover, booking or model request. Disposable launcher SIGTERM returned
+130 with owned-cleanup confirmation; both ports released. Original PIDs 92464 and
+96962 remained listening and original IAB tabs were preserved. The 25-test focused
+suite now retains three expected CLI RED cases (service plan, actual provider-read
+launch and occupied foreign listener) against the old shared pin; no overall
+final-green/integration claim yet. Changed-doc navigation audit covered 13 docs,
+412 local targets and 79 fragments with zero errors. No commit or push before
+the selected reviewed repair and final consumer qualification.
+
+## Indefinite runtime policy — 2026-10-13
+
+Actual human MLX message `01a1363a-23ea-7802-80fa-a54d8668ba4a`, turn
+`01a1363a-0dde-78a0-990a-a27b21f1265b`, was verified natively: Ochsner-key
+usage involved in running BOB is without application usage/spending limits until
+further notice, explicitly not building it. SM selected the bounded SQLite design
+and normal existing-owner implementation; no new spend/proof/capture permission.
+FR-027/027a supersede only active runtime caps/dated waiver in FR-025/025a.
+Existing isolated clone/branch remains at `c7c53a3`, preserving all seven closure
+and L4 widget/docs edits. No new writer, ledger, bootstrap or Spec-Kit stage.
+
+- [x] T093 [US6] Observe RED→GREEN runtime policy/storage and normal CLI/browser
+  constructor tests: above old calls/dollars/across old expiry, stable history/IDs,
+  unknown liability, reopen/late settlement, concurrency, privacy/corruption and
+  read-only noflag readiness; fake transports only.
+- [x] T094 [US6] Implement same-canonical-path indexed private SQLite accounting,
+  atomic validated JSON migration, existing lock/marker, no cumulative-record
+  cutoff and real I/O failure safety. Only actual application constructors select
+  runtime policy; qualifier/build-adjacent defaults remain bounded. Retire active
+  dated CLI/browser flags, not historical source-bound evidence.
+- [x] T095 [US6] Combine reviewed shared pin, full consumer/product regressions,
+  supplied-HTTP scenarios/demos, privacy/lifecycle and affected docs/navigation.
+- [ ] T096 [US6] Existing whole-index staged credential guard, scoped candidate
+  commit/PR/CI and one SM exact consumer diff review, then selected protected
+  integration/readback. No new tag, media, model call or generic approval gate.
+- [ ] T097 [US6] Report safe activation choice after integration: reconcile actual
+  old model writers, quiesce them before format migration, preserve canonical
+  ledger/effects namespace. Do not activate/migrate the Operator runtime in this
+  assignment. This task is a handoff, not a required unapproved restart.
+
+Ruling: retain bounded-mode `unlimited_today` API only for historical compatibility
+contracts (SM explicitly accepted); no actual application entrypoint, UI or active
+instruction requires/propagates it. Default bounded qualifier keeps its existing
+limits. Runtime SQLite storage does not use that clock/byte/call/dollar gate.
+Cost if wrong: an old external caller needs an explicit policy review, not a new
+runtime waiver or accounting reset. Shared launcher contract is exactly
+`preflight_budget(path, model=model)`, always read-only accounting/storage readiness.
+
+Tests-first evidence: new 11-test policy suite failed for missing runtime selection;
+after implementation 11 passed (2.137 s). Actual entrypoint suite reproduced two
+missing-policy errors/two retired-flag failures, then four passed (0.074 s).
+Two additional storage-safety regressions reproduced malformed-row acceptance and
+unsafe legacy companion migration; both fixed, all 14 accounting tests passed
+(2.185 s). Failed post-commit directory sync retains the unknown charge on reopen.
+The storage growth test retains 2,001 entries and a late settlement, exceeding the
+old 100k cumulative file bound, without pruning reserved or unknown entries.
+These are disposable/private offline tests, not live model/invoice qualification.
+
+Reviewed shared Template HEAD `702a1cad49eaca4298b58dc267a5ea644cab9b04`, manifest
+source `17d415766a7dead713ccebcbbf6c36516a64ba3c`/clean, was verified and copied
+as exactly five managed files. It includes the already-reviewed CLI ownership
+repair and noflag runtime readiness. All four module hashes match the manifest;
+no managed byte was forked. All 25 consumer tests pass (0.521 s), including the
+three old-pin CLI failures. The foreign-listener test reached a macOS unsupported
+SO_ACCEPTCONN option after the repair; it now proves real TCP accept survivability
+instead, without changing product code or weakening the occupied-port rejection.
+
+Baseline 483 tests (24.755 s) had only the three known old-pin CLI failures.
+Interim 497 tests (27.067 s), after policy implementation but before pin adoption,
+had those same three plus the expected obsolete shared-preflight signature error.
+No final combined qualification/review/commit/integration is claimed yet.
+SM read-only process/port checks on Oct 13 report old PIDs 92464/96962 and ports
+28450/28451 absent; SM did not stop them. This owner has not controlled IAB,
+restarted a service, inspected/migrated the live ledger or made a model/vault call
+in this policy assignment. Actual activation must reconcile all remaining writers.
+
+Combined working-candidate qualification: 498 tests passed (26.936 s), including
+15 runtime-accounting tests and real four-process reservation concurrency, all
+25 installed-runtime consumer tests, supplied HTTP scenarios and shipped-renderer
+checks. All three synthetic booking demos passed: success completed once, conflict
+rejected then freshly completed, labeled receipt-loss unknown with retry blocked.
+pip check reports no broken requirements. Changed-doc audit: 13 Markdown files,
+426 local targets/87 fragments, zero errors. Existing isolated UI proof above is
+retained, not rerun or relabeled as synchronized support/model evidence.
+
+Whole staged-index guard: 398 files/119 binary, six existing exact synthetic
+allowances, zero unresolved findings/symlinks/submodules. Its first scan correctly
+flagged the new stale-key synthetic literal; an explicit short canary variable
+keeps the same behavior without a new waiver or scanner/config change. The long
+intermediate variable name also matched the scanner's unquoted-value heuristic;
+the cause was inspected and corrected, not ignored. Final staged diff check is
+clear. These are bounded pattern-scan results, not secret-free/history/PHI claims.
+Exact committed-export qualification, independent SM review, PR/CI and protected
+integration/readback remain pending and will be bound to the committed candidate.

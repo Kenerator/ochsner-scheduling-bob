@@ -27,7 +27,17 @@ globalThis.fetch=async(url,request)=>{
 };
 const named=text=>nodes.find(n=>n.tag==='button'&&n.textContent===text);
 const flush=async()=>{for(let n=0;n<4;n++)await new Promise(setImmediate);};
-if(process.argv.includes('--reference-recovery')){
+// Real AnyWidget supplies the Python trait default; model doubles must too.
+const defaultModel={get:name=>name==='backend_url'?'http://127.0.0.1:28451':''};
+if(process.argv.includes('--transport-routing')){
+  const requested=[];
+  globalThis.fetch=async(url,request)=>{requested.push(url);return {ok:true,json:async()=>new URL(url).pathname==='/create'?{token:'local-fixture-capability',view}:view};};
+  const cleanup=widget.render({model:{get:name=>name==='backend_url'?'http://127.0.0.1:29451':''},el:new Element('root')});
+  await named('Start independent patient').onclick();await flush();
+  assert.ok(requested.length>=2,'renderer did not reach the create/read boundary');
+  assert.ok(requested.every(url=>url.startsWith('http://127.0.0.1:29451/')),'renderer ignored the configured public transport trait');
+  cleanup();
+}else if(process.argv.includes('--reference-recovery')){
   for(const [path,category,kind] of [['/replay','reference_unavailable','reference'],
       ['/replay','capability_or_current_lease_required','grant'],['/join','reference_unavailable','grant']]){
     nodes.length=0;values.clear();values.set('bob-v1-token','local-fixture-capability');values.set('bob-v1-role','patient');acks.length=0;
@@ -37,7 +47,7 @@ if(process.argv.includes('--reference-recovery')){
       if(route==='/ack'){acks.push(JSON.parse(request.body).receipt);return {ok:true,json:async()=>({})};}
       return {ok:true,json:async()=>view};
     };
-    const cleanup=widget.render({model:{get:()=>''},el:new Element('root')});await flush();
+    const cleanup=widget.render({model:defaultModel,el:new Element('root')});await flush();
     if(path==='/replay')nodes.find(n=>n.tag==='label'&&n.textContent==='Interaction reference').children[0].value='BOB-'+ '0'.repeat(32)+'/step/0/branch/original';
     await named(path==='/replay'?'Open reference':'Join demo support').onclick();await flush();
     const notice=nodes.find(n=>n.tag==='p'&&n.className?.startsWith('notice'));
@@ -57,7 +67,7 @@ if(process.argv.includes('--reference-recovery')){
       demo_support:'joined',control_status:control,lease_seconds:lease,known:[],missing:[],uncertain:[]};
     const requests=[];
     globalThis.fetch=async(url,request)=>{requests.push(new URL(url).pathname);return {ok:true,json:async()=>mirror};};
-    const cleanup=widget.render({model:{get:()=>''},el:new Element('root')});await flush();
+    const cleanup=widget.render({model:defaultModel,el:new Element('root')});await flush();
     assert.ok(nodes.some(n=>n.tag==='p'&&n.textContent===`Local participant: joined · demo control: ${control} · lease ${lease}s`),
       'pairing and temporary control must be labeled separately');
     assert.equal(named('Confirm appointment').disabled,true);
@@ -90,7 +100,7 @@ if(process.argv.includes('--reference-recovery')){
       requests.push({path:new URL(url).pathname,method:request.method});
       return {ok:true,json:async()=>mirror};
     };
-    const cleanup=widget.render({model:{get:()=>''},el:new Element('root')});await flush();
+    const cleanup=widget.render({model:defaultModel,el:new Element('root')});await flush();
     const context=nodes.find(n=>n.tag==='p'&&n.textContent.startsWith('Current backend context'));
     assert.ok(context,'actual support renderer did not display backend/observation context');
     assert.ok(context.textContent.includes(`Patient display: ${test.expected}.`),
@@ -101,7 +111,7 @@ if(process.argv.includes('--reference-recovery')){
     cleanup();
   }
 }else{
-const cleanup=widget.render({model:{get:()=>''},el:new Element('root')});
+const cleanup=widget.render({model:defaultModel,el:new Element('root')});
 await named('Start independent patient').onclick();await flush();
 const message=nodes.find(n=>n.id==='message');message.value='Find primary care downtown';
 const pending=named('Send scheduling request').onclick();await flush();

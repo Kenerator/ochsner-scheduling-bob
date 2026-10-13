@@ -1,10 +1,12 @@
 # As-built architecture
 
-Updated 2026-10-12 against integrated source
-`1c318f3e54508d522b18f57d5bc871c4c04ad9ff`. This is the local synthetic
+Updated 2026-10-13 against integrated baseline
+`c7c53a3f45b9b6955a4f7b2d09b3a61a7828e1d1` plus the isolated L4/runtime-policy delta,
+whose exact-head review/integration is pending in native T087–T097. This is the local synthetic
 scheduling PoC as implemented, not a production design or deployment approval.
-Runtime repairs were integrated through [PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6).
-This documentation reorganization changes no runtime behavior.
+Earlier runtime repairs integrated through [PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6);
+budget/L3 through [PR #8](https://github.com/Kenerator/ochsner-scheduling-bob/pull/8).
+The L4 launch boundary changes hosting/configuration, not domain authority.
 
 Navigation: [overview](#components-and-authority) · [A interfaces](#a-interfaces-and-support) ·
 [B workflow](#b-shared-workflow-and-confirmation-authority) ·
@@ -55,6 +57,11 @@ outside Marimo kernels. Explicit controls can call Session through BrowserServic
 not every command passes through Conversation. Host/Origin and closed JSON checks
 protect the local transport, while role-bound capabilities are distinct from
 diagnostic/recording references. Neither is production patient authentication.
+
+The managed launcher starts the selected CLI or backend/viewer outside this
+logical command diagram. Its private credential capture and process ownership
+do not delegate booking authority. Only the actual model host receives the key;
+the browser receives a validated public numeric-loopback backend trait.
 
 Support sees the last acknowledged patient projection with freshness plus
 separately labeled current context; confirmation nonces are removed. Pairing
@@ -313,9 +320,9 @@ only public text/preferences/workflow is supplied. Closed structured proposals
 cannot supply identity/slot authority/consent. Bounded direct HTTPS, no tools,
 redirects or retries; failures are explicit, not silent offline fallback.
 
-Ordinary ModelBudget ceilings remain 200 calls/$20, including constructor bounds.
-The isolated fixed-day candidate adds explicit opt-in without replenishing the
-ledger; see the [candidate delta](#fixed-day-budget-candidate--2026-10-12). It reserves worst-case
+Application runtime constructors select indefinite uncapped accounting, while
+qualification/build-adjacent callers retain bounded defaults. The same canonical
+path reserves worst-case
 priced context plus bounded output before dispatch and settles validated numeric
 usage only. Unknown billing/crashes retain reservations; calls never refund.
 Another path cannot enforce the shared grant or legitimately replenish it. No
@@ -325,26 +332,62 @@ model results; no live model call is part of this documentation change.
 
 ## Fixed-day budget candidate — 2026-10-12
 
-Source-bound isolated delta based on `d925f326dd604b3eba07d844914810e2f2574705`;
-independent review/integration pending in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
+Historical source-bound mechanism; superseded for application runtime by the
+Oct 13 section below. The old launcher flag is retired, not a current requirement.
+
+Updated 2026-10-12: reviewed head `8908ef9`, integrated as `c7c53a3` through
+protected PR #8. Review, exact-head CI and local backend restoration evidence are
+in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
 [ModelBudget](../../../src/ochsner_bob/model_budget.py) adds a fixed, half-open Oct 12
 Central window affecting new-reservation numeric policy only. Structural reads,
 late settlement, unknown liability, canonical path, private locks and atomic
 persistence remain. The 100,000-byte bound is enforced before writes, including
 worst-case outstanding-settlement headroom. Public `preflight_budget` opens only
 existing ledger/marker state and prepares in memory; it cannot dispatch or write.
-CLI/browser require explicit `--openai --unlimited-today`; shared launch is SM-owned.
+At that historical source CLI/browser required explicit `--openai --unlimited-today`;
+shared launch was SM-owned.
 No diagram/component topology changes.
 
 [Window tests](../../../tests/test_budget_window.py),
 [launch tests](../../../tests/test_budget_window_launch.py), and
 [readiness tests](../../../tests/test_budget_preflight.py) cover fixed clocks,
 over-cap late accounting, explicit flag plumbing and unchanged bytes/file identity.
-These are offline tests, not live activation or new model qualification.
+These are offline tests; the separate backend restoration made no paid model request.
 [User guidance](../../user/getting-started.md#fixed-oct-12-model-budget-window) explains
 expiry and older-reader incompatibility; never reset/truncate an over-cap ledger.
 
+## Indefinite runtime accounting — 2026-10-13
+
+Candidate source on integrated baseline `c7c53a3`; final reviewed revision/status
+is pending in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13).
+[RuntimeLedger](../../../src/ochsner_bob/runtime_accounting.py) is a storage adapter
+behind ModelBudget, not new model or scheduling authority. Actual CLI/browser
+constructors select uncapped application policy. The qualifier remains bounded.
+Private SQLite uses the same canonical ledger path and stable flock/marker;
+atomic migration copies every JSON history row with original IDs/configuration.
+Indexed inserts/updates retain unknown/reserved liabilities and late settlements
+without a cumulative record cutoff. SQLite FULL transactions and directory fsync
+precede reservation return. DELETE journals are checked private; WAL/SHM/unexpected
+companions, malformed rows/schema, unsafe storage and genuine I/O failures deny.
+External file changes require complete bounded-memory validation before dispatch.
+Readiness validates old/new formats read-only; it never migrates or grants a call.
+Activate only with old writers quiescent; no live-format migration is performed.
+
 ## Limitations
+
+L4 consumer candidate, updated 2026-10-12 on integrated baseline `c7c53a3`:
+the managed [runtime manifest](../../../tools/poc-runtime/export-manifest.json)
+pins authoritative launcher bytes and [BOB config](../../../poc-launch.json)
+selects real model mode/default snapshot/exact Secure Note field. Preflight is
+no-call; the key is captured only after readiness and supplied only to the model
+host. The viewer gets a validated public transport URL and the nested mock stays
+secret-free. Domain and effect authority are unchanged; runtime accounting policy
+is updated separately above. Actual isolated
+offline UI creation/provider discovery succeeded on 29580/29581; IAB reconnect
+and acknowledgement warnings remain, not synchronized-screen qualification.
+The reviewed CLI ownership correction is adopted and consumer tests pass; final
+combined review/integration remain pending in
+[native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12).
 
 This is an internal-use, synthetic local PoC with approved public source and
 retained branded assets—not production authentication, clinical advice, real

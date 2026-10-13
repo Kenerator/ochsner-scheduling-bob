@@ -4,6 +4,21 @@ Internal-use synthetic demonstration with public source, not a real healthcare s
 a clinician or live representative. Follow [setup](../../README.md) with an
 explicit Python 3.11+ environment. Offline use needs no model account.
 
+## Launch mode and setup
+
+The [normal launcher](../../README.md#normal-model-first-launcher) requests model
+mode with the configured BOB snapshot; its exact Ochsner Secure Note `notes` field
+is resolved privately through the existing trusted helper. `--offline` is explicit
+and no-call. `--help`/`--doctor` retrieve no credentials or model output; readiness
+is not qualification. No inherited-key fallback is used. See the README for
+first-use accounting versus preservation of existing private ledger/unknown usage.
+
+Custom free `--ui-port`/`--transport-port` pairs configure the public widget URL;
+no source edit is needed. Keep the matching exact UI Origin. Invalid/missing
+configuration, occupied ports or exhausted/unavailable budget stop visibly; do
+not stop another listener or reset accounting. Ctrl-C cleans only owned children.
+L4 candidate review/CLI ownership status is in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12).
+
 ## Find the controls
 
 These drawings are **schematics—not screenshots**. They locate controls in the
@@ -129,27 +144,42 @@ permanently expired and importing its external export does not revive it.
 
 ## Fixed Oct 12 model-budget window
 
-Updated 2026-10-12 for the isolated budget candidate; independent review and
-protected integration remain pending in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
-This is not evidence that an already-running service has the change.
+Updated 2026-10-12: reviewed head `8908ef9` integrated through protected PR #8
+as `c7c53a3`; the local backend was restored with explicit opt-in. Exact CI,
+expiry and unchanged-accounting evidence are in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
+This does not activate other already-running services or prove a model request.
 
-For the separately authorized BOB-only exception, append `--openai --unlimited-today`
-to the existing CLI or `scripts/serve_browser.py` invocation. All normal runtime
-model/credential gates still apply. The opt-in removes numeric call/dollar ceilings
-only from **new reservations** during Oct 12, 2026 in America/Chicago:
-`2026-10-12T05:00:00Z` inclusive to `2026-10-13T05:00:00Z` exclusive (midnight Central).
-It is not a rolling day, persisted bypass, new ledger or allowance for other projects.
-The qualifier has no new override flag in this change.
+Historical: the Oct 12 opt-in applied only through `2026-10-13T05:00:00Z` exclusive.
+It is superseded for application runtime by the policy below; the old flag is no
+longer accepted by application launchers. Historical counts/CI remain unchanged.
 
-Without that explicit flag, or outside that window, ordinary 200-call/$20 ceilings
-apply. Existing counts, costs and unknown liabilities remain. At expiry a ledger
-over either ceiling blocks new calls; valid entries can still reopen, snapshot and
-settle. Negative ordinary dollar headroom is reported honestly. Do not truncate,
-reset or change paths to restore allowance; older code may reject an over-cap ledger.
+## Application runtime accounting
 
-Only verified priced models and bounded public inputs/outputs are accepted. Private
-file/locking/atomic-write guards and the existing 100,000-byte storage limit remain;
-reservation checks leave room for outstanding settlements. No retries, tools,
-startup model calls or silent fallback are introduced. Readiness is a read-only,
-point-in-time check of the existing canonical ledger, not permission to dispatch;
-the model host must reserve durably against that same ledger before each call.
+Updated 2026-10-13 for the isolated candidate; integration/activation status remains
+in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13).
+The Operator authorized Ochsner-key usage involved in **running BOB** without
+application call, dollar or time-window limits until further notice. No special
+budget flag is needed. Build-time LLM activity, test generation, qualification,
+research and media are excluded; their existing limits remain.
+
+Normal browser/CLI model constructors select runtime accounting. Exact model/key
+selection, bounded input/output/context/HTTP timeouts, no tools/retries, privacy,
+identity, confirmation and effect guards remain. Every dispatch requires a durable
+reservation; known usage settles once and unknown usage retains its full liability.
+No account-wide billing/invoice reconciliation is claimed.
+
+Readiness/doctor validates existing private JSON or SQLite and its initialized
+lock/marker without writes, migration, reservations or model requests. It is
+accounting/storage readiness, not a spend gate or a promise that later I/O works.
+The first actual new-runtime construction atomically migrates validated JSON to
+private transactional SQLite at the **same** `.bob-local/model-budget.json` path.
+All history, reservation IDs/configuration and late settlement are retained, with
+no arbitrary cumulative-record limit. Storage exhaustion, malformed state, unsafe
+permissions or unexpected SQLite companions fail safely; nothing silently resets.
+
+**Activation:** first verify all old model writers are quiescent, then start the
+reviewed/integrated runtime using the existing canonical path and effects namespace.
+Old processes cannot share this format migration and old code cannot read the new
+format. Do not restore an old build against migrated accounting or reset/change
+the ledger to make it work. The current implementation assignment does not restart
+the Operator app or migrate its live ledger.

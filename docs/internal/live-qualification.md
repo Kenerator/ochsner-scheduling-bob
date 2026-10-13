@@ -61,22 +61,37 @@ Default transport remains real OpenAI, gated by explicit environment opt-in.
 
 ### Fixed-day candidate delta — 2026-10-12
 
+Historical only, superseded for application runtime by the Oct 13 policy below.
 The historical qualification/cost results below are unchanged. Ordinary ceilings
 remain 200 calls/$20; the separate fixed Oct 12 Central grant is implemented in
-the isolated candidate as explicit `unlimited_today=True`, not a ledger reset.
+reviewed source `8908ef9`, integrated as `c7c53a3`, with explicit
+`unlimited_today=True`, not a ledger reset. Backend restoration and no-effect
+health checks left accounting unchanged; they are not new genuine-model qualification.
 See [usage/expiry/storage limits](../user/getting-started.md#fixed-oct-12-model-budget-window)
 and [native candidate status](../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
 Only new reservations bypass numeric ceilings during the fixed window; existing
 valid entries reopen/snapshot/settle after expiry. Calls never refund and unknown
 liability remains. The qualifier does not gain an override flag.
 
-`preflight_budget(path: Path, *, model: str, unlimited_today: bool=False) -> None`
-validates an existing private ledger plus initialized marker under lock. It tests
-priced worst-case 512-output-token and late-settlement storage headroom in memory;
-it cannot initialize, reserve, settle, repair or write. Missing/unsafe/corrupt or
-exhausted state fails closed. This is point-in-time readiness, not a paid probe or
-dispatch authority. The actual host must use the same ledger/opt-in and reserve
-durably again. No pricing/model change or new genuine qualification is claimed.
+### Runtime policy delta — 2026-10-13
+
+Normal application CLI/browser constructors now select `application_runtime=True`
+under the verified indefinite runtime-only grant. Qualification/build-adjacent
+callers retain bounded defaults; `scripts/qualify_live.py` gains no override or
+new spending authority. Historical model results/costs are unchanged.
+[Runtime accounting](../../src/ochsner_bob/runtime_accounting.py) uses indexed,
+private SQLite at the same canonical path, preserving all validated legacy entries,
+IDs/configuration and unknown liabilities through atomic migration. Runtime has no
+cumulative row/byte spending cutoff; actual I/O/privacy/corruption failure denies.
+Old-format writers must be quiescent before activation; none is migrated here.
+
+`preflight_budget(path: Path, *, model: str) -> None` validates existing JSON or
+SQLite plus initialized marker under lock, without creation, migration, reservation,
+settlement, credential/model request or mutation. It validates priced request
+bounds/accounting storage, not a call/dollar/date gate. Actual dispatch reserves
+durably again. [Offline regressions](../../tests/test_runtime_accounting.py) use
+temporary ledgers and fake transports, not genuine qualification or invoices.
+Current review/CI/activation status belongs in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13).
 
 ## Qualification method
 
