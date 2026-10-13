@@ -231,9 +231,10 @@ or consent. [ModelBudget](../../../src/ochsner_bob/model_budget.py) reserves bef
 dispatch against `.bob-local/model-budget.json`, the CLI/browser path and
 qualifier default. The qualifier exposes a `--budget` override, which does not
 legitimately replenish the shared grant; construction/view does not dispatch.
-The implemented constructor caps remain 200 calls/$20; a higher external
-allowance does not change those code limits or reset accounting. Unknown billing
-keeps the reservation. [Language](../../../tests/test_language.py) and
+Ordinary constructor ceilings remain 200 calls/$20. The isolated fixed-day
+candidate adds explicit opt-in without resetting accounting; see the source-bound
+[budget delta](architecture.md#fixed-day-budget-candidate--2026-10-12). Unknown
+billing keeps the reservation. [Language](../../../tests/test_language.py) and
 [budget tests](../../../tests/test_model_budget.py) are offline evidence; injected
 model transports are explicitly fixtures, not genuine model qualification.
 The separately scoped [genuine language record](../live-qualification.md) retains

@@ -59,6 +59,25 @@ Budget denial is `budget_exceeded`; settlement failure is `accounting_failed`;
 both return no proposed action. Injected transports remain visibly `fixture`.
 Default transport remains real OpenAI, gated by explicit environment opt-in.
 
+### Fixed-day candidate delta — 2026-10-12
+
+The historical qualification/cost results below are unchanged. Ordinary ceilings
+remain 200 calls/$20; the separate fixed Oct 12 Central grant is implemented in
+the isolated candidate as explicit `unlimited_today=True`, not a ledger reset.
+See [usage/expiry/storage limits](../user/getting-started.md#fixed-oct-12-model-budget-window)
+and [native candidate status](../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
+Only new reservations bypass numeric ceilings during the fixed window; existing
+valid entries reopen/snapshot/settle after expiry. Calls never refund and unknown
+liability remains. The qualifier does not gain an override flag.
+
+`preflight_budget(path: Path, *, model: str, unlimited_today: bool=False) -> None`
+validates an existing private ledger plus initialized marker under lock. It tests
+priced worst-case 512-output-token and late-settlement storage headroom in memory;
+it cannot initialize, reserve, settle, repair or write. Missing/unsafe/corrupt or
+exhausted state fails closed. This is point-in-time readiness, not a paid probe or
+dispatch authority. The actual host must use the same ledger/opt-in and reserve
+durably again. No pricing/model change or new genuine qualification is claimed.
+
 ## Qualification method
 
 After loading the credential securely into the environment and setting

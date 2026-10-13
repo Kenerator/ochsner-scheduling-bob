@@ -313,15 +313,36 @@ only public text/preferences/workflow is supplied. Closed structured proposals
 cannot supply identity/slot authority/consent. Bounded direct HTTPS, no tools,
 redirects or retries; failures are explicit, not silent offline fallback.
 
-The implemented ModelBudget caps a shared namespace at 200 calls/$20, including
-constructor bounds. A higher external allowance does not change those code limits
-or replenish the ledger. It reserves worst-case
+Ordinary ModelBudget ceilings remain 200 calls/$20, including constructor bounds.
+The isolated fixed-day candidate adds explicit opt-in without replenishing the
+ledger; see the [candidate delta](#fixed-day-budget-candidate--2026-10-12). It reserves worst-case
 priced context plus bounded output before dispatch and settles validated numeric
 usage only. Unknown billing/crashes retain reservations; calls never refund.
 Another path cannot enforce the shared grant or legitimately replenish it. No
 account-wide invoice reconciliation is claimed.
 See [genuine qualification](../live-qualification.md) for separately source-bound
 model results; no live model call is part of this documentation change.
+
+## Fixed-day budget candidate — 2026-10-12
+
+Source-bound isolated delta based on `d925f326dd604b3eba07d844914810e2f2574705`;
+independent review/integration pending in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
+[ModelBudget](../../../src/ochsner_bob/model_budget.py) adds a fixed, half-open Oct 12
+Central window affecting new-reservation numeric policy only. Structural reads,
+late settlement, unknown liability, canonical path, private locks and atomic
+persistence remain. The 100,000-byte bound is enforced before writes, including
+worst-case outstanding-settlement headroom. Public `preflight_budget` opens only
+existing ledger/marker state and prepares in memory; it cannot dispatch or write.
+CLI/browser require explicit `--openai --unlimited-today`; shared launch is SM-owned.
+No diagram/component topology changes.
+
+[Window tests](../../../tests/test_budget_window.py),
+[launch tests](../../../tests/test_budget_window_launch.py), and
+[readiness tests](../../../tests/test_budget_preflight.py) cover fixed clocks,
+over-cap late accounting, explicit flag plumbing and unchanged bytes/file identity.
+These are offline tests, not live activation or new model qualification.
+[User guidance](../../user/getting-started.md#fixed-oct-12-model-budget-window) explains
+expiry and older-reader incompatibility; never reset/truncate an over-cap ledger.
 
 ## Limitations
 

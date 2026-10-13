@@ -126,3 +126,30 @@ are simulation-only and are not automatically executed or adopted as tests.
 Export/import accepts bounded reviewed data, never executable instructions or
 live consent. Use Purge only for a disposable recording: its reference becomes
 permanently expired and importing its external export does not revive it.
+
+## Fixed Oct 12 model-budget window
+
+Updated 2026-10-12 for the isolated budget candidate; independent review and
+protected integration remain pending in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
+This is not evidence that an already-running service has the change.
+
+For the separately authorized BOB-only exception, append `--openai --unlimited-today`
+to the existing CLI or `scripts/serve_browser.py` invocation. All normal runtime
+model/credential gates still apply. The opt-in removes numeric call/dollar ceilings
+only from **new reservations** during Oct 12, 2026 in America/Chicago:
+`2026-10-12T05:00:00Z` inclusive to `2026-10-13T05:00:00Z` exclusive (midnight Central).
+It is not a rolling day, persisted bypass, new ledger or allowance for other projects.
+The qualifier has no new override flag in this change.
+
+Without that explicit flag, or outside that window, ordinary 200-call/$20 ceilings
+apply. Existing counts, costs and unknown liabilities remain. At expiry a ledger
+over either ceiling blocks new calls; valid entries can still reopen, snapshot and
+settle. Negative ordinary dollar headroom is reported honestly. Do not truncate,
+reset or change paths to restore allowance; older code may reject an over-cap ledger.
+
+Only verified priced models and bounded public inputs/outputs are accepted. Private
+file/locking/atomic-write guards and the existing 100,000-byte storage limit remain;
+reservation checks leave room for outstanding settlements. No retries, tools,
+startup model calls or silent fallback are introduced. Readiness is a read-only,
+point-in-time check of the existing canonical ledger, not permission to dispatch;
+the model host must reserve durably against that same ledger before each call.

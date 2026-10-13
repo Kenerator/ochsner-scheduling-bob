@@ -64,7 +64,10 @@ def main(argv=None, *, input_stream=None, output_stream=None):
     parser.add_argument("--journal", default=".bob-local/cli-effects.json",
                         help="same path resumes its private effect namespace; a new mock run requires an explicit new path")
     parser.add_argument("--openai", action="store_true", help="explicit bounded language opt-in; runtime configuration still required")
+    parser.add_argument("--unlimited-today", action="store_true", help="BOB-only Oct 12 Central budget opt-in; expires 2026-10-13T05:00:00Z, requires --openai")
     args = parser.parse_args(argv)
+    if args.unlimited_today and not args.openai:
+        parser.error("--unlimited-today requires --openai; no namespace was started.")
     source, output = input_stream or sys.stdin, output_stream or sys.stdout
     if sys.version_info < (3, 11):
         print("Use an explicit Python 3.11+ interpreter.", file=output)
@@ -79,9 +82,10 @@ def _run(args, source, output, resources):
     try:
         namespace = resources.enter_context(CliNamespace(args.journal))
         api = ObservedAPI(HttpMockAdapter(args.api_url, scenario=args.scenario), diagnostics.api)
-        # One ledger for CLI, browser and qualification. No override/reset flag;
+        # One ledger for CLI, browser and qualification. No reset or rolling grant;
         # construction does not dispatch, reserve a call, or read credentials.
-        language = LanguageAdapter(budget=ModelBudget(ROOT / ".bob-local/model-budget.json")) if args.openai else None
+        budget_options = {"unlimited_today": True} if args.unlimited_today else {}
+        language = LanguageAdapter(budget=ModelBudget(ROOT / ".bob-local/model-budget.json", **budget_options)) if args.openai else None
         conversation = Conversation(SchedulingSession(api, journal_path=namespace.journal.path,
                                     session_id=namespace.session_id), language=language,
                                     diagnostic_sink=diagnostics.language)
@@ -94,8 +98,11 @@ def _run(args, source, output, resources):
           "Use an explicit new --journal path only for a new synthetic mock run.", file=output)
     if args.openai:
         print("OpenAI interpretation explicitly requested for public free text. Requires BOB_ENABLE_OPENAI=1, "
-              "BOB_OPENAI_MODEL and OPENAI_API_KEY at runtime. Shared limit: 200 calls / $20. "
+              "BOB_OPENAI_MODEL and OPENAI_API_KEY at runtime. Ordinary shared limit: 200 calls / $20. "
               "No silent fallback; local commands remain deterministic. No model call occurs until a public text turn.", file=output)
+        if args.unlimited_today:
+            print("BOB budget opt-in applies only 2026-10-12T05:00:00Z through 2026-10-13T05:00:00Z (exclusive); "
+                  "ordinary limits apply outside that window. Accounting/storage guards remain.", file=output)
     try:
         namespace.check()
         view = conversation.view()

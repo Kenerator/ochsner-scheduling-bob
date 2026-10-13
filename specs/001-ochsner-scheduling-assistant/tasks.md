@@ -632,3 +632,39 @@ Final documentation checkpoint delivery is recorded in milestones. Shared budget
 rechecked unchanged: **41/200 calls**, known cost $0.026381, retained unknown
 liability $3.023040, total liability $3.049421, remaining $16.950579. Actual total
 historical bill remains unknown; no further paid calls were made or scheduled.
+
+## Fixed-day BOB budget candidate — 2026-10-12
+
+Isolated existing clone, based on `d925f326dd604b3eba07d844914810e2f2574705`.
+FR-025/025a, US6; direct fixed-day grant forwarded by SM. Ordinary 200/$20
+configuration and original ledger survive. This candidate is not yet integrated
+or active in the running service. W1 remains a separate candidate; T072–T080 are
+reserved there, not duplicated here.
+
+- [x] T081 [US6] RED/GREEN fixed-window and CLI/browser explicit-opt-in tests;
+  preserve default ceilings, exact boundary expiry, late over-cap accounting,
+  unknown liabilities, private validation and settlement storage headroom.
+- [x] T082 [US6] RED/GREEN public read-only `preflight_budget` API; missing or
+  corrupt ledger/marker fails without creation/repair/mutation. Same priced
+  worst-case reservation/storage policy, explicit opt-in and no dispatch.
+- [x] T083 [US6] Run focused/full offline verification and three booking demos;
+  update affected source-bound usage/as-built/persona/video references. Whole-index
+  guard and exact committed handoff evidence are reported with the candidate.
+- [ ] T084 [US6] One SM independent exact-diff review, address findings, then await
+  selection before normal protected integration. Shared-launch integration is SM
+  owned. No main update, push/PR, live service restart or paid activation claimed.
+
+Tests-first evidence: baseline budget suite 28 passed. Ten new window tests were
+RED for missing explicit API/byte-boundary behavior; four launch regressions had
+two failures/two errors before implementation (help/no-initialization was an
+existing green regression). Nine new readiness tests were RED for missing public
+API. Combined focused budget suite: 51 passed (0.784 s).
+Fresh handoff full offline suite: 456 passed (22.619 s); success/conflict-recovery/
+unknown demos all passed, unknown retry blocked. No paid call or live ledger/service
+mutation occurred. Earlier full run: 456 passed (22.735 s).
+
+The byte/dev/inode/mtime readiness checks use temporary private ledgers and include
+missing parent/file/marker, malformed/empty marker, corruption, unsafe permissions,
+invalid model, exhausted caps, active explicit opt-in, expiry and settlement
+capacity. These are offline component/launcher contracts, not actual browser,
+genuine-model, invoice or unlimited-storage qualification. No new media or RC.

@@ -163,3 +163,27 @@ As a reviewer or maintainer, I want a clean supported Mac setup, deterministic C
 - Synthetic identity matching demonstrates workflow behavior, not authentication or authorization; no real PHI, credentials, live human routing, or clinical decision support is in scope.
 - This exact BOB repository has approved public source and retained branded synthetic assets, with provenance in the UI asset index. Internal-use PoC scope remains; broader rights, application deployment and external media publication require separate authority.
 - Genuine-model qualification is required for full completion after offline behavior; credentials, spend, and model choice require an applicable grant.
+
+## Fixed-day budget requirement — 2026-10-12
+
+- **FR-025 [US6]**: Under the Operator's separate fixed-day BOB grant, the system
+  MUST require explicit opt-in to bypass numeric ceilings only from
+  `2026-10-12T05:00:00Z` inclusive to `2026-10-13T05:00:00Z` exclusive.
+  Default and expired new reservations MUST enforce ordinary ceilings. The
+  canonical ledger, counts, costs, reservations and unknown liability MUST survive;
+  valid over-cap history MUST remain readable and settleable after expiry.
+  Priced model validation, bounded requests, private locking/atomic persistence,
+  technical storage capacity, no tools/retries and project scope MUST remain.
+- **FR-025a [US6]**: Public budget readiness MUST require the existing canonical
+  ledger and initialized marker, validate a worst-case 512-output-token reservation
+  under the same explicit opt-in/clock/storage policy, and perform no writes,
+  initialization, reservation, settlement, model call or namespace replacement.
+  Readiness MUST NOT substitute for durable reservation at actual dispatch.
+  CLI/browser `--unlimited-today` MUST require `--openai`; the shared launcher
+  remains a separately owned integration. No qualifier override is added.
+
+Origin: explicit Operator budget direction, forwarded within the existing approved
+assignment by SM; not a persona-inferred permission. Acceptance uses fixed-clock,
+late-settlement, launch-boundary and read-only file-identity tests. Actual live
+activation, independent review and protected integration are not inferred from
+offline tests; status belongs in [native tasks](tasks.md#fixed-day-bob-budget-candidate--2026-10-12).

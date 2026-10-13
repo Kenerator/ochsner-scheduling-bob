@@ -36,6 +36,19 @@ not inferred from persona traits. US6 operational coverage also links
 [browser launcher tests](../../tests/test_browser_launch.py); these do not by themselves
 prove clean-copy installation or actual browser usability.
 
+## US6 budget-candidate evidence — 2026-10-12
+
+Sam-Rae's pinned adversarial/uncertain-outcome needs above also motivate inspectable
+model accounting; persona selection supplies no spending permission. FR-025/025a
+come from separate Operator direction. [ModelBudget](../../src/ochsner_bob/model_budget.py)
+preserves unknown liability and late settlement after fixed-day expiry.
+[Window](../../tests/test_budget_window.py), [launch](../../tests/test_budget_window_launch.py)
+and [readiness](../../tests/test_budget_preflight.py) regressions test default denial,
+explicit opt-in, expiry, storage headroom and no readiness mutation. Source baseline
+`d925f326dd604b3eba07d844914810e2f2574705`; exact candidate/review status stays in
+[native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
+No patient/support authority, console, paid model or actual UI evidence is added.
+
 ## Reproduction and limits
 
 Reproduce offline with explicit project Python 3.11+:

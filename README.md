@@ -117,10 +117,13 @@ The browser and CLI use the same Conversation/Session behavior, not the inherite
 OpenAI is explicitly opt-in: add `--openai` to the browser launcher or CLI, with
 `BOB_ENABLE_OPENAI=1`, `BOB_OPENAI_MODEL`, and securely configured `OPENAI_API_KEY`
 in that process environment. Never put a key in arguments, source, browser or logs.
-One private root ledger limits all qualification/CLI/browser calls to **200 / $20**;
+One private root ledger has ordinary qualification/CLI/browser ceilings of **200 / $20**;
 uncertain usage retains its reservation. No tools, automatic retries or silent
 model fallback. View/poll/replay never invokes a model. See
 [qualification and actual cost uncertainty](docs/internal/live-qualification.md).
+The separately authorized, fixed Oct 12 Central exception requires explicit
+`--openai --unlimited-today`; it never resets accounting and expires at
+`2026-10-13T05:00:00Z`. See [fixed-window guidance](docs/user/getting-started.md#fixed-oct-12-model-budget-window).
 
 ## Verification and historical checkpoints
 
