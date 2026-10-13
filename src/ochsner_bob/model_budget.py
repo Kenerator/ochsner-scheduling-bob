@@ -1,4 +1,4 @@
-"""Private, durable reservations with ordinary $20 / 200-call dispatch ceilings.
+"""Private durable accounting with separate covered-execution and generic policies.
 
 No prompts, response text, credentials or request identifiers are persisted.
 Standard direct OpenAI text pricing reviewed 2026-10-09:
@@ -97,22 +97,28 @@ def _maximum(model, max_output):
 class ModelBudget:
     """reserve(model=..., max_output_tokens=512), then settle(id, usage|None).
 
-    Share ONE path across all callers under the grant. Independent paths cannot
-    enforce an account-wide ceiling. Limits may be stricter, never exceed the
+    Actual application entrypoints select application_runtime=True: uncapped
+    runtime accounting at the same canonical path, using indexed SQLite storage.
+    Functional qualification also explicitly selects this covered policy.
+    Default generic/non-application callers remain bounded. Independent paths cannot
+    enforce an account-wide ceiling. Bounded limits may be stricter, never exceed the
     ordinary grant, and cannot change on reopen. Explicit unlimited_today opts
     into the fixed BOB-only window; it changes NEW-reservation policy only.
+    The old unlimited_today API is historical compatibility for bounded callers,
+    not an application launch requirement or renewable runtime authorization.
     Historical valid entries remain readable/settleable after expiry, including
     over-cap entries. The runner always uses the same default path.
     """
 
     def __init__(self, path: Path, *, max_calls=200, ceiling_usd="20", unlimited_today=False, clock=None,
+                 application_runtime=False,
                  _existing_only=False):
         self._blocked = False
         self._seen = False
         try:
             clock = time.time if clock is None else clock
             ceiling = Decimal(str(ceiling_usd))
-            if (type(unlimited_today) is not bool or type(_existing_only) is not bool or not callable(clock)
+            if (type(application_runtime) is not bool or type(unlimited_today) is not bool or type(_existing_only) is not bool or not callable(clock)
                     or type(max_calls) is not int or not 1 <= max_calls <= 200
                     or not ceiling.is_finite() or not 0 < ceiling <= 20
                     or ceiling * _NANOS != (ceiling * _NANOS).to_integral_value()):
@@ -122,6 +128,8 @@ class ModelBudget:
             self._unlimited_today = unlimited_today
             self._clock = clock
             self._existing_only = _existing_only
+            self.application_runtime = application_runtime
+            self._runtime = None
             supplied = Path(path).absolute()
             parent = supplied.parent.resolve(strict=_existing_only)
             if not _existing_only:
@@ -136,9 +144,14 @@ class ModelBudget:
             with _GUARD:
                 self._mutex = _LOCKS.setdefault(self.path, RLock())
             with self._locked() as fd:
-                document = self._read()
-                if document is None:
-                    self._write(self._empty(), fd)
+                from .runtime_accounting import RuntimeLedger
+                if application_runtime or RuntimeLedger.is_database(self.path):
+                    self._runtime = RuntimeLedger(self)
+                    self._runtime.initialize(fd)
+                else:
+                    document = self._read()
+                    if document is None:
+                        self._write(self._empty(), fd)
         except Exception:
             raise BudgetError("Private budget unavailable or invalid; dispatch blocked.") from None
 
@@ -269,6 +282,8 @@ class ModelBudget:
     def reserve(self, *, model, max_output_tokens=512):
         maximum = _maximum(model, max_output_tokens)
         with self._locked() as marker:
+            if self._runtime is not None:
+                return self._runtime.reserve(model, max_output_tokens, maximum)
             document = self._prepared_reservation(self._read(), model, max_output_tokens, maximum)
             self._write(document, marker)
             return len(document["calls"])
@@ -287,6 +302,8 @@ class ModelBudget:
 
     def settle(self, reservation, usage):
         with self._locked() as marker:
+            if self._runtime is not None:
+                return self._runtime.settle(reservation, usage)
             document = self._read()
             if type(reservation) is not int or not 1 <= reservation <= len(document["calls"]):
                 raise BudgetError("Invalid budget reservation.")
@@ -301,6 +318,8 @@ class ModelBudget:
 
     def snapshot(self):
         with self._locked():
+            if self._runtime is not None:
+                return self._runtime.snapshot()
             document = self._read()
             calls = document["calls"]
             known = [call for call in calls if call["status"] == "known"]
@@ -315,14 +334,15 @@ class ModelBudget:
                 "liability_usd": _money(liability), "remaining_usd": _money(self.ceiling - liability)}
 
 
-def preflight_budget(path: Path, *, model: str, unlimited_today: bool = False) -> None:
+def preflight_budget(path: Path, *, model: str) -> None:
     """Validate existing canonical readiness; never initialize, reserve or write.
 
-    This is a point-in-time check, not dispatch authority. The actual model host
-    must use the same ledger/explicit opt-in and reserve again before transport.
-    Missing ledger/marker, unsafe storage, exhausted policy or capacity fail closed.
+    This checks accounting/storage only under the indefinite application runtime
+    policy, never a spending gate. JSON and SQLite are validated without migration.
+    Missing ledger/marker, unsafe/corrupt storage or unsupported models fail closed.
+    Actual dispatch must still durably reserve against the same canonical path.
     """
-    maximum = _maximum(model, 512)
-    budget = ModelBudget(path, unlimited_today=unlimited_today, _existing_only=True)
+    _maximum(model, 512)
+    budget = ModelBudget(path, application_runtime=True, _existing_only=True)
     with budget._locked():
-        budget._prepared_reservation(budget._read(), model, 512, maximum)
+        budget._runtime.validate()

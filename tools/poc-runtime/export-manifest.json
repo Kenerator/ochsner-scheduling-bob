@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "bundle": "poc-runtime",
+  "version": "1.0.0",
+  "source_revision": "17d415766a7dead713ccebcbbf6c36516a64ba3c",
+  "source_worktree_state": "clean",
+  "files": {
+    "tools/poc-runtime/adapters.py": "e7fb175b252be2ae0b5d96c6662e62b102b57b4a222bb4e8c731144b7aada778",
+    "tools/poc-runtime/credentials.py": "ae126a87d778fdae99368d053aa6e27151cb09f911ff7f0d63872950fda2b0af",
+    "tools/poc-runtime/launch.py": "9016ff11a849ed1d08c93aabe95d190c64815e6499bdc55c399dd649e55f96c9",
+    "tools/poc-runtime/processes.py": "8e6c1240ee36e40ebaa1151d20b5ab7ab8773afcc49164a1da248c78df2ad584"
+  }
+}

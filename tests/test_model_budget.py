@@ -356,13 +356,17 @@ class AdapterBudgetTests(unittest.TestCase):
         self.assertEqual(result.cost_usd,"1.502250000")
 
     def test_runner_accepts_only_price_verified_model_override(self):
-        runner = runpy.run_path(str(ROOT / "scripts/qualify_live.py"),run_name="qualification_test")
+        from test_qualification_policy import isolated_runner
+        runner, root = isolated_runner(self.temp.name)
+        ledger = root / ".bob-local/model-budget.json"
+        importlib.import_module("ochsner_bob.model_budget").ModelBudget(ledger)
         original = self.language.LanguageAdapter
         def offline_adapter(**options):
             return original(transport=FakeTransport(billed_response(model=STRONGER)),**options)
         output = io.StringIO()
-        with patch.dict(os.environ,ENV),patch.dict(runner["main"].__globals__,{"LanguageAdapter":offline_adapter}),patch("sys.stdout",output):
-            code = runner["main"](["--run-live","--model",STRONGER,"--budget",str(Path(self.temp.name) / "runner-strong.json")])
+        with patch.dict(os.environ,ENV),patch.dict(runner["main"].__globals__,{"LanguageAdapter":offline_adapter,
+                "resolve_qualification_key":lambda:ENV["OPENAI_API_KEY"]}),patch("sys.stdout",output):
+            code = runner["main"](["--run-live","--model",STRONGER])
         self.assertEqual(code,1)  # Fixtures cannot qualify, even matching semantics.
         self.assertEqual(json.loads(output.getvalue())["model"],STRONGER)
 
@@ -385,13 +389,16 @@ class AdapterBudgetTests(unittest.TestCase):
         self.assertTrue(runner["assess"](case,result)["semantic_pass"])
 
     def test_runner_stops_after_unknown_billing_without_retry(self):
-        runner = runpy.run_path(str(ROOT / "scripts/qualify_live.py"), run_name="qualification_test")
+        from test_qualification_policy import isolated_runner
+        runner, root = isolated_runner(self.temp.name)
+        importlib.import_module("ochsner_bob.model_budget").ModelBudget(root / ".bob-local/model-budget.json")
         original = self.language.LanguageAdapter
         def offline_adapter(**options):
             return original(transport=FakeTransport(),**options)
         output = io.StringIO()
-        with patch.dict(os.environ,ENV), patch.dict(runner["main"].__globals__,{"LanguageAdapter":offline_adapter}), patch("sys.stdout",output):
-            code = runner["main"](["--run-live","--budget",str(Path(self.temp.name) / "runner-budget.json")])
+        with patch.dict(os.environ,ENV), patch.dict(runner["main"].__globals__,{"LanguageAdapter":offline_adapter,
+                "resolve_qualification_key":lambda:ENV["OPENAI_API_KEY"]}), patch("sys.stdout",output):
+            code = runner["main"](["--run-live"])
         self.assertEqual(code,1)
         report = json.loads(output.getvalue())
         self.assertEqual(report["cases_run"],1)

@@ -22,7 +22,7 @@ export function mirroredNotice(receipt,view) {
 }
 
 export default {render({model,el}) {
-  const base='http://127.0.0.1:28451', storage='bob-v1-';
+  const base=model.get('backend_url'), storage='bob-v1-';
   let token=sessionStorage.getItem(storage+'token'), role=sessionStorage.getItem(storage+'role')||'patient';
   let state=null, shown=null, working=false, pendingRequests=0, polling=false, disposed=false, renderedRevision=-1, playing=false;
   let dirty=false, noticeKind='none', choiceButtons=[], replayReference=sessionStorage.getItem(storage+'reference')||'';

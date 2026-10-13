@@ -1,4 +1,4 @@
-"""Actual BOB argument/constructor boundaries; no vault, network or paid calls."""
+"""Normal runtime constructors use the indefinite policy; no paid calls."""
 import contextlib
 import io
 from pathlib import Path
@@ -45,7 +45,7 @@ class BudgetWindowLaunchTests(unittest.TestCase):
         self.created.append(budget)
         return budget
 
-    def test_browser_explicit_flag_reaches_canonical_budget_without_request(self):
+    def test_browser_normal_model_mode_uses_runtime_accounting_without_request(self):
         with patch.object(serve_browser, "ROOT", self.root), \
                 patch.object(serve_browser, "ModelBudget", side_effect=self.construct_budget), \
                 patch.object(serve_browser, "OwnedMock", NoNetworkMock), \
@@ -53,27 +53,28 @@ class BudgetWindowLaunchTests(unittest.TestCase):
                 patch.object(serve_browser.signal, "signal"), \
                 patch("ochsner_bob.language._http_transport", side_effect=AssertionError("no startup model request")), \
                 contextlib.redirect_stdout(io.StringIO()):
-            code = serve_browser.main(["--openai", "--unlimited-today", "--port", "0",
+            code = serve_browser.main(["--openai", "--port", "0",
                                        "--namespace", str(self.root / "effects")])
         self.assertEqual(0, code)
         self.assertEqual(1, len(self.created))
-        self.assertEqual("active", self.created[0].snapshot()["unlimited_today"]["status"])
+        self.assertEqual("application_runtime_unlimited", self.created[0].snapshot()["policy"])
         self.assertEqual(0, self.created[0].snapshot()["calls"])
 
-    def test_cli_explicit_flag_reaches_canonical_budget_without_request(self):
+    def test_cli_normal_model_mode_uses_runtime_accounting_without_request(self):
         output = io.StringIO()
         with patch.object(cli, "ROOT", self.root), \
                 patch.object(cli, "ModelBudget", side_effect=self.construct_budget), \
                 patch("ochsner_bob.language._http_transport", side_effect=AssertionError("no startup model request")):
-            code = cli.main(["--openai", "--unlimited-today", "--journal", str(self.root / "effects.json")],
+            code = cli.main(["--openai", "--journal", str(self.root / "effects.json")],
                             input_stream=io.StringIO("/quit\n"), output_stream=output)
         self.assertEqual(0, code)
         self.assertEqual(1, len(self.created))
-        self.assertEqual("active", self.created[0].snapshot()["unlimited_today"]["status"])
+        self.assertEqual("application_runtime_unlimited", self.created[0].snapshot()["policy"])
         self.assertEqual(0, self.created[0].snapshot()["calls"])
-        self.assertIn("2026-10-13T05:00:00Z", output.getvalue())
+        self.assertIn("without application usage/spending limits", output.getvalue())
+        self.assertNotIn("200 calls / $20", output.getvalue())
 
-    def test_budget_opt_in_requires_explicit_model_mode_before_any_startup(self):
+    def test_retired_budget_flag_is_rejected_before_any_startup(self):
         for module in (cli, serve_browser):
             with self.subTest(module=module.__name__):
                 error = io.StringIO()
@@ -81,7 +82,7 @@ class BudgetWindowLaunchTests(unittest.TestCase):
                         contextlib.redirect_stderr(error), self.assertRaises(SystemExit) as caught:
                     module.main(["--unlimited-today"])
                 self.assertEqual(2, caught.exception.code)
-                self.assertIn("requires --openai", error.getvalue())
+                self.assertIn("unrecognized arguments", error.getvalue())
 
     def test_help_with_opt_in_flags_does_not_construct_budget_or_language(self):
         for module in (cli, serve_browser):

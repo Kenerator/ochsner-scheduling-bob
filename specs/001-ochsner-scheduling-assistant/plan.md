@@ -104,6 +104,9 @@ raw intake, credentials, environments and private native state.
 
 ## Fixed-day BOB budget delta — 2026-10-12
 
+Historical plan, superseded for application runtime by FR-027 below; original
+source-bound evidence remains in tasks.
+
 FR-025/025a extend US6 in the existing budget boundary, not the Session/effects
 architecture. Keep ordinary stored configuration at 200 calls/$20. Explicit
 constructor/launcher opt-in uses a fixed UTC half-open interval for Oct 12 Central;
@@ -124,3 +127,39 @@ and browser flags pass opt-in explicitly and reject offline use; SM owns shared
 launch integration. Offline tests precede code; full suite/demos/guard and one
 independent review precede selected protected integration. No live activation,
 credential lookup or paid readiness call is part of this candidate.
+
+## L4 consumer integration — 2026-10-12
+
+Consume only selected `tools/poc-runtime/{adapters,credentials,launch,processes}.py`
+and its hash manifest from the authoritative Template, with public BOB config.
+No local fork/regeneration of managed bytes. Central field resolution pins `notes`;
+do not repeat vault proof. Test actual browser/CLI constructors with synthetic
+transport credentials and isolated private ledgers before implementation claims.
+The thin widget accepts a validated public `BOB_TRANSPORT_URL` trait; JavaScript
+uses that trait, while the service keeps exact UI Origin/Host checks.
+
+Preserve running Operator services, sessions and ledger. Use only disposable owned
+ports/state for no-call smoke and cleanup. Keep W1 separate. Full project tests,
+deterministic demos, affected docs/navigation, staged guard and one final SM diff
+review precede normal protected integration. Shared tests are not consumer/live
+model or cross-platform qualification.
+
+## Indefinite runtime accounting delta — 2026-10-13
+
+FR-027/027a supersede application spending/dated-window gating only. Actual CLI
+and browser plus functional qualification constructors select `application_runtime=True`;
+excluded code-generation/build-agent configuration stays unchanged. ModelBudget delegates runtime storage to stdlib SQLite
+at the existing canonical path, with the stable private lock/marker. Atomic
+validated JSON migration preserves all IDs/configuration/history and liabilities;
+indexed transactional inserts/updates remove the cumulative-record cutoff without
+dropping unknown or pending calls. SQLite DELETE journal privacy, memory temporary
+storage, strict schema/row validation, full sync and no silent recovery/reset
+preserve fail-safe accounting. Readiness opens old/new formats read-only, never
+migrates, and exposes the compatible noflag `preflight_budget(path, model=model)`.
+
+Activate only after all old-format model writers are quiescent; this candidate
+does not migrate/restart the live app. SM's reviewed five-file source `17d4157`
+is adopted without forking. Tests-first temporary/fake-transport regressions,
+combined product qualification, source-bound docs/navigation/guard and one SM
+consumer diff review precede normal CI/protected integration. Native tasks remain
+the sole implementation ledger; no paid proof or media production is included.

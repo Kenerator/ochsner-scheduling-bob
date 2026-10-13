@@ -66,7 +66,59 @@ disabled. Node is a verification prerequisite, not an application runtime
 dependency; no npm install is needed. Direct dependencies are pinned in [pyproject.toml](pyproject.toml);
 transitive dependencies are not a reproducible lock. No API key is needed offline.
 
-In two terminals from this root:
+### Normal model-first launcher
+
+L4/runtime-policy candidate, updated 2026-10-13; final review/CI/integration status is
+in [native tasks](specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12).
+The pinned [runtime manifest](tools/poc-runtime/export-manifest.json) identifies
+the managed Template bytes; BOB's public settings are in [poc-launch.json](poc-launch.json).
+Only macOS ARM is qualified. `lsof` must be on PATH for exact owned-listener checks.
+
+Configure `POC_SECRET_HELPER` to your existing trusted executable, or make
+`bw-get-secret` discoverable on PATH. The normal launcher privately reads only
+`[Env] (Ochsner PoC) OPENAI_API_KEY`, Secure Note field `notes`; it never uses an
+inherited/generic key as fallback. No key goes in argv, config, logs or the browser.
+The model host alone receives it; viewer and nested mock remain key-free.
+
+Model readiness requires the existing private `.bob-local/model-budget.json`
+and its initialized marker/lock. Preserve those when continuing a trial; missing
+or corrupt existing accounting must be reconciled, not replaced to create headroom.
+For genuinely first-use, separately authorized accounting only:
+
+```sh
+PYTHONPATH=src .venv/bin/python -c 'from pathlib import Path; from ochsner_bob.model_budget import ModelBudget; ModelBudget(Path(".bob-local/model-budget.json"))'
+```
+
+That initializes local accounting, not permission to spend or account-wide billing.
+From the repository root:
+
+```sh
+.venv/bin/python tools/poc-runtime/launch.py --help
+.venv/bin/python tools/poc-runtime/launch.py --doctor
+.venv/bin/python tools/poc-runtime/launch.py
+```
+
+Default: browser, actual model mode requested, `gpt-5.4-2026-03-05`.
+Model precedence is `--model` → `BOB_OPENAI_MODEL` → that configured default.
+Help/doctor never retrieve a credential, start an app or call a model; doctor
+checks configuration/dependencies/ports/accounting storage and helper executability only.
+Ordinary startup makes no paid readiness request. Model performance is not proven
+by startup or fake-transport routing tests; historical qualification stays source-bound.
+
+Use explicit `--offline` for no-model operation (no helper or budget required).
+Create `mkdir -p -m 700 .bob-local` first for offline effects storage.
+Use `--ui-port 29580 --transport-port 29581` for a separately owned free pair;
+the launcher configures the widget's validated public backend URL automatically.
+Never stop an existing listener to free a port. Ctrl-C stops only this launch's
+owned children; errors do not silently switch mode, model or credential source.
+The CLI wrapper also owns its unchanged synthetic API:
+`.venv/bin/python tools/poc-runtime/launch.py --interface cli`.
+Use `--api-port PORT` for a different free API port; the exact URL is passed to
+the CLI automatically. The explicit offline alternative adds `--offline`.
+
+### Direct offline reviewer entrypoints
+
+These existing commands remain available without Bitwarden. In two terminals:
 
 ```sh
 # Terminal 1: owns and stops its own supplied mock child
@@ -76,10 +128,11 @@ mkdir -p -m 700 .bob-local
 .venv/bin/marimo run apps/scheduling_app.py --host 127.0.0.1 --port 28450 --session-ttl 3600 --headless
 ```
 
-Open `http://127.0.0.1:28450/`. The shipped widget expects backend **28451**, and
-the sidecar permits UI origin **28450**. Keep that fixed pair together; launcher
-port flags alone do not reconfigure the widget. Do not stop another process to
-free a port. The sidecar owns a separate mock on an OS-selected loopback port.
+Open `http://127.0.0.1:28450/`. Default backend/UI are **28451/28450**.
+For a custom direct pair, set `BOB_TRANSPORT_URL=http://127.0.0.1:BACKEND_PORT`
+on the Marimo viewer and pass matching `--port`/`--ui-port` to the sidecar.
+Only numeric IPv4 loopback HTTP without paths/credentials is accepted; exact
+Host/Origin checks remain. The sidecar owns its separate ephemeral supplied mock.
 
 Click **Start independent patient**, choose Primary
 care / Downtown and Find providers. Choose provider 1. Enter the supplied synthetic
@@ -105,7 +158,7 @@ the launcher creates its immediate run directory, not missing ancestor directori
 Continue with the [task-oriented guide](docs/user/getting-started.md) for lookup,
 refinement, correction, decline and recovery.
 
-## CLI and optional language
+## Direct CLI and optional language
 
 Start `.venv/bin/python scripts/mock_lifecycle.py --port 4010`, then in another
 terminal run `.venv/bin/python -m ochsner_bob`. Type `help` for deterministic commands.
@@ -114,16 +167,26 @@ Use `/diagnostics` for sanitized inspection without changing the workflow.
 The browser and CLI use the same Conversation/Session behavior, not the inherited
 `poc-demo` sketch.
 
-OpenAI is explicitly opt-in: add `--openai` to the browser launcher or CLI, with
+For direct entrypoints, OpenAI is explicitly opt-in: add `--openai` to the sidecar or CLI, with
 `BOB_ENABLE_OPENAI=1`, `BOB_OPENAI_MODEL`, and securely configured `OPENAI_API_KEY`
 in that process environment. Never put a key in arguments, source, browser or logs.
-One private root ledger has ordinary qualification/CLI/browser ceilings of **200 / $20**;
-uncertain usage retains its reservation. No tools, automatic retries or silent
+Application runtime use of the Ochsner key is authorized **without application
+usage/spending limits until further notice**. Covered execution includes functional
+qualification, testing, validation and app-like evaluation, using the same exact
+Ochsner key and canonical accounting. LLM work creating/changing application,
+specification or test code is excluded; unrelated research/media grants do not
+expand. One private canonical accounting path retains every
+call/reservation and unknown liability. No tools, automatic retries or silent
 model fallback. View/poll/replay never invokes a model. See
 [qualification and actual cost uncertainty](docs/internal/live-qualification.md).
-The separately authorized, fixed Oct 12 Central exception requires explicit
-`--openai --unlimited-today`; it never resets accounting and expires at
-`2026-10-13T05:00:00Z`. See [fixed-window guidance](docs/user/getting-started.md#fixed-oct-12-model-budget-window).
+The dated `--unlimited-today` launcher flag is retired. See
+[runtime accounting and safe activation](docs/user/getting-started.md#application-runtime-accounting).
+Before the first new-runtime launch, quiesce every old-format model writer.
+Startup atomically migrates validated JSON accounting to private SQLite at the
+same `.bob-local/model-budget.json` path, preserving IDs/history/configuration and
+the stable lock/marker. Do not run old code against the migrated ledger, change
+paths, reset records, or discard uncertain liabilities. Readiness/doctor never
+migrates or writes. Real storage/privacy/corruption failures still block dispatch.
 
 ## Verification and historical checkpoints
 
