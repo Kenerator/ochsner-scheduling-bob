@@ -56,6 +56,26 @@ work below retains its original scope and is not repeated as new qualification.
   (catalog rows 21–31,51–67); disjoint document files only. Depends on T077/T100.
   Parent owner alone updates catalog/assets/native ledger/navigation and integrates
   both write sets before T078's combined checker and independent final review.
+- [x] T103 [US6] Resolve SM's two bounded reusable-checker findings with RED→GREEN
+  generic actor/group slugs and inert SVG element/attribute/namespace validation;
+  preserve exact raster-source guards and BOB-specific consumer coverage.
+
+T103 review correction, 2026-10-14: SM independently matched all three `66da0c8`
+portable hashes and reproduced rejected operator/workspace slugs plus accepted
+SMIL mutation. Four added portable tests first yielded three expected failures
+(52 tests, 0.187 s). Minimal changes remove domain whitelists, keep bounded slug
+validation, and allow only inert SVG/no-namespace shapes/text/declared-source images
+with inert attributes; SMIL, foreign namespaces, style, declarations/processing
+instructions and linked mutation remain denied. All 52 portable fixtures pass
+(0.334 s); two BOB-only consumer tests retain seven groups/57 controls and validate
+all current source-bound layers. An initial combined run failed only the new
+consumer assertion that Developer was a separate permission role; source review
+shows those controls are `both`, so the test-only expectation was corrected rather
+than inventing permission. Final combined suite: 558 tests passed, 28.151 s,
+Python 3.11.13. Three BOB synthetic booking demos and retained starter success/
+failure modules pass. No asset recapture, product change, credential/model call or
+Operator state change. Exact corrected portable pin is supplied to SM; Template
+adoption and final whole-BOB review remain pending, not reopened as extra gates.
 
 T100 local correction, 2026-10-14: SVG-as-image rendering cannot rely on an
 external local image. A failing exact-source embedding regression preceded the

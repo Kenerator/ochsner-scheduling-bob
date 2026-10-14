@@ -14,8 +14,20 @@ import xml.etree.ElementTree as ET
 
 LIMIT = 1_048_576
 IDENTIFIER = re.compile(r"[a-z][a-z0-9-]{0,95}\Z")
-GROUPS = {"session-and-public", "private-and-booking", "help-and-outcomes", "support",
-          "developer-recording", "replay-navigation", "replay-variants-and-data"}
+# Project actor/group vocabularies belong to consumer catalogs, not this export.
+SVG_NS = "http://www.w3.org/2000/svg"
+XLINK_NS = "http://www.w3.org/1999/xlink"
+SVG_ELEMENTS = {"svg", "g", "title", "desc", "rect", "circle", "ellipse", "line",
+                "polyline", "polygon", "path", "text", "tspan", "image"}
+SVG_ATTRIBUTES = {"width", "height", "viewBox", "preserveAspectRatio", "x", "y",
+                  "x1", "x2", "y1", "y2", "rx", "ry", "cx", "cy", "r", "d",
+                  "points", "transform", "fill", "fill-opacity", "fill-rule",
+                  "stroke", "stroke-width", "stroke-opacity", "stroke-linecap",
+                  "stroke-linejoin", "stroke-miterlimit", "stroke-dasharray",
+                  "stroke-dashoffset", "opacity", "font-family", "font-size",
+                  "font-weight", "text-anchor", "dominant-baseline", "dx", "dy",
+                  "id", "role", "aria-label", "aria-labelledby", "aria-describedby",
+                  "aria-hidden", "href"}
 LINK = re.compile(r"(!?)\[([^\]\n]*)\]\(<?([^\s)>]+)>?(?:\s+[\"'][^\n]*?[\"'])?\)")
 VISUAL_FIELDS = {"id", "kind", "path", "sha256", "source_revision", "working_tree_state",
                  "scenario", "action", "result", "role", "viewport", "width", "height",
@@ -110,6 +122,10 @@ def _strings(value, nonempty=False):
             and all(isinstance(item, str) and 0 < len(item) <= 1024 for item in value))
 
 
+def _identifier(value):
+    return isinstance(value, str) and bool(IDENTIFIER.fullmatch(value))
+
+
 def _schema(catalog):
     if not isinstance(catalog, dict) or set(catalog) != {"schema_version", "flows", "controls"} or type(catalog["schema_version"]) is not int or catalog["schema_version"] != 1:
         return False
@@ -125,7 +141,7 @@ def _schema(catalog):
             if not isinstance(row.get("document"), str):
                 return False
             if family == "controls":
-                if set(row) != {"id", "label", "role", "group", "document", "visual_ids"} or not isinstance(row["label"], str) or not 1 <= len(row["label"]) <= 256 or row["role"] not in ("patient", "support", "both", "developer") or not isinstance(row["group"], str) or row["group"] not in GROUPS or not _strings(row["visual_ids"]):
+                if set(row) != {"id", "label", "role", "group", "document", "visual_ids"} or not isinstance(row["label"], str) or not 1 <= len(row["label"]) <= 256 or not _identifier(row["role"]) or not _identifier(row["group"]) or not _strings(row["visual_ids"]):
                     return False
                 continue
             if set(row) != {"id", "source_ids", "document", "status", "mode", "steps", "gap_refs", "evidence_refs"} or row["status"] not in ("implemented", "partial", "unsupported", "unverified") or row["mode"] not in ("model", "offline", "recorded-simulation", "not-executable"):
@@ -217,15 +233,23 @@ def _dimensions(path, raw, *, root=None, source_asset=None):
                 return width, height
             offset += size
     if suffix == ".svg":
-        if b"<!" in raw:
+        if b"<!" in raw or b"<?" in raw:
             raise ValueError("unsafe SVG declaration")
         element = ET.fromstring(raw)
         if element.tag.rsplit("}", 1)[-1] != "svg":
             raise ValueError("not SVG")
         for node in element.iter():
-            name = node.tag.rsplit("}", 1)[-1]
-            if name in {"script", "foreignObject", "use", "style"}:
-                raise ValueError("active or linked SVG")
+            namespace, _, name = node.tag[1:].partition("}") if node.tag.startswith("{") else ("", "", node.tag)
+            if namespace not in ("", SVG_NS) or name not in SVG_ELEMENTS:
+                raise ValueError("SVG element is not inert")
+            # A small inert subset is intentional: SMIL/foreign namespaces/CSS
+            # must not mutate a source-bound teaching visual after validation.
+            for key in node.attrib:
+                attr_ns, _, attr_name = key[1:].partition("}") if key.startswith("{") else ("", "", key)
+                if (attr_name not in SVG_ATTRIBUTES
+                    or attr_ns not in ("", XLINK_NS)
+                    or attr_ns == XLINK_NS and (name != "image" or attr_name != "href")):
+                    raise ValueError("SVG attribute is not inert")
             hrefs = [value for key, value in node.attrib.items() if key.rsplit("}", 1)[-1] == "href"]
             if name == "image":
                 # A code-native composite may reuse exactly its verified original.
@@ -270,7 +294,7 @@ def _visual_schema(visual):
             and bool(re.fullmatch(r"[0-9a-f]{64}", visual["sha256"]))
             and bool(re.fullmatch(r"[0-9a-f]{40}", visual["source_revision"]))
             and visual["working_tree_state"] in ("clean", "dirty", "unknown")
-            and visual["role"] in ("patient", "support", "both", "developer")
+            and _identifier(visual["role"])
             and all(type(visual[k]) is int and 0 < visual[k] <= 32768 for k in ("width", "height"))
             and isinstance(visual["viewport"], dict) and set(visual["viewport"]) == {"width", "height"}
             and all(type(visual["viewport"][k]) is int and 0 < visual["viewport"][k] <= 32768 for k in ("width", "height"))

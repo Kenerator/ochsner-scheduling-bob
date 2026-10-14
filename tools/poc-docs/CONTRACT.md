@@ -1,6 +1,6 @@
 # Walkthrough structural contract, version 1
 
-The reusable Python 3.11+ standard-library checker does not import BOB, start an
+The reusable Python 3.11+ standard-library checker does not import an app, start an
 application, run Git/hooks, retrieve credentials, write files or access a network.
 Native tasks own implementation progress. A structural pass is not workflow,
 acceptance, pixel/privacy, accessibility or production certification.
@@ -35,10 +35,10 @@ references. These machine-visible instruction fields are structural, not an
 assertion that their prose is correct or that a workflow was executed.
 
 Control keys: `id`, `label`, `role`, `group`, `document`, `visual_ids`.
-Roles: patient/support/both/developer. Groups: session-and-public,
-private-and-booking, help-and-outcomes, support, developer-recording,
-replay-navigation, replay-variants-and-data. BOB's seven-group content is separate
-from these reusable validation bytes. Empty mappings are pending, not completion.
+Roles and groups are project-defined lowercase technical slugs, each matching
+`[a-z][a-z0-9-]{0,95}`. Domain-specific group and actor coverage belongs to
+the project's own catalog and consumer tests, not the
+portable checker whitelist. Empty mappings are pending, not completion.
 
 Statuses: implemented/partial/unsupported/unverified. Modes:
 model/offline/recorded-simulation/not-executable. These describe availability and
@@ -60,7 +60,7 @@ Each visual has all and only these keys:
   "scenario": "example-flow",
   "action": "What the user actually did",
   "result": "What was actually visible",
-  "role": "patient",
+  "role": "operator",
   "viewport": {"width": 1280, "height": 720},
   "width": 1280,
   "height": 720,
@@ -89,7 +89,12 @@ source, never an external URL, other asset or annotation chain. For portable
 SVG-as-image rendering, the composite may embed a PNG/JPEG data URI only when
 its decoded bytes exactly equal that already-declared clean source. Arbitrary
 data URIs and non-raster payloads remain rejected. Active SVG
-content/external references are rejected. No image is transformed by the checker.
+content/external references are rejected. SVG accepts only inert SVG/no-namespace
+elements (svg/g/title/desc, basic shapes/paths/text/tspan and declared-source image)
+and bounded inert geometric/presentation/accessibility attributes. SMIL set/animate/
+animation, foreign namespaces, CSS style, processing instructions and declarations
+are rejected rather than rendered or repaired. XLink is allowed only for an image's
+source-checked href. No image is transformed by the checker.
 
 Local Git HEAD/loose/packed metadata is read best-effort without launching Git.
 Different source revisions require an explicit `historical` limitation; unknown or
@@ -120,4 +125,4 @@ Run `python -m unittest discover -s tests -p test_walkthrough_contract.py -v`.
 Fixtures are temporary, synthetic and no-call; real collection checks may fail
 until its actual documents/assets exist. SM owns the exact Template export and
 generic generation guidance. Consumers must pin the reviewed checker/test contract
-without BOB-specific scenarios, private RFP data or a private DevOps dependency.
+without domain-specific scenarios, private source data or a private tooling dependency.

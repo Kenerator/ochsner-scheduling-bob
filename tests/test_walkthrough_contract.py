@@ -77,6 +77,22 @@ class WalkthroughContractTests(unittest.TestCase):
     def test_valid_minimal_contract(self):
         self.assertEqual([], self.errors())
 
+    def test_project_specific_role_and_group_slugs_are_portable(self):
+        # A reusable checker must not reject a non-scheduling project's actors.
+        self.catalog["controls"][0].update(role="operator", group="workspace")
+        self.visual["role"] = "operator"
+        self.save_manifest()
+        self.assertEqual([], self.errors())
+
+    def test_project_role_and_group_slugs_remain_bounded(self):
+        for field in ("role", "group"):
+            for value in ("", "Operator", "two words", "../private", "a" * 97, [], None):
+                with self.subTest(field=field, value_type=type(value).__name__):
+                    original = self.catalog["controls"][0][field]
+                    self.catalog["controls"][0][field] = value
+                    self.assertTrue(self.errors())
+                    self.catalog["controls"][0][field] = original
+
     def test_interaction_without_visual_is_rejected(self):
         self.catalog["flows"][0]["steps"][2]["visual_ids"] = []
         self.assertIn("demo: step 2 requires a visual", self.errors())
@@ -282,6 +298,39 @@ class WalkthroughContractTests(unittest.TestCase):
         self.visual["sha256"] = hashlib.sha256((self.root / "assets/view.svg").read_bytes()).hexdigest()
         self.save_manifest()
         self.assertTrue(self.errors())
+
+    def test_svg_smil_animation_and_external_mutation_are_rejected(self):
+        # Removing the inert-element guard would admit runtime mutation even
+        # without JavaScript, an on* attribute or an external image reference.
+        for child in ('<set attributeName="visibility" to="hidden" begin="0s"/>',
+                      '<animate attributeName="opacity" from="1" to="0" dur="1s"/>',
+                      '<animateTransform attributeName="transform" type="rotate" to="90" dur="1s"/>',
+                      '<animateMotion path="M0,0 L10,10" dur="1s"/>',
+                      '<animation begin="0s"/>',
+                      '<discard begin="0s"/>',
+                      '<set attributeName="href" to="https://example.invalid/payload.svg" begin="0s"/>'):
+            raw = ('<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10">'
+                   '<rect width="10" height="10">' + child + '</rect></svg>')
+            self.write("assets/view.svg", raw)
+            self.visual["sha256"] = hashlib.sha256(raw.encode()).hexdigest()
+            self.save_manifest()
+            self.assertIn("discovery: visual asset unavailable or invalid", self.errors())
+
+    def test_svg_foreign_namespaces_and_stylesheet_processing_are_rejected(self):
+        for child in ('<rect xmlns="http://www.w3.org/1999/xhtml" width="10" height="10"/>',
+                      '<f:rect xmlns:f="urn:foreign-active" f:onload="private-canary"/>',
+                      '<rect xmlns:f="urn:foreign-active" f:mutation="private-canary"/>',
+                      '<rect style="animation: pulse 1s infinite"/>'):
+            raw = '<svg width="10" height="10">' + child + '</svg>'
+            self.write("assets/view.svg", raw)
+            self.visual["sha256"] = hashlib.sha256(raw.encode()).hexdigest()
+            self.save_manifest()
+            self.assertIn("discovery: visual asset unavailable or invalid", self.errors())
+        raw = '<?xml-stylesheet href="https://example.invalid/active.css"?><svg width="10" height="10"/>'
+        self.write("assets/view.svg", raw)
+        self.visual["sha256"] = hashlib.sha256(raw.encode()).hexdigest()
+        self.save_manifest()
+        self.assertIn("discovery: visual asset unavailable or invalid", self.errors())
 
     def test_checker_is_read_only_and_never_uses_network_or_application(self):
         before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
