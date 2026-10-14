@@ -26,7 +26,7 @@ work below retains its original scope and is not repeated as new qualification.
   and owned cancellation/conflict behavior; verify no-call help/doctor/demos and
   isolated UI smoke. Delivered through T087–T098/PR #9; reuse exact evidence below,
   no repeat launch/policy proof. No generic key fallback.
-- [ ] T077 [US1–US6] W2: test manifest/hash/dimension/placement/provenance validation
+- [x] T077 [US1–US6] W2: test manifest/hash/dimension/placement/provenance validation
   first, capture/reuse actual seven-group visuals with clean originals and separate
   annotation layers; inspect privacy, clipping and control correspondence. Depends
   on stable T076 candidate; no live pairing grant in artifacts or Operator reset.
@@ -50,6 +50,12 @@ work below retains its original scope and is not repeated as new qualification.
   raster composites and W3 instruction shape; observe failing fixtures before
   implementation, verify the combined suite/demos and release exact committed
   bytes to SM. This closes a checker checkpoint only, not T074 adoption or W3.
+- [ ] T101 [P] [US1–US3] W3 patient/public/identity/booking walkthrough documents
+  (catalog rows 1–20,32–50); disjoint document files only. Depends on T077/T100.
+- [ ] T102 [P] [US4–US5] W3 support/developer/replay walkthrough documents
+  (catalog rows 21–31,51–67); disjoint document files only. Depends on T077/T100.
+  Parent owner alone updates catalog/assets/native ledger/navigation and integrates
+  both write sets before T078's combined checker and independent final review.
 
 T100 local correction, 2026-10-14: SVG-as-image rendering cannot rely on an
 external local image. A failing exact-source embedding regression preceded the
@@ -72,6 +78,10 @@ some non-target diagnostic context, not button labels. Acknowledgement/kernel/
 reconnect gaps, unknown checkout state, historical source and unexecuted variant/
 data-control outcomes remain explicit. Assets/docs are not yet an integrated
 collection; 67 individual walkthroughs and final navigation/review remain open.
+T077's local atlas contract/privacy/visual review is complete; source/date/mode
+limitations remain visible. T101/T102 may now draft independent documents in
+parallel without UI/capture/model execution or shared-file writes. Whole-collection
+and final independent review remain T078/T080, not implied by this checkpoint.
 
 T099 local checkpoint, 2026-10-13: catalog now maps 67 distinct flows (eight
 supplied, 23 other baseline, 36 additional native acceptance/recovery cases), with

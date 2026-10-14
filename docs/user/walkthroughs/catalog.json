@@ -1898,7 +1898,9 @@
       "role": "both",
       "group": "session-and-public",
       "document": "docs/user/controls/session-and-public.md",
-      "visual_ids": []
+      "visual_ids": [
+        "toolbar-composite"
+      ]
     },
     {
       "id": "public-request",
@@ -1906,7 +1908,9 @@
       "role": "patient",
       "group": "session-and-public",
       "document": "docs/user/controls/session-and-public.md",
-      "visual_ids": []
+      "visual_ids": [
+        "public-request-and-provider-composite"
+      ]
     },
     {
       "id": "send-request",
@@ -1914,7 +1918,9 @@
       "role": "patient",
       "group": "session-and-public",
       "document": "docs/user/controls/session-and-public.md",
-      "visual_ids": []
+      "visual_ids": [
+        "public-request-and-provider-composite"
+      ]
     },
     {
       "id": "specialty",
@@ -1922,7 +1928,9 @@
       "role": "patient",
       "group": "session-and-public",
       "document": "docs/user/controls/session-and-public.md",
-      "visual_ids": []
+      "visual_ids": [
+        "public-filters-composite"
+      ]
     },
     {
       "id": "location",
@@ -1930,7 +1938,9 @@
       "role": "patient",
       "group": "session-and-public",
       "document": "docs/user/controls/session-and-public.md",
-      "visual_ids": []
+      "visual_ids": [
+        "public-filters-composite"
+      ]
     },
     {
       "id": "from-date",
@@ -1938,7 +1948,9 @@
       "role": "patient",
       "group": "session-and-public",
       "document": "docs/user/controls/session-and-public.md",
-      "visual_ids": []
+      "visual_ids": [
+        "public-filters-composite"
+      ]
     },
     {
       "id": "through-date",
@@ -1946,7 +1958,9 @@
       "role": "patient",
       "group": "session-and-public",
       "document": "docs/user/controls/session-and-public.md",
-      "visual_ids": []
+      "visual_ids": [
+        "public-filters-composite"
+      ]
     },
     {
       "id": "apply-preferences",
@@ -1954,7 +1968,9 @@
       "role": "patient",
       "group": "session-and-public",
       "document": "docs/user/controls/session-and-public.md",
-      "visual_ids": []
+      "visual_ids": [
+        "public-filters-composite"
+      ]
     },
     {
       "id": "find-providers",
@@ -1962,7 +1978,9 @@
       "role": "patient",
       "group": "session-and-public",
       "document": "docs/user/controls/session-and-public.md",
-      "visual_ids": []
+      "visual_ids": [
+        "public-filters-composite"
+      ]
     },
     {
       "id": "choose-provider",
@@ -1970,7 +1988,9 @@
       "role": "patient",
       "group": "session-and-public",
       "document": "docs/user/controls/session-and-public.md",
-      "visual_ids": []
+      "visual_ids": [
+        "public-request-and-provider-composite"
+      ]
     },
     {
       "id": "spelling-suggestion",
@@ -1978,7 +1998,9 @@
       "role": "patient",
       "group": "session-and-public",
       "document": "docs/user/controls/session-and-public.md",
-      "visual_ids": []
+      "visual_ids": [
+        "public-spelling-composite"
+      ]
     },
     {
       "id": "private-disclosure",
@@ -1986,7 +2008,9 @@
       "role": "both",
       "group": "private-and-booking",
       "document": "docs/user/controls/private-and-booking.md",
-      "visual_ids": []
+      "visual_ids": [
+        "private-entry-composite"
+      ]
     },
     {
       "id": "synthetic-phone",
@@ -1994,7 +2018,9 @@
       "role": "patient",
       "group": "private-and-booking",
       "document": "docs/user/controls/private-and-booking.md",
-      "visual_ids": []
+      "visual_ids": [
+        "private-entry-composite"
+      ]
     },
     {
       "id": "date-of-birth",
@@ -2002,7 +2028,9 @@
       "role": "patient",
       "group": "private-and-booking",
       "document": "docs/user/controls/private-and-booking.md",
-      "visual_ids": []
+      "visual_ids": [
+        "private-entry-composite"
+      ]
     },
     {
       "id": "zip-discriminator",
@@ -2010,7 +2038,9 @@
       "role": "patient",
       "group": "private-and-booking",
       "document": "docs/user/controls/private-and-booking.md",
-      "visual_ids": []
+      "visual_ids": [
+        "private-entry-composite"
+      ]
     },
     {
       "id": "check-identity",
@@ -2018,7 +2048,9 @@
       "role": "patient",
       "group": "private-and-booking",
       "document": "docs/user/controls/private-and-booking.md",
-      "visual_ids": []
+      "visual_ids": [
+        "private-entry-composite"
+      ]
     },
     {
       "id": "get-availability",
@@ -2026,7 +2058,9 @@
       "role": "patient",
       "group": "private-and-booking",
       "document": "docs/user/controls/private-and-booking.md",
-      "visual_ids": []
+      "visual_ids": [
+        "returned-options-and-confirm-composite"
+      ]
     },
     {
       "id": "lookup-appointments",
@@ -2034,7 +2068,9 @@
       "role": "patient",
       "group": "private-and-booking",
       "document": "docs/user/controls/private-and-booking.md",
-      "visual_ids": []
+      "visual_ids": [
+        "returned-options-and-confirm-composite"
+      ]
     },
     {
       "id": "select-option",
@@ -2042,7 +2078,9 @@
       "role": "patient",
       "group": "private-and-booking",
       "document": "docs/user/controls/private-and-booking.md",
-      "visual_ids": []
+      "visual_ids": [
+        "returned-options-and-confirm-composite"
+      ]
     },
     {
       "id": "confirm-appointment",
@@ -2050,7 +2088,9 @@
       "role": "patient",
       "group": "private-and-booking",
       "document": "docs/user/controls/private-and-booking.md",
-      "visual_ids": []
+      "visual_ids": [
+        "returned-options-and-confirm-composite"
+      ]
     },
     {
       "id": "decline",
@@ -2058,7 +2098,9 @@
       "role": "patient",
       "group": "private-and-booking",
       "document": "docs/user/controls/private-and-booking.md",
-      "visual_ids": []
+      "visual_ids": [
+        "returned-options-and-confirm-composite"
+      ]
     },
     {
       "id": "help",
@@ -2066,7 +2108,9 @@
       "role": "both",
       "group": "help-and-outcomes",
       "document": "docs/user/controls/help-and-outcomes.md",
-      "visual_ids": []
+      "visual_ids": [
+        "help-actions-composite"
+      ]
     },
     {
       "id": "medical-boundary",
@@ -2074,7 +2118,9 @@
       "role": "both",
       "group": "help-and-outcomes",
       "document": "docs/user/controls/help-and-outcomes.md",
-      "visual_ids": []
+      "visual_ids": [
+        "help-actions-composite"
+      ]
     },
     {
       "id": "unsupported-request",
@@ -2082,7 +2128,9 @@
       "role": "both",
       "group": "help-and-outcomes",
       "document": "docs/user/controls/help-and-outcomes.md",
-      "visual_ids": []
+      "visual_ids": [
+        "help-actions-composite"
+      ]
     },
     {
       "id": "submit-handoff",
@@ -2090,7 +2138,9 @@
       "role": "patient",
       "group": "help-and-outcomes",
       "document": "docs/user/controls/help-and-outcomes.md",
-      "visual_ids": []
+      "visual_ids": [
+        "help-actions-composite"
+      ]
     },
     {
       "id": "reset-workflow",
@@ -2098,7 +2148,9 @@
       "role": "patient",
       "group": "help-and-outcomes",
       "document": "docs/user/controls/help-and-outcomes.md",
-      "visual_ids": []
+      "visual_ids": [
+        "help-actions-composite"
+      ]
     },
     {
       "id": "pairing-grant",
@@ -2106,7 +2158,9 @@
       "role": "both",
       "group": "support",
       "document": "docs/user/controls/support.md",
-      "visual_ids": []
+      "visual_ids": [
+        "toolbar-composite"
+      ]
     },
     {
       "id": "join-support",
@@ -2114,7 +2168,9 @@
       "role": "both",
       "group": "support",
       "document": "docs/user/controls/support.md",
-      "visual_ids": []
+      "visual_ids": [
+        "toolbar-composite"
+      ]
     },
     {
       "id": "create-pairing",
@@ -2122,7 +2178,9 @@
       "role": "patient",
       "group": "support",
       "document": "docs/user/controls/support.md",
-      "visual_ids": []
+      "visual_ids": [
+        "toolbar-composite"
+      ]
     },
     {
       "id": "take-control",
@@ -2130,7 +2188,9 @@
       "role": "support",
       "group": "support",
       "document": "docs/user/controls/support.md",
-      "visual_ids": []
+      "visual_ids": [
+        "support-actions-composite"
+      ]
     },
     {
       "id": "return-control",
@@ -2138,7 +2198,9 @@
       "role": "support",
       "group": "support",
       "document": "docs/user/controls/support.md",
-      "visual_ids": []
+      "visual_ids": [
+        "support-actions-composite"
+      ]
     },
     {
       "id": "suggested-location",
@@ -2146,7 +2208,9 @@
       "role": "support",
       "group": "support",
       "document": "docs/user/controls/support.md",
-      "visual_ids": []
+      "visual_ids": [
+        "support-actions-composite"
+      ]
     },
     {
       "id": "suggest-preference",
@@ -2154,7 +2218,9 @@
       "role": "support",
       "group": "support",
       "document": "docs/user/controls/support.md",
-      "visual_ids": []
+      "visual_ids": [
+        "support-actions-composite"
+      ]
     },
     {
       "id": "accept-suggestion",
@@ -2162,7 +2228,9 @@
       "role": "patient",
       "group": "support",
       "document": "docs/user/controls/support.md",
-      "visual_ids": []
+      "visual_ids": [
+        "patient-adoption-composite"
+      ]
     },
     {
       "id": "developer-disclosure",
@@ -2170,7 +2238,9 @@
       "role": "both",
       "group": "developer-recording",
       "document": "docs/user/controls/developer-recording.md",
-      "visual_ids": []
+      "visual_ids": [
+        "recording-and-diagnostics-composite"
+      ]
     },
     {
       "id": "interaction-reference",
@@ -2178,7 +2248,9 @@
       "role": "both",
       "group": "developer-recording",
       "document": "docs/user/controls/developer-recording.md",
-      "visual_ids": []
+      "visual_ids": [
+        "recording-and-diagnostics-composite"
+      ]
     },
     {
       "id": "start-recording",
@@ -2186,7 +2258,9 @@
       "role": "patient",
       "group": "developer-recording",
       "document": "docs/user/controls/developer-recording.md",
-      "visual_ids": []
+      "visual_ids": [
+        "recording-and-diagnostics-composite"
+      ]
     },
     {
       "id": "seal-recording",
@@ -2194,7 +2268,9 @@
       "role": "both",
       "group": "developer-recording",
       "document": "docs/user/controls/developer-recording.md",
-      "visual_ids": []
+      "visual_ids": [
+        "recording-and-diagnostics-composite"
+      ]
     },
     {
       "id": "inspect-diagnostics",
@@ -2202,7 +2278,9 @@
       "role": "both",
       "group": "developer-recording",
       "document": "docs/user/controls/developer-recording.md",
-      "visual_ids": []
+      "visual_ids": [
+        "recording-and-diagnostics-composite"
+      ]
     },
     {
       "id": "open-reference",
@@ -2210,7 +2288,9 @@
       "role": "both",
       "group": "replay-navigation",
       "document": "docs/user/controls/replay-navigation.md",
-      "visual_ids": []
+      "visual_ids": [
+        "replay-basic-composite"
+      ]
     },
     {
       "id": "previous",
@@ -2218,7 +2298,9 @@
       "role": "both",
       "group": "replay-navigation",
       "document": "docs/user/controls/replay-navigation.md",
-      "visual_ids": []
+      "visual_ids": [
+        "replay-basic-composite"
+      ]
     },
     {
       "id": "step",
@@ -2226,7 +2308,9 @@
       "role": "both",
       "group": "replay-navigation",
       "document": "docs/user/controls/replay-navigation.md",
-      "visual_ids": []
+      "visual_ids": [
+        "replay-basic-composite"
+      ]
     },
     {
       "id": "pause",
@@ -2234,7 +2318,9 @@
       "role": "both",
       "group": "replay-navigation",
       "document": "docs/user/controls/replay-navigation.md",
-      "visual_ids": []
+      "visual_ids": [
+        "replay-basic-composite"
+      ]
     },
     {
       "id": "play",
@@ -2242,7 +2328,9 @@
       "role": "both",
       "group": "replay-navigation",
       "document": "docs/user/controls/replay-navigation.md",
-      "visual_ids": []
+      "visual_ids": [
+        "replay-basic-composite"
+      ]
     },
     {
       "id": "replay-index",
@@ -2250,7 +2338,9 @@
       "role": "both",
       "group": "replay-navigation",
       "document": "docs/user/controls/replay-navigation.md",
-      "visual_ids": []
+      "visual_ids": [
+        "replay-position-and-bookmark-composite"
+      ]
     },
     {
       "id": "jump",
@@ -2258,7 +2348,9 @@
       "role": "both",
       "group": "replay-navigation",
       "document": "docs/user/controls/replay-navigation.md",
-      "visual_ids": []
+      "visual_ids": [
+        "replay-position-and-bookmark-composite"
+      ]
     },
     {
       "id": "bookmark-name",
@@ -2266,7 +2358,9 @@
       "role": "both",
       "group": "replay-navigation",
       "document": "docs/user/controls/replay-navigation.md",
-      "visual_ids": []
+      "visual_ids": [
+        "replay-position-and-bookmark-composite"
+      ]
     },
     {
       "id": "bookmark",
@@ -2274,7 +2368,9 @@
       "role": "both",
       "group": "replay-navigation",
       "document": "docs/user/controls/replay-navigation.md",
-      "visual_ids": []
+      "visual_ids": [
+        "replay-position-and-bookmark-composite"
+      ]
     },
     {
       "id": "go-bookmark",
@@ -2282,7 +2378,9 @@
       "role": "both",
       "group": "replay-navigation",
       "document": "docs/user/controls/replay-navigation.md",
-      "visual_ids": []
+      "visual_ids": [
+        "replay-position-and-bookmark-composite"
+      ]
     },
     {
       "id": "typed-variant",
@@ -2290,7 +2388,9 @@
       "role": "both",
       "group": "replay-variants-and-data",
       "document": "docs/user/controls/replay-variants-and-data.md",
-      "visual_ids": []
+      "visual_ids": [
+        "variant-edit-and-review-composite"
+      ]
     },
     {
       "id": "fork",
@@ -2298,7 +2398,9 @@
       "role": "both",
       "group": "replay-variants-and-data",
       "document": "docs/user/controls/replay-variants-and-data.md",
-      "visual_ids": []
+      "visual_ids": [
+        "variant-edit-and-review-composite"
+      ]
     },
     {
       "id": "compare",
@@ -2306,7 +2408,9 @@
       "role": "both",
       "group": "replay-variants-and-data",
       "document": "docs/user/controls/replay-variants-and-data.md",
-      "visual_ids": []
+      "visual_ids": [
+        "variant-edit-and-review-composite"
+      ]
     },
     {
       "id": "propose-regression",
@@ -2314,7 +2418,9 @@
       "role": "both",
       "group": "replay-variants-and-data",
       "document": "docs/user/controls/replay-variants-and-data.md",
-      "visual_ids": []
+      "visual_ids": [
+        "variant-edit-and-review-composite"
+      ]
     },
     {
       "id": "export-recording",
@@ -2322,7 +2428,9 @@
       "role": "both",
       "group": "replay-variants-and-data",
       "document": "docs/user/controls/replay-variants-and-data.md",
-      "visual_ids": []
+      "visual_ids": [
+        "recording-data-actions-composite"
+      ]
     },
     {
       "id": "recording-json",
@@ -2330,7 +2438,9 @@
       "role": "both",
       "group": "replay-variants-and-data",
       "document": "docs/user/controls/replay-variants-and-data.md",
-      "visual_ids": []
+      "visual_ids": [
+        "recording-data-actions-composite"
+      ]
     },
     {
       "id": "import-recording",
@@ -2338,7 +2448,9 @@
       "role": "both",
       "group": "replay-variants-and-data",
       "document": "docs/user/controls/replay-variants-and-data.md",
-      "visual_ids": []
+      "visual_ids": [
+        "recording-data-actions-composite"
+      ]
     },
     {
       "id": "purge-recording",
@@ -2346,7 +2458,9 @@
       "role": "both",
       "group": "replay-variants-and-data",
       "document": "docs/user/controls/replay-variants-and-data.md",
-      "visual_ids": []
+      "visual_ids": [
+        "recording-data-actions-composite"
+      ]
     }
   ]
 }
