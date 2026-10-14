@@ -1,0 +1,32 @@
+# <%= poc_text(snapshot.dig("project", "title")) %> — Executive Flight Deck
+
+<%= poc_text(snapshot.dig("project", "objective")) %>
+
+Rendered: <%= snapshot.fetch("rendered_at") %> · Source: <%= poc_text(snapshot.dig("source", "source_state_timestamp")) %> · <%= source_identity %> · Scope: <%= poc_text(snapshot.fetch("scope_version")) %>
+
+## Completion posture
+
+<%= poc_estimate(snapshot.fetch("summary")) %> · <%= snapshot.dig("summary", "requirement_count") %> unique active requirements. <%= poc_counts(snapshot.fetch("summary")) %>.
+
+Implementation, recorded verification and recorded acceptance are distinct; this derived view grants no authority. Unknown evidence is not a pass or a remaining-effort forecast.
+
+## Major elements
+
+<%= poc_table(["Element", "Posture", "Recorded stages"], snapshot.fetch("elements").map { |row| [row.fetch("title"), poc_estimate(row.fetch("summary")), poc_counts(row.fetch("summary"))] }) %>
+
+## Leadership attention
+
+<% attention = snapshot.fetch("attention").select { |row| row.fetch("state") == "ACTIONABLE_NOW" } -%>
+<%= attention.empty? ? "No currently actionable decision is recorded." : poc_table(["Decision", "Owner", "Recommendation"], attention.map { |row| [row.fetch("question"), row.fetch("owner"), row.fetch("recommendation", "Not recorded")] }) %>
+
+## Current blockers
+
+<%= snapshot.fetch("blockers").empty? ? "No active blocker is recorded. Missing evidence remains unknown." : poc_table(["Blocker", "State"], snapshot.fetch("blockers").map { |row| [row.fetch("title"), row.fetch("state")] }) %>
+
+## Next recommended action
+
+<%= poc_text(snapshot.fetch("recommended_action")) %>
+
+## Movement
+
+<%= snapshot.dig("movement", "status") %> — <%= poc_text(snapshot.dig("movement", "note")) %>

@@ -126,6 +126,27 @@ Neither bundle is invented locally. Keep canonical `.bob-local/model-budget.json
 and existing effect namespaces; no paid startup probe. FR-027/027a supersede the
 old budget/window prose for runtime and functional qualification, not code creation.
 
+F6 mapping, 2026-10-14 (reviewed shared export `ea7cfea` adopted locally;
+final BOB review/integration pending): six elements reuse native FR/task IDs rather than copied completion
+percentages. The consumer test will resolve every mapped ID/public path, use a
+temporary invalid-ID/private-path fixture for RED, and assert absent verification
+stays unknown through the actual exported consumer, not a local substitute engine.
+
+| Element | Native requirement basis | Implementation/task and evidence boundary |
+|---|---|---|
+| Functional coverage | FR-001/002/004/005/006/007/011/012/015/017 | Native shared workflow, identity/lookup, safety, Replay and Support tasks; source-bound supplied HTTP/persona tests, not all browser journeys |
+| User experience | FR-005/006/011/016/018/021 | Active filters, explicit suggestions, reachable help, Developer disclosure, pinned personas and individual guides; no measured accessibility/user-research claim |
+| Safety and authority | FR-003/004/008/009/010/010a/013/015/017/019/024/027a | Application-owned identity/consent, durable unknown claims, ZEN structural guards, isolated Replay, exact-key/accounting privacy; no permission from a model/persona/dashboard |
+| Verification | FR-020/021/022/024/026/027/027a | Existing qualification/demos/CI/native evidence with original source/date/limits; narrative references are unparsed/unknown, not manufactured green records |
+| Documentation and training | FR-018/020/021/024 | Native T073/T077/T078/T079/T099–T104 plus existing as-built/persona/assets work; structural coverage is separate from actual UI evidence |
+| Repository and readiness | FR-019/020/022/023/024/026/027/027a | Existing protected integration, exact reviewed bundles, owned launch, accounting and F6 native T075; no release/publication authority or SDK-latest mutation |
+
+FR-025/025a retain explicit historical/superseded fixed-day scope, not an active
+runtime spend gate; any DEFERRED mapping states that basis instead of silently
+dropping them. Public evidence references use existing native/docs files and keep
+unavailable/contradictory/stale evidence independent of checked task implementation.
+No qualification or human-decision JSON receipt is invented to improve a rollup.
+
 W2/W3 final captures and launch instructions follow stable BOB/L4 routing. Use
 isolated synthetic states/free ports, only materially needed stills and separate
 annotation layers. Preserve actual acknowledgement/reconnect warnings and product

@@ -29,3 +29,4 @@ docs/internal/private/
 .specify/bootstrap.json
 docs/product/RFP/source/
 docs/product/RFP/manifest.json
+tmp/aeos-dashboards/

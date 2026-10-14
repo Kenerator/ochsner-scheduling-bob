@@ -18,7 +18,7 @@ work below retains its original scope and is not repeated as new qualification.
   This is a local candidate checkpoint, not W1 Template integration or final docs.
 - [ ] T074 [US6] Supply the source-bound reusable W1 checker/test candidate to SM;
   integrate the reviewed reusable generation/export contract through its owner.
-- [ ] T075 [P] [US6] F6: consume exact reviewed shared Flight Deck export/manifest,
+- [x] T075 [P] [US6] F6: consume exact reviewed shared Flight Deck export/manifest,
   map six native elements without copied status, run doctor/generate and inspect
   desktop/narrow artifacts. Depends on SM export; independent of W1.
 - [x] T076 [P] [US6] L4: consume reviewed runtime bundle/config, tests first for
@@ -64,6 +64,67 @@ work below retains its original scope and is not repeated as new qualification.
   executable references, sample actual rendering, and retain partial offline UI
   observations without upgrading whole-journey acceptance. T078/T079/T080 remain
   open for remaining boundary review/integration and the F6 dependency.
+- [x] T105 [US6] F6 consumer: adopt the exact reviewed 24-file shared closure,
+  map six elements/all native requirements, RED→GREEN disposable mapping/private-
+  path/unknown-evidence fixtures, doctor/generate/latest, inspect six artifacts and
+  desktop/narrow drilldown; reconcile current documentation and exact candidate.
+- [x] T106 [US6] Preserve managed bytes while referring the discovered current
+  YAML keyword-API incompatibility to the shared owner; adopt only its reviewed
+  replacement pin and rerun the affected consumer/full qualification. No local
+  fork, skipped test, CI weakening or new platform qualification.
+
+F6 corrected local candidate, 2026-10-14: SM delivered the independently reviewed
+replacement from `ea7cfea9405f593a56b54c782212ccd9539bd178`, CLEAN, mechanism
+1.0.0, 24 payload files plus manifest. Manifest SHA256
+`2f326defb7665826bed041047a5c892386f972d230d5fbf5caf73ca402430ebe`.
+All hashes/closure matched with zero extras/symlinks; only shared `poc_input.rb`
+and the manifest differ from the previous bundle. No managed local fork. All six
+actual consumer tests pass (1.392 s), including the strict keyword-only signature
+fixture around the real parser. Actual self-check and BOB doctor pass without
+credentials. Combined frozen working suite passes 564 tests (29.379 s), with
+Python3.11.13, no skips/failures. All three BOB booking demos and both starter
+success/failure demos pass offline. This records precommit execution, not a later
+commit identity or actual Ruby3/Linux/browser/model qualification. T075/T105/T106
+close local implementation; T078/T079/T080 retain final review/CI/integration.
+
+Historical F6 working checkpoint, 2026-10-14: native SM delivery resolved its earlier send
+denial after actual human re-read. Adopted exact reviewed shared source
+`379b32cfd31364d94dda37e13572a047d3b9e2b9`, CLEAN, 24 manifest files plus manifest,
+mechanism1.0.0, manifest SHA256
+`b91dec01948be29ba27f6f371dbb66ccb3d58d97fa8194570931c577e1f6dd54`.
+Actual preflight found zero extras/symlinks and all file hashes matched. Shared
+files remain unchanged locally. The five initial consumer tests failed for absent
+mapping, then passed (1.195 s) after native data was added. A separate real-consumer
+positive assertion failed for temporary FR-999 and passed after restoring only
+that fixture. Unknown native IDs/tasks never become complete; private-path
+canary is rejected without echo; real generated snapshot retains UNKNOWN and six
+artifacts. Full integrated suite initially passed 563 tests (27.876 s).
+
+Actual exported self-check, BOB doctor/generate/latest passed without an app,
+credential lookup/model call or SDK operation. Dedicated ignore rule verified
+before generation. First ignored snapshot `poc-20261014t125458-53af72b5994a`
+truthfully binds `ff45e8c`/WORKING_TREE, 36 source hashes: 30 FR IDs, 28 active and
+two historical/superseded fixed-day rows DEFERRED, 12 capabilities, exactly six
+elements/artifacts. Narrative evidence stays linked/UNKNOWN; no overall estimate,
+verification or acceptance pass is manufactured. Actual IAB desktop and 375px
+review opened native drilldown (30 requirement rows); body client/scroll width
+360/360, 540px tables scroll inside 314px containers. Default viewport restored
+1265/1265. Generated output is local/ignored, not application hosting/publication.
+
+Resolved CI compatibility finding: existing BOB workflow uses ubuntu-24.04. The
+[official runner image](https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md)
+lists Ruby3.2, whose [Psych safe_load API](https://docs.ruby-lang.org/en/3.2/Psych.html#method-c-safe_load)
+accepts one positional YAML value plus keywords. Shared PocPaths used four legacy
+positional arguments. Local Ruby2.6.10 supports both signatures, so the initial
+green did not cover removal of legacy compatibility. A strict current-signature
+fixture around the real parser reproduced one expected failure across six
+consumer tests (1.361 s); it is not actual Ruby3/Linux qualification. BOB's own
+snapshot decoder now uses keyword arguments. Managed379 bytes were not edited.
+The initial BOB→SM referral send was denied for summarized-consent provenance;
+actual original native human/question were re-read, then one native retry succeeded.
+No alternate transport. SM independently reproduced27/28 RED then28/28 GREEN,
+full149/149 isolated, and committed narrow shared `ea7cfea9405f593a56b54c782212ccd9539bd178`.
+Its reviewed replacement was subsequently delivered and adopted as recorded above.
 
 T104 local collection, 2026-10-14: disjoint document workers delivered 29 and 28
 files, parent authored ten and alone integrated catalog/navigation. All 67 guides
@@ -94,8 +155,9 @@ SM selected exact portable checker `612d4bf` after affected-delta review and an
 independent fresh three-file export: 52 structural tests passed (0.299 s), all
 three hashes matched. This resolves the two portable-boundary findings only;
 Template adoption and final BOB privacy/perceptual/workflow review are not claimed.
-Shared Flight Deck corrected `379b32cf` remains held for MLX affected review, so
-F6 does not consume or fork it. Existing native tasks remain sole completion ledger.
+At that earlier checkpoint shared Flight Deck `379b32cf` was held for MLX affected
+review; later deliveries and the corrected pin are recorded above. Existing native
+tasks remain the sole completion ledger.
 
 T103 review correction, 2026-10-14: SM independently matched all three `66da0c8`
 portable hashes and reproduced rejected operator/workspace slugs plus accepted

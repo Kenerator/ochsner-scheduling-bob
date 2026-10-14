@@ -1,0 +1,40 @@
+{
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "profile", "mechanism_version", "policy_version", "project", "run_id", "snapshot_id", "rendered_at", "source", "scope_version", "summary", "requirements", "elements", "capabilities", "gaps", "attention", "blockers", "recommended_action", "movement", "diagnostics"],
+  "properties": {
+    "schema_version": {"enum": [1]}, "profile": {"enum": ["poc"]}, "mechanism_version": {"type": "string"}, "policy_version": {"type": "string"},
+    "project": {"type": "object"}, "run_id": {"type": "string", "pattern": "\\A[a-z0-9][a-z0-9-]{0,63}\\z"},
+    "snapshot_id": {"type": "string", "pattern": "\\Apoc-[a-z0-9-]{1,123}\\z"}, "rendered_at": {"type": "string"},
+    "source": {"type": "object"}, "scope_version": {"type": "string"}, "summary": {"type": "object"}, "evidence_prefix": {"type": "string", "pattern": "\\A(\\.\\./)+\\z"},
+    "integrity_mode": {"enum": ["index-footer-v1"]},
+    "generated_artifacts": {"type": "object", "additionalProperties": false,
+      "required": ["index.html", "level-1-executive-flight-deck.md", "level-2-executive-matrix-board.md", "manager.md", "engineering.md"],
+      "properties": {"index.html": {"$ref": "#/definitions/digest"}, "level-1-executive-flight-deck.md": {"$ref": "#/definitions/digest"}, "level-2-executive-matrix-board.md": {"$ref": "#/definitions/digest"}, "manager.md": {"$ref": "#/definitions/digest"}, "engineering.md": {"$ref": "#/definitions/digest"}}},
+    "requirements": {"type": "array", "items": {"$ref": "#/definitions/requirement"}}, "elements": {"type": "array", "minItems": 6, "maxItems": 6}, "capabilities": {"type": "array"},
+    "gaps": {"type": "array"}, "attention": {"type": "array"}, "blockers": {"type": "array"},
+    "recommended_action": {"type": "string"}, "movement": {"type": "object"}, "diagnostics": {"type": "array", "items": {"type": "string"}}
+  },
+  "definitions": {
+    "digest": {"type": "string", "pattern": "\\A[0-9a-f]{64}\\z"},
+    "stage": {"type": "object", "additionalProperties": false, "required": ["status", "evidence"], "properties": {
+      "status": {"enum": ["COMPLETE", "IN_PROGRESS", "NOT_STARTED", "UNKNOWN", "NOT_APPLICABLE"]},
+      "result": {"enum": ["PASS", "FAIL", "ACCEPTED", "REJECTED"]},
+      "evidence": {"type": "array", "items": {"type": ["string", "object"]}}
+    }},
+    "strings": {"type": "array", "items": {"type": "string"}},
+    "requirement": {"type": "object", "additionalProperties": false,
+      "required": ["id", "title", "task_ids", "capability_ids", "evidence_refs", "scope_state", "weight", "dependencies", "native_definition_known", "applicable_lifecycle_stages", "lifecycle", "completion_range", "evidence_coverage", "applicable_stage_count"],
+      "properties": {
+        "id": {"type": "string", "pattern": "\\A[A-Z][A-Z0-9]*-[0-9]+[a-z]?\\z"}, "title": {"type": "string"},
+        "task_ids": {"$ref": "#/definitions/strings"}, "capability_ids": {"$ref": "#/definitions/strings"}, "evidence_refs": {"$ref": "#/definitions/strings"},
+        "scope_state": {"enum": ["ACTIVE", "DEFERRED"]}, "weight": {"type": "number", "minimum": 0.001},
+        "depends_on": {"$ref": "#/definitions/strings"}, "dependencies": {"$ref": "#/definitions/strings"},
+        "native_definition_known": {"type": "boolean"}, "applicable_lifecycle_stages": {"$ref": "#/definitions/strings"},
+        "lifecycle": {"type": "object", "additionalProperties": false, "required": ["implementation", "verification", "acceptance"], "properties": {
+          "implementation": {"$ref": "#/definitions/stage"}, "verification": {"$ref": "#/definitions/stage"}, "acceptance": {"$ref": "#/definitions/stage"}}},
+        "completion_range": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number", "minimum": 0, "maximum": 100}},
+        "evidence_coverage": {"type": "number", "minimum": 0, "maximum": 100}, "applicable_stage_count": {"type": "integer", "minimum": 0, "maximum": 3}
+      }
+    }
+  }
+}

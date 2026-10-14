@@ -422,6 +422,16 @@ seven-group/57-control coverage is a separate consumer test. It cannot certify
 wording, perceptual fidelity, a browser journey or permission. The 558-test
 checkpoint is synthetic evidence; final independent collection review is pending.
 
+The separate [Flight Deck](../flight-deck/README.md) uses the manifest-bound
+standard-library Ruby PoC profile and [native mapping](../flight-deck/project.yaml).
+Its input path is spec/tasks/public evidence → lifecycle calculations → six ignored
+local artifacts. It has no call path to SchedulingSession, model helpers, private
+recordings/accounting or SDK operating state. Implementation checkmarks, applicable
+verification and recorded human decisions remain separate; narrative references
+stay linked/UNKNOWN. Source/working-state hashes and artifact integrity do not
+authenticate permission or certify production readiness. BOB owns the mapping and
+consumer tests only; managed shared bytes are not edited locally.
+
 ## History and source-bound evidence
 
 The following dated checkpoints are preserved historical records. Their candidate,

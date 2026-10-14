@@ -1,8 +1,13 @@
 # Sprint planning
 
-Updated 2026-10-10. Selected increment: one internal-use synthetic BOB PoC with approved public source, not a formal recurring sprint.
+Updated 2026-10-14. Selected follow-on: individual training and project-local Flight
+Deck over the integrated internal-use synthetic BOB, with approved exact public
+source. This is not a formal recurring sprint or additional product integration.
 
 - Goal: concise correctable choices, current explicit consent, honest outcomes and inspectable support/replay.
+- Current increment: FR-021–024 canonical per-flow guides/annotated controls and
+  six-element native mapping; exact shared bundles and one integrated consumer
+  review/CI. Known UI/model/acceptance gaps are explicit, not repaired or hidden.
 - Owner: Operator; implementation in the BOB owner chat with disjoint HTTP/CLI, policy/language and journal/replay workers; parent owns UI/integration/docs. No competing file writers or concurrent native stages.
 - Scope: [spec](../../specs/001-ochsner-scheduling-assistant/spec.md), [plan](../../specs/001-ochsner-scheduling-assistant/plan.md) and seven pinned [personas](personas.md).
 - Acceptance/demo: actual supplied eight scenarios, adversarial correction/unknown/restart cases, actual paired browser checks, real bounded language qualification, clean Mac setup and [demo runbook](../internal/demo.md).

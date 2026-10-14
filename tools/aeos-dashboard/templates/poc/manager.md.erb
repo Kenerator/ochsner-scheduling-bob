@@ -1,0 +1,21 @@
+# <%= poc_text(snapshot.dig("project", "title")) %> — Manager
+
+Rendered: <%= snapshot.fetch("rendered_at") %> · Source: <%= poc_text(snapshot.dig("source", "source_state_timestamp")) %> · <%= source_identity %> · Scope: <%= poc_text(snapshot.fetch("scope_version")) %>
+
+## Requirement/task relationships
+
+<%= poc_table(["Requirement", "Tasks", "Capabilities", "Dependencies"], snapshot.fetch("requirements").map { |row| [row.fetch("id"), row.fetch("task_ids").join(", "), row.fetch("capability_ids").join(", "), row.fetch("dependencies").join(", ")] }) %>
+
+## Decisions and gaps
+
+<%= poc_table(["Decision", "State", "Owner"], snapshot.fetch("attention").map { |row| [row.fetch("question"), row.fetch("state"), row.fetch("owner")] }) %>
+
+<%= poc_table(["Gap", "State", "Requirements"], snapshot.fetch("gaps").map { |row| [row.fetch("title"), row.fetch("state"), row.fetch("requirement_ids").join(", ")] }) %>
+
+## Diagnostics and limits
+
+<% snapshot.fetch("diagnostics").each do |item| -%>
+- <%= poc_text(item) %>
+<% end -%>
+
+No automatic acceptance, work dispatch, model call or service action occurs. This view is an on-demand derived snapshot, not live assurance.

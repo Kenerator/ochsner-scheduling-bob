@@ -62,6 +62,13 @@ and reconnect warnings remain unresolved; no real-staff/admin console is invente
 Whole-collection independent review and integrated-source readback remain pending
 in native tasks, not copied into this index as a new completion ledger.
 
+Sam-Rae's US6 reproducibility/uncertainty constraint also links to the
+[project-local Flight Deck](flight-deck/README.md): six native elements and exact
+public source references, with task implementation separate from unknown
+verification/recorded acceptance. [Actual consumer tests](../../tests/test_flight_deck_mapping.py)
+exercise source/private-path/unknown-evidence boundaries, not user research,
+permission authentication or product/browser certification.
+
 ## US6 budget-candidate evidence — 2026-10-12
 
 Historical fixed-day mechanism; current runtime policy supersedes its spend gate.

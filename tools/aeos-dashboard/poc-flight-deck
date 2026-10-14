@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative "lib/aeos_dashboard/poc_runtime"
+exit AeosDashboard::PocCLI.run(ARGV)

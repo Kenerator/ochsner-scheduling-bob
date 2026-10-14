@@ -286,6 +286,16 @@ exact automated-only paths where the current UI has no fault/clock trigger.
 Their annotations are locator evidence, not newly captured failure outcomes.
 Final independent documentation review/CI/integration remains open.
 
+The [Flight Deck entrypoint](../../../tools/aeos-dashboard/poc-flight-deck) loads
+only the frozen PoC runtime. `PocCLI` verifies its manifest/resources, `PocInput`
+resolves the native [mapping](../flight-deck/project.yaml), and
+`PocSnapshotBuilder` keeps implementation/verification/acceptance distinct before
+`Generator` renders six ignored artifacts. [BOB consumer tests](../../../tests/test_flight_deck_mapping.py)
+run the actual input/generator with fixed public temporary fixtures. None of this
+starts the app, reads a key, calls a model or invokes SDK reconciliation. The
+[usage guide](../flight-deck/README.md) explains UNKNOWN narrative evidence and
+snapshot/latest integrity; source-bound test/CI status stays in native tasks.
+
 ## History and evidence
 
 These are historical source-bound checkpoints, not current execution claims.

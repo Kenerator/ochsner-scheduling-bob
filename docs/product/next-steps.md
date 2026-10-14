@@ -19,9 +19,11 @@ or accounting reset is needed for this documentation phase.
   [57-control atlas](../user/controls/index.md) now exist locally; structural success
   is not whole-journey execution. Exact checker `612d4bf` resolves generic vocabulary/
   inert-SVG review findings; Template adoption remains SM-owned.
-- F6 waits for SM's exact reviewed shared Flight Deck export. Map six native
-  elements only after that dependency is delivered; no generator fork or copied
-  task-status dashboard. This does not block disjoint documentation work.
+- Include the [six-element Flight Deck](../internal/flight-deck/README.md) in that
+  final consumer review and protected delivery. Reviewed shared source `ea7cfea`
+  is adopted without a local fork; its narrow YAML API correction passes the real
+  consumer regression. Mapping/doctor/generation and unknown-evidence checks pass
+  locally. This is existing CI compatibility, not new Linux qualification.
 - Validate pinned persona hypotheses with intended users/support staff. Synthetic
   scenarios, source-bound tests and small genuine-language samples are not user
   research, accessibility conformance, model reliability or production acceptance.

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "mechanism_version": "1.0.0",
+  "source_revision": "ea7cfea9405f593a56b54c782212ccd9539bd178",
+  "working_tree_state": "CLEAN",
+  "files": [
+    {
+      "path": "POC-EXPORT-NOTICE.md",
+      "sha256": "0a42efa79fd8a4fcbbaf8553c428892cdb0119fe36be6e6ab582b94522da2de1"
+    },
+    {
+      "path": "config/poc-metric-policy-v1.yaml",
+      "sha256": "5d078db534b7df35b5628101d2ae4a43ebbe277736c88070a78ae065d1741b57"
+    },
+    {
+      "path": "lib/aeos_dashboard/errors.rb",
+      "sha256": "f49b07ada07b2c99c452fdaa8455e84ab1c03ed340ad37b81ec99aa76196f55f"
+    },
+    {
+      "path": "lib/aeos_dashboard/generator.rb",
+      "sha256": "7b2d9f513fbc8ab130ab17e207c4f5c62673233ee0fff0070f0772c9e203472d"
+    },
+    {
+      "path": "lib/aeos_dashboard/metrics.rb",
+      "sha256": "40bb31df242056188343139b25f73aa4a184b9ff0da55f90cfd6c85ad79f259b"
+    },
+    {
+      "path": "lib/aeos_dashboard/poc_bundle.rb",
+      "sha256": "47c02c67626fc53c58adf46146f7bd28efd18207e7085cdfb4ec0122def5d7fb"
+    },
+    {
+      "path": "lib/aeos_dashboard/poc_cli.rb",
+      "sha256": "5a4216ede2a390258a89c8b064efef74cf23d4a947d60f676df23d73739d899e"
+    },
+    {
+      "path": "lib/aeos_dashboard/poc_input.rb",
+      "sha256": "98f25f5a6c59892b4b5fc278cbf0d60f03a027c46edd7c2b43d953c48d637bdc"
+    },
+    {
+      "path": "lib/aeos_dashboard/poc_runtime.rb",
+      "sha256": "0243f6ac5b5ab7ebeae8517a2780951ceab52dcb44997c4c0d26cc81823f8fa7"
+    },
+    {
+      "path": "lib/aeos_dashboard/poc_snapshot_builder.rb",
+      "sha256": "abd8b7876b96a2bec54af91cdfbb259a4e647b08f537fc14996c59ee76c06a9a"
+    },
+    {
+      "path": "lib/aeos_dashboard/profiles/poc.rb",
+      "sha256": "6545f09bb49b884a61d893687d554f0cb4bfd86c324f7fb280bacb68ee4ad656"
+    },
+    {
+      "path": "lib/aeos_dashboard/renderer.rb",
+      "sha256": "aa09a25ad5543809471ab6a18bc5ec1bf86d53a5170da6b42ef8bdd9ebfd0a31"
+    },
+    {
+      "path": "lib/aeos_dashboard/schema_validator.rb",
+      "sha256": "0a88abd10afe03f05a1d213a8ed79162b7ce9059a2ef00bd73dae3dd04850202"
+    },
+    {
+      "path": "lib/aeos_dashboard/source_guard.rb",
+      "sha256": "5cfc5edf702a62e977dc14e45a7a86cb983942336350737b82ebe97ba3a2461c"
+    },
+    {
+      "path": "lib/aeos_dashboard/timestamp.rb",
+      "sha256": "a1d7f2a5f8004402a584756eb1e313b28ce8bb24f6dab7fda29576f6b13b8a2d"
+    },
+    {
+      "path": "poc-flight-deck",
+      "sha256": "65a1f91ea848e8febb7beec33ce1fa2467ec522e0b68a6b2a609b1878bacd7d6"
+    },
+    {
+      "path": "poc-self-check",
+      "sha256": "00aae8447f08d22f1c3c2e85714b30da44b1552787bf17950b4ff131bb940a65"
+    },
+    {
+      "path": "schemas/poc-project.schema.json",
+      "sha256": "c112ba803cf968ac46f8422e8b1234a5589e2c8991c07ba1415292c878d1570d"
+    },
+    {
+      "path": "schemas/poc-snapshot.schema.json",
+      "sha256": "b68ac404e8d08b00f3347877f2f7fb22899f456d1ff03f7303cf74954beef31c"
+    },
+    {
+      "path": "templates/poc/engineering.md.erb",
+      "sha256": "7ead5a279e07e1f6e69f9cc489e87bb8f1741b2681fd60f79fde4d8f9e9540ff"
+    },
+    {
+      "path": "templates/poc/level-1.md.erb",
+      "sha256": "e846c7adfcd1f9247644451549a29e85136fd58f32f82b43a6b938929b12212e"
+    },
+    {
+      "path": "templates/poc/level-2.md.erb",
+      "sha256": "96ac1d048e26394c8a5ff8024d068354fbecd55e8987694cbff2de390455018f"
+    },
+    {
+      "path": "templates/poc/manager.md.erb",
+      "sha256": "8beacb6c369d3b1da904a3119f5b37ca0cfa5685ad1eceb8f1094a8231130d31"
+    },
+    {
+      "path": "templates/poc/standalone.html.erb",
+      "sha256": "c712bfcc97ee5aeb45f9453c909eea206ff978366c20b5fa077f4438e1408c42"
+    }
+  ],
+  "notices": [
+    "POC-EXPORT-NOTICE.md"
+  ]
+}
