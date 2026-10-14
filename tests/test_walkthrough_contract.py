@@ -28,9 +28,16 @@ class WalkthroughContractTests(unittest.TestCase):
         self.write("specs/example/spec.md", "# Example\n\n### User Story 1 - Find care\n\nFR-001\n")
         self.write("docs/gaps.md", "# Gaps\n\n## Pending\n\nNot executed.\n")
         self.document = "docs/user/walkthroughs/demo.md"
-        self.markdown = ("# Demo\n\n## Step 0 — Install and set up\n\nInstall.\n\n"
+        self.markdown = ("# Demo\n\nPurpose: find public care. Role: patient.\n\n"
+                         "## Arrange the workspace\n\nDocument left, app right.\n\n"
+                         "## Synthetic sample data\n\n1. Public specialty: Primary care.\n\n"
+                         "## Step 0 — Install and set up\n\nInstall.\n\n"
                          "## Step 1 — Launch\n\nLaunch.\n\n## Step 2 — Find providers\n\n"
-                         "Schematic, not executed UI.\n\n![Discovery schematic](../../../assets/view.svg)\n")
+                         "Schematic, not executed UI.\n\n![Discovery schematic](../../../assets/view.svg)\n\n"
+                         "## Completion and cleanup\n\nEffect: no booking. Cleanup: stop owned launch.\n\n"
+                         "## Known gaps and evidence\n\nRecovery: review current screen; no automatic retry.\n\n"
+                         "## Revision history\n\nSynthetic contract fixture.\n\n## References\n\n"
+                         "[Existing gap](../../gaps.md#pending)\n")
         self.write(self.document, self.markdown)
         self.write("docs/user/controls/public.md", "# Public\n\nSchematic.\n\n![Discovery schematic](../../../assets/view.svg)\n")
         self.write("assets/view.svg", '<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"/>')
@@ -327,6 +334,24 @@ class WalkthroughContractTests(unittest.TestCase):
         self.write("assets/composite.svg", '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"><image href="https://example.invalid/private.png"/></svg>')
         self.assertTrue(self.errors())
 
+    def test_self_contained_composite_embeds_exact_declared_raster_bytes(self):
+        # SVG-as-image viewers cannot fetch its relative image dependencies.
+        # Only the already-declared original may be embedded, not arbitrary data.
+        self.raster_source()
+        layer = self.annotation(composite=True)
+        original = (self.root / "assets/pixel.png").read_bytes()
+        for payload, valid in ((original, True), (original + b"different", False)):
+            text = ('<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1">'
+                    '<image href="data:image/png;base64,' + base64.b64encode(payload).decode("ascii")
+                    + '" width="1" height="1"/></svg>')
+            self.write("assets/composite.svg", text)
+            layer["sha256"] = hashlib.sha256(text.encode()).hexdigest()
+            self.save_manifest()
+            if valid:
+                self.assertEqual([], self.errors())
+            else:
+                self.assertTrue(self.errors())
+
     def test_layer_dimensions_and_source_identity_must_match(self):
         for field, value in (("width", 2), ("viewport", {"width": 2, "height": 1}),
                              ("source_revision", "b" * 40), ("role", "support")):
@@ -375,6 +400,30 @@ class WalkthroughContractTests(unittest.TestCase):
         self.visual["limitations"] = ["Historical source, not current execution evidence."]
         self.save_manifest()
         self.assertEqual([], self.errors())
+
+    def test_walkthrough_requires_workspace_samples_cleanup_gaps_and_references(self):
+        for heading in ("Arrange the workspace", "Synthetic sample data", "Completion and cleanup",
+                        "Known gaps and evidence", "References"):
+            with self.subTest(heading=heading):
+                self.write(self.document, self.markdown.replace("## " + heading, "## Other"))
+                self.assertIn("demo: required walkthrough section unavailable", self.errors())
+
+    def test_sample_values_are_enumerated(self):
+        self.write(self.document, self.markdown.replace("1. Public specialty", "Public specialty"))
+        self.assertIn("demo: synthetic sample data must be enumerated", self.errors())
+
+    def test_completion_declares_effect_and_owned_cleanup(self):
+        for marker in ("Effect:", "Cleanup:"):
+            self.write(self.document, self.markdown.replace(marker, "Undeclared:"))
+            self.assertIn("demo: completion must declare effect and cleanup", self.errors())
+
+    def test_gaps_include_recovery_instructions(self):
+        self.write(self.document, self.markdown.replace("Recovery:", "Undeclared:"))
+        self.assertIn("demo: known gaps must declare recovery", self.errors())
+
+    def test_revision_history_precedes_final_references(self):
+        self.write(self.document, self.markdown.replace("## Revision history", "## References").replace("## References\n\n[Existing gap]", "## Revision history\n\n[Existing gap]"))
+        self.assertIn("demo: revision history must precede final references", self.errors())
 
 
 if __name__ == "__main__":

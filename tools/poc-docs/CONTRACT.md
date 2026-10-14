@@ -27,6 +27,13 @@ text. Source IDs resolve to native US/FR IDs, supplied scenario ID projections o
 contained regular public source files. Local references/Markdown anchors resolve.
 Partial/unsupported/unverified rows need a real gap reference, never `passed: true`.
 
+Each flow also has headings `Arrange the workspace`, `Synthetic sample data`,
+`Completion and cleanup`, `Known gaps and evidence`, and `References`. Sample data
+contains a numbered list; completion visibly labels `Effect:` and `Cleanup:`;
+gaps label `Recovery:`. A revision-history section, when present, precedes final
+references. These machine-visible instruction fields are structural, not an
+assertion that their prose is correct or that a workflow was executed.
+
 Control keys: `id`, `label`, `role`, `group`, `document`, `visual_ids`.
 Roles: patient/support/both/developer. Groups: session-and-public,
 private-and-booking, help-and-outcomes, support, developer-recording,
@@ -78,7 +85,10 @@ source. No source cycles or drawing masquerading as captured UI. Number-to-contr
 mapping and crop bounds belong in action/result/limitations and the atlas text;
 rectangles do not by themselves certify target correspondence. Keep clean originals
 and SVG layers separate. A composite SVG may embed only its declared local clean
-source, never an external/data URL, other asset or annotation chain. Active SVG
+source, never an external URL, other asset or annotation chain. For portable
+SVG-as-image rendering, the composite may embed a PNG/JPEG data URI only when
+its decoded bytes exactly equal that already-declared clean source. Arbitrary
+data URIs and non-raster payloads remain rejected. Active SVG
 content/external references are rejected. No image is transformed by the checker.
 
 Local Git HEAD/loose/packed metadata is read best-effort without launching Git.
@@ -99,6 +109,10 @@ Known private roots (.git, .bob-local, .env*, .venv, .superpowers, tmp, intake,
 original RFP source) cannot be referenced as public content. This is not a generic
 secret scanner; the existing whole-index guard and manual image review still apply.
 External ordinary links are not fetched or certified; remote images are rejected.
+
+Self-contained composition follows the image-context restrictions described in
+[MDN SVG-as-image guidance](https://developer.mozilla.org/en-US/docs/Web/SVG/Guides/SVG_as_an_image),
+reviewed 2026-10-14. This does not introduce a renderer or network dependency.
 
 ## Verification
 

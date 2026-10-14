@@ -1,5 +1,7 @@
 """Bounded, read-only training-document checks; never executes app or network I/O."""
 import argparse
+import base64
+import binascii
 import hashlib
 import json
 import os
@@ -227,8 +229,22 @@ def _dimensions(path, raw, *, root=None, source_asset=None):
             hrefs = [value for key, value in node.attrib.items() if key.rsplit("}", 1)[-1] == "href"]
             if name == "image":
                 # A code-native composite may reuse exactly its verified original.
-                # No external URL, data URI, other asset or annotation chain.
-                if root is None or source_asset is None or len(hrefs) != 1 or _reference(root, hrefs[0], path) != source_asset:
+                # Self-contained SVG-as-image needs exact raster embedding. Never
+                # allow arbitrary data, external URLs or annotation chains.
+                if root is None or source_asset is None or len(hrefs) != 1:
+                    raise ValueError("undeclared composite source")
+                if hrefs[0].startswith("data:"):
+                    match = re.fullmatch(r"data:image/(png|jpeg);base64,([A-Za-z0-9+/=]+)", hrefs[0])
+                    if match is None or source_asset.stat().st_size > 16 * LIMIT:
+                        raise ValueError("invalid embedded source")
+                    try:
+                        embedded = base64.b64decode(match[2], validate=True)
+                    except binascii.Error:
+                        raise ValueError("invalid embedded source") from None
+                    mime = "png" if source_asset.suffix.lower() == ".png" else "jpeg"
+                    if match[1] != mime or embedded != source_asset.read_bytes():
+                        raise ValueError("embedded source mismatch")
+                elif _reference(root, hrefs[0], path) != source_asset:
                     raise ValueError("undeclared composite source")
             elif hrefs:
                 raise ValueError("linked SVG")
@@ -390,6 +406,24 @@ def check_catalog(root: Path, catalog: dict) -> list[str]:
             except (OSError, ValueError, UnicodeError):
                 errors.append(f"{identifier}: Markdown target unavailable or anchor missing")
         sections = _sections(markdown)
+        if flow:
+            # Visible instruction structure only: no claim about prose accuracy,
+            # sample suitability, workflow execution or perceptual completeness.
+            required = {"arrange-the-workspace", "synthetic-sample-data",
+                        "completion-and-cleanup", "known-gaps-and-evidence", "references"}
+            if not required <= set(sections):
+                errors.append(f"{identifier}: required walkthrough section unavailable")
+            if "synthetic-sample-data" in sections and not re.search(r"(?m)^[1-9][0-9]*\.\s+\S", sections["synthetic-sample-data"]):
+                errors.append(f"{identifier}: synthetic sample data must be enumerated")
+            completion = sections.get("completion-and-cleanup")
+            if completion is not None and any(marker not in completion.lower() for marker in ("effect:", "cleanup:")):
+                errors.append(f"{identifier}: completion must declare effect and cleanup")
+            gaps = sections.get("known-gaps-and-evidence")
+            if gaps is not None and "recovery:" not in gaps.lower():
+                errors.append(f"{identifier}: known gaps must declare recovery")
+            order = list(sections)
+            if "revision-history" in sections and "references" in sections and order.index("revision-history") > order.index("references"):
+                errors.append(f"{identifier}: revision history must precede final references")
         for step in row["steps"] if flow else [{"visual_ids": row["visual_ids"], "interactive": True}]:
             prefix = f"{identifier}: step {step['number']}" if flow else identifier
             section = sections.get(step.get("anchor"), "") if flow else markdown

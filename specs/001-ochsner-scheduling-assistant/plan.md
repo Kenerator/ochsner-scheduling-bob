@@ -155,6 +155,12 @@ Operator demo tabs are retained; later captures use separately owned state/ports
 The verified conditional interruption grant permits only necessary identified BOB
 stop/restart with accounting/effects preservation, not broad service control.
 
+W3's reusable document-shape fixtures require workspace arrangement, enumerated
+synthetic sample data, completion/cleanup, known gaps/evidence and references in
+each flow, alongside Step 0/1 and interactive visuals. Completion explicitly labels
+Effect/Cleanup, gaps label Recovery, and revision history stays before references.
+These checks enforce visible instruction structure, not factual/perceptual truth.
+
 ## Fixed-day BOB budget delta — 2026-10-12
 
 Historical plan, superseded for application runtime by FR-027 below; original

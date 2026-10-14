@@ -46,6 +46,32 @@ work below retains its original scope and is not repeated as new qualification.
   provenance/hash/header/layer/placement, private-path, safe-error and CLI contracts;
   prepare stable exact bytes/interface for SM before Template export. Depends on
   T073 preparation, not F6; no product-gap fixes or captures for checker tests.
+- [x] T100 [US6] Correct the reusable checker for exact-source self-contained
+  raster composites and W3 instruction shape; observe failing fixtures before
+  implementation, verify the combined suite/demos and release exact committed
+  bytes to SM. This closes a checker checkpoint only, not T074 adoption or W3.
+
+T100 local correction, 2026-10-14: SVG-as-image rendering cannot rely on an
+external local image. A failing exact-source embedding regression preceded the
+minimal decoder/equality guard; arbitrary data/remote/active content remains
+denied. W3 shape fixtures reproduced nine expected failures across 48 tests
+before required workspace/sample/completion/evidence/reference fields were
+enforced. All 48 structural fixtures pass; the combined working suite passed
+552 tests in 27.221 s on explicit Python 3.11.13. All three BOB synthetic booking
+demos passed (success, conflict recovery, unknown/retry blocked); retained starter
+success/failure modules returned complete/handoff. No credential/model lookup,
+paid proof, product source change or Operator state mutation.
+
+W2 prepared assets: 18 unchanged actual originals, 17 separate vector layers and
+17 self-contained composites (52 manifest records), covering all 57 control
+families across seven atlas documents. Final 1000-pixel-width composites and
+representative separate layers were visually reviewed; original privacy/source
+review is retained. Manifest validation reports 52 visuals, zero errors. Small
+historical captures need full-size/text alternatives; replay-basic badges overlap
+some non-target diagnostic context, not button labels. Acknowledgement/kernel/
+reconnect gaps, unknown checkout state, historical source and unexecuted variant/
+data-control outcomes remain explicit. Assets/docs are not yet an integrated
+collection; 67 individual walkthroughs and final navigation/review remain open.
 
 T099 local checkpoint, 2026-10-13: catalog now maps 67 distinct flows (eight
 supplied, 23 other baseline, 36 additional native acceptance/recovery cases), with
