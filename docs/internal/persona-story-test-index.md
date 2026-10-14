@@ -1,6 +1,6 @@
 # Persona → story → executable acceptance
 
-Updated 2026-10-12: current constraint crosswalk first; dated execution evidence
+Updated 2026-10-14: current constraint crosswalk first; dated execution evidence
 follows the reproduction instructions and limits. This is not a second task
 ledger: [native stories](../../specs/001-ochsner-scheduling-assistant/spec.md) own
 acceptance detail and [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md)
@@ -35,6 +35,32 @@ not inferred from persona traits. US6 operational coverage also links
 [CliAndOwnedMockTests](../../tests/test_conversation.py) and
 [browser launcher tests](../../tests/test_browser_launch.py); these do not by themselves
 prove clean-copy installation or actual browser usability.
+
+## Training adoption and evidence boundary — 2026-10-14
+
+Jules/Billy-June/Ellie-Rae's US1–US2 review/correction needs link to the separate
+[booking](../user/walkthroughs/happy-path-booking.md),
+[preference correction](../user/walkthroughs/change-preferences.md) and
+[identity correction](../user/walkthroughs/correct-private-identity.md) guides.
+Amy-Lou/Nina-Jean's US3 needs link to [Help](../user/walkthroughs/request-help.md),
+[no-match recovery](../user/walkthroughs/no-patient-match.md) and
+[explicit spelling choice](../user/walkthroughs/accept-spelling-suggestion.md).
+Morgan-Rae's Support/Admin US5 continuity links to separate
+[pairing](../user/walkthroughs/pair-support.md),
+[control lease](../user/walkthroughs/support-take-and-return-control.md) and
+[patient adoption](../user/walkthroughs/patient-adopts-support-suggestion.md).
+Sam-Rae's US4/US6 review needs link to [OFF inspection](../user/walkthroughs/recording-off-diagnostics.md),
+[recorded-only review](../user/walkthroughs/review-regression-proposal.md) and
+[unknown protection](../user/walkthroughs/unknown-after-restart.md).
+
+The [57-control atlas](../user/controls/index.md) adds actual numbered locators,
+text equivalents, role/disabled/effect distinctions and source limits. Local
+checker `612d4bf` passed 558 synthetic tests (28.151 s), including 52 portable
+structural fixtures and two BOB consumer tests. These are not measured usability,
+screen-reader or full-journey browser/persona acceptance. Support acknowledgement
+and reconnect warnings remain unresolved; no real-staff/admin console is invented.
+Whole-collection independent review and integrated-source readback remain pending
+in native tasks, not copied into this index as a new completion ledger.
 
 ## US6 budget-candidate evidence — 2026-10-12
 

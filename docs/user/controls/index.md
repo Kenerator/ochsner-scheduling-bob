@@ -1,6 +1,6 @@
 # BOB control inventory
 
-Updated 2026-10-13 against integrated runtime `e615d9894666909708fbf9810efcdafadc173a1a`
+Updated 2026-10-14 against integrated runtime `e615d9894666909708fbf9810efcdafadc173a1a`
 [widget.js](../../../src/ochsner_bob/widget.js). These 57 control families
 include dynamic numbered provider/slot choices and spelling suggestions. Labels
 are accessible text; no new UI IDs were added for documentation. `both` means a
@@ -32,9 +32,23 @@ not controls and not proof of effect authority.
 
 ## Inventory
 
-The grouped annotated atlas pages and visuals are pending W2. This source inventory
-was reconciled with earlier patient/paired runtime observations, but the below-fold
-Developer collection has not been newly exercised on the current candidate.
+The local grouped atlas is complete: 18 unchanged actual originals, 17 separate
+vector layers and 17 self-contained composites, bound in the
+[52-record manifest](../../../assets/ui/walkthroughs/manifest.json). New captures
+are offline at `bdc4585`; historical Support/spelling originals retain their source
+and limits. Actual control locations do not prove every displayed action was run.
+
+- [Session and public search](session-and-public.md)
+- [Private identity and booking](private-and-booking.md)
+- [Help and outcomes](help-and-outcomes.md)
+- [Paired support](support.md)
+- [Developer recording/diagnostics](developer-recording.md)
+- [Replay navigation/bookmarks](replay-navigation.md)
+- [Replay variants and data](replay-variants-and-data.md)
+
+Each group has numbered figures, readable text equivalents, prerequisites/effects
+and original/layer links. All 57 control IDs map to an actual composite. Final
+independent collection review/integration remains in native tasks.
 
 ### Accessible roles and required atlas states
 
@@ -59,9 +73,9 @@ BOB actions. Their exact rendering is verified in the corresponding actual captu
 | replay-variants-and-data | Typed API/preference/fixture/clock/model/order/view variants; comparison; reviewed proposal; bounded export/import; rejected import; disposable purge | No historical identity/consent revival; promotion is data, not executable code; purge never removes effect protection |
 
 Source review confirms the 57 BOB control families cover these static/dynamic
-construction paths. This table is a capture checklist, not seven completed
-annotated screenshots or a new whole-browser qualification claim. Current IAB
-pairing showed acknowledgement warnings, so synchronization remains a visible gap.
+construction paths. The grouped figures locate controls across representative
+states; they do not certify every listed transition. Current IAB pairing showed
+acknowledgement warnings, so synchronization remains a visible gap.
 
 ### session-and-public
 

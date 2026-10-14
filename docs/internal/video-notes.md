@@ -1,5 +1,17 @@
 # Video production notes
 
+Current training-assets note, 2026-10-14: the [67 individual guides](../user/walkthroughs/index.md)
+and [seven-group annotated atlas](../user/controls/index.md) are documentation,
+not a second video or reactivated production. The [manifest](../../assets/ui/walkthroughs/manifest.json)
+retains 18 clean actual originals, 17 separate numbered layers and 17 exact-source
+composites. New stills are isolated offline `bdc4585`; historical Support/spelling
+frames retain `c3e6df2`/`e2dfa7e`. Current support join was read-only/inactive, with
+acknowledgement/kernel warnings; do not narrate reliable synchronization. W2's
+intended preference variant was not observed successful after reconnect/index reset;
+data-control locations do not prove fresh export/import/purge. No continuous
+recording, second video, bookend, render or publication was initiated. Existing
+media hold and original source-bound stills remain unchanged.
+
 Runtime policy note, 2026-10-13: reviewed `79aeafd`, integrated as `d3c3a04`, implements indefinite Ochsner-key
 application usage including functional qualification/testing/validation and app-like
 evaluation; LLM creation/change of app/spec/test code and media grants do not expand.

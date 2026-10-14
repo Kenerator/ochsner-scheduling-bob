@@ -1,10 +1,11 @@
 # As-built architecture
 
-Updated 2026-10-13 against reviewed source
+Updated 2026-10-14 against reviewed runtime source
 `79aeafd6269dd1e54f9429a3cdf49b30070b153c`, integrated as
 `d3c3a044575c5666c220ab89dcb680b8a456fcbb` with the identical selected tree.
-Native T087–T098 records review/qualification/CI/integration and the separate
-unperformed activation. This is the local synthetic
+Native T087–T098 records review/qualification/CI/integration and the historical
+activation handoff; the later Operator support demo restored the identified
+canonical runtime without resetting accounting/effects. This is the local synthetic
 scheduling PoC as implemented, not a production design or deployment approval.
 Earlier runtime repairs integrated through [PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6);
 budget/L3 through [PR #8](https://github.com/Kenerator/ochsner-scheduling-bob/pull/8).
@@ -407,6 +408,19 @@ evidence, not browser/mobile/assistive-technology or platform-wide acceptance.
 Current tests/CI and historical manual-browser/model results retain their own
 source/method limits in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md)
 and the history below. Diagram rendering is documentation QA, not product UAT.
+
+## Documentation and training boundary
+
+The [individual guides](../../user/walkthroughs/index.md) and
+[actual annotated atlas](../../user/controls/index.md) are outside runtime authority.
+The [portable checker](../../../tools/poc-docs/check_walkthroughs.py), locally
+reviewed at `612d4bf`, reads bounded catalog/Markdown/visual bytes and local Git
+metadata without app imports, network, subprocesses or writes. It checks schema,
+paths/anchors, visible instruction shape, source hashes/headers, inert SVG and
+exact-source annotation placement. Project roles/groups are bounded slugs; BOB's
+seven-group/57-control coverage is a separate consumer test. It cannot certify
+wording, perceptual fidelity, a browser journey or permission. The 558-test
+checkpoint is synthetic evidence; final independent collection review is pending.
 
 ## History and source-bound evidence
 

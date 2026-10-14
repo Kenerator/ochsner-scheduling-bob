@@ -50,15 +50,52 @@ work below retains its original scope and is not repeated as new qualification.
   raster composites and W3 instruction shape; observe failing fixtures before
   implementation, verify the combined suite/demos and release exact committed
   bytes to SM. This closes a checker checkpoint only, not T074 adoption or W3.
-- [ ] T101 [P] [US1–US3] W3 patient/public/identity/booking walkthrough documents
+- [x] T101 [P] [US1–US3] W3 patient/public/identity/booking walkthrough documents
   (catalog rows 1–20,32–50); disjoint document files only. Depends on T077/T100.
-- [ ] T102 [P] [US4–US5] W3 support/developer/replay walkthrough documents
+- [x] T102 [P] [US4–US5] W3 support/developer/replay walkthrough documents
   (catalog rows 21–31,51–67); disjoint document files only. Depends on T077/T100.
   Parent owner alone updates catalog/assets/native ledger/navigation and integrates
   both write sets before T078's combined checker and independent final review.
 - [x] T103 [US6] Resolve SM's two bounded reusable-checker findings with RED→GREEN
   generic actor/group slugs and inert SVG element/attribute/namespace validation;
   preserve exact raster-source guards and BOB-specific consumer coverage.
+- [x] T104 [US1–US6] Assemble all 67 individual guide files, integrate exact step/
+  control/visual metadata and source-specific gaps, validate structural/navigation/
+  executable references, sample actual rendering, and retain partial offline UI
+  observations without upgrading whole-journey acceptance. T078/T079/T080 remain
+  open for remaining boundary review/integration and the F6 dependency.
+
+T104 local collection, 2026-10-14: disjoint document workers delivered 29 and 28
+files, parent authored ten and alone integrated catalog/navigation. All 67 guides
+have own Step0/1, workspace, numbered synthetic data, interactive visuals, exact
+results/recovery/effect/cleanup/evidence/reference sections. Catalog: 414 steps,
+248 interactive; all whole journeys remain unverified where unrun. Structural
+check passed; independent parent AST audit resolved 102 distinct exact test targets
+and six typed JSON examples, zero errors. Changed public navigation: 85 docs,
+1,895 local targets, 81 fragments, zero errors. Representative actual IAB rendered
+patient/support guides/private atlas loaded self-contained figures correctly and
+had no horizontal overflow; all 17 atlas composites were already visually reviewed
+at 1000px width, with stated small-text/non-target-overlap limitations. No new
+diagram source changed; existing as-built diagrams retain their reviewed scope.
+Combined collection suite: 558 tests passed, 26.284 s on Python3.11.13.
+
+Partial actual offline UI at launch source `612d4bf` with docs-only working edits:
+fresh owned 29580/29581 after confirmed absence of earlier listeners; earlier
+files and Operator28450/28451 untouched. Verified no-availability fixture/filter/
+Help, zero match, fresh ambiguous identity→ZIP70115→verified→empty lookup, returned
+provider2 selection/clear and provider99 rejection. No key/model/recording/write.
+Later date edits twice showed local connection unavailable while both owned
+listeners remained alive; read-only reload recovered revision7, valid dates applied
+at revision8, inverted edit not qualified. Bounded browser logs showed WebSocket
+close/error warnings, not a proven root cause. Product fix is outside this docs
+grant; exact automated coverage remains distinct from unavailable UI evidence.
+
+SM selected exact portable checker `612d4bf` after affected-delta review and an
+independent fresh three-file export: 52 structural tests passed (0.299 s), all
+three hashes matched. This resolves the two portable-boundary findings only;
+Template adoption and final BOB privacy/perceptual/workflow review are not claimed.
+Shared Flight Deck corrected `379b32cf` remains held for MLX affected review, so
+F6 does not consume or fork it. Existing native tasks remain sole completion ledger.
 
 T103 review correction, 2026-10-14: SM independently matched all three `66da0c8`
 portable hashes and reproduced rejected operator/workspace slugs plus accepted

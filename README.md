@@ -215,6 +215,7 @@ and [milestones](docs/internal/milestones.md). No root application license is se
 - Product: [personas](docs/product/personas.md), [stories](docs/product/user-stories.md), [decisions](docs/product/decisions.md), [backlog](docs/product/backlog.md), [roadmap](docs/product/roadmap.md), [increments](docs/product/sprint-planning.md), [next steps](docs/product/next-steps.md).
 - Review: [demo](docs/internal/demo.md), [video/stills](docs/internal/video-notes.md), [persona/test crosswalk](docs/internal/persona-story-test-index.md), [performance](docs/internal/performance-notes.md), [Marimo feasibility](docs/internal/marimo-feasibility.md).
 - User help: [patient, Support and Developer guide](docs/user/getting-started.md), [recovery and irreversible purge](docs/user/recovery.md).
+- Guided review: [67 individual walkthroughs](docs/user/walkthroughs/index.md), [57-control annotated atlas](docs/user/controls/index.md), [structural catalog](docs/user/walkthroughs/catalog.json).
 - As built: [walkthrough](docs/internal/as-built/code-walkthrough.md), [architecture](docs/internal/as-built/architecture.md), [UI provenance](docs/internal/ui-assets.md), [mock provenance](vendor/reference/PROVENANCE.md).
 - Delivery: [credential guard](docs/internal/security.md), [milestones](docs/internal/milestones.md), [independent review](docs/internal/reviews/adversarial-review.md).
 - Future design only: [cost/monitoring, rollout/rollback and authenticated support](docs/product/production-design-notes.md); [actual adopted ZEN model](policies/README.md#adopted-policy-index).
