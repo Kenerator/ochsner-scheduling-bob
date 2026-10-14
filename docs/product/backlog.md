@@ -2,7 +2,7 @@
 
 Updated 2026-10-14. Required BOB work is accepted in the [feature spec](../../specs/001-ochsner-scheduling-assistant/spec.md) and [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md), not duplicated here.
 
-The currently selected follow-on is source-bound individual training and the
+The delivered follow-on is source-bound individual training and the
 project-local Flight Deck (FR-021–024), not a new product/channel integration.
 [Next steps](next-steps.md) summarizes that increment and its evidence limits;
 optional ideas below do not gate or expand it.

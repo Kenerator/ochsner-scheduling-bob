@@ -11,20 +11,25 @@ SQLite/accounting/effects state. Joined/read-only was observed, not reliable liv
 screen synchronization or new genuine model qualification. No policy proof restart
 or accounting reset is needed for this documentation phase.
 
+The [67 individual guides](../user/walkthroughs/index.md),
+[57-control atlas](../user/controls/index.md) and
+[six-element Flight Deck](../internal/flight-deck/README.md) are delivered through
+[PR #11](https://github.com/Kenerator/ochsner-scheduling-bob/pull/11), selected
+source `4a7a5cf`, merge `7494bb0`. One whole review and affected-only correction
+confirmation are clear; exact-head 568-test Mac suite and offline CI pass, with
+representative GitHub image/anchor QA. Template actually adopted checker `612d4bf`;
+BOB consumes exact shared Flight Deck `ea7cfea` without a fork. Native tasks retain
+the detailed original-source evidence; these facts do not certify every journey.
+
 ## Current next actions
 
-- Complete the two guide-prerequisite corrections from the one independent
-  whole-BOB review, affected-only confirmation, candidate CI and normal protected
-  delivery. Preserve source-specific browser evidence and gaps.
-  [67 individual guides](../user/walkthroughs/index.md) and the
-  [57-control atlas](../user/controls/index.md) now exist locally; structural success
-  is not whole-journey execution. Exact checker `612d4bf` resolves generic vocabulary/
-  inert-SVG review findings; Template adoption remains SM-owned.
-- Include the [six-element Flight Deck](../internal/flight-deck/README.md) in that
-  affected consumer confirmation and protected delivery. Reviewed shared source `ea7cfea`
-  is adopted without a local fork; its narrow YAML API correction passes the real
-  consumer regression. Mapping/doctor/generation and unknown-evidence checks pass
-  locally. This is existing CI compatibility, not new Linux qualification.
+- Use the delivered guides for Operator/reviewer evaluation. Keep partial actual
+  UI, automated-only fault cases and unverified whole journeys distinct. Reliable
+  Support acknowledgement and intermittent reconnect/date-edit behavior remain
+  unresolved; a product repair or broader qualification requires separate selection.
+- Regenerate the local Flight Deck after source changes. Narrative verification/
+  acceptance remains UNKNOWN even with passing tests; do not fabricate receipts
+  or run extra paid proof merely to improve its posture.
 - Validate pinned persona hypotheses with intended users/support staff. Synthetic
   scenarios, source-bound tests and small genuine-language samples are not user
   research, accessibility conformance, model reliability or production acceptance.

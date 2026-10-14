@@ -55,12 +55,16 @@ Sam-Rae's US4/US6 review needs link to [OFF inspection](../user/walkthroughs/rec
 
 The [57-control atlas](../user/controls/index.md) adds actual numbered locators,
 text equivalents, role/disabled/effect distinctions and source limits. Local
-checker `612d4bf` passed 558 synthetic tests (28.151 s), including 52 portable
+historical checker `612d4bf` checkpoint passed 558 synthetic tests (28.151 s), including 52 portable
 structural fixtures and two BOB consumer tests. These are not measured usability,
 screen-reader or full-journey browser/persona acceptance. Support acknowledgement
 and reconnect warnings remain unresolved; no real-staff/admin console is invented.
-Whole-collection independent review and integrated-source readback remain pending
-in native tasks, not copied into this index as a new completion ledger.
+The one collection review, affected correction and integrated-source readback at
+`4a7a5cf`/`7494bb0` are recorded in native tasks, not copied here as a second ledger.
+Jules/Billy-June/Ellie-Rae's correctable-choice and Sam-Rae's reproducibility needs
+also link to [ordered prerequisite tests](../../tests/test_walkthrough_prerequisites.py):
+real service/session readiness catches omitted session creation and unapplied
+filters before proposal selection, without claiming a new full browser journey.
 
 Sam-Rae's US6 reproducibility/uncertainty constraint also links to the
 [project-local Flight Deck](flight-deck/README.md): six native elements and exact

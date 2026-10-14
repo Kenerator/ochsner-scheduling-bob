@@ -3,7 +3,7 @@
 Updated 2026-10-14. Approved synthetic BOB and its selected training/Flight Deck
 follow-on; no future delivery dates committed.
 
-- **Now:** deliver the approved FR-021–024 training/Flight Deck increment over the
+- **Now:** evaluate the delivered FR-021–024 training/Flight Deck increment over the
   integrated guarded runtime, retaining partial actual UI and unknown evidence
   distinctions. [Native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md)
   alone track completion; this is not product-gap repair or another video.

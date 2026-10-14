@@ -5,7 +5,7 @@ Deck over the integrated internal-use synthetic BOB, with approved exact public
 source. This is not a formal recurring sprint or additional product integration.
 
 - Goal: concise correctable choices, current explicit consent, honest outcomes and inspectable support/replay.
-- Current increment: FR-021–024 canonical per-flow guides/annotated controls and
+- Delivered increment: FR-021–024 canonical per-flow guides/annotated controls and
   six-element native mapping; exact shared bundles and one integrated consumer
   review/CI. Known UI/model/acceptance gaps are explicit, not repaired or hidden.
 - Owner: Operator; implementation in the BOB owner chat with disjoint HTTP/CLI, policy/language and journal/replay workers; parent owns UI/integration/docs. No competing file writers or concurrent native stages.

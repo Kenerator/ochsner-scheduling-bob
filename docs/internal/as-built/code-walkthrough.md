@@ -11,6 +11,9 @@ optional language. This is a source map, not a second completion ledger or a
 production-readiness claim. Earlier repairs integrated through
 [PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6); budget/L3 through
 [PR #8](https://github.com/Kenerator/ochsner-scheduling-bob/pull/8).
+Training/Flight Deck source reviewed at `4a7a5cf`, integrated through
+[PR #11](https://github.com/Kenerator/ochsner-scheduling-bob/pull/11) as `7494bb0`;
+runtime source above is unchanged. Native tasks retain actual evidence and gaps.
 
 Navigation: [entry points](#entry-points) → [booking](#follow-a-booking) →
 [boundaries](#boundary-modules) → [browser/Support](#browser-interaction-and-widget) →
@@ -284,7 +287,11 @@ render or execute a workflow. [67 guides](../../user/walkthroughs/index.md) keep
 their own install/launch/input/actions/results/recovery/effects/cleanup and link
 exact automated-only paths where the current UI has no fault/clock trigger.
 Their annotations are locator evidence, not newly captured failure outcomes.
-Final independent documentation review/CI/integration remains open.
+The one independent collection review and affected correction are clear at
+`4a7a5cf`, delivered through PR #11. BOB-only
+[prerequisite tests](../../../tests/test_walkthrough_prerequisites.py) consume ordered
+guide metadata against real service/session boundaries; they are not complete
+browser journeys or human-prose qualification. Native tasks retain CI/merge/gaps.
 
 The [Flight Deck entrypoint](../../../tools/aeos-dashboard/poc-flight-deck) loads
 only the frozen PoC runtime. `PocCLI` verifies its manifest/resources, `PocInput`

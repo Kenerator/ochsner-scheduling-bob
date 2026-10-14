@@ -195,8 +195,8 @@ Historical checkpoint: 558 tests passed in 28.151 s at checker `612d4bf`, with
 three synthetic booking demos and retained starter demos. The later Flight Deck
 candidate `5e8fa85` passed 564 tests in 27.342 s on the committed source, separately
 from its earlier working-tree runs. These retain their original execution identity;
-no new browser/model results are manufactured. Current affected-review repair,
-tests, completed local Flight Deck work and pending CI/protected delivery are in
+no new browser/model results are manufactured. The affected repair, tests,
+Flight Deck and actual CI/protected delivery evidence are in
 the [native completion ledger](../../../specs/001-ochsner-scheduling-assistant/tasks.md).
 
 ## Historical interrupted IAB walkthrough — 2026-10-12

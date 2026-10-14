@@ -5,8 +5,9 @@
 Native scope: FR-021–FR-024. Approved plan source and human confirmation are
 recorded in [plan.md](plan.md#approved-launch-training-and-flight-deck-delta--2026-10-12).
 Resumed 2026-10-13 from preparation `68d92a8`, reconciled with current integrated
-baseline `e615d9894666909708fbf9810efcdafadc173a1a`; checker/docs candidate remains
-isolated and not integrated. Prior completed
+baseline `e615d9894666909708fbf9810efcdafadc173a1a`; the selected W/F6 candidate is
+now integrated through [PR #11](https://github.com/Kenerator/ochsner-scheduling-bob/pull/11)
+as `7494bb04b48f34ee36300ccee4321070d444f78d`. Prior completed
 work below retains its original scope and is not repeated as new qualification.
 
 - [x] T072 [US6] Reconcile the approved F6/L4/W1–W3 delta into native spec/plan/tasks;
@@ -30,16 +31,58 @@ work below retains its original scope and is not repeated as new qualification.
   first, capture/reuse actual seven-group visuals with clean originals and separate
   annotation layers; inspect privacy, clipping and control correspondence. Depends
   on stable T076 candidate; no live pairing grant in artifacts or Operator reset.
-- [ ] T078 [US1–US6] W3: deliver each catalog-resolved walkthrough with own Step 0/1,
+- [x] T078 [US1–US6] W3: deliver each catalog-resolved walkthrough with own Step 0/1,
   actual inputs/interactive visuals/results/recovery/effects/cleanup; execute supported
   steps on exact isolated candidate and retain honest unsupported/unverified gaps.
   Depends on T073/T076/T077; structural passing is not execution certification.
-- [ ] T079 [US6] Reconcile README/getting-started/demo, current as-built architecture/
+- [x] T079 [US6] Reconcile README/getting-started/demo, current as-built architecture/
   code walkthrough, persona-story-test index, UI assets/video notes and short next
   steps from actual integrated candidate. Depends on relevant T075–T078 code/docs.
-- [ ] T080 [US6] One independent final integrated diff review, affected-delta repairs,
+- [x] T080 [US6] One independent final integrated diff review, affected-delta repairs,
   whole-index credential guard, full tests/success/failure demos, candidate CI and
   ordinary protected PR integration/readback. No new RC/publication/budget namespace.
+
+### W/F6 delivery closure — 2026-10-14
+
+Selected exact source `4a7a5cf5c203d16a02c3b4b3b86a025f3376026d` integrated
+normally through PR #11 at `7494bb04b48f34ee36300ccee4321070d444f78d`, merged
+2026-10-14 19:34:38 UTC. Both trees equal
+`602b2f88cca39d33cfea25ef07e3ca504a27f8fa`; clean canonical main fast-forwarded.
+No force/admin/bypass, new remote/visibility change, tag, model/vault request,
+Operator process control or accounting/effects reset occurred.
+
+SM's one whole-BOB review inspected all 67 guide action/sample bodies and 57 control
+families, all 18 original rasters and the public/provenance boundaries. R1/R2 held
+the first `5e8fa85` candidate; the 15-file repair at `4a7a5cf` received affected-only
+CLEAR with 64 independent focused tests passing (1.840 s). No remaining Important
+finding; selected shared `ea7cfea` and portable `612d4bf` reviews were reused.
+Exact committed Mac/Python3.11.13 suite: 568 passed (28.269 s); working runs retain
+their own identities below. Three BOB and two starter demos pass offline. Final
+candidate staged guard: 556 files/131 binary, six existing exact allowances, zero
+unresolved findings/symlinks/submodules; staged diff check clear.
+
+Actual exact-head offline CI [run 38624387809](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38624387809)
+/ [job 116059714236](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38624387809/job/116059714236)
+passed every executed step, completed 2026-10-14 19:32:59 UTC. Head SHA and current
+OPEN/CLEAN/MERGEABLE PR/check state were read back before normal merge. This is
+standard-runner offline CI, not new Linux product/browser/model qualification.
+
+Actual GitHub-rendered guide and support-atlas QA on `4a7a5cf` loaded all six
+relative images on each sampled page, including embedded-raster SVG compositions;
+Step4 and support-joined heading anchors worked, client/scroll width1265/1265.
+The historical joined/inactive label, source/limits and text equivalent remained
+visible. This is representative renderer/navigation QA, not 67 browser journeys.
+Catalog: 67 flows, 430 steps/264 interactive; navigation91 docs/1,970 local targets/
+86 anchors and 102 exact test targets passed before delivery. Full collection
+journeys remain explicitly unverified where unrun. T078 closes document delivery
+and the recorded bounded UI observations, not all-journey/perceptual acceptance;
+Support acknowledgement/reconnect/product gaps remain open and outside this repair.
+
+This closure changes documentation only. Its affected-doc checks and normal CI/
+protected delivery do not repeat or relabel the unchanged runtime/model/UI proof.
+Affected checks: six real Flight Deck consumer tests pass (1.477 s), structural
+checker passes, navigation91 docs/1,972 local targets/86 anchors has zero errors.
+The later closure commit/CI is not relabeled as the original 568-test Mac execution.
 - [x] T099 [US1–US6] Complete W1 beyond the initial 31-flow baseline from native
   scenarios and existing tests; distinguish each source-derived workflow and all
   seven control groups. Extend strict no-network checker with tests-first visual

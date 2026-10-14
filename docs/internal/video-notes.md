@@ -11,6 +11,8 @@ intended preference variant was not observed successful after reconnect/index re
 data-control locations do not prove fresh export/import/purge. No continuous
 recording, second video, bookend, render or publication was initiated. Existing
 media hold and original source-bound stills remain unchanged.
+Documentation source `4a7a5cf` was independently reviewed and delivered as `7494bb0`
+through PR #11; this does not reactivate media work or relabel historical captures.
 
 Runtime policy note, 2026-10-13: reviewed `79aeafd`, integrated as `d3c3a04`, implements indefinite Ochsner-key
 application usage including functional qualification/testing/validation and app-like
