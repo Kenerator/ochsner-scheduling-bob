@@ -53,17 +53,31 @@ flags. See [official Chrome guidance](https://support.google.com/chrome/answer/1
 1. Public test-only typo: `Dr. Elna Brooks`; canonical returned provider: Dr. Elena Brooks.
 2. Test starting provider filter: `prov_2002`; reviewed suggestion value: `prov_2001`.
 
-## Step 2 — Locate the explicit suggestion family
+## Step 2 — Start an independent patient
 
-<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["public-spelling-composite"],"control_ids":["spelling-suggestion"]} -->
+<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["toolbar-composite"],"control_ids":["start-independent-patient"]} -->
+
+In BOB's toolbar select Start independent patient once and wait for the current
+patient view. Expected: Patient role with an initial revision and enabled
+scheduling controls; no verified identity, current proposal, booking or handoff.
+This creates local synthetic workflow state, not a transaction or Support join.
+Recovery: if the page stays uninitialized or reports a connection error, stop
+before the next step and check your own launch. Do not reuse another patient's
+capability, copy a pairing grant, or restart an Operator session.
+
+![Source-bound actual toolbar locator; selecting Start independent patient is a prerequisite, not newly executed whole-journey evidence.](../../../assets/ui/walkthroughs/control-atlas/toolbar-composite.svg)
+
+## Step 3 — Locate the explicit suggestion family
+
+<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["public-spelling-composite"],"control_ids":["spelling-suggestion"]} -->
 
 Inspect card 1's suggestion area when a public spelling suggestion is actually present. The historical figure shows `Use downtown`, not a freshly executed provider-name suggestion. A `Use {value}` button is explicit adoption, never an automatic provider selection. Do not enter a patient name into public text.
 
 ![Source-bound actual offline/historical control locator for accept-provider-name-suggestion; public-spelling-composite, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/public-spelling-composite.svg)
 
-## Step 3 — Run the exact provider-name boundary
+## Step 4 — Run the exact provider-name boundary
 
-<!-- walkthrough-step: {"number":3,"interactive":false,"visual_ids":["public-request-and-provider-composite"],"control_ids":[]} -->
+<!-- walkthrough-step: {"number":4,"interactive":false,"visual_ids":["public-request-and-provider-composite"],"control_ids":[]} -->
 
 The current deterministic text grammar accepts `provider NUMBER`, not a free-form provider name, and the bounded model action excludes provider_id. There is no documented UI textbox that reliably produces this particular typo case. Run the automated path below instead: it passes provider_id `Dr. Elna Brooks` to the revisioned session, verifies the prior prov_2002 filter stays unchanged, receives a prov_2001 suggestion, explicitly adopts its canonical value, then clears the filter. This is service-contract evidence, not an invented browser button.
 
@@ -98,6 +112,9 @@ in the [visual manifest](../../../assets/ui/walkthroughs/manifest.json). The vis
 Current support acknowledgement/kernel/reconnect warnings are not hidden.
 
 ## Revision history
+
+- 2026-10-14: Corrected the independent-session prerequisite after source-bound
+  review; new interactive metadata/toolbar locator do not claim a new browser run.
 
 - 2026-10-14: Drafted from current controls and exact test source; whole-collection
   navigation, independent review and protected integration remain in native tasks.

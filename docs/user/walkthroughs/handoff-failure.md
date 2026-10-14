@@ -53,17 +53,31 @@ flags. See [official Chrome guidance](https://support.google.com/chrome/answer/1
 1. Automated supplied scenario: `api_failure`.
 2. Public handoff reason: `api_failure`; no phone, DOB, ZIP or patient name in the handoff summary.
 
-## Step 2 — Locate the separate mock handoff action
+## Step 2 — Start an independent patient
 
-<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["help-actions-composite"],"control_ids":["help"]} -->
+<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["toolbar-composite"],"control_ids":["start-independent-patient"]} -->
+
+In BOB's toolbar select Start independent patient once and wait for the current
+patient view. Expected: Patient role with an initial revision and enabled
+scheduling controls; no verified identity, current proposal, booking or handoff.
+This creates local synthetic workflow state, not a transaction or Support join.
+Recovery: if the page stays uninitialized or reports a connection error, stop
+before the next step and check your own launch. Do not reuse another patient's
+capability, copy a pairing grant, or restart an Operator session.
+
+![Source-bound actual toolbar locator; selecting Start independent patient is a prerequisite, not newly executed whole-journey evidence.](../../../assets/ui/walkthroughs/control-atlas/toolbar-composite.svg)
+
+## Step 3 — Locate the separate mock handoff action
+
+<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["help-actions-composite"],"control_ids":["help"]} -->
 
 Select Help and read its recovery guidance. Submit mock handoff is a separate write action; Help alone does not queue it. The actual atlas still shows a queued result in another successful scenario, not the failure expected here.
 
 ![Source-bound actual offline/historical control locator for handoff-failure; help-actions-composite, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/help-actions-composite.svg)
 
-## Step 3 — Run the supplied HTTP outage path
+## Step 4 — Run the supplied HTTP outage path
 
-<!-- walkthrough-step: {"number":3,"interactive":false,"visual_ids":[],"control_ids":[]} -->
+<!-- walkthrough-step: {"number":4,"interactive":false,"visual_ids":[],"control_ids":[]} -->
 
 No current browser scenario selector switches the adapter to api_failure. Run the test below instead. It receives HTTP 503 for patient search, provider lookup and POST /handoffs, expects status failed/http_status503, no receipt and no stored handoff. It also covers an outage after a fresh booking proposal. Do not report queued or contact with a live employee.
 
@@ -96,6 +110,9 @@ in the [visual manifest](../../../assets/ui/walkthroughs/manifest.json). The vis
 Current support acknowledgement/kernel/reconnect warnings are not hidden.
 
 ## Revision history
+
+- 2026-10-14: Corrected the independent-session prerequisite after source-bound
+  review; new interactive metadata/toolbar locator do not claim a new browser run.
 
 - 2026-10-14: Drafted from current controls and exact test source; whole-collection
   navigation, independent review and protected integration remain in native tasks.

@@ -52,28 +52,57 @@ flags. See [official Chrome guidance](https://support.google.com/chrome/answer/1
 
 1. Private controls: standard `555-0101` / `1985-04-12` / `70112`.
 2. Use one current returned option; never manufacture a slot, nonce or proposal ID.
+3. Public filters: Specialty `Primary care`, Location `Downtown`; commit them with Apply preferences.
 
-## Step 2 — Review and confirm one mock appointment
+## Step 2 — Start an independent patient
 
-<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["private-entry-composite","returned-options-and-confirm-composite"],"control_ids":["check-identity","get-availability","select-option","confirm-appointment"]} -->
+<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["toolbar-composite"],"control_ids":["start-independent-patient"]} -->
 
-Enter the standard fixture in private card 2 and Check or correct identity. Choose Primary care/Downtown, Get current availability, Select option and review its exact current API time/location. Click Confirm appointment once. Expected: a validated mock receipt in Outcomes and consumed/disabled repeat confirmation. A completed receipt is not a production appointment.
+In BOB's toolbar select Start independent patient once and wait for the current
+patient view. Expected: Patient role with an initial revision and enabled
+scheduling controls; no verified identity, current proposal, booking or handoff.
+This creates local synthetic workflow state, not a transaction or Support join.
+Recovery: if the page stays uninitialized or reports a connection error, stop
+before the next step and check your own launch. Do not reuse another patient's
+capability, copy a pairing grant, or restart an Operator session.
 
-![Source-bound actual offline/historical control locator for duplicate-confirmation; private-entry-composite, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/private-entry-composite.svg)
+![Source-bound actual toolbar locator; selecting Start independent patient is a prerequisite, not newly executed whole-journey evidence.](../../../assets/ui/walkthroughs/control-atlas/toolbar-composite.svg)
 
-![Source-bound actual offline/historical control locator for duplicate-confirmation; returned-options-and-confirm-composite, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/returned-options-and-confirm-composite.svg)
+## Step 3 — Verify synthetic identity
 
-## Step 3 — Check the consumed state, not a second booking
+<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["private-entry-composite"],"control_ids":["private-disclosure","synthetic-phone","date-of-birth","zip-discriminator","check-identity"]} -->
 
-<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["confirmation-consumed"],"control_ids":["confirm-appointment"]} -->
+Expand private card 2, enter phone 555-0101, date of birth 1985-04-12 and ZIP 70112 in its private controls, then select Check or correct identity. Expected: verified synthetic identity and cleared private inputs, not authentication or a booking. If missing or ambiguous, correct the private fixture values before continuing; keep them out of Public scheduling request.
+
+![Source-bound actual offline/historical control locator for duplicate-confirmation; private-entry-composite, not a newly executed journey capture.](../../../assets/ui/walkthroughs/control-atlas/private-entry-composite.svg)
+
+## Step 4 — Apply public preferences
+
+<!-- walkthrough-step: {"number":4,"interactive":true,"visual_ids":["public-filters-composite"],"control_ids":["specialty","location","apply-preferences"]} -->
+
+In card 1 choose Specialty Primary care and Location Downtown, then select Apply preferences. Wait for the response and read Active filters: specialty primary_care and location downtown must be committed before the next step. Choosing dropdown values alone is not applying them. This changes public preferences only; it neither fetches slots nor books. Recovery: if Active filters are absent/different or the response is unavailable, stop and reapply the intended values before requesting availability.
+
+![Source-bound actual offline/historical control locator for duplicate-confirmation; public-filters-composite, not a newly executed journey capture.](../../../assets/ui/walkthroughs/control-atlas/public-filters-composite.svg)
+
+## Step 5 — Review and confirm one mock appointment
+
+<!-- walkthrough-step: {"number":5,"interactive":true,"visual_ids":["returned-options-and-confirm-composite"],"control_ids":["get-availability","select-option","confirm-appointment"]} -->
+
+Get current availability, then Select option for one actual returned slot. Review its exact provider/location/API time in card 4 before selecting Confirm appointment once. Expected: a validated mock receipt in Outcomes and consumed/disabled repeat confirmation. A mock receipt is not a production appointment. If availability is empty or unavailable, stop and follow the response; do not invent an option.
+
+![Source-bound actual offline/historical control locator for duplicate-confirmation; returned-options-and-confirm-composite, not a newly executed journey capture.](../../../assets/ui/walkthroughs/control-atlas/returned-options-and-confirm-composite.svg)
+
+## Step 6 — Check the consumed state, not a second booking
+
+<!-- walkthrough-step: {"number":6,"interactive":true,"visual_ids":["confirmation-consumed"],"control_ids":["confirm-appointment"]} -->
 
 Read Outcomes and the confirmation state after the response. Do not fetch a new proposal or click another option as a supposed duplicate test—that would be new authority. If the outcome is unknown, do not retry. The deterministic concurrent race is the automated test below; UI timing is not a reliable concurrency harness.
 
 ![Source-bound actual offline/historical control locator for duplicate-confirmation; confirmation-consumed, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/confirmation-consumed.jpg)
 
-## Step 4 — Run the controlled concurrency contract
+## Step 7 — Run the controlled concurrency contract
 
-<!-- walkthrough-step: {"number":4,"interactive":false,"visual_ids":[],"control_ids":[]} -->
+<!-- walkthrough-step: {"number":7,"interactive":false,"visual_ids":[],"control_ids":[]} -->
 
 The test submits the same current confirmation snapshot from two threads against the real session/journal and asserts exactly one write. It does not click the browser or use a model.
 
@@ -106,6 +135,12 @@ in the [visual manifest](../../../assets/ui/walkthroughs/manifest.json). The vis
 Current support acknowledgement/kernel/reconnect warnings are not hidden.
 
 ## Revision history
+
+- 2026-10-14: Separated identity, applied filters and proposal review; the ordered
+  prerequisite test exercises the real session without a model or booking write.
+
+- 2026-10-14: Corrected the independent-session prerequisite after source-bound
+  review; new interactive metadata/toolbar locator do not claim a new browser run.
 
 - 2026-10-14: Drafted from current controls and exact test source; whole-collection
   navigation, independent review and protected integration remain in native tasks.

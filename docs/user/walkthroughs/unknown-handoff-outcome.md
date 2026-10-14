@@ -53,17 +53,31 @@ flags. See [official Chrome guidance](https://support.google.com/chrome/answer/1
 1. Controlled CLI test command: `handoff user_requested`.
 2. Unknown means delivery cannot be established; it is neither queued nor failed.
 
-## Step 2 — Read the handoff outcome boundary
+## Step 2 — Start an independent patient
 
-<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["help-actions-composite"],"control_ids":["help"]} -->
+<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["toolbar-composite"],"control_ids":["start-independent-patient"]} -->
+
+In BOB's toolbar select Start independent patient once and wait for the current
+patient view. Expected: Patient role with an initial revision and enabled
+scheduling controls; no verified identity, current proposal, booking or handoff.
+This creates local synthetic workflow state, not a transaction or Support join.
+Recovery: if the page stays uninitialized or reports a connection error, stop
+before the next step and check your own launch. Do not reuse another patient's
+capability, copy a pairing grant, or restart an Operator session.
+
+![Source-bound actual toolbar locator; selecting Start independent patient is a prerequisite, not newly executed whole-journey evidence.](../../../assets/ui/walkthroughs/control-atlas/toolbar-composite.svg)
+
+## Step 3 — Read the handoff outcome boundary
+
+<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["help-actions-composite"],"control_ids":["help"]} -->
 
 Select Help without submitting another mock handoff. Read Outcomes separately from generic recovery text. A previously unknown handoff must not be retried by Help or Reset. The atlas figure's queued example is control orientation only, not the unknown case.
 
 ![Source-bound actual offline/historical control locator for unknown-handoff-outcome; help-actions-composite, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/help-actions-composite.svg)
 
-## Step 3 — Run the lost-receipt reentry contract
+## Step 4 — Run the lost-receipt reentry contract
 
-<!-- walkthrough-step: {"number":3,"interactive":false,"visual_ids":[],"control_ids":[]} -->
+<!-- walkthrough-step: {"number":4,"interactive":false,"visual_ids":[],"control_ids":[]} -->
 
 Run the exact CLI test below. Its explicit LostReceiptPort records one handoff write then raises UnknownOutcome; a second CLI entry using the same disposable journal runs Help/Reset/handoff and must retain unknown with exactly one write. No supplied eight-scenario mode or UI toggle emits this boundary fault. Never substitute the canonical journal or a fresh namespace to get another attempt.
 
@@ -96,6 +110,9 @@ in the [visual manifest](../../../assets/ui/walkthroughs/manifest.json). The vis
 Current support acknowledgement/kernel/reconnect warnings are not hidden.
 
 ## Revision history
+
+- 2026-10-14: Corrected the independent-session prerequisite after source-bound
+  review; new interactive metadata/toolbar locator do not claim a new browser run.
 
 - 2026-10-14: Drafted from current controls and exact test source; whole-collection
   navigation, independent review and protected integration remain in native tasks.

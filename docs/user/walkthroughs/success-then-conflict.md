@@ -52,20 +52,49 @@ flags. See [official Chrome guidance](https://support.google.com/chrome/answer/1
 
 1. Private controls: `555-0101` / `1985-04-12` / `70112`.
 2. Supplied-service automated slot IDs: `slot_4001` then `slot_conflict_001`; UI chooses only returned options, never typed IDs.
+3. Public filters: Specialty `Primary care`, Location `Downtown`; commit them with Apply preferences.
 
-## Step 2 — Complete one current mock proposal
+## Step 2 — Start an independent patient
 
-<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["private-entry-composite","returned-options-and-confirm-composite"],"control_ids":["check-identity","get-availability","select-option","confirm-appointment"]} -->
+<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["toolbar-composite"],"control_ids":["start-independent-patient"]} -->
 
-Verify the standard private fixture, choose Primary care/Downtown, Get current availability, select an actual available option and review exact API time/location before Confirm appointment. Read the successful receipt. Do not assume the dates in the historical still are current.
+In BOB's toolbar select Start independent patient once and wait for the current
+patient view. Expected: Patient role with an initial revision and enabled
+scheduling controls; no verified identity, current proposal, booking or handoff.
+This creates local synthetic workflow state, not a transaction or Support join.
+Recovery: if the page stays uninitialized or reports a connection error, stop
+before the next step and check your own launch. Do not reuse another patient's
+capability, copy a pairing grant, or restart an Operator session.
 
-![Source-bound actual offline/historical control locator for success-then-conflict; private-entry-composite, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/private-entry-composite.svg)
+![Source-bound actual toolbar locator; selecting Start independent patient is a prerequisite, not newly executed whole-journey evidence.](../../../assets/ui/walkthroughs/control-atlas/toolbar-composite.svg)
 
-![Source-bound actual offline/historical control locator for success-then-conflict; returned-options-and-confirm-composite, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/returned-options-and-confirm-composite.svg)
+## Step 3 — Verify synthetic identity
 
-## Step 3 — Review history after a distinct rejected attempt
+<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["private-entry-composite"],"control_ids":["private-disclosure","synthetic-phone","date-of-birth","zip-discriminator","check-identity"]} -->
 
-<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["returned-options-and-confirm-composite","appointment-results"],"control_ids":["get-availability","select-option","confirm-appointment"]} -->
+Expand private card 2, enter phone 555-0101, date of birth 1985-04-12 and ZIP 70112 in its private controls, then select Check or correct identity. Expected: verified synthetic identity and cleared private inputs, not authentication or a booking. If missing or ambiguous, correct the private fixture values before continuing; keep them out of Public scheduling request.
+
+![Source-bound actual offline/historical control locator for success-then-conflict; private-entry-composite, not a newly executed journey capture.](../../../assets/ui/walkthroughs/control-atlas/private-entry-composite.svg)
+
+## Step 4 — Apply public preferences
+
+<!-- walkthrough-step: {"number":4,"interactive":true,"visual_ids":["public-filters-composite"],"control_ids":["specialty","location","apply-preferences"]} -->
+
+In card 1 choose Specialty Primary care and Location Downtown, then select Apply preferences. Wait for the response and read Active filters: specialty primary_care and location downtown must be committed before the next step. Choosing dropdown values alone is not applying them. This changes public preferences only; it neither fetches slots nor books. Recovery: if Active filters are absent/different or the response is unavailable, stop and reapply the intended values before requesting availability.
+
+![Source-bound actual offline/historical control locator for success-then-conflict; public-filters-composite, not a newly executed journey capture.](../../../assets/ui/walkthroughs/control-atlas/public-filters-composite.svg)
+
+## Step 5 — Complete one current mock proposal
+
+<!-- walkthrough-step: {"number":5,"interactive":true,"visual_ids":["returned-options-and-confirm-composite"],"control_ids":["get-availability","select-option","confirm-appointment"]} -->
+
+Get current availability, then Select option for one actual returned slot. Review its exact provider/location/API time in card 4 before selecting Confirm appointment once. Read the successful mock receipt. Do not assume the dates in a historical still are current. If availability is empty or unavailable, stop and follow the response; do not invent an option.
+
+![Source-bound actual offline/historical control locator for success-then-conflict; returned-options-and-confirm-composite, not a newly executed journey capture.](../../../assets/ui/walkthroughs/control-atlas/returned-options-and-confirm-composite.svg)
+
+## Step 6 — Review history after a distinct rejected attempt
+
+<!-- walkthrough-step: {"number":6,"interactive":true,"visual_ids":["returned-options-and-confirm-composite","appointment-results"],"control_ids":["get-availability","select-option","confirm-appointment"]} -->
 
 Refresh availability and, only if an explicitly conflicting option is actually returned in the isolated supplied service, select/review it and separately Confirm. Expected: current result rejected with no new success receipt, while the prior completed receipt stays in history. If no conflict option is returned, do not fabricate one; use the exact automated path below. Decline, Help and Reset must not rewrite the earlier success as never submitted.
 
@@ -102,6 +131,12 @@ in the [visual manifest](../../../assets/ui/walkthroughs/manifest.json). The vis
 Current support acknowledgement/kernel/reconnect warnings are not hidden.
 
 ## Revision history
+
+- 2026-10-14: Separated identity, applied filters and proposal review; the ordered
+  prerequisite test exercises the real session without a model or booking write.
+
+- 2026-10-14: Corrected the independent-session prerequisite after source-bound
+  review; new interactive metadata/toolbar locator do not claim a new browser run.
 
 - 2026-10-14: Drafted from current controls and exact test source; whole-collection
   navigation, independent review and protected integration remain in native tasks.

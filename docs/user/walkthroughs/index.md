@@ -185,12 +185,19 @@ PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -v
 .venv/bin/python scripts/demo_booking.py --flow all
 ```
 
-The portable checker has 52 positive/negative fixtures; two BOB-only consumer
-tests retain seven groups/57 controls and validate current source layers. Latest
-combined suite: 558 tests, 28.151 s at checker `612d4bf`; three synthetic booking
-demos and retained starter demos passed. Later document-only work does not
-manufacture new browser/model results. Final collection render/navigation,
-independent review, CI/protected integration and Flight Deck retrofit remain open.
+The portable checker has 52 positive/negative fixtures; BOB-only consumers retain
+seven groups/57 controls, source layers, ordered session/filter prerequisites and
+the real Flight Deck mapping. The prerequisite tests execute declared guide
+metadata against the real service/session with disposable synthetic fixtures;
+they are not complete browser journeys or verification of human prose.
+
+Historical checkpoint: 558 tests passed in 28.151 s at checker `612d4bf`, with
+three synthetic booking demos and retained starter demos. The later Flight Deck
+candidate `5e8fa85` passed 564 tests in 27.342 s on the committed source, separately
+from its earlier working-tree runs. These retain their original execution identity;
+no new browser/model results are manufactured. Current affected-review repair,
+tests, completed local Flight Deck work and pending CI/protected delivery are in
+the [native completion ledger](../../../specs/001-ochsner-scheduling-assistant/tasks.md).
 
 ## Historical interrupted IAB walkthrough — 2026-10-12
 

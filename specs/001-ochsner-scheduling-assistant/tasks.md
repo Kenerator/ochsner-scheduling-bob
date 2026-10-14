@@ -16,7 +16,7 @@ work below retains its original scope and is not repeated as new qualification.
   entries and 57 control families; write failing structural tests first, implement
   the no-network checker and run its positive/negative fixtures and full suite.
   This is a local candidate checkpoint, not W1 Template integration or final docs.
-- [ ] T074 [US6] Supply the source-bound reusable W1 checker/test candidate to SM;
+- [x] T074 [US6] Supply the source-bound reusable W1 checker/test candidate to SM;
   integrate the reviewed reusable generation/export contract through its owner.
 - [x] T075 [P] [US6] F6: consume exact reviewed shared Flight Deck export/manifest,
   map six native elements without copied status, run doctor/generate and inspect
@@ -72,6 +72,43 @@ work below retains its original scope and is not repeated as new qualification.
   YAML keyword-API incompatibility to the shared owner; adopt only its reviewed
   replacement pin and rerun the affected consumer/full qualification. No local
   fork, skipped test, CI weakening or new platform qualification.
+- [x] T107 [US1–US6] Correct the two Important findings from SM's one complete
+  `5e8fa85` W/F6 review: ten independent-session prerequisites and three explicit
+  filter-commit sequences, with real service/session RED→GREEN consumer tests,
+  synchronized catalog/anchors/visuals and historical status wording. Local repair
+  only; affected confirmation and CI/protected delivery remain T080.
+
+Affected review repair, 2026-10-14: SM's one whole-BOB review held exact `5e8fa85`
+for R1/R2, with no Critical/runtime/shared/checker finding. Actual widget source
+confirmed that fresh state disables patient controls and availability does not
+apply dropdown drafts. Four new BOB-only tests consuming structured ordered guide
+metadata reproduced 13 expected failures (ten missing-session and three missing-
+filter cases); both negative omission cases passed. Corrected all ten with an
+explicit interactive Step2/toolbar locator, and split the three proposal setups
+into private identity, Apply preferences/Active filters, and availability/proposal
+steps. Four tests now pass (0.045 s) against actual BrowserService/SchedulingSession
+with disposable FixturePort/journal state, no model/browser/write. The fixture
+uses a known synthetic identity to isolate prerequisite order, not full sample-
+value or human-prose/browser qualification. Catalog/docs metadata agree; 67 flows,
+430 steps/264 interactive. Recheck of remaining availability metadata found no
+case before a declared preference commit; this is not proof of every text result.
+Structural check, 91-doc navigation (1,970 local targets/86 anchors) and 102 exact
+test-target audit pass. N1 preserves the original 558/checker checkpoint as
+historical, not relabeled current. Combined repair working suite: 568 tests passed
+(28.270 s); all three BOB booking and both starter demos pass offline. Representative
+actual IAB guide rendering shows separate Step2 session and Step4 applied-filter
+instructions with loaded source-bound figures, client/scroll width1265/1265.
+This is documentation rendering, not fresh BOB/browser journey qualification.
+Actual runtime/apps/scripts and both managed tool trees have zero delta from
+`5e8fa85`. Exact committed repair, guard, affected confirmation and protected
+integration are pending at this working checkpoint.
+
+T074 actual owner readback: SM confirms Template clean local adoption
+`defa3ee6e237dd165ecb948b836dc266a194d1b2`, with MLX's integration/pin reviews
+CLEAR. Actual checker/contract/maintenance-test Git blobs match selected `612d4bf`;
+only checker/contract are public exports, not the maintenance test. This closes
+owner distribution, not future consumer application qualification. No Template
+remote was configured/created/pushed; BOB did not write Template/shared source.
 
 F6 corrected local candidate, 2026-10-14: SM delivered the independently reviewed
 replacement from `ea7cfea9405f593a56b54c782212ccd9539bd178`, CLEAN, mechanism

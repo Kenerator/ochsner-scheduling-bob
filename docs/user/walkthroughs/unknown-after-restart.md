@@ -53,17 +53,31 @@ flags. See [official Chrome guidance](https://support.google.com/chrome/answer/1
 1. Automated opaque synthetic effect key: `opaque-synthetic-action-a`.
 2. No identity values, old proposal token or confirmation authority are restored.
 
-## Step 2 — Read diagnostics without starting recording
+## Step 2 — Start an independent patient
 
-<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["recording-and-diagnostics-composite"],"control_ids":["developer-disclosure","inspect-diagnostics"]} -->
+<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["toolbar-composite"],"control_ids":["start-independent-patient"]} -->
+
+In BOB's toolbar select Start independent patient once and wait for the current
+patient view. Expected: Patient role with an initial revision and enabled
+scheduling controls; no verified identity, current proposal, booking or handoff.
+This creates local synthetic workflow state, not a transaction or Support join.
+Recovery: if the page stays uninitialized or reports a connection error, stop
+before the next step and check your own launch. Do not reuse another patient's
+capability, copy a pairing grant, or restart an Operator session.
+
+![Source-bound actual toolbar locator; selecting Start independent patient is a prerequisite, not newly executed whole-journey evidence.](../../../assets/ui/walkthroughs/control-atlas/toolbar-composite.svg)
+
+## Step 3 — Read diagnostics without starting recording
+
+<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["recording-and-diagnostics-composite"],"control_ids":["developer-disclosure","inspect-diagnostics"]} -->
 
 Open Developer Mode and Inspect sanitized diagnostics without selecting Start synthetic recording. Read the recording-OFF status and any categorical effect outcome. This orientation does not create an unknown write or authorize restarting an Operator session.
 
 ![Source-bound actual offline/historical control locator for unknown-after-restart; recording-and-diagnostics-composite, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/recording-and-diagnostics-composite.svg)
 
-## Step 3 — Run isolated durable reconstruction checks
+## Step 4 — Run isolated durable reconstruction checks
 
-<!-- walkthrough-step: {"number":3,"interactive":false,"visual_ids":[],"control_ids":[]} -->
+<!-- walkthrough-step: {"number":4,"interactive":false,"visual_ids":[],"control_ids":[]} -->
 
 Run the exact journal test below, and `PYTHONPATH=src:tests .venv/bin/python -m unittest test_browser_service.BrowserServiceTests.test_restart_recovers_effect_namespace_but_not_identity_or_consent -v`. The journal test creates an in-flight claim in a temporary directory, reopens it as unknown and verifies a second claim is blocked without erasing bytes. Browser reconstruction keeps the effect namespace but restores neither identity nor a proposal. Do not delete, replace or move the live ledger/lock/namespace to make this pass.
 
@@ -96,6 +110,9 @@ in the [visual manifest](../../../assets/ui/walkthroughs/manifest.json). The vis
 Current support acknowledgement/kernel/reconnect warnings are not hidden.
 
 ## Revision history
+
+- 2026-10-14: Corrected the independent-session prerequisite after source-bound
+  review; new interactive metadata/toolbar locator do not claim a new browser run.
 
 - 2026-10-14: Drafted from current controls and exact test source; whole-collection
   navigation, independent review and protected integration remain in native tasks.

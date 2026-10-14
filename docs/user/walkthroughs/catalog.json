@@ -3401,16 +3401,27 @@
       "steps": [
         {
           "number": 0,
-          "anchor": "step-0--install-and-set-up",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
         },
         {
           "number": 1,
-          "anchor": "step-1--launch",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-1--launch"
         },
         {
           "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
           "interactive": true,
           "visual_ids": [
             "public-filters-composite",
@@ -3422,10 +3433,10 @@
             "find-providers",
             "choose-provider"
           ],
-          "anchor": "step-2--find-returned-providers"
+          "anchor": "step-3--find-returned-providers"
         },
         {
-          "number": 3,
+          "number": 4,
           "interactive": true,
           "visual_ids": [
             "public-request-and-provider-composite"
@@ -3434,7 +3445,7 @@
             "public-request",
             "send-request"
           ],
-          "anchor": "step-3--correct-and-clear-only-that-filter"
+          "anchor": "step-4--correct-and-clear-only-that-filter"
         }
       ],
       "gap_refs": [
@@ -3458,16 +3469,27 @@
       "steps": [
         {
           "number": 0,
-          "anchor": "step-0--install-and-set-up",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
         },
         {
           "number": 1,
-          "anchor": "step-1--launch",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-1--launch"
         },
         {
           "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
           "interactive": true,
           "visual_ids": [
             "public-spelling-composite"
@@ -3475,16 +3497,16 @@
           "control_ids": [
             "spelling-suggestion"
           ],
-          "anchor": "step-2--locate-the-explicit-suggestion-family"
+          "anchor": "step-3--locate-the-explicit-suggestion-family"
         },
         {
-          "number": 3,
+          "number": 4,
           "interactive": false,
           "visual_ids": [
             "public-request-and-provider-composite"
           ],
           "control_ids": [],
-          "anchor": "step-3--run-the-exact-provider-name-boundary"
+          "anchor": "step-4--run-the-exact-provider-name-boundary"
         }
       ],
       "gap_refs": [
@@ -3508,36 +3530,67 @@
       "steps": [
         {
           "number": 0,
-          "anchor": "step-0--install-and-set-up",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
         },
         {
           "number": 1,
-          "anchor": "step-1--launch",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-1--launch"
         },
         {
           "number": 2,
           "interactive": true,
           "visual_ids": [
-            "private-entry-composite",
-            "returned-options-and-confirm-composite"
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
           ],
           "control_ids": [
             "private-disclosure",
             "synthetic-phone",
             "date-of-birth",
             "zip-discriminator",
-            "check-identity",
+            "check-identity"
+          ],
+          "anchor": "step-3--verify-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
             "specialty",
             "location",
+            "apply-preferences"
+          ],
+          "anchor": "step-4--apply-public-preferences"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
             "get-availability",
             "select-option"
           ],
-          "anchor": "step-2--prepare-but-do-not-confirm-an-exact-proposal"
+          "anchor": "step-5--prepare-but-do-not-confirm-an-exact-proposal"
         },
         {
-          "number": 3,
+          "number": 6,
           "interactive": true,
           "visual_ids": [
             "public-request-and-provider-composite",
@@ -3548,7 +3601,7 @@
             "send-request",
             "confirm-appointment"
           ],
-          "anchor": "step-3--send-agreement-as-public-text"
+          "anchor": "step-6--send-agreement-as-public-text"
         }
       ],
       "gap_refs": [
@@ -3572,31 +3625,68 @@
       "steps": [
         {
           "number": 0,
-          "anchor": "step-0--install-and-set-up",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
         },
         {
           "number": 1,
-          "anchor": "step-1--launch",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-1--launch"
         },
         {
           "number": 2,
           "interactive": true,
           "visual_ids": [
-            "private-entry-composite",
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--verify-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "apply-preferences"
+          ],
+          "anchor": "step-4--apply-public-preferences"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
             "returned-options-and-confirm-composite"
           ],
           "control_ids": [
-            "check-identity",
             "get-availability",
             "select-option",
             "confirm-appointment"
           ],
-          "anchor": "step-2--review-and-confirm-one-mock-appointment"
+          "anchor": "step-5--review-and-confirm-one-mock-appointment"
         },
         {
-          "number": 3,
+          "number": 6,
           "interactive": true,
           "visual_ids": [
             "confirmation-consumed"
@@ -3604,14 +3694,14 @@
           "control_ids": [
             "confirm-appointment"
           ],
-          "anchor": "step-3--check-the-consumed-state-not-a-second-booking"
+          "anchor": "step-6--check-the-consumed-state-not-a-second-booking"
         },
         {
-          "number": 4,
+          "number": 7,
           "interactive": false,
           "visual_ids": [],
           "control_ids": [],
-          "anchor": "step-4--run-the-controlled-concurrency-contract"
+          "anchor": "step-7--run-the-controlled-concurrency-contract"
         }
       ],
       "gap_refs": [
@@ -3635,16 +3725,27 @@
       "steps": [
         {
           "number": 0,
-          "anchor": "step-0--install-and-set-up",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
         },
         {
           "number": 1,
-          "anchor": "step-1--launch",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-1--launch"
         },
         {
           "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
           "interactive": true,
           "visual_ids": [
             "help-actions-composite"
@@ -3652,14 +3753,14 @@
           "control_ids": [
             "help"
           ],
-          "anchor": "step-2--use-the-current-help-control"
+          "anchor": "step-3--use-the-current-help-control"
         },
         {
-          "number": 3,
+          "number": 4,
           "interactive": false,
           "visual_ids": [],
           "control_ids": [],
-          "anchor": "step-3--exercise-a-delayed-command-safely-in-the-test"
+          "anchor": "step-4--exercise-a-delayed-command-safely-in-the-test"
         }
       ],
       "gap_refs": [
@@ -3683,16 +3784,27 @@
       "steps": [
         {
           "number": 0,
-          "anchor": "step-0--install-and-set-up",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
         },
         {
           "number": 1,
-          "anchor": "step-1--launch",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-1--launch"
         },
         {
           "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
           "interactive": true,
           "visual_ids": [
             "recording-and-diagnostics-composite"
@@ -3701,14 +3813,14 @@
             "developer-disclosure",
             "inspect-diagnostics"
           ],
-          "anchor": "step-2--read-diagnostics-without-starting-recording"
+          "anchor": "step-3--read-diagnostics-without-starting-recording"
         },
         {
-          "number": 3,
+          "number": 4,
           "interactive": false,
           "visual_ids": [],
           "control_ids": [],
-          "anchor": "step-3--run-isolated-durable-reconstruction-checks"
+          "anchor": "step-4--run-isolated-durable-reconstruction-checks"
         }
       ],
       "gap_refs": [
@@ -3732,31 +3844,68 @@
       "steps": [
         {
           "number": 0,
-          "anchor": "step-0--install-and-set-up",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
         },
         {
           "number": 1,
-          "anchor": "step-1--launch",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-1--launch"
         },
         {
           "number": 2,
           "interactive": true,
           "visual_ids": [
-            "private-entry-composite",
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--verify-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "apply-preferences"
+          ],
+          "anchor": "step-4--apply-public-preferences"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
             "returned-options-and-confirm-composite"
           ],
           "control_ids": [
-            "check-identity",
             "get-availability",
             "select-option",
             "confirm-appointment"
           ],
-          "anchor": "step-2--complete-one-current-mock-proposal"
+          "anchor": "step-5--complete-one-current-mock-proposal"
         },
         {
-          "number": 3,
+          "number": 6,
           "interactive": true,
           "visual_ids": [
             "returned-options-and-confirm-composite",
@@ -3767,7 +3916,7 @@
             "select-option",
             "confirm-appointment"
           ],
-          "anchor": "step-3--review-history-after-a-distinct-rejected-attempt"
+          "anchor": "step-6--review-history-after-a-distinct-rejected-attempt"
         }
       ],
       "gap_refs": [
@@ -3791,16 +3940,27 @@
       "steps": [
         {
           "number": 0,
-          "anchor": "step-0--install-and-set-up",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
         },
         {
           "number": 1,
-          "anchor": "step-1--launch",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-1--launch"
         },
         {
           "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
           "interactive": true,
           "visual_ids": [
             "help-actions-composite"
@@ -3808,14 +3968,14 @@
           "control_ids": [
             "help"
           ],
-          "anchor": "step-2--locate-the-separate-mock-handoff-action"
+          "anchor": "step-3--locate-the-separate-mock-handoff-action"
         },
         {
-          "number": 3,
+          "number": 4,
           "interactive": false,
           "visual_ids": [],
           "control_ids": [],
-          "anchor": "step-3--run-the-supplied-http-outage-path"
+          "anchor": "step-4--run-the-supplied-http-outage-path"
         }
       ],
       "gap_refs": [
@@ -3839,16 +3999,27 @@
       "steps": [
         {
           "number": 0,
-          "anchor": "step-0--install-and-set-up",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
         },
         {
           "number": 1,
-          "anchor": "step-1--launch",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-1--launch"
         },
         {
           "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
           "interactive": true,
           "visual_ids": [
             "help-actions-composite"
@@ -3856,14 +4027,14 @@
           "control_ids": [
             "help"
           ],
-          "anchor": "step-2--read-the-handoff-outcome-boundary"
+          "anchor": "step-3--read-the-handoff-outcome-boundary"
         },
         {
-          "number": 3,
+          "number": 4,
           "interactive": false,
           "visual_ids": [],
           "control_ids": [],
-          "anchor": "step-3--run-the-lost-receipt-reentry-contract"
+          "anchor": "step-4--run-the-lost-receipt-reentry-contract"
         }
       ],
       "gap_refs": [
@@ -3887,16 +4058,27 @@
       "steps": [
         {
           "number": 0,
-          "anchor": "step-0--install-and-set-up",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
         },
         {
           "number": 1,
-          "anchor": "step-1--launch",
-          "interactive": false
+          "interactive": false,
+          "anchor": "step-1--launch"
         },
         {
           "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
           "interactive": true,
           "visual_ids": [
             "help-actions-composite",
@@ -3907,14 +4089,14 @@
             "developer-disclosure",
             "inspect-diagnostics"
           ],
-          "anchor": "step-2--locate-help-and-diagnostics"
+          "anchor": "step-3--locate-help-and-diagnostics"
         },
         {
-          "number": 3,
+          "number": 4,
           "interactive": false,
           "visual_ids": [],
           "control_ids": [],
-          "anchor": "step-3--run-the-event-controlled-wait-test"
+          "anchor": "step-4--run-the-event-controlled-wait-test"
         }
       ],
       "gap_refs": [

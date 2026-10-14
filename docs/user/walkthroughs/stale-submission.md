@@ -53,17 +53,31 @@ flags. See [official Chrome guidance](https://support.google.com/chrome/answer/1
 1. Public safety command: Help.
 2. Automated stale command: handoff at old revision 0 after Help advanced the session.
 
-## Step 2 — Use the current Help control
+## Step 2 — Start an independent patient
 
-<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["help-actions-composite"],"control_ids":["help"]} -->
+<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["toolbar-composite"],"control_ids":["start-independent-patient"]} -->
+
+In BOB's toolbar select Start independent patient once and wait for the current
+patient view. Expected: Patient role with an initial revision and enabled
+scheduling controls; no verified identity, current proposal, booking or handoff.
+This creates local synthetic workflow state, not a transaction or Support join.
+Recovery: if the page stays uninitialized or reports a connection error, stop
+before the next step and check your own launch. Do not reuse another patient's
+capability, copy a pairing grant, or restart an Operator session.
+
+![Source-bound actual toolbar locator; selecting Start independent patient is a prerequisite, not newly executed whole-journey evidence.](../../../assets/ui/walkthroughs/control-atlas/toolbar-composite.svg)
+
+## Step 3 — Use the current Help control
+
+<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["help-actions-composite"],"control_ids":["help"]} -->
 
 Select Help and wait for the response before another action. Read the current outcome; Help itself neither books nor queues a handoff. The screenshot is an actual offline control locator, not evidence that a stale request was generated in the UI.
 
 ![Source-bound actual offline/historical control locator for stale-submission; help-actions-composite, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/help-actions-composite.svg)
 
-## Step 3 — Exercise a delayed command safely in the test
+## Step 4 — Exercise a delayed command safely in the test
 
-<!-- walkthrough-step: {"number":3,"interactive":false,"visual_ids":[],"control_ids":[]} -->
+<!-- walkthrough-step: {"number":4,"interactive":false,"visual_ids":[],"control_ids":[]} -->
 
 There is no supported UI revision editor. Run the exact test below: it acknowledges the initial patient snapshot, advances with Help, submits a handoff carrying the old revision, and expects stale=true, no write, and an explicitly stale support observation. Do not use developer tools, copied tokens or a delayed real booking to construct this case.
 
@@ -96,6 +110,9 @@ in the [visual manifest](../../../assets/ui/walkthroughs/manifest.json). The vis
 Current support acknowledgement/kernel/reconnect warnings are not hidden.
 
 ## Revision history
+
+- 2026-10-14: Corrected the independent-session prerequisite after source-bound
+  review; new interactive metadata/toolbar locator do not claim a new browser run.
 
 - 2026-10-14: Drafted from current controls and exact test source; whole-collection
   navigation, independent review and protected integration remain in native tasks.

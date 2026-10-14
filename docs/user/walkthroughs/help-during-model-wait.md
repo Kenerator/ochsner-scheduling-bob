@@ -53,9 +53,23 @@ flags. See [official Chrome guidance](https://support.google.com/chrome/answer/1
 1. Public synthetic request in controlled fixture: `Find primary care providers`.
 2. Recovery action: Help; no identity is needed and no real slow-model request is required.
 
-## Step 2 — Locate Help and diagnostics
+## Step 2 — Start an independent patient
 
-<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["help-actions-composite","recording-and-diagnostics-composite"],"control_ids":["help","developer-disclosure","inspect-diagnostics"]} -->
+<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["toolbar-composite"],"control_ids":["start-independent-patient"]} -->
+
+In BOB's toolbar select Start independent patient once and wait for the current
+patient view. Expected: Patient role with an initial revision and enabled
+scheduling controls; no verified identity, current proposal, booking or handoff.
+This creates local synthetic workflow state, not a transaction or Support join.
+Recovery: if the page stays uninitialized or reports a connection error, stop
+before the next step and check your own launch. Do not reuse another patient's
+capability, copy a pairing grant, or restart an Operator session.
+
+![Source-bound actual toolbar locator; selecting Start independent patient is a prerequisite, not newly executed whole-journey evidence.](../../../assets/ui/walkthroughs/control-atlas/toolbar-composite.svg)
+
+## Step 3 — Locate Help and diagnostics
+
+<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["help-actions-composite","recording-and-diagnostics-composite"],"control_ids":["help","developer-disclosure","inspect-diagnostics"]} -->
 
 Use Help, and optionally open Developer Mode/Inspect sanitized diagnostics to locate the pending/status fields. Do not create a paid request just to induce a delay. Help has no booking/handoff effect.
 
@@ -63,9 +77,9 @@ Use Help, and optionally open Developer Mode/Inspect sanitized diagnostics to lo
 
 ![Source-bound actual offline/historical control locator for help-during-model-wait; recording-and-diagnostics-composite, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/recording-and-diagnostics-composite.svg)
 
-## Step 3 — Run the event-controlled wait test
+## Step 4 — Run the event-controlled wait test
 
-<!-- walkthrough-step: {"number":3,"interactive":false,"visual_ids":[],"control_ids":[]} -->
+<!-- walkthrough-step: {"number":4,"interactive":false,"visual_ids":[],"control_ids":[]} -->
 
 Run the exact test below. A bounded synthetic language transport waits on an Event while Help, another independent patient's read, paired polling and diagnostics are checked. Each probe must finish within that test's 400ms bound; release occurs in finally. The late language result is stale, preferences stay unchanged and no API writes occur. If capture was enabled by the test, its stale result is explicitly incomplete—not upgraded to full replay.
 
@@ -98,6 +112,9 @@ in the [visual manifest](../../../assets/ui/walkthroughs/manifest.json). The vis
 Current support acknowledgement/kernel/reconnect warnings are not hidden.
 
 ## Revision history
+
+- 2026-10-14: Corrected the independent-session prerequisite after source-bound
+  review; new interactive metadata/toolbar locator do not claim a new browser run.
 
 - 2026-10-14: Drafted from current controls and exact test source; whole-collection
   navigation, independent review and protected integration remain in native tasks.

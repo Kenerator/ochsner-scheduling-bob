@@ -13,14 +13,15 @@ or accounting reset is needed for this documentation phase.
 
 ## Current next actions
 
-- Finish W3 collection render/navigation and source-specific browser evidence/gaps,
-  then one independent whole-BOB review, candidate CI and normal protected delivery.
+- Complete the two guide-prerequisite corrections from the one independent
+  whole-BOB review, affected-only confirmation, candidate CI and normal protected
+  delivery. Preserve source-specific browser evidence and gaps.
   [67 individual guides](../user/walkthroughs/index.md) and the
   [57-control atlas](../user/controls/index.md) now exist locally; structural success
   is not whole-journey execution. Exact checker `612d4bf` resolves generic vocabulary/
   inert-SVG review findings; Template adoption remains SM-owned.
 - Include the [six-element Flight Deck](../internal/flight-deck/README.md) in that
-  final consumer review and protected delivery. Reviewed shared source `ea7cfea`
+  affected consumer confirmation and protected delivery. Reviewed shared source `ea7cfea`
   is adopted without a local fork; its narrow YAML API correction passes the real
   consumer regression. Mapping/doctor/generation and unknown-evidence checks pass
   locally. This is existing CI compatibility, not new Linux qualification.

@@ -53,9 +53,23 @@ flags. See [official Chrome guidance](https://support.google.com/chrome/answer/1
 1. Specialty: Primary care; location: Downtown.
 2. Public deterministic commands: `provider 2`, `provider 99`, `clear provider`.
 
-## Step 2 — Find returned providers
+## Step 2 — Start an independent patient
 
-<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["public-filters-composite","public-request-and-provider-composite"],"control_ids":["specialty","location","find-providers","choose-provider"]} -->
+<!-- walkthrough-step: {"number":2,"interactive":true,"visual_ids":["toolbar-composite"],"control_ids":["start-independent-patient"]} -->
+
+In BOB's toolbar select Start independent patient once and wait for the current
+patient view. Expected: Patient role with an initial revision and enabled
+scheduling controls; no verified identity, current proposal, booking or handoff.
+This creates local synthetic workflow state, not a transaction or Support join.
+Recovery: if the page stays uninitialized or reports a connection error, stop
+before the next step and check your own launch. Do not reuse another patient's
+capability, copy a pairing grant, or restart an Operator session.
+
+![Source-bound actual toolbar locator; selecting Start independent patient is a prerequisite, not newly executed whole-journey evidence.](../../../assets/ui/walkthroughs/control-atlas/toolbar-composite.svg)
+
+## Step 3 — Find returned providers
+
+<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["public-filters-composite","public-request-and-provider-composite"],"control_ids":["specialty","location","find-providers","choose-provider"]} -->
 
 In card 1 choose Primary care and Downtown, then Find providers. Review returned provider names and select Choose provider 2 only if that row is actually returned. Expected: the active provider filter changes; no identity or booking is created. If the list differs, select a currently returned row rather than copying a stale number.
 
@@ -63,9 +77,9 @@ In card 1 choose Primary care and Downtown, then Find providers. Review returned
 
 ![Source-bound actual offline/historical control locator for select-and-clear-provider; public-request-and-provider-composite, not a newly executed failure capture.](../../../assets/ui/walkthroughs/control-atlas/public-request-and-provider-composite.svg)
 
-## Step 3 — Correct and clear only that filter
+## Step 4 — Correct and clear only that filter
 
-<!-- walkthrough-step: {"number":3,"interactive":true,"visual_ids":["public-request-and-provider-composite"],"control_ids":["public-request","send-request"]} -->
+<!-- walkthrough-step: {"number":4,"interactive":true,"visual_ids":["public-request-and-provider-composite"],"control_ids":["public-request","send-request"]} -->
 
 For deterministic no-call interpretation, enter `provider 2` in Public scheduling request and Send scheduling request. An out-of-range `provider 99` is rejected without substituting a provider. Enter `clear provider` and send again. Expected: provider_id is removed while Primary care/Downtown remain. The public command is not a patient name and does not enter private identity. In model-first mode these recognized commands still route locally. Recovery: reread active filters after each response; do not send rapid old-revision commands.
 
@@ -106,6 +120,9 @@ in the [visual manifest](../../../assets/ui/walkthroughs/manifest.json). The vis
 Current support acknowledgement/kernel/reconnect warnings are not hidden.
 
 ## Revision history
+
+- 2026-10-14: Corrected the independent-session prerequisite after source-bound
+  review; new interactive metadata/toolbar locator do not claim a new browser run.
 
 - 2026-10-14: Drafted from current controls and exact test source; whole-collection
   navigation, independent review and protected integration remain in native tasks.
