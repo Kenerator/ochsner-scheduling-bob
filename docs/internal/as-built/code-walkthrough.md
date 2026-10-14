@@ -1,10 +1,11 @@
 # As-built code walkthrough
 
-Updated 2026-10-13 against reviewed source
+Updated 2026-10-14 against reviewed runtime source
 `79aeafd6269dd1e54f9429a3cdf49b30070b153c`, integrated as
 `d3c3a044575c5666c220ab89dcb680b8a456fcbb` with the identical selected tree.
-Native T087–T098 records review/qualification/CI/integration and the separate
-unperformed activation. Follow the actual local synthetic
+Native T087–T098 records review/qualification/CI/integration and its historical
+activation handoff; later Operator-requested support restoration retained existing
+accounting/effects. Follow the actual local synthetic
 workflow from entry points to authority/effect boundaries, then inspection and
 optional language. This is a source map, not a second completion ledger or a
 production-readiness claim. Earlier repairs integrated through
@@ -269,6 +270,31 @@ billing keeps the reservation. [Language](../../../tests/test_language.py) and
 model transports are explicitly fixtures, not genuine model qualification.
 The separately scoped [genuine language record](../live-qualification.md) retains
 default-model failures and the explicitly selected alternative's semantic result.
+
+## Training contract and source-bound visuals
+
+[check_catalog/check_placement](../../../tools/poc-docs/check_walkthroughs.py)
+provide standard-library, read-only structural checking outside the app. Exact
+local checker checkpoint `612d4bf` has 52 portable regression fixtures; BOB-only
+[inventory/layer tests](../../../tests/test_bob_walkthrough_inventory.py) retain
+seven groups/57 controls and validate current originals/layers. Composite raster
+data must decode to the declared unchanged source; inert SVG/no-namespace geometry
+is permitted, SMIL/CSS/foreign/linked active forms are denied. The checker does not
+render or execute a workflow. [67 guides](../../user/walkthroughs/index.md) keep
+their own install/launch/input/actions/results/recovery/effects/cleanup and link
+exact automated-only paths where the current UI has no fault/clock trigger.
+Their annotations are locator evidence, not newly captured failure outcomes.
+Final independent documentation review/CI/integration remains open.
+
+The [Flight Deck entrypoint](../../../tools/aeos-dashboard/poc-flight-deck) loads
+only the frozen PoC runtime. `PocCLI` verifies its manifest/resources, `PocInput`
+resolves the native [mapping](../flight-deck/project.yaml), and
+`PocSnapshotBuilder` keeps implementation/verification/acceptance distinct before
+`Generator` renders six ignored artifacts. [BOB consumer tests](../../../tests/test_flight_deck_mapping.py)
+run the actual input/generator with fixed public temporary fixtures. None of this
+starts the app, reads a key, calls a model or invokes SDK reconciliation. The
+[usage guide](../flight-deck/README.md) explains UNKNOWN narrative evidence and
+snapshot/latest integrity; source-bound test/CI status stays in native tasks.
 
 ## History and evidence
 

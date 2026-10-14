@@ -159,6 +159,29 @@ the launcher creates its immediate run directory, not missing ancestor directori
 Continue with the [task-oriented guide](docs/user/getting-started.md) for lookup,
 refinement, correction, decline and recovery.
 
+## Project-local Flight Deck
+
+The [six-element Flight Deck](docs/internal/flight-deck/README.md) derives a local
+review view from the native spec/tasks and declared public evidence. It needs Ruby
+and Git, not an app launch, model key, network refresh or private SDK checkout:
+
+```sh
+ruby --version
+ruby --disable-gems tools/aeos-dashboard/poc-flight-deck doctor
+ruby --disable-gems tools/aeos-dashboard/poc-flight-deck generate
+ruby --disable-gems tools/aeos-dashboard/poc-flight-deck latest
+```
+
+Open the printed local `index.html` path. Six artifacts stay in ignored
+`tmp/aeos-dashboards/`; `latest` means last generated, not live application state.
+The [native mapping](docs/internal/flight-deck/project.yaml) covers functional,
+UX, safety, verification, training and repository readiness. Checked tasks mean
+implementation only. Narrative test/CI notes remain linked but unparsed, so
+verification/acceptance and completion estimates stay unknown without applicable
+structured records. No result confers consent, release or publication authority.
+The exact shared [manifest](tools/aeos-dashboard/export-manifest.json) and
+[notice](tools/aeos-dashboard/POC-EXPORT-NOTICE.md) are retained without local forks.
+
 ## Direct CLI and optional language
 
 Start `.venv/bin/python scripts/mock_lifecycle.py --port 4010`, then in another
@@ -215,6 +238,8 @@ and [milestones](docs/internal/milestones.md). No root application license is se
 - Product: [personas](docs/product/personas.md), [stories](docs/product/user-stories.md), [decisions](docs/product/decisions.md), [backlog](docs/product/backlog.md), [roadmap](docs/product/roadmap.md), [increments](docs/product/sprint-planning.md), [next steps](docs/product/next-steps.md).
 - Review: [demo](docs/internal/demo.md), [video/stills](docs/internal/video-notes.md), [persona/test crosswalk](docs/internal/persona-story-test-index.md), [performance](docs/internal/performance-notes.md), [Marimo feasibility](docs/internal/marimo-feasibility.md).
 - User help: [patient, Support and Developer guide](docs/user/getting-started.md), [recovery and irreversible purge](docs/user/recovery.md).
+- Guided review: [67 individual walkthroughs](docs/user/walkthroughs/index.md), [57-control annotated atlas](docs/user/controls/index.md), [structural catalog](docs/user/walkthroughs/catalog.json).
+- Executive review: [local Flight Deck use and limits](docs/internal/flight-deck/README.md), [native six-element mapping](docs/internal/flight-deck/project.yaml).
 - As built: [walkthrough](docs/internal/as-built/code-walkthrough.md), [architecture](docs/internal/as-built/architecture.md), [UI provenance](docs/internal/ui-assets.md), [mock provenance](vendor/reference/PROVENANCE.md).
 - Delivery: [credential guard](docs/internal/security.md), [milestones](docs/internal/milestones.md), [independent review](docs/internal/reviews/adversarial-review.md).
 - Future design only: [cost/monitoring, rollout/rollback and authenticated support](docs/product/production-design-notes.md); [actual adopted ZEN model](policies/README.md#adopted-policy-index).

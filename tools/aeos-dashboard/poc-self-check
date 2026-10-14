@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "stringio"
+require_relative "lib/aeos_dashboard/poc_runtime"
+
+begin
+  bundle = Pathname.new(__dir__).realpath
+  AeosDashboard::PocBundle.verify(bundle)
+  raise AeosDashboard::ValidationError, "SDK dependency loaded" if AeosDashboard.const_defined?(:Loader, false) || AeosDashboard.const_defined?(:CurrentReleaseState, false)
+  Dir.mktmpdir("poc-consumer-check-") do |temporary|
+    root = Pathname.new(temporary)
+    %w[specs/001-synthetic docs/internal/flight-deck tools].each { |path| FileUtils.mkdir_p(root.join(path)) }
+    FileUtils.cp_r(bundle, root.join("tools/aeos-dashboard"))
+    root.join(".gitignore").write("tmp/\n")
+    root.join("specs/001-synthetic/spec.md").write("# Synthetic specification\n\n- **FR-001**: Public synthetic requirement.\n")
+    root.join("specs/001-synthetic/tasks.md").write("# Native tasks\n\n- [x] T001 Synthetic implementation only\n")
+    config = {"schema_version" => 1, "project" => {"id" => "consumer-check", "title" => "Synthetic consumer check", "objective" => "Offline closure verification"},
+      "sources" => {"specification" => "specs/001-synthetic/spec.md", "tasks" => "specs/001-synthetic/tasks.md"},
+      "elements" => %w[functional ux safety verification training readiness].map { |id| {"id" => id, "title" => id.capitalize, "requirement_ids" => ["FR-001"]} },
+      "requirements" => [{"id" => "FR-001", "task_ids" => ["T001"], "capability_ids" => ["synthetic"], "evidence_refs" => []}],
+      "capabilities" => [{"id" => "synthetic", "title" => "Synthetic", "depends_on" => [], "requirement_ids" => ["FR-001"]}]}
+    root.join("docs/internal/flight-deck/project.yaml").write(config.to_yaml)
+    [["init", "-q"], ["add", "-f", "."], ["-c", "user.name=PoC synthetic check", "-c", "user.email=synthetic@example.invalid", "commit", "-qm", "synthetic fixture"]].each do |args|
+      _out, _error, status = Open3.capture3("git", "-C", root.to_s, *args)
+      raise AeosDashboard::ValidationError, "remote-free fixture Git setup failed" unless status.success?
+    end
+    %w[doctor generate latest].each do |command|
+      out, err = StringIO.new, StringIO.new
+      result = AeosDashboard::PocCLI.run([command, "--root", root.to_s], out: out, err: err)
+      raise AeosDashboard::ValidationError, "synthetic consumer operation failed" unless result == 0
+    end
+    path = root.glob("tmp/aeos-dashboards/consumer-check/poc-*/snapshot.yaml").fetch(0)
+    snapshot = AeosDashboard::PocPaths.structured(path)
+    raise AeosDashboard::ValidationError, "unknown evidence became pass" unless snapshot.dig("requirements", 0, "lifecycle", "verification", "status") == "UNKNOWN" && snapshot.dig("summary", "completion_percent").nil?
+    raise AeosDashboard::ValidationError, "artifact closure mismatch" unless path.dirname.children.length == 6
+  end
+  puts "SELF-CHECK PASS: manifest, offline doctor/generate/latest, six artifacts, unknown evidence retained. Not product acceptance."
+rescue AeosDashboard::Error, SystemCallError, ArgumentError, IndexError, KeyError
+  warn "SELF-CHECK FAIL: invalid bundle or synthetic consumer contract. No credential/model/app/network operation was requested."
+  exit 2
+end

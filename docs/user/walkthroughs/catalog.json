@@ -1,0 +1,6125 @@
+{
+  "schema_version": 1,
+  "flows": [
+    {
+      "id": "happy-path-booking",
+      "source_ids": [
+        "happy_path_booking",
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/happy-path-booking.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-request-and-provider-composite"
+          ],
+          "control_ids": [
+            "choose-provider"
+          ],
+          "anchor": "step-4--choose-the-returned-provider"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-5--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-6--select-a-returned-option-and-review-its-proposal"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "confirm-appointment"
+          ],
+          "anchor": "step-7--confirm-the-exact-current-appointment"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/happy-path-booking.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "provider-lookup",
+      "source_ids": [
+        "provider_lookup",
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/provider-lookup.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-request-and-provider-composite"
+          ],
+          "control_ids": [
+            "choose-provider"
+          ],
+          "anchor": "step-4--choose-a-public-provider-filter"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/provider-lookup.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "no-patient-match",
+      "source_ids": [
+        "no_patient_match",
+        "US2"
+      ],
+      "document": "docs/user/walkthroughs/no-patient-match.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--submit-the-zero-match-private-fixture"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-4--check-the-private-synthetic-identity"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/no-patient-match.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "multiple-patient-matches",
+      "source_ids": [
+        "multiple_patient_matches",
+        "US2"
+      ],
+      "document": "docs/user/walkthroughs/multiple-patient-matches.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--submit-phone-and-dob-without-a-zip"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-4--resolve-only-with-the-private-zip"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/multiple-patient-matches.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "slot-conflict",
+      "source_ids": [
+        "slot_conflict",
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/slot-conflict.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-4--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-5--select-the-returned-conflict-fixture"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "confirm-appointment"
+          ],
+          "anchor": "step-6--confirm-and-recognize-a-definite-rejection"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option",
+            "confirm-appointment"
+          ],
+          "anchor": "step-7--refresh-and-separately-confirm-a-new-proposal"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/slot-conflict.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "no-availability",
+      "source_ids": [
+        "no_availability",
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/no-availability.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "apply-preferences"
+          ],
+          "anchor": "step-4--apply-the-no-availability-preferences"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability"
+          ],
+          "anchor": "step-5--read-and-recognize-the-empty-options-result"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-6--ask-for-help-without-assuming-a-handoff"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/no-availability.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "api-failure",
+      "source_ids": [
+        "api_failure",
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/api-failure.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-4--exercise-the-supplied-outage-in-its-exact-test"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/api-failure.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "unsupported-request",
+      "source_ids": [
+        "unsupported_request",
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/unsupported-request.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "medical-boundary"
+          ],
+          "anchor": "step-3--choose-the-medical-boundary-for-this-supplied-scenario"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-request-and-provider-composite"
+          ],
+          "control_ids": [
+            "public-request",
+            "send-request"
+          ],
+          "anchor": "step-4--explicitly-submit-the-medical-advice-mock-reason"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/unsupported-request.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "correct-private-identity",
+      "source_ids": [
+        "US2"
+      ],
+      "document": "docs/user/walkthroughs/correct-private-identity.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "lookup-appointments"
+          ],
+          "anchor": "step-4--read-the-original-fixtures-appointments"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-5--replace-all-intended-private-discriminators"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "lookup-appointments"
+          ],
+          "anchor": "step-6--read-only-the-replacement-fixture"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/correct-private-identity.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "lookup-appointments",
+      "source_ids": [
+        "US2"
+      ],
+      "document": "docs/user/walkthroughs/lookup-appointments.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "lookup-appointments"
+          ],
+          "anchor": "step-4--request-the-current-appointment-list"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/lookup-appointments.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "empty-appointment-lookup",
+      "source_ids": [
+        "US2"
+      ],
+      "document": "docs/user/walkthroughs/empty-appointment-lookup.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "lookup-appointments"
+          ],
+          "anchor": "step-4--read-the-unbooked-fixtures-appointments"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/empty-appointment-lookup.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "change-preferences",
+      "source_ids": [
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/change-preferences.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-4--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-5--select-a-returned-option-and-review-its-proposal"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "location",
+            "apply-preferences"
+          ],
+          "anchor": "step-6--apply-the-location-correction"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-7--review-a-newly-returned-uptown-option"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/change-preferences.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "decline-and-reselect",
+      "source_ids": [
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/decline-and-reselect.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-4--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-5--select-a-returned-option-and-review-its-proposal"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "decline"
+          ],
+          "anchor": "step-6--decline-the-pending-proposal"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-7--refresh-and-reselect-without-carrying-consent"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/decline-and-reselect.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "accept-spelling-suggestion",
+      "source_ids": [
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/accept-spelling-suggestion.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "location",
+            "specialty",
+            "from-date",
+            "through-date",
+            "apply-preferences"
+          ],
+          "anchor": "step-3--set-the-valid-public-location"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-request-and-provider-composite"
+          ],
+          "control_ids": [
+            "public-request",
+            "send-request"
+          ],
+          "anchor": "step-4--submit-the-public-specialty-typo"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "public-spelling-composite"
+          ],
+          "control_ids": [
+            "spelling-suggestion"
+          ],
+          "anchor": "step-5--accept-the-explicit-canonical-suggestion"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/accept-spelling-suggestion.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "request-help",
+      "source_ids": [
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/request-help.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-3--request-plain-scheduling-assistance"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/request-help.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "medical-boundary",
+      "source_ids": [
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/medical-boundary.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "medical-boundary"
+          ],
+          "anchor": "step-3--open-the-medical-boundary"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/medical-boundary.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "unsupported-intent",
+      "source_ids": [
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/unsupported-intent.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-request-and-provider-composite"
+          ],
+          "control_ids": [
+            "public-request",
+            "send-request"
+          ],
+          "anchor": "step-3--submit-the-unsupported-public-intent"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "unsupported-request"
+          ],
+          "anchor": "step-4--inspect-the-explicit-unsupported-boundary"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/unsupported-intent.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "submit-mock-handoff",
+      "source_ids": [
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/submit-mock-handoff.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-3--prepare-assistance-without-submitting"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "submit-handoff"
+          ],
+          "anchor": "step-4--submit-the-separate-mock-queue-request"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/submit-mock-handoff.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "unknown-booking-outcome",
+      "source_ids": [
+        "US1"
+      ],
+      "document": "docs/user/walkthroughs/unknown-booking-outcome.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-4--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-5--select-a-returned-option-and-review-its-proposal"
+        },
+        {
+          "number": 6,
+          "interactive": false,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-6--exercise-the-isolated-lost-receipt-contract"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-7--use-help-while-retaining-uncertainty"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/unknown-booking-outcome.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "reset-and-reconnect",
+      "source_ids": [
+        "US3"
+      ],
+      "document": "docs/user/walkthroughs/reset-and-reconnect.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-4--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-5--select-a-returned-option-and-review-its-proposal"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "reset-workflow"
+          ],
+          "anchor": "step-6--reset-only-the-local-workflow"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-7--refresh-the-same-trial-tab-read-only"
+        },
+        {
+          "number": 8,
+          "interactive": false,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-8--check-the-restart-contract-without-restarting-a-service"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/reset-and-reconnect.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "pair-support",
+      "source_ids": [
+        "US5"
+      ],
+      "document": "docs/user/walkthroughs/pair-support.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-the-patient-and-open-the-local-support-workspace"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "create-pairing",
+            "pairing-grant",
+            "join-support"
+          ],
+          "anchor": "step-3--create-and-consume-a-one-use-pairing-grant"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "support-joined-state-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-4--review-joined-membership-and-acknowledged-freshness"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/pair-support.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "support-take-and-return-control",
+      "source_ids": [
+        "US5"
+      ],
+      "document": "docs/user/walkthroughs/support-take-and-return-control.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-the-patient-and-open-the-local-support-workspace"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "create-pairing",
+            "pairing-grant",
+            "join-support"
+          ],
+          "anchor": "step-3--create-and-consume-a-one-use-pairing-grant"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "support-actions-composite",
+            "support-active-state-composite"
+          ],
+          "control_ids": [
+            "take-control"
+          ],
+          "anchor": "step-4--take-a-fresh-temporary-demo-lease"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "support-actions-composite",
+            "support-returned-state-composite"
+          ],
+          "control_ids": [
+            "return-control"
+          ],
+          "anchor": "step-5--return-patient-control-and-retain-pairing"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/support-take-and-return-control.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "patient-adopts-support-suggestion",
+      "source_ids": [
+        "US5"
+      ],
+      "document": "docs/user/walkthroughs/patient-adopts-support-suggestion.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-the-patient-and-open-the-local-support-workspace"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "location",
+            "apply-preferences"
+          ],
+          "anchor": "step-3--set-a-visible-patient-baseline"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "create-pairing",
+            "pairing-grant",
+            "join-support"
+          ],
+          "anchor": "step-4--create-and-consume-a-one-use-pairing-grant"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "support-actions-composite",
+            "support-active-state-composite"
+          ],
+          "control_ids": [
+            "take-control"
+          ],
+          "anchor": "step-5--take-a-fresh-temporary-demo-lease"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "support-actions-composite"
+          ],
+          "control_ids": [
+            "suggested-location",
+            "suggest-preference"
+          ],
+          "anchor": "step-6--suggest-uptown-without-adopting-it"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "support-actions-composite",
+            "support-returned-state-composite"
+          ],
+          "control_ids": [
+            "return-control"
+          ],
+          "anchor": "step-7--return-patient-control-and-retain-pairing"
+        },
+        {
+          "number": 8,
+          "interactive": true,
+          "visual_ids": [
+            "patient-adoption-composite"
+          ],
+          "control_ids": [
+            "accept-suggestion"
+          ],
+          "anchor": "step-8--let-the-patient-adopt-the-reviewed-suggestion"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/patient-adopts-support-suggestion.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "recording-off-diagnostics",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/recording-off-diagnostics.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "help"
+          ],
+          "anchor": "step-2--start-a-patient-and-create-a-safe-diagnostic-event"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "developer-disclosure",
+            "inspect-diagnostics"
+          ],
+          "anchor": "step-3--inspect-sanitized-current-diagnostics"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--open-the-owned-off-reference-as-inspection"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/recording-off-diagnostics.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "capture-and-seal",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/capture-and-seal.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help",
+            "medical-boundary"
+          ],
+          "anchor": "step-3--capture-two-safe-local-actions"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--seal-and-open-the-owned-recorded-reference"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/capture-and-seal.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "replay-navigation-and-bookmarks",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/replay-navigation-and-bookmarks.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help",
+            "medical-boundary"
+          ],
+          "anchor": "step-3--capture-two-safe-local-actions"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "step",
+            "previous"
+          ],
+          "anchor": "step-5--step-forward-and-return-to-the-preceding-position"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite"
+          ],
+          "control_ids": [
+            "replay-index",
+            "jump"
+          ],
+          "anchor": "step-6--jump-and-inspect-before-and-after"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "bookmark-name",
+            "bookmark",
+            "step",
+            "go-bookmark"
+          ],
+          "anchor": "step-7--save-and-revisit-a-named-bookmark"
+        },
+        {
+          "number": 8,
+          "interactive": true,
+          "visual_ids": [
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "play",
+            "pause"
+          ],
+          "anchor": "step-8--play-recorded-steps-and-pause"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/replay-navigation-and-bookmarks.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "replay-typed-variant-comparison",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/replay-typed-variant-comparison.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--capture-the-approved-private-fixture-selection"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite",
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "apply-preferences",
+            "get-availability"
+          ],
+          "anchor": "step-4--capture-preferences-and-one-availability-read"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-5--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "replay-index",
+            "typed-variant",
+            "fork"
+          ],
+          "anchor": "step-6--fork-a-failed-read-observation"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "jump",
+            "interaction-reference",
+            "compare"
+          ],
+          "anchor": "step-7--inspect-the-variant-and-compare-with-its-parent"
+        },
+        {
+          "number": 8,
+          "interactive": false,
+          "visual_ids": [
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-8--review-the-closed-typed-change-contract"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/replay-typed-variant-comparison.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "review-regression-proposal",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/review-regression-proposal.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite",
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "apply-preferences",
+            "help"
+          ],
+          "anchor": "step-3--capture-a-public-preference-followed-by-help"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "replay-index",
+            "typed-variant",
+            "fork"
+          ],
+          "anchor": "step-5--create-the-variant-to-be-proposed"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "jump",
+            "interaction-reference",
+            "compare"
+          ],
+          "anchor": "step-6--inspect-the-variant-and-compare-with-its-parent"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "propose-regression"
+          ],
+          "anchor": "step-7--review-and-request-the-minimal-proposal"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/review-regression-proposal.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "export-and-import-recording",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/export-and-import-recording.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help",
+            "medical-boundary"
+          ],
+          "anchor": "step-3--capture-two-safe-local-actions"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "inspect-diagnostics"
+          ],
+          "anchor": "step-5--review-the-selected-recording-before-export"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "recording-data-actions-composite"
+          ],
+          "control_ids": [
+            "export-recording",
+            "recording-json"
+          ],
+          "anchor": "step-6--export-the-reviewed-synthetic-payload"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "recording-data-actions-composite"
+          ],
+          "control_ids": [
+            "recording-json",
+            "import-recording"
+          ],
+          "anchor": "step-7--import-the-reviewed-unmodified-payload"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/export-and-import-recording.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "purge-disposable-recording",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/purge-disposable-recording.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help",
+            "medical-boundary"
+          ],
+          "anchor": "step-3--capture-two-safe-local-actions"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "replay-basic-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "pause",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-5--pause-and-positively-identify-the-disposable-selection"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "recording-data-actions-composite"
+          ],
+          "control_ids": [
+            "purge-recording"
+          ],
+          "anchor": "step-6--purge-only-after-the-user-selects-this-disposable-target"
+        },
+        {
+          "number": 7,
+          "interactive": false,
+          "visual_ids": [
+            "recording-data-actions-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-7--check-protection-boundaries-using-disposable-automated-fixtures"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/purge-disposable-recording.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "unavailable-replay-reference",
+      "source_ids": [
+        "US4"
+      ],
+      "document": "docs/user/walkthroughs/unavailable-replay-reference.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure"
+          ],
+          "anchor": "step-2--start-your-own-patient-and-open-developer-mode"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-3--request-the-shaped-unknown-reference"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-4--distinguish-absence-expiry-and-off-inspection"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/unavailable-replay-reference.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "correct-duplicate-zip",
+      "source_ids": [
+        "US2",
+        "FR-004",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/correct-duplicate-zip.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-4--find-current-public-providers"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "lookup-appointments",
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-5--read-and-prepare-the-first-zips-private-state"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-6--correct-only-the-zip-discriminator"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "lookup-appointments"
+          ],
+          "anchor": "step-7--look-up-the-replacement-fixture"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/correct-duplicate-zip.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "invalid-private-identity",
+      "source_ids": [
+        "US2",
+        "FR-004",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/invalid-private-identity.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-4--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-5--select-a-returned-option-and-review-its-proposal"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-6--submit-the-four-digit-private-zip"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-7--correct-the-invalid-field-explicitly"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/invalid-private-identity.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "recover-partial-identity",
+      "source_ids": [
+        "US2",
+        "FR-004",
+        "tests/test_identity_draft_recovery.py"
+      ],
+      "document": "docs/user/walkthroughs/recover-partial-identity.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-4--find-current-public-providers"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-5--select-a-returned-option-and-review-its-proposal"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-6--invalidate-only-the-zip"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "zip-discriminator",
+            "synthetic-phone",
+            "check-identity"
+          ],
+          "anchor": "step-7--submit-a-different-field-without-fixing-the-invalid-draft"
+        },
+        {
+          "number": 8,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-8--fix-the-actual-invalid-field"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/recover-partial-identity.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_identity_draft_recovery.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "appointment-not-found",
+      "source_ids": [
+        "US2",
+        "FR-007",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/appointment-not-found.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "lookup-appointments"
+          ],
+          "anchor": "step-4--read-the-current-appointment-rows"
+        },
+        {
+          "number": 5,
+          "interactive": false,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-5--check-the-patient-not-found-refresh-contract"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/appointment-not-found.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "appointment-outage",
+      "source_ids": [
+        "US2",
+        "FR-007",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/appointment-outage.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "lookup-appointments"
+          ],
+          "anchor": "step-4--read-the-current-appointment-rows"
+        },
+        {
+          "number": 5,
+          "interactive": false,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-5--check-the-503-appointment-refresh-contract"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/appointment-outage.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "malformed-appointment-response",
+      "source_ids": [
+        "US2",
+        "FR-007",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/malformed-appointment-response.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "lookup-appointments"
+          ],
+          "anchor": "step-4--read-the-current-appointment-rows"
+        },
+        {
+          "number": 5,
+          "interactive": false,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-5--check-malformed-and-disconnected-appointment-refreshes"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/malformed-appointment-response.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "failed-availability-refresh",
+      "source_ids": [
+        "US1",
+        "FR-005",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/failed-availability-refresh.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-4--check-the-private-synthetic-identity"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-5--select-a-returned-option-and-review-its-proposal"
+        },
+        {
+          "number": 6,
+          "interactive": false,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-6--check-that-a-failed-refresh-revokes-stale-slots"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/failed-availability-refresh.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "correct-invalid-date-range",
+      "source_ids": [
+        "US1",
+        "FR-005",
+        "tests/test_conversation.py"
+      ],
+      "document": "docs/user/walkthroughs/correct-invalid-date-range.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "from-date",
+            "through-date",
+            "apply-preferences"
+          ],
+          "anchor": "step-4--apply-the-initial-valid-range"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "from-date",
+            "through-date",
+            "apply-preferences"
+          ],
+          "anchor": "step-5--reject-the-inverted-correction"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "through-date",
+            "from-date",
+            "apply-preferences"
+          ],
+          "anchor": "step-6--extend-the-end-before-moving-the-start"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/correct-invalid-date-range.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_conversation.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "clear-date-preferences",
+      "source_ids": [
+        "US1",
+        "FR-005",
+        "tests/test_conversation.py"
+      ],
+      "document": "docs/user/walkthroughs/clear-date-preferences.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-a-dedicated-patient-session"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "find-providers"
+          ],
+          "anchor": "step-3--find-current-public-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "from-date",
+            "through-date",
+            "apply-preferences"
+          ],
+          "anchor": "step-4--apply-a-bounded-public-date-range"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "public-request-and-provider-composite"
+          ],
+          "control_ids": [
+            "public-request",
+            "send-request"
+          ],
+          "anchor": "step-5--clear-both-dates-through-the-supported-public-command"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "from-date",
+            "through-date",
+            "apply-preferences"
+          ],
+          "anchor": "step-6--verify-the-retained-public-filters"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/clear-date-preferences.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_conversation.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "select-and-clear-provider",
+      "source_ids": [
+        "US1",
+        "FR-005",
+        "tests/test_conversation.py"
+      ],
+      "document": "docs/user/walkthroughs/select-and-clear-provider.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
+        },
+        {
+          "number": 1,
+          "interactive": false,
+          "anchor": "step-1--launch"
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite",
+            "public-request-and-provider-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "find-providers",
+            "choose-provider"
+          ],
+          "anchor": "step-3--find-returned-providers"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-request-and-provider-composite"
+          ],
+          "control_ids": [
+            "public-request",
+            "send-request"
+          ],
+          "anchor": "step-4--correct-and-clear-only-that-filter"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/select-and-clear-provider.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_conversation.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "accept-provider-name-suggestion",
+      "source_ids": [
+        "US1",
+        "FR-006",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/accept-provider-name-suggestion.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
+        },
+        {
+          "number": 1,
+          "interactive": false,
+          "anchor": "step-1--launch"
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-spelling-composite"
+          ],
+          "control_ids": [
+            "spelling-suggestion"
+          ],
+          "anchor": "step-3--locate-the-explicit-suggestion-family"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [
+            "public-request-and-provider-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-4--run-the-exact-provider-name-boundary"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/accept-provider-name-suggestion.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "text-does-not-confirm",
+      "source_ids": [
+        "US1",
+        "FR-008",
+        "tests/test_conversation.py"
+      ],
+      "document": "docs/user/walkthroughs/text-does-not-confirm.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
+        },
+        {
+          "number": 1,
+          "interactive": false,
+          "anchor": "step-1--launch"
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--verify-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "apply-preferences"
+          ],
+          "anchor": "step-4--apply-public-preferences"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option"
+          ],
+          "anchor": "step-5--prepare-but-do-not-confirm-an-exact-proposal"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "public-request-and-provider-composite",
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "public-request",
+            "send-request",
+            "confirm-appointment"
+          ],
+          "anchor": "step-6--send-agreement-as-public-text"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/text-does-not-confirm.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_conversation.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "duplicate-confirmation",
+      "source_ids": [
+        "US1",
+        "FR-009",
+        "tests/test_session_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/duplicate-confirmation.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
+        },
+        {
+          "number": 1,
+          "interactive": false,
+          "anchor": "step-1--launch"
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--verify-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "apply-preferences"
+          ],
+          "anchor": "step-4--apply-public-preferences"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option",
+            "confirm-appointment"
+          ],
+          "anchor": "step-5--review-and-confirm-one-mock-appointment"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "confirmation-consumed"
+          ],
+          "control_ids": [
+            "confirm-appointment"
+          ],
+          "anchor": "step-6--check-the-consumed-state-not-a-second-booking"
+        },
+        {
+          "number": 7,
+          "interactive": false,
+          "visual_ids": [],
+          "control_ids": [],
+          "anchor": "step-7--run-the-controlled-concurrency-contract"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/duplicate-confirmation.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_session_contract.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "stale-submission",
+      "source_ids": [
+        "US1",
+        "FR-008",
+        "tests/test_browser_service.py"
+      ],
+      "document": "docs/user/walkthroughs/stale-submission.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
+        },
+        {
+          "number": 1,
+          "interactive": false,
+          "anchor": "step-1--launch"
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-3--use-the-current-help-control"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [],
+          "control_ids": [],
+          "anchor": "step-4--exercise-a-delayed-command-safely-in-the-test"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/stale-submission.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_browser_service.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "unknown-after-restart",
+      "source_ids": [
+        "US1",
+        "FR-010a",
+        "tests/test_effect_journal.py"
+      ],
+      "document": "docs/user/walkthroughs/unknown-after-restart.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
+        },
+        {
+          "number": 1,
+          "interactive": false,
+          "anchor": "step-1--launch"
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "developer-disclosure",
+            "inspect-diagnostics"
+          ],
+          "anchor": "step-3--read-diagnostics-without-starting-recording"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [],
+          "control_ids": [],
+          "anchor": "step-4--run-isolated-durable-reconstruction-checks"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/unknown-after-restart.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_effect_journal.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "success-then-conflict",
+      "source_ids": [
+        "US1",
+        "FR-010",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/success-then-conflict.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
+        },
+        {
+          "number": 1,
+          "interactive": false,
+          "anchor": "step-1--launch"
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--verify-synthetic-identity"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "apply-preferences"
+          ],
+          "anchor": "step-4--apply-public-preferences"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option",
+            "confirm-appointment"
+          ],
+          "anchor": "step-5--complete-one-current-mock-proposal"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "returned-options-and-confirm-composite",
+            "appointment-results"
+          ],
+          "control_ids": [
+            "get-availability",
+            "select-option",
+            "confirm-appointment"
+          ],
+          "anchor": "step-6--review-history-after-a-distinct-rejected-attempt"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/success-then-conflict.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "handoff-failure",
+      "source_ids": [
+        "US3",
+        "FR-012",
+        "tests/test_supplied_http.py"
+      ],
+      "document": "docs/user/walkthroughs/handoff-failure.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
+        },
+        {
+          "number": 1,
+          "interactive": false,
+          "anchor": "step-1--launch"
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-3--locate-the-separate-mock-handoff-action"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [],
+          "control_ids": [],
+          "anchor": "step-4--run-the-supplied-http-outage-path"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/handoff-failure.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_supplied_http.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "unknown-handoff-outcome",
+      "source_ids": [
+        "US3",
+        "FR-010",
+        "tests/test_live_diagnostics.py"
+      ],
+      "document": "docs/user/walkthroughs/unknown-handoff-outcome.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
+        },
+        {
+          "number": 1,
+          "interactive": false,
+          "anchor": "step-1--launch"
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-3--read-the-handoff-outcome-boundary"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [],
+          "control_ids": [],
+          "anchor": "step-4--run-the-lost-receipt-reentry-contract"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/unknown-handoff-outcome.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_live_diagnostics.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "help-during-model-wait",
+      "source_ids": [
+        "US3",
+        "FR-011",
+        "tests/test_interaction_service.py"
+      ],
+      "document": "docs/user/walkthroughs/help-during-model-wait.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "interactive": false,
+          "anchor": "step-0--install-and-set-up"
+        },
+        {
+          "number": 1,
+          "interactive": false,
+          "anchor": "step-1--launch"
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-an-independent-patient"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "help",
+            "developer-disclosure",
+            "inspect-diagnostics"
+          ],
+          "anchor": "step-3--locate-help-and-diagnostics"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [],
+          "control_ids": [],
+          "anchor": "step-4--run-the-event-controlled-wait-test"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/help-during-model-wait.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_interaction_service.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "model-unavailable-no-fallback",
+      "source_ids": [
+        "US6",
+        "FR-001",
+        "tests/test_language.py"
+      ],
+      "document": "docs/user/walkthroughs/model-unavailable-no-fallback.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "inspect-diagnostics"
+          ],
+          "anchor": "step-2--start-a-patient-and-inspect-the-safe-local-controls"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-3--read-the-live-failure-path-without-inducing-an-outage"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-4--reproduce-no-fallback-and-transport-failure-in-automation"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/model-unavailable-no-fallback.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_language.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "malformed-model-response",
+      "source_ids": [
+        "US1",
+        "FR-001",
+        "tests/test_language.py"
+      ],
+      "document": "docs/user/walkthroughs/malformed-model-response.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "inspect-diagnostics"
+          ],
+          "anchor": "step-2--start-a-patient-and-inspect-the-safe-local-controls"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-3--inspect-a-genuine-invalid-output-notice-only-if-it-occurs"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-4--reproduce-malformed-response-rejection-in-the-test-harness"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/malformed-model-response.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_language.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "pairing-expiry-and-rejoin",
+      "source_ids": [
+        "US5",
+        "FR-017",
+        "tests/test_browser_service.py"
+      ],
+      "document": "docs/user/walkthroughs/pairing-expiry-and-rejoin.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-the-patient-and-open-the-local-support-workspace"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "create-pairing"
+          ],
+          "anchor": "step-3--generate-a-grant-and-let-it-expire"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "pairing-grant",
+            "join-support",
+            "create-pairing"
+          ],
+          "anchor": "step-4--observe-rejection-and-join-with-a-fresh-grant"
+        },
+        {
+          "number": 5,
+          "interactive": false,
+          "visual_ids": [
+            "support-joined-state-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-5--check-expiry-boundaries-without-waiting-in-a-browser"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/pairing-expiry-and-rejoin.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_browser_service.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "independent-session-isolation",
+      "source_ids": [
+        "US5",
+        "FR-017",
+        "tests/test_browser_service.py"
+      ],
+      "document": "docs/user/walkthroughs/independent-session-isolation.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-two-explicitly-independent-patients"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--identify-only-patient-a"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-4--compare-safe-local-state-and-the-automated-isolation-contract"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/independent-session-isolation.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_browser_service.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "support-stale-observation",
+      "source_ids": [
+        "US5",
+        "FR-017",
+        "tests/test_browser_service.py"
+      ],
+      "document": "docs/user/walkthroughs/support-stale-observation.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-the-patient-and-open-the-local-support-workspace"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "create-pairing",
+            "pairing-grant",
+            "join-support"
+          ],
+          "anchor": "step-3--create-and-consume-a-one-use-pairing-grant"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "support-joined-state-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-4--review-the-last-observed-screen-before-changing-state"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-5--change-patient-context-and-inspect-actual-freshness"
+        },
+        {
+          "number": 6,
+          "interactive": false,
+          "visual_ids": [
+            "support-joined-state-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-6--reproduce-withheld-acknowledgement-in-the-test-harness"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/support-stale-observation.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_browser_service.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "support-lease-expiry",
+      "source_ids": [
+        "US5",
+        "FR-017",
+        "tests/test_support_status.py"
+      ],
+      "document": "docs/user/walkthroughs/support-lease-expiry.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient"
+          ],
+          "anchor": "step-2--start-the-patient-and-open-the-local-support-workspace"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite"
+          ],
+          "control_ids": [
+            "create-pairing",
+            "pairing-grant",
+            "join-support"
+          ],
+          "anchor": "step-3--create-and-consume-a-one-use-pairing-grant"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "support-actions-composite",
+            "support-active-state-composite"
+          ],
+          "control_ids": [
+            "take-control"
+          ],
+          "anchor": "step-4--take-a-fresh-temporary-demo-lease"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "support-returned-state-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-5--allow-the-temporary-lease-to-expire"
+        },
+        {
+          "number": 6,
+          "interactive": false,
+          "visual_ids": [
+            "support-active-state-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-6--check-the-exact-lease-boundary-with-a-disposable-clock"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/support-lease-expiry.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_support_status.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "replay-preference-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-preference-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite",
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "apply-preferences",
+            "help"
+          ],
+          "anchor": "step-3--capture-a-public-preference-followed-by-help"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "replay-index",
+            "typed-variant",
+            "fork"
+          ],
+          "anchor": "step-5--fork-the-preference-input"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "jump",
+            "interaction-reference",
+            "compare"
+          ],
+          "anchor": "step-6--inspect-the-variant-and-compare-with-its-parent"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/replay-preference-variant.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "replay-identity-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-identity-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--capture-the-approved-private-fixture-selection"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "replay-index",
+            "typed-variant",
+            "fork"
+          ],
+          "anchor": "step-5--fork-the-identity-fixture-input"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "jump",
+            "interaction-reference",
+            "compare"
+          ],
+          "anchor": "step-6--inspect-the-variant-and-compare-with-its-parent"
+        },
+        {
+          "number": 7,
+          "interactive": false,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-7--check-fixture-typing-and-recorded-core-limitations"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/replay-identity-variant.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "replay-clock-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-clock-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-3--capture-one-help-action"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "recording-data-actions-composite"
+          ],
+          "control_ids": [
+            "export-recording",
+            "recording-json"
+          ],
+          "anchor": "step-5--read-the-selected-events-actual-clock"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "replay-index",
+            "typed-variant",
+            "fork",
+            "jump"
+          ],
+          "anchor": "step-6--fork-a-finite-forward-clock-value"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "jump",
+            "interaction-reference",
+            "compare"
+          ],
+          "anchor": "step-7--inspect-the-variant-and-compare-with-its-parent"
+        },
+        {
+          "number": 8,
+          "interactive": false,
+          "visual_ids": [
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-8--verify-the-exact-plus-twelve-contract-in-automation"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/replay-clock-variant.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "replay-model-timeout-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-model-timeout-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-2--open-only-an-existing-approved-language-recording"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "replay-index",
+            "typed-variant",
+            "fork",
+            "jump"
+          ],
+          "anchor": "step-3--fork-timeout-only-at-a-language-event"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-4--run-the-deterministic-timeout-contract-when-no-recording-exists"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/replay-model-timeout-variant.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "replay-order-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-order-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help",
+            "medical-boundary"
+          ],
+          "anchor": "step-3--capture-two-safe-local-actions"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "replay-index",
+            "typed-variant",
+            "fork"
+          ],
+          "anchor": "step-5--swap-the-two-event-suffix"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "jump",
+            "interaction-reference",
+            "compare"
+          ],
+          "anchor": "step-6--inspect-the-variant-and-compare-with-its-parent"
+        },
+        {
+          "number": 7,
+          "interactive": false,
+          "visual_ids": [
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-7--check-the-guard-sensitive-order-contract"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/replay-order-variant.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "replay-delay-and-view-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-delay-and-view-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "private-entry-composite"
+          ],
+          "control_ids": [
+            "private-disclosure",
+            "synthetic-phone",
+            "date-of-birth",
+            "zip-discriminator",
+            "check-identity"
+          ],
+          "anchor": "step-3--capture-the-approved-private-fixture-selection"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "public-filters-composite",
+            "returned-options-and-confirm-composite"
+          ],
+          "control_ids": [
+            "specialty",
+            "location",
+            "apply-preferences",
+            "get-availability"
+          ],
+          "anchor": "step-4--capture-preferences-and-one-availability-read"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-5--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 6,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "replay-index",
+            "typed-variant",
+            "fork"
+          ],
+          "anchor": "step-6--fork-a-recorded-api-delay"
+        },
+        {
+          "number": 7,
+          "interactive": true,
+          "visual_ids": [
+            "replay-position-and-bookmark-composite",
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [
+            "jump",
+            "interaction-reference",
+            "compare"
+          ],
+          "anchor": "step-7--inspect-the-variant-and-compare-with-its-parent"
+        },
+        {
+          "number": 8,
+          "interactive": false,
+          "visual_ids": [
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-8--review-the-automated-only-recorded-view-comparison"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/replay-delay-and-view-variant.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "incomplete-capture",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_view_receipt_capture.py"
+      ],
+      "document": "docs/user/walkthroughs/incomplete-capture.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help"
+          ],
+          "anchor": "step-3--capture-one-help-action"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "inspect-diagnostics"
+          ],
+          "anchor": "step-5--inspect-actual-completeness-and-retained-evidence"
+        },
+        {
+          "number": 6,
+          "interactive": false,
+          "visual_ids": [
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-6--exercise-the-absent-ack-boundary-in-automation"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/incomplete-capture.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_view_receipt_capture.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "imported-provenance-drift",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/imported-provenance-drift.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "inspect-diagnostics"
+          ],
+          "anchor": "step-2--start-a-patient-and-inspect-the-safe-local-controls"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "recording-data-actions-composite"
+          ],
+          "control_ids": [
+            "recording-json",
+            "import-recording"
+          ],
+          "anchor": "step-3--review-provenance-on-an-approved-import"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [
+            "variant-edit-and-review-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-4--check-exact-prompt-drift-in-automation"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/imported-provenance-drift.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "expired-recording",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_recording_store.py"
+      ],
+      "document": "docs/user/walkthroughs/expired-recording.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "inspect-diagnostics"
+          ],
+          "anchor": "step-2--start-a-patient-and-inspect-the-safe-local-controls"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-3--open-an-owned-expired-reference-if-one-already-exists"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [
+            "recording-data-actions-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-4--check-the-retention-boundary-and-active-replay-erasure"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/expired-recording.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_recording_store.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "rejected-recording-import",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/rejected-recording-import.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "inspect-diagnostics"
+          ],
+          "anchor": "step-2--start-a-patient-and-inspect-the-safe-local-controls"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "recording-data-actions-composite"
+          ],
+          "control_ids": [
+            "recording-json",
+            "import-recording"
+          ],
+          "anchor": "step-3--submit-the-minimal-invalid-recording-envelope"
+        },
+        {
+          "number": 4,
+          "interactive": false,
+          "visual_ids": [
+            "recording-data-actions-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-4--check-strict-rejection-and-current-replay-preservation-in-automation"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/rejected-recording-import.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    },
+    {
+      "id": "recording-limit",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/recording-limit.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        },
+        {
+          "number": 2,
+          "interactive": true,
+          "visual_ids": [
+            "toolbar-composite",
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "start-independent-patient",
+            "developer-disclosure",
+            "start-recording"
+          ],
+          "anchor": "step-2--start-a-disposable-patient-and-opt-into-capture"
+        },
+        {
+          "number": 3,
+          "interactive": true,
+          "visual_ids": [
+            "help-actions-composite"
+          ],
+          "control_ids": [
+            "help",
+            "medical-boundary"
+          ],
+          "anchor": "step-3--capture-two-safe-local-actions"
+        },
+        {
+          "number": 4,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite",
+            "replay-basic-composite"
+          ],
+          "control_ids": [
+            "seal-recording",
+            "interaction-reference",
+            "open-reference"
+          ],
+          "anchor": "step-4--seal-and-open-the-owned-recorded-reference"
+        },
+        {
+          "number": 5,
+          "interactive": true,
+          "visual_ids": [
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [
+            "inspect-diagnostics"
+          ],
+          "anchor": "step-5--read-dropped-missing-and-storage-information"
+        },
+        {
+          "number": 6,
+          "interactive": false,
+          "visual_ids": [
+            "recording-and-diagnostics-composite"
+          ],
+          "control_ids": [],
+          "anchor": "step-6--reproduce-bounded-overflow-without-filling-real-storage"
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/recording-limit.md#known-gaps-and-evidence"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py",
+        "assets/ui/walkthroughs/manifest.json"
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "start-independent-patient",
+      "label": "Start independent patient",
+      "role": "both",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": [
+        "toolbar-composite"
+      ]
+    },
+    {
+      "id": "public-request",
+      "label": "Public scheduling request",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": [
+        "public-request-and-provider-composite"
+      ]
+    },
+    {
+      "id": "send-request",
+      "label": "Send scheduling request",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": [
+        "public-request-and-provider-composite"
+      ]
+    },
+    {
+      "id": "specialty",
+      "label": "Specialty",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": [
+        "public-filters-composite"
+      ]
+    },
+    {
+      "id": "location",
+      "label": "Location",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": [
+        "public-filters-composite"
+      ]
+    },
+    {
+      "id": "from-date",
+      "label": "From date",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": [
+        "public-filters-composite"
+      ]
+    },
+    {
+      "id": "through-date",
+      "label": "Through date",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": [
+        "public-filters-composite"
+      ]
+    },
+    {
+      "id": "apply-preferences",
+      "label": "Apply preferences",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": [
+        "public-filters-composite"
+      ]
+    },
+    {
+      "id": "find-providers",
+      "label": "Find providers",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": [
+        "public-filters-composite"
+      ]
+    },
+    {
+      "id": "choose-provider",
+      "label": "Choose provider {number}",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": [
+        "public-request-and-provider-composite"
+      ]
+    },
+    {
+      "id": "spelling-suggestion",
+      "label": "Use {value}",
+      "role": "patient",
+      "group": "session-and-public",
+      "document": "docs/user/controls/session-and-public.md",
+      "visual_ids": [
+        "public-spelling-composite"
+      ]
+    },
+    {
+      "id": "private-disclosure",
+      "label": "2 · Private synthetic identity",
+      "role": "both",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": [
+        "private-entry-composite"
+      ]
+    },
+    {
+      "id": "synthetic-phone",
+      "label": "Synthetic phone",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": [
+        "private-entry-composite"
+      ]
+    },
+    {
+      "id": "date-of-birth",
+      "label": "Date of birth",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": [
+        "private-entry-composite"
+      ]
+    },
+    {
+      "id": "zip-discriminator",
+      "label": "ZIP discriminator",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": [
+        "private-entry-composite"
+      ]
+    },
+    {
+      "id": "check-identity",
+      "label": "Check or correct identity",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": [
+        "private-entry-composite"
+      ]
+    },
+    {
+      "id": "get-availability",
+      "label": "Get current availability",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": [
+        "returned-options-and-confirm-composite"
+      ]
+    },
+    {
+      "id": "lookup-appointments",
+      "label": "Look up my appointments",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": [
+        "returned-options-and-confirm-composite"
+      ]
+    },
+    {
+      "id": "select-option",
+      "label": "Select option {number}",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": [
+        "returned-options-and-confirm-composite"
+      ]
+    },
+    {
+      "id": "confirm-appointment",
+      "label": "Confirm appointment",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": [
+        "returned-options-and-confirm-composite"
+      ]
+    },
+    {
+      "id": "decline",
+      "label": "Decline / change my mind",
+      "role": "patient",
+      "group": "private-and-booking",
+      "document": "docs/user/controls/private-and-booking.md",
+      "visual_ids": [
+        "returned-options-and-confirm-composite"
+      ]
+    },
+    {
+      "id": "help",
+      "label": "Help",
+      "role": "both",
+      "group": "help-and-outcomes",
+      "document": "docs/user/controls/help-and-outcomes.md",
+      "visual_ids": [
+        "help-actions-composite"
+      ]
+    },
+    {
+      "id": "medical-boundary",
+      "label": "Medical boundary",
+      "role": "both",
+      "group": "help-and-outcomes",
+      "document": "docs/user/controls/help-and-outcomes.md",
+      "visual_ids": [
+        "help-actions-composite"
+      ]
+    },
+    {
+      "id": "unsupported-request",
+      "label": "Unsupported request",
+      "role": "both",
+      "group": "help-and-outcomes",
+      "document": "docs/user/controls/help-and-outcomes.md",
+      "visual_ids": [
+        "help-actions-composite"
+      ]
+    },
+    {
+      "id": "submit-handoff",
+      "label": "Submit mock handoff",
+      "role": "patient",
+      "group": "help-and-outcomes",
+      "document": "docs/user/controls/help-and-outcomes.md",
+      "visual_ids": [
+        "help-actions-composite"
+      ]
+    },
+    {
+      "id": "reset-workflow",
+      "label": "Reset local workflow",
+      "role": "patient",
+      "group": "help-and-outcomes",
+      "document": "docs/user/controls/help-and-outcomes.md",
+      "visual_ids": [
+        "help-actions-composite"
+      ]
+    },
+    {
+      "id": "pairing-grant",
+      "label": "One-use pairing grant",
+      "role": "both",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": [
+        "toolbar-composite"
+      ]
+    },
+    {
+      "id": "join-support",
+      "label": "Join demo support",
+      "role": "both",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": [
+        "toolbar-composite"
+      ]
+    },
+    {
+      "id": "create-pairing",
+      "label": "Create support pairing grant",
+      "role": "patient",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": [
+        "toolbar-composite"
+      ]
+    },
+    {
+      "id": "take-control",
+      "label": "Take demo control",
+      "role": "support",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": [
+        "support-actions-composite"
+      ]
+    },
+    {
+      "id": "return-control",
+      "label": "Return patient control",
+      "role": "support",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": [
+        "support-actions-composite"
+      ]
+    },
+    {
+      "id": "suggested-location",
+      "label": "Suggested public location",
+      "role": "support",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": [
+        "support-actions-composite"
+      ]
+    },
+    {
+      "id": "suggest-preference",
+      "label": "Suggest preference — not adoption",
+      "role": "support",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": [
+        "support-actions-composite"
+      ]
+    },
+    {
+      "id": "accept-suggestion",
+      "label": "Accept reviewed support suggestion",
+      "role": "patient",
+      "group": "support",
+      "document": "docs/user/controls/support.md",
+      "visual_ids": [
+        "patient-adoption-composite"
+      ]
+    },
+    {
+      "id": "developer-disclosure",
+      "label": "Developer Mode · local PoC diagnostics and replay",
+      "role": "both",
+      "group": "developer-recording",
+      "document": "docs/user/controls/developer-recording.md",
+      "visual_ids": [
+        "recording-and-diagnostics-composite"
+      ]
+    },
+    {
+      "id": "interaction-reference",
+      "label": "Interaction reference",
+      "role": "both",
+      "group": "developer-recording",
+      "document": "docs/user/controls/developer-recording.md",
+      "visual_ids": [
+        "recording-and-diagnostics-composite"
+      ]
+    },
+    {
+      "id": "start-recording",
+      "label": "Start synthetic recording",
+      "role": "patient",
+      "group": "developer-recording",
+      "document": "docs/user/controls/developer-recording.md",
+      "visual_ids": [
+        "recording-and-diagnostics-composite"
+      ]
+    },
+    {
+      "id": "seal-recording",
+      "label": "Seal recording",
+      "role": "both",
+      "group": "developer-recording",
+      "document": "docs/user/controls/developer-recording.md",
+      "visual_ids": [
+        "recording-and-diagnostics-composite"
+      ]
+    },
+    {
+      "id": "inspect-diagnostics",
+      "label": "Inspect sanitized diagnostics",
+      "role": "both",
+      "group": "developer-recording",
+      "document": "docs/user/controls/developer-recording.md",
+      "visual_ids": [
+        "recording-and-diagnostics-composite"
+      ]
+    },
+    {
+      "id": "open-reference",
+      "label": "Open reference",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": [
+        "replay-basic-composite"
+      ]
+    },
+    {
+      "id": "previous",
+      "label": "Previous",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": [
+        "replay-basic-composite"
+      ]
+    },
+    {
+      "id": "step",
+      "label": "Step",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": [
+        "replay-basic-composite"
+      ]
+    },
+    {
+      "id": "pause",
+      "label": "Pause",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": [
+        "replay-basic-composite"
+      ]
+    },
+    {
+      "id": "play",
+      "label": "Play recorded steps",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": [
+        "replay-basic-composite"
+      ]
+    },
+    {
+      "id": "replay-index",
+      "label": "Replay step index (zero based)",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": [
+        "replay-position-and-bookmark-composite"
+      ]
+    },
+    {
+      "id": "jump",
+      "label": "Jump / inspect before and after",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": [
+        "replay-position-and-bookmark-composite"
+      ]
+    },
+    {
+      "id": "bookmark-name",
+      "label": "Bookmark name",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": [
+        "replay-position-and-bookmark-composite"
+      ]
+    },
+    {
+      "id": "bookmark",
+      "label": "Bookmark current step",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": [
+        "replay-position-and-bookmark-composite"
+      ]
+    },
+    {
+      "id": "go-bookmark",
+      "label": "Go to bookmark",
+      "role": "both",
+      "group": "replay-navigation",
+      "document": "docs/user/controls/replay-navigation.md",
+      "visual_ids": [
+        "replay-position-and-bookmark-composite"
+      ]
+    },
+    {
+      "id": "typed-variant",
+      "label": "Typed variant JSON",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": [
+        "variant-edit-and-review-composite"
+      ]
+    },
+    {
+      "id": "fork",
+      "label": "Fork isolated simulation",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": [
+        "variant-edit-and-review-composite"
+      ]
+    },
+    {
+      "id": "compare",
+      "label": "Compare with reference",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": [
+        "variant-edit-and-review-composite"
+      ]
+    },
+    {
+      "id": "propose-regression",
+      "label": "Propose reviewed regression fixture",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": [
+        "variant-edit-and-review-composite"
+      ]
+    },
+    {
+      "id": "export-recording",
+      "label": "Export reviewed synthetic recording",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": [
+        "recording-data-actions-composite"
+      ]
+    },
+    {
+      "id": "recording-json",
+      "label": "Reviewed recording JSON / import",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": [
+        "recording-data-actions-composite"
+      ]
+    },
+    {
+      "id": "import-recording",
+      "label": "Import bounded synthetic recording",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": [
+        "recording-data-actions-composite"
+      ]
+    },
+    {
+      "id": "purge-recording",
+      "label": "Purge selected recording only",
+      "role": "both",
+      "group": "replay-variants-and-data",
+      "document": "docs/user/controls/replay-variants-and-data.md",
+      "visual_ids": [
+        "recording-data-actions-composite"
+      ]
+    }
+  ]
+}

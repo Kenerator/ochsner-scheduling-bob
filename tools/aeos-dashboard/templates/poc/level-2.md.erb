@@ -1,0 +1,13 @@
+# <%= poc_text(snapshot.dig("project", "title")) %> — PoC Readiness
+
+Rendered: <%= snapshot.fetch("rendered_at") %> · Source: <%= poc_text(snapshot.dig("source", "source_state_timestamp")) %> · <%= source_identity %> · Scope: <%= poc_text(snapshot.fetch("scope_version")) %>
+
+## Dependency-ordered capabilities
+
+<%= poc_table(["Capability", "Depends on", "Requirements", "Posture", "Stages"], snapshot.fetch("capabilities").map { |row| [row.fetch("title"), row.fetch("dependencies").join(", "), row.fetch("requirement_ids").join(", "), poc_estimate(row.fetch("summary")), poc_counts(row.fetch("summary"))] }) %>
+
+## Native requirement detail
+
+<%= poc_table(["Requirement", "Scope", "Implementation", "Verification", "Acceptance"], snapshot.fetch("requirements").map { |row| ["#{row.fetch('id')} — #{row.fetch('title')}", row.fetch("scope_state"), *%w[implementation verification acceptance].map { |stage| value = row.dig("lifecycle", stage); [value.fetch("status"), value["result"]].compact.join(" / ") }] }) %>
+
+Deferred scope is not an active blocker. Recorded decisions do not independently authenticate a human or advance a release gate. See Engineering for original evidence identities and limits.

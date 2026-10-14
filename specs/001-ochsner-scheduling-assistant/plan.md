@@ -102,6 +102,86 @@ completion; surface its exact credential/model/cost decision if no applicable
 grant exists. Preserve a reviewed baseline/private milestone early, excluding
 raw intake, credentials, environments and private native state.
 
+## Approved launch, training and Flight Deck delta — 2026-10-12
+
+Scope: FR-021–FR-024, principally US6 with US1–US5 flow/control coverage.
+The approved plan baseline is DevOps `7da4364fdfb3822681026ae444e90c40d576921d`;
+human confirmation is MLX turn `01a13245-6a8c-76c2-b626-c6cebcafe2cc`,
+message `01a13245-8239-77d3-8adb-03fab212d260`. This records plan selection,
+not a new credential, spend, media-publication or product-repair grant.
+
+W1 is independent: inventory native scenarios/control labels; implement a standard-
+library read-only structural checker with temporary-file tests. The checker consumes
+`docs/user/walkthroughs/catalog.json` and `assets/ui/walkthroughs/manifest.json`;
+it resolves native story/requirement IDs and the public-safe supplied scenario ID
+projection without importing app code or making network requests. W1's draft
+catalog may fail while W2/W3 artifacts remain missing; no empty template passes
+as a completed collection. Share reviewed reusable checker bytes with SM for
+Template integration, never write the Template/shared source from BOB.
+
+F6 waits for SM's reviewed Flight Deck export/manifest, then pins identical shared
+bytes plus BOB's thin `docs/internal/flight-deck/project.yaml`. L4 is now integrated
+at `e615d98`; reuse T087–T098 evidence rather than replaying that implementation.
+Neither bundle is invented locally. Keep canonical `.bob-local/model-budget.json`
+and existing effect namespaces; no paid startup probe. FR-027/027a supersede the
+old budget/window prose for runtime and functional qualification, not code creation.
+
+F6 mapping, 2026-10-14 (reviewed shared export `ea7cfea` adopted locally;
+final BOB review/integration pending): six elements reuse native FR/task IDs rather than copied completion
+percentages. The consumer test will resolve every mapped ID/public path, use a
+temporary invalid-ID/private-path fixture for RED, and assert absent verification
+stays unknown through the actual exported consumer, not a local substitute engine.
+
+| Element | Native requirement basis | Implementation/task and evidence boundary |
+|---|---|---|
+| Functional coverage | FR-001/002/004/005/006/007/011/012/015/017 | Native shared workflow, identity/lookup, safety, Replay and Support tasks; source-bound supplied HTTP/persona tests, not all browser journeys |
+| User experience | FR-005/006/011/016/018/021 | Active filters, explicit suggestions, reachable help, Developer disclosure, pinned personas and individual guides; no measured accessibility/user-research claim |
+| Safety and authority | FR-003/004/008/009/010/010a/013/015/017/019/024/027a | Application-owned identity/consent, durable unknown claims, ZEN structural guards, isolated Replay, exact-key/accounting privacy; no permission from a model/persona/dashboard |
+| Verification | FR-020/021/022/024/026/027/027a | Existing qualification/demos/CI/native evidence with original source/date/limits; narrative references are unparsed/unknown, not manufactured green records |
+| Documentation and training | FR-018/020/021/024 | Native T073/T077/T078/T079/T099–T104 plus existing as-built/persona/assets work; structural coverage is separate from actual UI evidence |
+| Repository and readiness | FR-019/020/022/023/024/026/027/027a | Existing protected integration, exact reviewed bundles, owned launch, accounting and F6 native T075; no release/publication authority or SDK-latest mutation |
+
+FR-025/025a retain explicit historical/superseded fixed-day scope, not an active
+runtime spend gate; any DEFERRED mapping states that basis instead of silently
+dropping them. Public evidence references use existing native/docs files and keep
+unavailable/contradictory/stale evidence independent of checked task implementation.
+No qualification or human-decision JSON receipt is invented to improve a rollup.
+
+W2/W3 final captures and launch instructions follow stable BOB/L4 routing. Use
+isolated synthetic states/free ports, only materially needed stills and separate
+annotation layers. Preserve actual acknowledgement/reconnect warnings and product
+gaps; no UI repair or new video under the documentation grant. Reconcile public
+source rights/privacy before staging assets. Finish with one independent integrated
+BOB diff review, affected-delta repairs, full tests/demos and candidate-bound CI/
+normal protected integration; immutable RCs remain unchanged.
+
+Ruling: use this native `tasks.md` for task progress and decisions, not an additional
+SDD progress ledger, because the project/approved assignment requires one native
+completion ledger. Isolate work in an ignored local BOB clone while the Operator
+checkout stays untouched; sequential execution protects the single-owner native
+files and shared source remains SM-owned. Independent SM bundle work can proceed
+in parallel with W1.
+
+Resumption 2026-10-13: reconcile preparation `68d92a8` with integrated `e615d98`.
+The 31-flow baseline is not an exhaustive inventory: include distinct invalid-date,
+identity-correction, lookup-error, handoff-certainty, isolation/stale-role and
+typed-variant cases from native scenarios/tests. Reuse one document only for truly
+identical flows; record source bases and explicit unavailable UI paths. Extend the
+checker tests before implementation for strict visual provenance/hash/header,
+layer/source/placement and contained public reference contracts. Every manifest row
+uses the approved exact fields; safe errors never echo arbitrary input. Structural
+checks cannot certify pixels or freshness beyond declared Git ancestry/limitations.
+SM owns Template distribution after the stable checker handoff. Existing fresh
+Operator demo tabs are retained; later captures use separately owned state/ports.
+The verified conditional interruption grant permits only necessary identified BOB
+stop/restart with accounting/effects preservation, not broad service control.
+
+W3's reusable document-shape fixtures require workspace arrangement, enumerated
+synthetic sample data, completion/cleanup, known gaps/evidence and references in
+each flow, alongside Step 0/1 and interactive visuals. Completion explicitly labels
+Effect/Cleanup, gaps label Recovery, and revision history stays before references.
+These checks enforce visible instruction structure, not factual/perceptual truth.
+
 ## Fixed-day BOB budget delta — 2026-10-12
 
 Historical plan, superseded for application runtime by FR-027 below; original

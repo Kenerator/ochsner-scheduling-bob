@@ -1,0 +1,38 @@
+# <%= poc_text(snapshot.dig("project", "title")) %> — Engineering provenance
+
+Rendered: <%= snapshot.fetch("rendered_at") %> · Source: <%= poc_text(snapshot.dig("source", "source_state_timestamp")) %> · <%= source_identity %> · Scope: <%= poc_text(snapshot.fetch("scope_version")) %>
+
+Mechanism: <%= snapshot.fetch("mechanism_version") %> · Policy: <%= snapshot.fetch("policy_version") %> · Source commit: `<%= poc_text(snapshot.dig("source", "commit")) %>` · Snapshot: `<%= snapshot.fetch("snapshot_id") %>`
+
+## Source hashes
+
+<%= poc_table(["Project-relative source", "SHA-256"], snapshot.dig("source", "hashes").to_a) %>
+
+## Declared references and limits
+
+A link alone is not an interpreted result. Narrative, unavailable and inapplicable evidence remains UNKNOWN.
+
+<% snapshot.fetch("requirements").each do |row| -%>
+<% row.fetch("evidence_refs").each do |reference| -%>
+- <%= row.fetch("id") %>: [<%= poc_text(reference) %>](<%= poc_reference(reference) %>) — declared reference, not itself verification or acceptance.
+<% end -%>
+<% end -%>
+
+## Original evidence identities
+
+<% snapshot.fetch("requirements").each do |row| -%>
+### <%= row.fetch("id") %>
+<% %w[verification acceptance].each do |stage| -%>
+<% row.dig("lifecycle", stage, "evidence").each do |record| -%>
+- <%= stage.capitalize %>: [<%= poc_text(record.fetch("reference")) %>](<%= poc_reference(record.fetch("reference")) %>), original source `<%= record.fetch("source_revision") %>`, executed <%= record.fetch("executed_at") %>; <%= poc_text(record["human_reference"].to_json) if record["human_reference"] %>
+<% end -%>
+<% end -%>
+<% end -%>
+
+## Diagnostics
+
+<% snapshot.fetch("diagnostics").each do |item| -%>
+- <%= poc_text(item) %>
+<% end -%>
+
+Structured records are source references, not proof of human identity or new gate authority. Historical unchanged-scope qualification retains its original execution identity; working inputs are never relabeled as executed commits.

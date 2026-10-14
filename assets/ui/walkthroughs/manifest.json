@@ -1,0 +1,2145 @@
+{
+  "schema_version": 1,
+  "visuals": [
+    {
+      "id": "developer-recording-off",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/developer-recording-off.jpg",
+      "sha256": "e7dd7a3b6b3a08a2addd85c09d046d6f5db185e6e9991f8ae3cd344193192a1e",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "recording-off-diagnostics",
+      "action": "Open Developer Mode; inspect OFF diagnostics; focus reference",
+      "result": "Developer controls visible with blank output after reconnect; OFF response was observed separately",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "capture-sealed",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/capture-sealed.jpg",
+      "sha256": "e44328c13e1a6f2a6156ed8b7b7f82034ee1604c32d233c0c63d1b7e77f3ae9a",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "capture-and-seal",
+      "action": "Record Help and provider discovery, then Seal recording",
+      "result": "Stored full_replay declaration, not renderer parity certification",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "appointment-results",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/appointment-results.jpg",
+      "sha256": "7150096332d001bdb454e9b3927e4cd1719b53515787c0dcbf9b94fb1a3f660e",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "lookup-appointments",
+      "action": "Look up appointments after completed mock booking",
+      "result": "Verified fixture rows only; two scheduled appointments shown",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "mock-handoff-queued",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/mock-handoff-queued.jpg",
+      "sha256": "997de899a999aea5c3a354fcaeda78f59a42f287b324e0842715607cad11d266",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "submit-mock-handoff",
+      "action": "Review fresh screen after stale rejection, then separately submit mock handoff",
+      "result": "Current handoff queued; historical booking completed remains distinct; no real staff contact",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "empty-toolbar",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/empty-toolbar.jpg",
+      "sha256": "04d557d0941b211997e3971dfdd7f183dc2b11b275e7e71d49c6298e70d18b73",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "pair-support",
+      "action": "Open isolated offline BOB without a participant",
+      "result": "Empty join field; no pairing grant; patient controls disabled",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "exact-proposal",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/exact-proposal.jpg",
+      "sha256": "377c60b7be3e07304cd66b515ada2592d9bad51b4d1cdedb593186e49245aedf",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "happy-path-booking",
+      "action": "Verify fixture, get availability, select returned option 1",
+      "result": "Exact API time 2026-10-20T09:00:00-05:00; separate Confirm enabled, not booked",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "capture-active",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/capture-active.jpg",
+      "sha256": "06aeb1a9dd25a2271b161485848280a846ca0bff855b449a66127581810d3914",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "capture-and-seal",
+      "action": "Select Start synthetic recording",
+      "result": "Recording capturing; stored false; zero events yet; no model or booking",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "variant-data-controls",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/variant-data-controls.jpg",
+      "sha256": "fc671cdcbb485a85bc3fe5d44a15430b793ee6b624340a276afebcfc2cc13243",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "replay-typed-variant-comparison",
+      "action": "Inspect typed variant/compare/proposal/export/import/purge controls",
+      "result": "Controls visible only; this still does not prove export/import/purge execution or preference adoption",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "private-identity",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/private-identity.jpg",
+      "sha256": "f00e4ee87c169d29c6ec1ae1451805df0c748c1050bfc71e8e4b93e645617872",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "correct-private-identity",
+      "action": "Expand private controls; enter 555-0101, 1985-04-12 and 70112",
+      "result": "Approved synthetic drafts, not yet submitted; identity missing; no confirmation",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "confirmation-consumed",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/confirmation-consumed.jpg",
+      "sha256": "0d15664b2fd635243c0d19ce378e819ed59df69eb1538ad82bcda7f1d6d36ec3",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "happy-path-booking",
+      "action": "Confirm the separately reviewed current mock proposal",
+      "result": "No current proposal; repeat confirmation disabled; completed booking separately observed",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "patient-discovery",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/patient-discovery.jpg",
+      "sha256": "42f9d9023ed4727d330da58d1a502efe7f267393e51817f312125421f0ec25fa",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "provider-lookup",
+      "action": "Start patient; choose Primary care/Downtown; Find providers",
+      "result": "Two returned providers without identity; no booking",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "replay-navigation",
+      "kind": "screenshot",
+      "path": "assets/ui/walkthroughs/control-atlas/replay-navigation.jpg",
+      "sha256": "aca63ddd6b89ecbd5ea89c5539e741ad6487ccf6e44405844951bbdfb89fd111",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "replay-navigation-and-bookmarks",
+      "action": "Open owned sealed reference; focus navigation controls",
+      "result": "Recorded-only replay, no executable authority; semantic parity true/renderer parity false observed separately",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification."
+      ]
+    },
+    {
+      "id": "historical-support-controls",
+      "kind": "screenshot",
+      "path": "assets/ui/stills/feature-completion-20261010/S05-support-takeover.jpg",
+      "sha256": "ad26089410b172389fb662534f7994417a14b9341b8903a75a506b48cd36b896",
+      "source_revision": "c3e6df20dff2518014d763c162359ceb9de23d1d",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Actual supported takeover, only synthetic patient session; suggestion is not adoption.",
+      "result": "Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals."
+      ]
+    },
+    {
+      "id": "historical-spelling",
+      "kind": "screenshot",
+      "path": "assets/ui/stills/feature-completion-20261010/P23-readable-public-suggestion.jpg",
+      "sha256": "19273f9d9992e3e3315c181e48c6e90af6c875c0b946ab94a0d3187ed2c388b5",
+      "source_revision": "c3e6df20dff2518014d763c162359ceb9de23d1d",
+      "working_tree_state": "dirty",
+      "scenario": "accept-spelling-suggestion",
+      "action": "Actual Use downtown suggestion visible below unchanged active filters; no automatic adoption.",
+      "result": "Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "patient",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals."
+      ]
+    },
+    {
+      "id": "historical-patient-adoption",
+      "kind": "screenshot",
+      "path": "assets/ui/stills/feature-completion-20261010/S23-patient-returned-can-accept.jpg",
+      "sha256": "fd7621d33b61d1adbbc4ea9aebb2fd9d08ba948128d65003be92bcf22cd279d1",
+      "source_revision": "c3e6df20dff2518014d763c162359ceb9de23d1d",
+      "working_tree_state": "dirty",
+      "scenario": "patient-adopts-support-suggestion",
+      "action": "After support return, patient can explicitly accept pending suggestion; no auto-adoption.",
+      "result": "Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "patient",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals."
+      ]
+    },
+    {
+      "id": "historical-support-joined",
+      "kind": "screenshot",
+      "path": "assets/ui/stills/feature-completion-20261010/S30-fixed-paired-control-inactive.jpg",
+      "sha256": "b8fb699b069ee09a18b2a26d4a8b1970529a3b6ff18e564def44d08e83c59983",
+      "source_revision": "e2dfa7e9f471513921063d568bb3bc890eff1800",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Sourcee2dfa7e, actual role-bound support remains joined, demo controlinactive, lease0; completed/appointmentlookup session beforetakeover. Patient consumedgrantdisplay cleared by readonlyreload.",
+      "result": "Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals."
+      ]
+    },
+    {
+      "id": "historical-support-active",
+      "kind": "screenshot",
+      "path": "assets/ui/stills/feature-completion-20261010/S31-fixed-active-control.jpg",
+      "sha256": "d98733a0b2fe786f3957c3596d83a47245a0b4c06ef12c220170fd79b5f37054",
+      "source_revision": "e2dfa7e9f471513921063d568bb3bc890eff1800",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Same repaired session after explicittakeover, pairedjoined independent of active demo control/lease. No write/consentauthorityadded.",
+      "result": "Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals."
+      ]
+    },
+    {
+      "id": "historical-support-returned",
+      "kind": "screenshot",
+      "path": "assets/ui/stills/feature-completion-20261010/S32-fixed-return-retains-pairing.jpg",
+      "sha256": "b9ac8a979bbe6801947fa0806a334f7d1195f7c5f8c1a29c36ecdad62b29c68f",
+      "source_revision": "e2dfa7e9f471513921063d568bb3bc890eff1800",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Same repaired session after explicitreturn: joined remains, demo controlinactive, lease0 immediately; no misleading unelapsedlease.",
+      "result": "Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": null,
+      "placements": [],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals."
+      ]
+    },
+    {
+      "id": "toolbar-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/toolbar-annotation.svg",
+      "sha256": "88ff452f8b5239f70c62b59431cd5007460a981d98a022c087f602e141a33a65",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "pair-support",
+      "action": "Add numbered source-pixel locators to the unchanged original; Open isolated offline BOB without a participant",
+      "result": "Numbers identify atlas controls/state only; Empty join field; no pairing grant; patient controls disabled",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "empty-toolbar",
+      "placements": [
+        {
+          "x": 124,
+          "y": 244,
+          "width": 204,
+          "height": 77
+        },
+        {
+          "x": 344,
+          "y": 274,
+          "width": 401,
+          "height": 43
+        },
+        {
+          "x": 754,
+          "y": 244,
+          "width": 157,
+          "height": 77
+        },
+        {
+          "x": 927,
+          "y": 244,
+          "width": 222,
+          "height": 77
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "toolbar-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/toolbar-composite.svg",
+      "sha256": "2327425654e4b963f6c4d740dc1e20e8bf117bba1abeaf68510daffdcca52e53",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "pair-support",
+      "action": "Add numbered source-pixel locators to the unchanged original; Open isolated offline BOB without a participant",
+      "result": "Numbers identify atlas controls/state only; Empty join field; no pairing grant; patient controls disabled",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "empty-toolbar",
+      "placements": [
+        {
+          "x": 124,
+          "y": 244,
+          "width": 204,
+          "height": 77
+        },
+        {
+          "x": 344,
+          "y": 274,
+          "width": 401,
+          "height": 43
+        },
+        {
+          "x": 754,
+          "y": 244,
+          "width": 157,
+          "height": 77
+        },
+        {
+          "x": 927,
+          "y": 244,
+          "width": 222,
+          "height": 77
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "public-filters-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/public-filters-annotation.svg",
+      "sha256": "45f48c76a7ed006cdb8ec4c9070e00db9697d91689cbb4771c1e4763b29b29fd",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "provider-lookup",
+      "action": "Add numbered source-pixel locators to the unchanged original; Start patient; choose Primary care/Downtown; Find providers",
+      "result": "Numbers identify atlas controls/state only; Two returned providers without identity; no booking",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "patient-discovery",
+      "placements": [
+        {
+          "x": 147,
+          "y": 195,
+          "width": 284,
+          "height": 41
+        },
+        {
+          "x": 441,
+          "y": 195,
+          "width": 284,
+          "height": 41
+        },
+        {
+          "x": 147,
+          "y": 281,
+          "width": 284,
+          "height": 43
+        },
+        {
+          "x": 441,
+          "y": 281,
+          "width": 284,
+          "height": 43
+        },
+        {
+          "x": 147,
+          "y": 340,
+          "width": 154,
+          "height": 39
+        },
+        {
+          "x": 307,
+          "y": 340,
+          "width": 127,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "public-filters-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/public-filters-composite.svg",
+      "sha256": "65d5c97662baeb51b0deed4118fca4e9e4a8318f6d86704d51b3e0c6d89b3ff0",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "provider-lookup",
+      "action": "Add numbered source-pixel locators to the unchanged original; Start patient; choose Primary care/Downtown; Find providers",
+      "result": "Numbers identify atlas controls/state only; Two returned providers without identity; no booking",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "patient-discovery",
+      "placements": [
+        {
+          "x": 147,
+          "y": 195,
+          "width": 284,
+          "height": 41
+        },
+        {
+          "x": 441,
+          "y": 195,
+          "width": 284,
+          "height": 41
+        },
+        {
+          "x": 147,
+          "y": 281,
+          "width": 284,
+          "height": 43
+        },
+        {
+          "x": 441,
+          "y": 281,
+          "width": 284,
+          "height": 43
+        },
+        {
+          "x": 147,
+          "y": 340,
+          "width": 154,
+          "height": 39
+        },
+        {
+          "x": 307,
+          "y": 340,
+          "width": 127,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "public-request-and-provider-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/public-request-and-provider-annotation.svg",
+      "sha256": "5a048c06b57e5a42c168b9f8ecc6131f5b002b71cf63354d17e69768702fb03b",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "provider-lookup",
+      "action": "Add numbered source-pixel locators to the unchanged original; Start patient; choose Primary care/Downtown; Find providers",
+      "result": "Numbers identify atlas controls/state only; Two returned providers without identity; no booking",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "patient-discovery",
+      "placements": [
+        {
+          "x": 147,
+          "y": 5,
+          "width": 578,
+          "height": 43
+        },
+        {
+          "x": 147,
+          "y": 114,
+          "width": 198,
+          "height": 39
+        },
+        {
+          "x": 147,
+          "y": 481,
+          "width": 152,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "public-request-and-provider-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/public-request-and-provider-composite.svg",
+      "sha256": "6046866c7d86ebbdaf8e46bfb4af4e9cfbf10cc5d64a12041ca6ed1b7fd0195b",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "provider-lookup",
+      "action": "Add numbered source-pixel locators to the unchanged original; Start patient; choose Primary care/Downtown; Find providers",
+      "result": "Numbers identify atlas controls/state only; Two returned providers without identity; no booking",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "patient-discovery",
+      "placements": [
+        {
+          "x": 147,
+          "y": 5,
+          "width": 578,
+          "height": 43
+        },
+        {
+          "x": 147,
+          "y": 114,
+          "width": 198,
+          "height": 39
+        },
+        {
+          "x": 147,
+          "y": 481,
+          "width": 152,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "public-spelling-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/public-spelling-annotation.svg",
+      "sha256": "e4edfeaf7886c0226cc98ea70346df51b205d6490dc6c873516b58e9a21a8dc5",
+      "source_revision": "c3e6df20dff2518014d763c162359ceb9de23d1d",
+      "working_tree_state": "dirty",
+      "scenario": "accept-spelling-suggestion",
+      "action": "Add numbered source-pixel locators to the unchanged original; Actual Use downtown suggestion visible below unchanged active filters; no automatic adoption.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "patient",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-spelling",
+      "placements": [
+        {
+          "x": 337,
+          "y": 306,
+          "width": 130,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "public-spelling-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/public-spelling-composite.svg",
+      "sha256": "98a84aaf364f294a7e64497fa34f2b6bb797c94c98106e3ba6929583df951d1b",
+      "source_revision": "c3e6df20dff2518014d763c162359ceb9de23d1d",
+      "working_tree_state": "dirty",
+      "scenario": "accept-spelling-suggestion",
+      "action": "Add numbered source-pixel locators to the unchanged original; Actual Use downtown suggestion visible below unchanged active filters; no automatic adoption.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "patient",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-spelling",
+      "placements": [
+        {
+          "x": 337,
+          "y": 306,
+          "width": 130,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "private-entry-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/private-entry-annotation.svg",
+      "sha256": "b76069fb58f17cabe462190e7805803ecf11612cfa844d89f0a2986fef0dc3fc",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "correct-private-identity",
+      "action": "Add numbered source-pixel locators to the unchanged original; Expand private controls; enter 555-0101, 1985-04-12 and 70112",
+      "result": "Numbers identify atlas controls/state only; Approved synthetic drafts, not yet submitted; identity missing; no confirmation",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "private-identity",
+      "placements": [
+        {
+          "x": 147,
+          "y": 99,
+          "width": 578,
+          "height": 24
+        },
+        {
+          "x": 147,
+          "y": 249,
+          "width": 284,
+          "height": 43
+        },
+        {
+          "x": 441,
+          "y": 249,
+          "width": 284,
+          "height": 43
+        },
+        {
+          "x": 147,
+          "y": 338,
+          "width": 578,
+          "height": 43
+        },
+        {
+          "x": 147,
+          "y": 447,
+          "width": 199,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "private-entry-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/private-entry-composite.svg",
+      "sha256": "6cc7d7427056d5076b3f56701deb5af9708597a6a7316b27b74cfef1c1df56c4",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "correct-private-identity",
+      "action": "Add numbered source-pixel locators to the unchanged original; Expand private controls; enter 555-0101, 1985-04-12 and 70112",
+      "result": "Numbers identify atlas controls/state only; Approved synthetic drafts, not yet submitted; identity missing; no confirmation",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "private-identity",
+      "placements": [
+        {
+          "x": 147,
+          "y": 99,
+          "width": 578,
+          "height": 24
+        },
+        {
+          "x": 147,
+          "y": 249,
+          "width": 284,
+          "height": 43
+        },
+        {
+          "x": 441,
+          "y": 249,
+          "width": 284,
+          "height": 43
+        },
+        {
+          "x": 147,
+          "y": 338,
+          "width": 578,
+          "height": 43
+        },
+        {
+          "x": 147,
+          "y": 447,
+          "width": 199,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "returned-options-and-confirm-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/returned-options-and-confirm-annotation.svg",
+      "sha256": "5dd080ee0286ab81149f5c9c29bf8d9259f105eb994236869ddcaa77e1575154",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "happy-path-booking",
+      "action": "Add numbered source-pixel locators to the unchanged original; Verify fixture, get availability, select returned option 1",
+      "result": "Numbers identify atlas controls/state only; Exact API time 2026-10-20T09:00:00-05:00; separate Confirm enabled, not booked",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "exact-proposal",
+      "placements": [
+        {
+          "x": 147,
+          "y": 237,
+          "width": 183,
+          "height": 39
+        },
+        {
+          "x": 336,
+          "y": 237,
+          "width": 205,
+          "height": 39
+        },
+        {
+          "x": 147,
+          "y": 340,
+          "width": 130,
+          "height": 39
+        },
+        {
+          "x": 148,
+          "y": 592,
+          "width": 174,
+          "height": 39
+        },
+        {
+          "x": 328,
+          "y": 592,
+          "width": 203,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "returned-options-and-confirm-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/returned-options-and-confirm-composite.svg",
+      "sha256": "d59d3deca621930dbf39eac89094eed85d447c6a2e9d2bf2c0a45b7c0563ba59",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "happy-path-booking",
+      "action": "Add numbered source-pixel locators to the unchanged original; Verify fixture, get availability, select returned option 1",
+      "result": "Numbers identify atlas controls/state only; Exact API time 2026-10-20T09:00:00-05:00; separate Confirm enabled, not booked",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "exact-proposal",
+      "placements": [
+        {
+          "x": 147,
+          "y": 237,
+          "width": 183,
+          "height": 39
+        },
+        {
+          "x": 336,
+          "y": 237,
+          "width": 205,
+          "height": 39
+        },
+        {
+          "x": 147,
+          "y": 340,
+          "width": 130,
+          "height": 39
+        },
+        {
+          "x": 148,
+          "y": 592,
+          "width": 174,
+          "height": 39
+        },
+        {
+          "x": 328,
+          "y": 592,
+          "width": 203,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "help-actions-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/help-actions-annotation.svg",
+      "sha256": "6f8cd19286e9390b353cb0934d5ea2998896d3d629f30b43cf8b2cf8295c3f9d",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "submit-mock-handoff",
+      "action": "Add numbered source-pixel locators to the unchanged original; Review fresh screen after stale rejection, then separately submit mock handoff",
+      "result": "Numbers identify atlas controls/state only; Current handoff queued; historical booking completed remains distinct; no real staff contact",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "mock-handoff-queued",
+      "placements": [
+        {
+          "x": 788,
+          "y": 260,
+          "width": 62,
+          "height": 39
+        },
+        {
+          "x": 856,
+          "y": 260,
+          "width": 151,
+          "height": 39
+        },
+        {
+          "x": 788,
+          "y": 311,
+          "width": 175,
+          "height": 39
+        },
+        {
+          "x": 788,
+          "y": 361,
+          "width": 175,
+          "height": 39
+        },
+        {
+          "x": 788,
+          "y": 412,
+          "width": 169,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "help-actions-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/help-actions-composite.svg",
+      "sha256": "f95c590bbe5d395265771ab04b8217780bb98aff009d7bca5da713737992d182",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "submit-mock-handoff",
+      "action": "Add numbered source-pixel locators to the unchanged original; Review fresh screen after stale rejection, then separately submit mock handoff",
+      "result": "Numbers identify atlas controls/state only; Current handoff queued; historical booking completed remains distinct; no real staff contact",
+      "role": "patient",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "mock-handoff-queued",
+      "placements": [
+        {
+          "x": 788,
+          "y": 260,
+          "width": 62,
+          "height": 39
+        },
+        {
+          "x": 856,
+          "y": 260,
+          "width": 151,
+          "height": 39
+        },
+        {
+          "x": 788,
+          "y": 311,
+          "width": 175,
+          "height": 39
+        },
+        {
+          "x": 788,
+          "y": 361,
+          "width": 175,
+          "height": 39
+        },
+        {
+          "x": 788,
+          "y": 412,
+          "width": 169,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "support-actions-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/support-actions-annotation.svg",
+      "sha256": "bc02af30e4190f8c3b9ed8382925e2582a89ae63e60a3c046ecde91a73209f6b",
+      "source_revision": "c3e6df20dff2518014d763c162359ceb9de23d1d",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Add numbered source-pixel locators to the unchanged original; Actual supported takeover, only synthetic patient session; suggestion is not adoption.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-support-controls",
+      "placements": [
+        {
+          "x": 996,
+          "y": 252,
+          "width": 155,
+          "height": 39
+        },
+        {
+          "x": 1156,
+          "y": 252,
+          "width": 178,
+          "height": 39
+        },
+        {
+          "x": 996,
+          "y": 306,
+          "width": 360,
+          "height": 67
+        },
+        {
+          "x": 996,
+          "y": 389,
+          "width": 269,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "support-actions-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/support-actions-composite.svg",
+      "sha256": "bf420fafe06db0828e42ff4a922bb84da170a5de8ad94a8f98f177dc2832bd50",
+      "source_revision": "c3e6df20dff2518014d763c162359ceb9de23d1d",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Add numbered source-pixel locators to the unchanged original; Actual supported takeover, only synthetic patient session; suggestion is not adoption.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-support-controls",
+      "placements": [
+        {
+          "x": 996,
+          "y": 252,
+          "width": 155,
+          "height": 39
+        },
+        {
+          "x": 1156,
+          "y": 252,
+          "width": 178,
+          "height": 39
+        },
+        {
+          "x": 996,
+          "y": 306,
+          "width": 360,
+          "height": 67
+        },
+        {
+          "x": 996,
+          "y": 389,
+          "width": 269,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "patient-adoption-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/patient-adoption-annotation.svg",
+      "sha256": "a45a1a348833596bf38da3f1e780a7fe7ceeef281a7f460926abd7a1fdac3f85",
+      "source_revision": "c3e6df20dff2518014d763c162359ceb9de23d1d",
+      "working_tree_state": "dirty",
+      "scenario": "patient-adopts-support-suggestion",
+      "action": "Add numbered source-pixel locators to the unchanged original; After support return, patient can explicitly accept pending suggestion; no auto-adoption.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "patient",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-patient-adoption",
+      "placements": [
+        {
+          "x": 1003,
+          "y": 321,
+          "width": 278,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "patient-adoption-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/patient-adoption-composite.svg",
+      "sha256": "1c795a3d9c73c0a2a901ce32f93c53f782912f44b3ac34cd6b74d5a13cf1c551",
+      "source_revision": "c3e6df20dff2518014d763c162359ceb9de23d1d",
+      "working_tree_state": "dirty",
+      "scenario": "patient-adopts-support-suggestion",
+      "action": "Add numbered source-pixel locators to the unchanged original; After support return, patient can explicitly accept pending suggestion; no auto-adoption.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "patient",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-patient-adoption",
+      "placements": [
+        {
+          "x": 1003,
+          "y": 321,
+          "width": 278,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "recording-and-diagnostics-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/recording-and-diagnostics-annotation.svg",
+      "sha256": "39c8181a004ea3540da3078c00cc026c4ff1231be204bd01b4ee39e0d40ef759",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "recording-off-diagnostics",
+      "action": "Add numbered source-pixel locators to the unchanged original; Open Developer Mode; inspect OFF diagnostics; focus reference",
+      "result": "Numbers identify atlas controls/state only; Developer controls visible with blank output after reconnect; OFF response was observed separately",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "developer-recording-off",
+      "placements": [
+        {
+          "x": 124,
+          "y": 228,
+          "width": 1031,
+          "height": 28
+        },
+        {
+          "x": 124,
+          "y": 338,
+          "width": 1031,
+          "height": 43
+        },
+        {
+          "x": 124,
+          "y": 397,
+          "width": 199,
+          "height": 39
+        },
+        {
+          "x": 329,
+          "y": 397,
+          "width": 128,
+          "height": 39
+        },
+        {
+          "x": 124,
+          "y": 472,
+          "width": 227,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "recording-and-diagnostics-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/recording-and-diagnostics-composite.svg",
+      "sha256": "5be30129658a3960ab9adc96121dafaac07d51292d288bcacf43da094eb91671",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "recording-off-diagnostics",
+      "action": "Add numbered source-pixel locators to the unchanged original; Open Developer Mode; inspect OFF diagnostics; focus reference",
+      "result": "Numbers identify atlas controls/state only; Developer controls visible with blank output after reconnect; OFF response was observed separately",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "developer-recording-off",
+      "placements": [
+        {
+          "x": 124,
+          "y": 228,
+          "width": 1031,
+          "height": 28
+        },
+        {
+          "x": 124,
+          "y": 338,
+          "width": 1031,
+          "height": 43
+        },
+        {
+          "x": 124,
+          "y": 397,
+          "width": 199,
+          "height": 39
+        },
+        {
+          "x": 329,
+          "y": 397,
+          "width": 128,
+          "height": 39
+        },
+        {
+          "x": 124,
+          "y": 472,
+          "width": 227,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "replay-basic-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/replay-basic-annotation.svg",
+      "sha256": "d193935cc964233ffeaf9e8af40603139b0c5b1602cca72e800d89d047e6cac7",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "replay-navigation-and-bookmarks",
+      "action": "Add numbered source-pixel locators to the unchanged original; Open owned sealed reference; focus navigation controls",
+      "result": "Numbers identify atlas controls/state only; Recorded-only replay, no executable authority; semantic parity true/renderer parity false observed separately",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "replay-navigation",
+      "placements": [
+        {
+          "x": 124,
+          "y": 257,
+          "width": 135,
+          "height": 39
+        },
+        {
+          "x": 265,
+          "y": 257,
+          "width": 89,
+          "height": 39
+        },
+        {
+          "x": 359,
+          "y": 257,
+          "width": 62,
+          "height": 39
+        },
+        {
+          "x": 427,
+          "y": 257,
+          "width": 71,
+          "height": 39
+        },
+        {
+          "x": 504,
+          "y": 257,
+          "width": 165,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "replay-basic-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/replay-basic-composite.svg",
+      "sha256": "05539923e3826ade7e63d58bb20c4ac322e4cfbb0714b388f9523202ec59befd",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "replay-navigation-and-bookmarks",
+      "action": "Add numbered source-pixel locators to the unchanged original; Open owned sealed reference; focus navigation controls",
+      "result": "Numbers identify atlas controls/state only; Recorded-only replay, no executable authority; semantic parity true/renderer parity false observed separately",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "replay-navigation",
+      "placements": [
+        {
+          "x": 124,
+          "y": 257,
+          "width": 135,
+          "height": 39
+        },
+        {
+          "x": 265,
+          "y": 257,
+          "width": 89,
+          "height": 39
+        },
+        {
+          "x": 359,
+          "y": 257,
+          "width": 62,
+          "height": 39
+        },
+        {
+          "x": 427,
+          "y": 257,
+          "width": 71,
+          "height": 39
+        },
+        {
+          "x": 504,
+          "y": 257,
+          "width": 165,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "replay-position-and-bookmark-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/replay-position-and-bookmark-annotation.svg",
+      "sha256": "17c47328a04ec83257966a77d13860f8b9463ad5bddb45950704ab862e4ecf3e",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "replay-navigation-and-bookmarks",
+      "action": "Add numbered source-pixel locators to the unchanged original; Open owned sealed reference; focus navigation controls",
+      "result": "Numbers identify atlas controls/state only; Recorded-only replay, no executable authority; semantic parity true/renderer parity false observed separately",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "replay-navigation",
+      "placements": [
+        {
+          "x": 124,
+          "y": 338,
+          "width": 1031,
+          "height": 43
+        },
+        {
+          "x": 124,
+          "y": 397,
+          "width": 242,
+          "height": 39
+        },
+        {
+          "x": 124,
+          "y": 477,
+          "width": 1031,
+          "height": 43
+        },
+        {
+          "x": 124,
+          "y": 536,
+          "width": 185,
+          "height": 39
+        },
+        {
+          "x": 315,
+          "y": 536,
+          "width": 138,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "replay-position-and-bookmark-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/replay-position-and-bookmark-composite.svg",
+      "sha256": "dc74f4dee81293b2f4a2ce005c80f30100713e1217454c76870fed3c463644d3",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "replay-navigation-and-bookmarks",
+      "action": "Add numbered source-pixel locators to the unchanged original; Open owned sealed reference; focus navigation controls",
+      "result": "Numbers identify atlas controls/state only; Recorded-only replay, no executable authority; semantic parity true/renderer parity false observed separately",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "replay-navigation",
+      "placements": [
+        {
+          "x": 124,
+          "y": 338,
+          "width": 1031,
+          "height": 43
+        },
+        {
+          "x": 124,
+          "y": 397,
+          "width": 242,
+          "height": 39
+        },
+        {
+          "x": 124,
+          "y": 477,
+          "width": 1031,
+          "height": 43
+        },
+        {
+          "x": 124,
+          "y": 536,
+          "width": 185,
+          "height": 39
+        },
+        {
+          "x": 315,
+          "y": 536,
+          "width": 138,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "variant-edit-and-review-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/variant-edit-and-review-annotation.svg",
+      "sha256": "b2a4b690ca8324c78b734b67c65d0c82b61fa2982ef4a5f1144535e7480750a5",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "replay-typed-variant-comparison",
+      "action": "Add numbered source-pixel locators to the unchanged original; Inspect typed variant/compare/proposal/export/import/purge controls",
+      "result": "Numbers identify atlas controls/state only; Controls visible only; this still does not prove export/import/purge execution or preference adoption",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "variant-data-controls",
+      "placements": [
+        {
+          "x": 124,
+          "y": 246,
+          "width": 1031,
+          "height": 90
+        },
+        {
+          "x": 124,
+          "y": 352,
+          "width": 191,
+          "height": 39
+        },
+        {
+          "x": 321,
+          "y": 352,
+          "width": 193,
+          "height": 39
+        },
+        {
+          "x": 520,
+          "y": 352,
+          "width": 274,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "variant-edit-and-review-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/variant-edit-and-review-composite.svg",
+      "sha256": "203e1400f6bcc17bd98e6aaa5a5219233d28053103b5bb9a852bf16b0c0c80c5",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "replay-typed-variant-comparison",
+      "action": "Add numbered source-pixel locators to the unchanged original; Inspect typed variant/compare/proposal/export/import/purge controls",
+      "result": "Numbers identify atlas controls/state only; Controls visible only; this still does not prove export/import/purge execution or preference adoption",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "variant-data-controls",
+      "placements": [
+        {
+          "x": 124,
+          "y": 246,
+          "width": 1031,
+          "height": 90
+        },
+        {
+          "x": 124,
+          "y": 352,
+          "width": 191,
+          "height": 39
+        },
+        {
+          "x": 321,
+          "y": 352,
+          "width": 193,
+          "height": 39
+        },
+        {
+          "x": 520,
+          "y": 352,
+          "width": 274,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "recording-data-actions-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/recording-data-actions-annotation.svg",
+      "sha256": "b69cd5f330182e262c735de1dc9e5de1030ec83f872ecfbd568eff0aedd47921",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "replay-typed-variant-comparison",
+      "action": "Add numbered source-pixel locators to the unchanged original; Inspect typed variant/compare/proposal/export/import/purge controls",
+      "result": "Numbers identify atlas controls/state only; Controls visible only; this still does not prove export/import/purge execution or preference adoption",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "variant-data-controls",
+      "placements": [
+        {
+          "x": 799,
+          "y": 352,
+          "width": 275,
+          "height": 39
+        },
+        {
+          "x": 124,
+          "y": 432,
+          "width": 1031,
+          "height": 90
+        },
+        {
+          "x": 124,
+          "y": 538,
+          "width": 274,
+          "height": 39
+        },
+        {
+          "x": 404,
+          "y": 538,
+          "width": 233,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "recording-data-actions-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/recording-data-actions-composite.svg",
+      "sha256": "6aa0847cc0cf57239eb9a816771fd920bd21798225510b36967fe751fa93cfc0",
+      "source_revision": "bdc4585f8cd55bb6b6568bdd32099c55a59b60e9",
+      "working_tree_state": "unknown",
+      "scenario": "replay-typed-variant-comparison",
+      "action": "Add numbered source-pixel locators to the unchanged original; Inspect typed variant/compare/proposal/export/import/purge controls",
+      "result": "Numbers identify atlas controls/state only; Controls visible only; this still does not prove export/import/purge execution or preference adoption",
+      "role": "developer",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "width": 1280,
+      "height": 720,
+      "source_visual_id": "variant-data-controls",
+      "placements": [
+        {
+          "x": 799,
+          "y": 352,
+          "width": 275,
+          "height": 39
+        },
+        {
+          "x": 124,
+          "y": 432,
+          "width": 1031,
+          "height": 90
+        },
+        {
+          "x": 124,
+          "y": 538,
+          "width": 274,
+          "height": 39
+        },
+        {
+          "x": 404,
+          "y": 538,
+          "width": 233,
+          "height": 39
+        }
+      ],
+      "limitations": [
+        "Historical capture at bdc4585, 2026-10-13, isolated 29580/29581 offline instance; no genuine model request.",
+        "Runtime provenance reported clean source; complete checkout state was not sampled at each capture, so marked unknown.",
+        "Full viewport, no pixel editing/crop. Native internal Marimo scrolling is not window.scrollY. Numbered overlays are separate.",
+        "Acknowledgement/reconnect/kernel warnings occurred; output can clear or a replay index can reset. No full synchronization/renderer/accessibility certification.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "support-joined-state-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/support-joined-state-annotation.svg",
+      "sha256": "19e645ad37ab7b3cf6f7cae5b914bcf6000902889d416a197084e9ee54945e22",
+      "source_revision": "e2dfa7e9f471513921063d568bb3bc890eff1800",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Add numbered source-pixel locators to the unchanged original; Sourcee2dfa7e, actual role-bound support remains joined, demo controlinactive, lease0; completed/appointmentlookup session beforetakeover. Patient consumedgrantdisplay cleared by readonlyreload.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-support-joined",
+      "placements": [
+        {
+          "x": 1003,
+          "y": 300,
+          "width": 360,
+          "height": 44
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "support-joined-state-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/support-joined-state-composite.svg",
+      "sha256": "4737e7ecdcc0cee0761f3a2061824ee67f4043350f9a4171190c58723612abc0",
+      "source_revision": "e2dfa7e9f471513921063d568bb3bc890eff1800",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Add numbered source-pixel locators to the unchanged original; Sourcee2dfa7e, actual role-bound support remains joined, demo controlinactive, lease0; completed/appointmentlookup session beforetakeover. Patient consumedgrantdisplay cleared by readonlyreload.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-support-joined",
+      "placements": [
+        {
+          "x": 1003,
+          "y": 300,
+          "width": 360,
+          "height": 44
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "support-active-state-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/support-active-state-annotation.svg",
+      "sha256": "ca9f03254b41116218205b6b56c1bfae0c22dfe93ce12585fdc94df172f5afdd",
+      "source_revision": "e2dfa7e9f471513921063d568bb3bc890eff1800",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Add numbered source-pixel locators to the unchanged original; Same repaired session after explicittakeover, pairedjoined independent of active demo control/lease. No write/consentauthorityadded.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-support-active",
+      "placements": [
+        {
+          "x": 1003,
+          "y": 300,
+          "width": 360,
+          "height": 44
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "support-active-state-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/support-active-state-composite.svg",
+      "sha256": "98d4594cebae56dfef1272bf2be5c024e9b9ee6a1995da1141513ac4f4f24bbf",
+      "source_revision": "e2dfa7e9f471513921063d568bb3bc890eff1800",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Add numbered source-pixel locators to the unchanged original; Same repaired session after explicittakeover, pairedjoined independent of active demo control/lease. No write/consentauthorityadded.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-support-active",
+      "placements": [
+        {
+          "x": 1003,
+          "y": 300,
+          "width": 360,
+          "height": 44
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "support-returned-state-annotation",
+      "kind": "annotation",
+      "path": "assets/ui/walkthroughs/control-atlas/support-returned-state-annotation.svg",
+      "sha256": "e69dac378262470040ebcb4925ce821ba802cc3fbfd119719050a795855dc918",
+      "source_revision": "e2dfa7e9f471513921063d568bb3bc890eff1800",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Add numbered source-pixel locators to the unchanged original; Same repaired session after explicitreturn: joined remains, demo controlinactive, lease0 immediately; no misleading unelapsedlease.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-support-returned",
+      "placements": [
+        {
+          "x": 1003,
+          "y": 300,
+          "width": 360,
+          "height": 44
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    },
+    {
+      "id": "support-returned-state-composite",
+      "kind": "composite",
+      "path": "assets/ui/walkthroughs/control-atlas/support-returned-state-composite.svg",
+      "sha256": "b5dedc8c5c7df6dc82c1c2998c094b802fa133350e9774e308c74498cf20ee7b",
+      "source_revision": "e2dfa7e9f471513921063d568bb3bc890eff1800",
+      "working_tree_state": "dirty",
+      "scenario": "support-take-and-return-control",
+      "action": "Add numbered source-pixel locators to the unchanged original; Same repaired session after explicitreturn: joined remains, demo controlinactive, lease0 immediately; no misleading unelapsedlease.",
+      "result": "Numbers identify atlas controls/state only; Historical executed synthetic state shown in the retained original, not a fresh run.",
+      "role": "support",
+      "viewport": {
+        "width": 1700,
+        "height": 543
+      },
+      "width": 1700,
+      "height": 543,
+      "source_visual_id": "historical-support-returned",
+      "placements": [
+        {
+          "x": 1003,
+          "y": 300,
+          "width": 360,
+          "height": 44
+        }
+      ],
+      "limitations": [
+        "Historical original capture 2026-10-10; original source, hashes, targets and transport-only changes retained in feature-completion manifest.",
+        "Backend literal was changed only for isolated capture ports. Current launcher uses validated backend trait; control construction remains applicable.",
+        "e2dfa7e-to-bdc4585 support delta is only the added reference notice category; renderer delta changes notice/routing, not these control constructors or lease status.",
+        "This is not current full support synchronization or model qualification; private fields excluded. S05 predates membership label repair, whose region is not visible here; joined/lease labels use repaired S30-S32 originals.",
+        "Code-native vector layer; original pixels unchanged. Composite embeds only exact verified original raster bytes. Text equivalent and prerequisites are in the atlas."
+      ]
+    }
+  ]
+}

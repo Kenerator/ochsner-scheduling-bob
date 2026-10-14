@@ -1,0 +1,53 @@
+{
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "project", "sources", "elements", "requirements", "capabilities"],
+  "properties": {
+    "schema_version": {"enum": [1]},
+    "project": {"type": "object", "additionalProperties": false, "required": ["id", "title", "objective"], "properties": {
+      "id": {"$ref": "#/definitions/slug"}, "title": {"type": "string"}, "objective": {"type": "string"}}},
+    "sources": {"type": "object", "additionalProperties": false, "required": ["specification", "tasks"], "properties": {
+      "specification": {"type": "string"}, "tasks": {"type": "string"}, "gaps": {"type": "string"}}},
+    "scope_version": {"type": "string"},
+    "elements": {"type": "array", "minItems": 6, "maxItems": 6, "items": {"$ref": "#/definitions/element"}},
+    "requirements": {"type": "array", "items": {"$ref": "#/definitions/requirement"}},
+    "capabilities": {"type": "array", "items": {"$ref": "#/definitions/capability"}},
+    "gaps": {"type": "array", "items": {"$ref": "#/definitions/gap"}},
+    "attention": {"type": "array", "items": {"$ref": "#/definitions/attention"}}
+  },
+  "definitions": {
+    "slug": {"type": "string", "pattern": "\\A[a-z0-9][a-z0-9-]{0,63}\\z"},
+    "requirement_id": {"type": "string", "pattern": "\\A[A-Z][A-Z0-9]*-[0-9]+[a-z]?\\z"},
+    "requirement_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/definitions/requirement_id"}},
+    "strings": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "element": {"type": "object", "additionalProperties": false, "required": ["id", "title", "requirement_ids"], "properties": {
+      "id": {"$ref": "#/definitions/slug"}, "title": {"type": "string"}, "requirement_ids": {"$ref": "#/definitions/requirement_ids"}}},
+    "requirement": {"type": "object", "additionalProperties": false, "required": ["id", "task_ids", "capability_ids", "evidence_refs"], "properties": {
+      "id": {"$ref": "#/definitions/requirement_id"}, "title": {"type": "string"},
+      "task_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "\\AT[0-9]+[a-z]?\\z"}},
+      "capability_ids": {"$ref": "#/definitions/strings"}, "evidence_refs": {"$ref": "#/definitions/strings"},
+      "depends_on": {"$ref": "#/definitions/requirement_ids"}, "scope_state": {"enum": ["ACTIVE", "DEFERRED"]},
+      "weight": {"type": "number", "minimum": 0.001}}},
+    "capability": {"type": "object", "additionalProperties": false, "required": ["id", "title", "depends_on", "requirement_ids"], "properties": {
+      "id": {"$ref": "#/definitions/slug"}, "title": {"type": "string"}, "depends_on": {"$ref": "#/definitions/strings"},
+      "requirement_ids": {"$ref": "#/definitions/requirement_ids"}}},
+    "gap": {"type": "object", "additionalProperties": false, "required": ["id", "title", "state", "requirement_ids", "reference"], "properties": {
+      "id": {"$ref": "#/definitions/slug"}, "title": {"type": "string"}, "state": {"enum": ["OPEN", "DEFERRED", "CLOSED"]},
+      "requirement_ids": {"$ref": "#/definitions/requirement_ids"}, "reference": {"type": "string"}}},
+    "attention": {"type": "object", "additionalProperties": false, "required": ["id", "question", "state", "owner", "reference"], "properties": {
+      "id": {"$ref": "#/definitions/slug"}, "question": {"type": "string"}, "owner": {"type": "string"},
+      "state": {"enum": ["ACTIONABLE_NOW", "WAITING_FOR_TRIGGER", "CLOSED"]}, "reference": {"type": "string"}, "recommendation": {"type": "string"}}},
+    "evidence": {"type": "object", "additionalProperties": false, "required": ["schema_version", "kind", "source_revision", "executed_at", "scope", "result", "artifacts"], "properties": {
+      "schema_version": {"enum": [1]}, "kind": {"enum": ["qualification", "human_decision"]},
+      "source_revision": {"type": "string", "pattern": "\\A[0-9a-f]{40}\\z"}, "executed_at": {"type": "string"},
+      "scope": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "\\A[A-Z][A-Z0-9]*-[0-9]+[a-z]?\\z"}},
+      "result": {"enum": ["PASS", "FAIL", "ACCEPTED", "REJECTED"]},
+      "artifacts": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {
+        "path": {"type": "string"}, "sha256": {"type": "string", "pattern": "\\A[0-9a-f]{64}\\z"}}}},
+      "scope_hashes": {"type": "object", "additionalProperties": {"type": "string", "pattern": "\\A[0-9a-f]{64}\\z"}},
+      "human_reference": {"type": "object", "additionalProperties": false, "required": ["thread_id", "turn_id", "message_id"], "properties": {
+        "thread_id": {"type": "string", "pattern": "\\A(?!00000000-0000-0000-0000-000000000000\\z)[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\z"},
+        "turn_id": {"type": "string", "pattern": "\\A(?!00000000-0000-0000-0000-000000000000\\z)[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\z"},
+        "message_id": {"type": "string", "pattern": "\\A(?!00000000-0000-0000-0000-000000000000\\z)[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\z"}}}
+    }}
+  }
+}

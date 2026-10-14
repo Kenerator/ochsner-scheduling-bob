@@ -1,5 +1,311 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Approved launch/training/Flight Deck follow-on — 2026-10-12
+
+Native scope: FR-021–FR-024. Approved plan source and human confirmation are
+recorded in [plan.md](plan.md#approved-launch-training-and-flight-deck-delta--2026-10-12).
+Resumed 2026-10-13 from preparation `68d92a8`, reconciled with current integrated
+baseline `e615d9894666909708fbf9810efcdafadc173a1a`; checker/docs candidate remains
+isolated and not integrated. Prior completed
+work below retains its original scope and is not repeated as new qualification.
+
+- [x] T072 [US6] Reconcile the approved F6/L4/W1–W3 delta into native spec/plan/tasks;
+  retain sole BOB ownership and the native completion ledger. Record dependencies
+  and interrupted actual IAB observations without inventing a pass.
+- [x] T073 [P] [US1–US6] W1 local inventory and checker: reconcile 31 distinct flow
+  entries and 57 control families; write failing structural tests first, implement
+  the no-network checker and run its positive/negative fixtures and full suite.
+  This is a local candidate checkpoint, not W1 Template integration or final docs.
+- [x] T074 [US6] Supply the source-bound reusable W1 checker/test candidate to SM;
+  integrate the reviewed reusable generation/export contract through its owner.
+- [x] T075 [P] [US6] F6: consume exact reviewed shared Flight Deck export/manifest,
+  map six native elements without copied status, run doctor/generate and inspect
+  desktop/narrow artifacts. Depends on SM export; independent of W1.
+- [x] T076 [P] [US6] L4: consume reviewed runtime bundle/config, tests first for
+  secret-free child scope, validated backend URL/CORS/Host routing, canonical budget
+  and owned cancellation/conflict behavior; verify no-call help/doctor/demos and
+  isolated UI smoke. Delivered through T087–T098/PR #9; reuse exact evidence below,
+  no repeat launch/policy proof. No generic key fallback.
+- [x] T077 [US1–US6] W2: test manifest/hash/dimension/placement/provenance validation
+  first, capture/reuse actual seven-group visuals with clean originals and separate
+  annotation layers; inspect privacy, clipping and control correspondence. Depends
+  on stable T076 candidate; no live pairing grant in artifacts or Operator reset.
+- [ ] T078 [US1–US6] W3: deliver each catalog-resolved walkthrough with own Step 0/1,
+  actual inputs/interactive visuals/results/recovery/effects/cleanup; execute supported
+  steps on exact isolated candidate and retain honest unsupported/unverified gaps.
+  Depends on T073/T076/T077; structural passing is not execution certification.
+- [ ] T079 [US6] Reconcile README/getting-started/demo, current as-built architecture/
+  code walkthrough, persona-story-test index, UI assets/video notes and short next
+  steps from actual integrated candidate. Depends on relevant T075–T078 code/docs.
+- [ ] T080 [US6] One independent final integrated diff review, affected-delta repairs,
+  whole-index credential guard, full tests/success/failure demos, candidate CI and
+  ordinary protected PR integration/readback. No new RC/publication/budget namespace.
+- [x] T099 [US1–US6] Complete W1 beyond the initial 31-flow baseline from native
+  scenarios and existing tests; distinguish each source-derived workflow and all
+  seven control groups. Extend strict no-network checker with tests-first visual
+  provenance/hash/header/layer/placement, private-path, safe-error and CLI contracts;
+  prepare stable exact bytes/interface for SM before Template export. Depends on
+  T073 preparation, not F6; no product-gap fixes or captures for checker tests.
+- [x] T100 [US6] Correct the reusable checker for exact-source self-contained
+  raster composites and W3 instruction shape; observe failing fixtures before
+  implementation, verify the combined suite/demos and release exact committed
+  bytes to SM. This closes a checker checkpoint only, not T074 adoption or W3.
+- [x] T101 [P] [US1–US3] W3 patient/public/identity/booking walkthrough documents
+  (catalog rows 1–20,32–50); disjoint document files only. Depends on T077/T100.
+- [x] T102 [P] [US4–US5] W3 support/developer/replay walkthrough documents
+  (catalog rows 21–31,51–67); disjoint document files only. Depends on T077/T100.
+  Parent owner alone updates catalog/assets/native ledger/navigation and integrates
+  both write sets before T078's combined checker and independent final review.
+- [x] T103 [US6] Resolve SM's two bounded reusable-checker findings with RED→GREEN
+  generic actor/group slugs and inert SVG element/attribute/namespace validation;
+  preserve exact raster-source guards and BOB-specific consumer coverage.
+- [x] T104 [US1–US6] Assemble all 67 individual guide files, integrate exact step/
+  control/visual metadata and source-specific gaps, validate structural/navigation/
+  executable references, sample actual rendering, and retain partial offline UI
+  observations without upgrading whole-journey acceptance. T078/T079/T080 remain
+  open for remaining boundary review/integration and the F6 dependency.
+- [x] T105 [US6] F6 consumer: adopt the exact reviewed 24-file shared closure,
+  map six elements/all native requirements, RED→GREEN disposable mapping/private-
+  path/unknown-evidence fixtures, doctor/generate/latest, inspect six artifacts and
+  desktop/narrow drilldown; reconcile current documentation and exact candidate.
+- [x] T106 [US6] Preserve managed bytes while referring the discovered current
+  YAML keyword-API incompatibility to the shared owner; adopt only its reviewed
+  replacement pin and rerun the affected consumer/full qualification. No local
+  fork, skipped test, CI weakening or new platform qualification.
+- [x] T107 [US1–US6] Correct the two Important findings from SM's one complete
+  `5e8fa85` W/F6 review: ten independent-session prerequisites and three explicit
+  filter-commit sequences, with real service/session RED→GREEN consumer tests,
+  synchronized catalog/anchors/visuals and historical status wording. Local repair
+  only; affected confirmation and CI/protected delivery remain T080.
+
+Affected review repair, 2026-10-14: SM's one whole-BOB review held exact `5e8fa85`
+for R1/R2, with no Critical/runtime/shared/checker finding. Actual widget source
+confirmed that fresh state disables patient controls and availability does not
+apply dropdown drafts. Four new BOB-only tests consuming structured ordered guide
+metadata reproduced 13 expected failures (ten missing-session and three missing-
+filter cases); both negative omission cases passed. Corrected all ten with an
+explicit interactive Step2/toolbar locator, and split the three proposal setups
+into private identity, Apply preferences/Active filters, and availability/proposal
+steps. Four tests now pass (0.045 s) against actual BrowserService/SchedulingSession
+with disposable FixturePort/journal state, no model/browser/write. The fixture
+uses a known synthetic identity to isolate prerequisite order, not full sample-
+value or human-prose/browser qualification. Catalog/docs metadata agree; 67 flows,
+430 steps/264 interactive. Recheck of remaining availability metadata found no
+case before a declared preference commit; this is not proof of every text result.
+Structural check, 91-doc navigation (1,970 local targets/86 anchors) and 102 exact
+test-target audit pass. N1 preserves the original 558/checker checkpoint as
+historical, not relabeled current. Combined repair working suite: 568 tests passed
+(28.270 s); all three BOB booking and both starter demos pass offline. Representative
+actual IAB guide rendering shows separate Step2 session and Step4 applied-filter
+instructions with loaded source-bound figures, client/scroll width1265/1265.
+This is documentation rendering, not fresh BOB/browser journey qualification.
+Actual runtime/apps/scripts and both managed tool trees have zero delta from
+`5e8fa85`. Exact committed repair, guard, affected confirmation and protected
+integration are pending at this working checkpoint.
+
+T074 actual owner readback: SM confirms Template clean local adoption
+`defa3ee6e237dd165ecb948b836dc266a194d1b2`, with MLX's integration/pin reviews
+CLEAR. Actual checker/contract/maintenance-test Git blobs match selected `612d4bf`;
+only checker/contract are public exports, not the maintenance test. This closes
+owner distribution, not future consumer application qualification. No Template
+remote was configured/created/pushed; BOB did not write Template/shared source.
+
+F6 corrected local candidate, 2026-10-14: SM delivered the independently reviewed
+replacement from `ea7cfea9405f593a56b54c782212ccd9539bd178`, CLEAN, mechanism
+1.0.0, 24 payload files plus manifest. Manifest SHA256
+`2f326defb7665826bed041047a5c892386f972d230d5fbf5caf73ca402430ebe`.
+All hashes/closure matched with zero extras/symlinks; only shared `poc_input.rb`
+and the manifest differ from the previous bundle. No managed local fork. All six
+actual consumer tests pass (1.392 s), including the strict keyword-only signature
+fixture around the real parser. Actual self-check and BOB doctor pass without
+credentials. Combined frozen working suite passes 564 tests (29.379 s), with
+Python3.11.13, no skips/failures. All three BOB booking demos and both starter
+success/failure demos pass offline. This records precommit execution, not a later
+commit identity or actual Ruby3/Linux/browser/model qualification. T075/T105/T106
+close local implementation; T078/T079/T080 retain final review/CI/integration.
+
+Historical F6 working checkpoint, 2026-10-14: native SM delivery resolved its earlier send
+denial after actual human re-read. Adopted exact reviewed shared source
+`379b32cfd31364d94dda37e13572a047d3b9e2b9`, CLEAN, 24 manifest files plus manifest,
+mechanism1.0.0, manifest SHA256
+`b91dec01948be29ba27f6f371dbb66ccb3d58d97fa8194570931c577e1f6dd54`.
+Actual preflight found zero extras/symlinks and all file hashes matched. Shared
+files remain unchanged locally. The five initial consumer tests failed for absent
+mapping, then passed (1.195 s) after native data was added. A separate real-consumer
+positive assertion failed for temporary FR-999 and passed after restoring only
+that fixture. Unknown native IDs/tasks never become complete; private-path
+canary is rejected without echo; real generated snapshot retains UNKNOWN and six
+artifacts. Full integrated suite initially passed 563 tests (27.876 s).
+
+Actual exported self-check, BOB doctor/generate/latest passed without an app,
+credential lookup/model call or SDK operation. Dedicated ignore rule verified
+before generation. First ignored snapshot `poc-20261014t125458-53af72b5994a`
+truthfully binds `ff45e8c`/WORKING_TREE, 36 source hashes: 30 FR IDs, 28 active and
+two historical/superseded fixed-day rows DEFERRED, 12 capabilities, exactly six
+elements/artifacts. Narrative evidence stays linked/UNKNOWN; no overall estimate,
+verification or acceptance pass is manufactured. Actual IAB desktop and 375px
+review opened native drilldown (30 requirement rows); body client/scroll width
+360/360, 540px tables scroll inside 314px containers. Default viewport restored
+1265/1265. Generated output is local/ignored, not application hosting/publication.
+
+Resolved CI compatibility finding: existing BOB workflow uses ubuntu-24.04. The
+[official runner image](https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md)
+lists Ruby3.2, whose [Psych safe_load API](https://docs.ruby-lang.org/en/3.2/Psych.html#method-c-safe_load)
+accepts one positional YAML value plus keywords. Shared PocPaths used four legacy
+positional arguments. Local Ruby2.6.10 supports both signatures, so the initial
+green did not cover removal of legacy compatibility. A strict current-signature
+fixture around the real parser reproduced one expected failure across six
+consumer tests (1.361 s); it is not actual Ruby3/Linux qualification. BOB's own
+snapshot decoder now uses keyword arguments. Managed379 bytes were not edited.
+The initial BOB→SM referral send was denied for summarized-consent provenance;
+actual original native human/question were re-read, then one native retry succeeded.
+No alternate transport. SM independently reproduced27/28 RED then28/28 GREEN,
+full149/149 isolated, and committed narrow shared `ea7cfea9405f593a56b54c782212ccd9539bd178`.
+Its reviewed replacement was subsequently delivered and adopted as recorded above.
+
+T104 local collection, 2026-10-14: disjoint document workers delivered 29 and 28
+files, parent authored ten and alone integrated catalog/navigation. All 67 guides
+have own Step0/1, workspace, numbered synthetic data, interactive visuals, exact
+results/recovery/effect/cleanup/evidence/reference sections. Catalog: 414 steps,
+248 interactive; all whole journeys remain unverified where unrun. Structural
+check passed; independent parent AST audit resolved 102 distinct exact test targets
+and six typed JSON examples, zero errors. Changed public navigation: 85 docs,
+1,895 local targets, 81 fragments, zero errors. Representative actual IAB rendered
+patient/support guides/private atlas loaded self-contained figures correctly and
+had no horizontal overflow; all 17 atlas composites were already visually reviewed
+at 1000px width, with stated small-text/non-target-overlap limitations. No new
+diagram source changed; existing as-built diagrams retain their reviewed scope.
+Combined collection suite: 558 tests passed, 26.284 s on Python3.11.13.
+
+Partial actual offline UI at launch source `612d4bf` with docs-only working edits:
+fresh owned 29580/29581 after confirmed absence of earlier listeners; earlier
+files and Operator28450/28451 untouched. Verified no-availability fixture/filter/
+Help, zero match, fresh ambiguous identity→ZIP70115→verified→empty lookup, returned
+provider2 selection/clear and provider99 rejection. No key/model/recording/write.
+Later date edits twice showed local connection unavailable while both owned
+listeners remained alive; read-only reload recovered revision7, valid dates applied
+at revision8, inverted edit not qualified. Bounded browser logs showed WebSocket
+close/error warnings, not a proven root cause. Product fix is outside this docs
+grant; exact automated coverage remains distinct from unavailable UI evidence.
+
+SM selected exact portable checker `612d4bf` after affected-delta review and an
+independent fresh three-file export: 52 structural tests passed (0.299 s), all
+three hashes matched. This resolves the two portable-boundary findings only;
+Template adoption and final BOB privacy/perceptual/workflow review are not claimed.
+At that earlier checkpoint shared Flight Deck `379b32cf` was held for MLX affected
+review; later deliveries and the corrected pin are recorded above. Existing native
+tasks remain the sole completion ledger.
+
+T103 review correction, 2026-10-14: SM independently matched all three `66da0c8`
+portable hashes and reproduced rejected operator/workspace slugs plus accepted
+SMIL mutation. Four added portable tests first yielded three expected failures
+(52 tests, 0.187 s). Minimal changes remove domain whitelists, keep bounded slug
+validation, and allow only inert SVG/no-namespace shapes/text/declared-source images
+with inert attributes; SMIL, foreign namespaces, style, declarations/processing
+instructions and linked mutation remain denied. All 52 portable fixtures pass
+(0.334 s); two BOB-only consumer tests retain seven groups/57 controls and validate
+all current source-bound layers. An initial combined run failed only the new
+consumer assertion that Developer was a separate permission role; source review
+shows those controls are `both`, so the test-only expectation was corrected rather
+than inventing permission. Final combined suite: 558 tests passed, 28.151 s,
+Python 3.11.13. Three BOB synthetic booking demos and retained starter success/
+failure modules pass. No asset recapture, product change, credential/model call or
+Operator state change. Exact corrected portable pin is supplied to SM; Template
+adoption and final whole-BOB review remain pending, not reopened as extra gates.
+
+T100 local correction, 2026-10-14: SVG-as-image rendering cannot rely on an
+external local image. A failing exact-source embedding regression preceded the
+minimal decoder/equality guard; arbitrary data/remote/active content remains
+denied. W3 shape fixtures reproduced nine expected failures across 48 tests
+before required workspace/sample/completion/evidence/reference fields were
+enforced. All 48 structural fixtures pass; the combined working suite passed
+552 tests in 27.221 s on explicit Python 3.11.13. All three BOB synthetic booking
+demos passed (success, conflict recovery, unknown/retry blocked); retained starter
+success/failure modules returned complete/handoff. No credential/model lookup,
+paid proof, product source change or Operator state mutation.
+
+W2 prepared assets: 18 unchanged actual originals, 17 separate vector layers and
+17 self-contained composites (52 manifest records), covering all 57 control
+families across seven atlas documents. Final 1000-pixel-width composites and
+representative separate layers were visually reviewed; original privacy/source
+review is retained. Manifest validation reports 52 visuals, zero errors. Small
+historical captures need full-size/text alternatives; replay-basic badges overlap
+some non-target diagnostic context, not button labels. Acknowledgement/kernel/
+reconnect gaps, unknown checkout state, historical source and unexecuted variant/
+data-control outcomes remain explicit. Assets/docs are not yet an integrated
+collection; 67 individual walkthroughs and final navigation/review remain open.
+T077's local atlas contract/privacy/visual review is complete; source/date/mode
+limitations remain visible. T101/T102 may now draft independent documents in
+parallel without UI/capture/model execution or shared-file writes. Whole-collection
+and final independent review remain T078/T080, not implied by this checkpoint.
+
+T099 local checkpoint, 2026-10-13: catalog now maps 67 distinct flows (eight
+supplied, 23 other baseline, 36 additional native acceptance/recovery cases), with
+57 controls in exactly seven purpose groups. Source-file resolution has zero
+missing sources. The control index distinguishes accessible role from local actor,
+lists dynamic/below-fold states, disabled conditions and effect authority. All
+individual documents/visual mappings remain documentation-unverified; W2/W3 open.
+
+Checker extension first reproduced 30 failures/3 missing-API errors across 34
+tests; the separate local-source-only composite regression then failed as expected,
+followed by its minimal fix. An executable flow containing only empty Step 0/1
+also reproduced red before enforcement. Final suite has 42 structural tests;
+the JPEG-header and local-Git-metadata cases characterize existing extended code,
+not retrospective tests-first evidence. Headers/hashes, full manifest field/types,
+layer/source dimensions and provenance, bounded integer placements, private paths,
+active/external SVG, malformed CLI and no-network/read-only behavior are covered.
+`tools/poc-docs/CONTRACT.md` records the exact portable contract. No app imports,
+network/model/vault calls, file writes or Git subprocesses occur in the checker.
+
+Combined working-tree verification: 546 tests passed (25.594 s), explicit Python
+3.11.13/macOS ARM; all three supplied-HTTP booking demos passed (success once,
+conflict then fresh success, labeled lost-receipt unknown/retry blocked). The real
+collection checker exits 2 for its still-missing manifest, intentionally not a
+collection pass. An earlier restricted baseline run was interrupted as stale after
+source reconciliation; it is not a green result. Exact owned test PID alone was
+stopped, with no BOB demo service control. Incorrect guessed starter-demo script
+paths were rejected as absent; corrected module entrypoints are checked separately.
+No new paid proof, live Support-sync qualification or screenshot adoption.
+
+T099 precommit guard: existing whole staged-index scanner checked 405 files/119
+binary, six existing exact synthetic allowances, zero unresolved findings, symlinks
+or submodules; staged diff check clear. Pattern-scan limits remain unchanged.
+Corrected retained starter module demos `poc_demo --scenario success` and `failure`
+returned complete/handoff respectively; they are not BOB product evidence. This is
+a local W1 source checkpoint and upstream dependency handoff, not final collection
+review/CI/protected integration. T074 closes only after actual SM delivery/adoption.
+
+T073 local evidence: checker absent → 20 expected failing tests; implementation →
+20 green; malformed-type/unknown-manifest-field regressions reproduced → 21 green.
+Full isolated suite: 454 tests passed, 24.590 s, Python 3.11.13. No app/model/vault
+operation occurs in checker tests. Individual documents/visual mappings remain
+unverified and the real collection intentionally does not pass the structural
+checker yet. See [inventory and IAB checkpoint](../../docs/user/walkthroughs/index.md).
+No product runtime source was changed by W1. Reusable checker review/integration,
+normal candidate CI and final collection verification are still open.
+
+Existing supplied-HTTP success, conflict-recovery and unknown/retry-blocked demos
+passed in the same isolated candidate without model calls. Pre-commit whole-index
+guard: 390 files, 119 binaries, six exact reviewed synthetic exceptions, zero
+unresolved findings, symlinks or submodules. The checker/test source hashes are
+retained in the owner handoff; no screenshot/runtime credential/state was staged.
+
+Ruling: native tasks are the sole completion ledger instead of a second SDD
+progress file; duplicated status would violate the working agreement. F6/L4 shared
+bytes remain SM-owned. The existing Operator checkout/session is never reset to
+make a synthetic walkthrough easier. Missing dedicated vault item is reported,
+not silently replaced with the historical generic item.
+
+Resumption ruling: reuse the native task ledger and existing owned clone; no second
+SDD tracker or design/bootstrap cycle. W1 catalog/checker and SM shared rendering
+continue in parallel with disjoint writers. F6 consumes only the reviewed export.
+Direct Operator Support-join demo took priority briefly and is not W1 completion:
+fresh IAB role joined/inactive, private controls/confirmation disabled; acknowledgement
+unavailable and transient kernel warnings remain explicit synchronization gaps.
+Raw still is private, unadopted pending provenance/privacy/crop review. No takeover,
+booking or paid-model probe occurred. Existing canonical SQLite/effects namespace
+was retained on the necessary restored launch; no further restart needed for W1.
+
 Current runtime/launcher policy, 2026-10-13: exact reviewed `79aeafd` integrated
 through protected [PR #9](https://github.com/Kenerator/ochsner-scheduling-bob/pull/9)
 as `d3c3a04`, identical tree; canonical main synced cleanly. Functional qualification
