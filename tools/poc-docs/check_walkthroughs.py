@@ -1,17 +1,23 @@
 """Bounded, read-only training-document checks; never executes app or network I/O."""
 import argparse
+import hashlib
 import json
 import os
 from pathlib import Path, PurePosixPath
 import re
 import stat
+import struct
 from urllib.parse import unquote, urlsplit
+import xml.etree.ElementTree as ET
 
 LIMIT = 1_048_576
 IDENTIFIER = re.compile(r"[a-z][a-z0-9-]{0,95}\Z")
 GROUPS = {"session-and-public", "private-and-booking", "help-and-outcomes", "support",
           "developer-recording", "replay-navigation", "replay-variants-and-data"}
 LINK = re.compile(r"(!?)\[([^\]\n]*)\]\(<?([^\s)>]+)>?(?:\s+[\"'][^\n]*?[\"'])?\)")
+VISUAL_FIELDS = {"id", "kind", "path", "sha256", "source_revision", "working_tree_state",
+                 "scenario", "action", "result", "role", "viewport", "width", "height",
+                 "source_visual_id", "placements", "limitations"}
 
 
 def _pairs(pairs):
@@ -42,6 +48,12 @@ def _path(root, value):
     parts = PurePosixPath(value).parts
     if parsed.scheme or parsed.netloc or parsed.query or parsed.fragment or value.startswith("/") or ".." in parts:
         raise ValueError("unsafe path")
+    lowered = [part.lower() for part in parts]
+    if (any(part in {".git", ".bob-local", ".superpowers", ".venv", "tmp", "__pycache__"}
+            or part.startswith(".env") for part in lowered)
+        or lowered[:3] in (["docs", "product", "intake"], ["docs", "product", "rfp"])
+        and (lowered[:3] != ["docs", "product", "rfp"] or len(lowered) > 3 and lowered[3] == "source")):
+        raise ValueError("private path")
     candidate = root
     for part in parts:
         candidate = candidate / part
@@ -101,7 +113,7 @@ def _schema(catalog):
         return False
     for family in ("flows", "controls"):
         rows = catalog[family]
-        if not isinstance(rows, list) or len(rows) > 512:
+        if not isinstance(rows, list) or len(rows) > 512 or family == "flows" and not rows:
             return False
         identifiers = set()
         for row in rows:
@@ -124,6 +136,183 @@ def _schema(catalog):
                 if any(not _strings(step[key]) for key in ("visual_ids", "control_ids") if key in step):
                     return False
     return True
+
+
+def check_placement(source: dict, placement: dict) -> list[str]:
+    """Validate source-pixel rectangles; this never certifies the visual target."""
+    if (not isinstance(source, dict) or not isinstance(placement, dict)
+        or set(placement) != {"x", "y", "width", "height"}
+        or any(type(source.get(k)) is not int or source[k] <= 0 for k in ("width", "height"))
+        or any(type(placement.get(k)) is not int for k in ("x", "y", "width", "height"))
+        or placement["x"] < 0 or placement["y"] < 0
+        or placement["width"] <= 0 or placement["height"] <= 0):
+        return ["invalid annotation placement"]
+    if (placement["x"] + placement["width"] > source["width"]
+        or placement["y"] + placement["height"] > source["height"]):
+        return ["annotation exceeds source bounds"]
+    return []
+
+
+def _revision(root):
+    """Best-effort local Git metadata only: no Git process, hooks or network."""
+    try:
+        directory = root / ".git"
+        if directory.is_symlink():
+            return None
+        if directory.is_file():
+            pointer = _read(directory).strip()
+            if not pointer.startswith("gitdir: "):
+                return None
+            directory = (root / pointer[8:]).resolve()
+        head = _read(directory / "HEAD").strip()
+        if re.fullmatch(r"[0-9a-f]{40}", head):
+            return head
+        if not re.fullmatch(r"ref: refs/heads/[A-Za-z0-9/_-]{1,200}", head):
+            return None
+        reference = head[5:]
+        common = directory / "commondir"
+        if common.is_file() and not common.is_symlink():
+            directory = (directory / _read(common).strip()).resolve()
+        direct = directory / reference
+        if direct.is_file() and not direct.is_symlink():
+            value = _read(direct).strip()
+            return value if re.fullmatch(r"[0-9a-f]{40}", value) else None
+        packed = directory / "packed-refs"
+        if packed.is_file() and not packed.is_symlink():
+            for line in _read(packed).splitlines():
+                if line.endswith(" " + reference) and re.fullmatch(r"[0-9a-f]{40}", line[:40]):
+                    return line[:40]
+    except (OSError, ValueError, UnicodeError):
+        pass
+    return None
+
+
+def _dimensions(path, raw, *, root=None, source_asset=None):
+    """Bounded header/SVG validation, not a complete image codec or pixel audit."""
+    suffix = path.suffix.lower()
+    if suffix == ".png" and len(raw) >= 33 and raw[:8] == b"\x89PNG\r\n\x1a\n" and raw[8:16] == b"\x00\x00\x00\rIHDR":
+        return struct.unpack(">II", raw[16:24])
+    if suffix in (".jpg", ".jpeg") and raw.startswith(b"\xff\xd8"):
+        offset = 2
+        while offset + 4 <= len(raw):
+            if raw[offset] != 255:
+                break
+            while offset < len(raw) and raw[offset] == 255:
+                offset += 1
+            if offset >= len(raw):
+                break
+            marker = raw[offset]
+            offset += 1
+            if marker in (0xD8, 0xD9, 0xDA):
+                break
+            if marker == 0x01 or 0xD0 <= marker <= 0xD7:
+                continue
+            size = int.from_bytes(raw[offset:offset + 2], "big")
+            if size < 2 or offset + size > len(raw):
+                break
+            if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF) and size >= 8:
+                height, width = struct.unpack(">HH", raw[offset + 3:offset + 7])
+                return width, height
+            offset += size
+    if suffix == ".svg":
+        if b"<!" in raw:
+            raise ValueError("unsafe SVG declaration")
+        element = ET.fromstring(raw)
+        if element.tag.rsplit("}", 1)[-1] != "svg":
+            raise ValueError("not SVG")
+        for node in element.iter():
+            name = node.tag.rsplit("}", 1)[-1]
+            if name in {"script", "foreignObject", "use", "style"}:
+                raise ValueError("active or linked SVG")
+            hrefs = [value for key, value in node.attrib.items() if key.rsplit("}", 1)[-1] == "href"]
+            if name == "image":
+                # A code-native composite may reuse exactly its verified original.
+                # No external URL, data URI, other asset or annotation chain.
+                if root is None or source_asset is None or len(hrefs) != 1 or _reference(root, hrefs[0], path) != source_asset:
+                    raise ValueError("undeclared composite source")
+            elif hrefs:
+                raise ValueError("linked SVG")
+            if any(key.rsplit("}", 1)[-1].lower().startswith("on")
+                   or "url(" in value.lower() for key, value in node.attrib.items()):
+                raise ValueError("active or linked SVG")
+        dimensions = tuple(element.get(k, "").removesuffix("px") for k in ("width", "height"))
+        if all(re.fullmatch(r"[1-9][0-9]{0,5}", v) for v in dimensions):
+            return tuple(map(int, dimensions))
+    raise ValueError("unsupported or invalid image header")
+
+
+def _visual_schema(visual):
+    if not isinstance(visual, dict) or set(visual) != VISUAL_FIELDS:
+        return False
+    text = ("id", "kind", "path", "sha256", "source_revision", "working_tree_state",
+            "scenario", "action", "result", "role")
+    if any(not isinstance(visual[k], str) or not visual[k].strip() or len(visual[k]) > 1024
+           or any(ord(c) < 32 for c in visual[k]) for k in text):
+        return False
+    return (bool(IDENTIFIER.fullmatch(visual["id"]))
+            and visual["kind"] in ("screenshot", "schematic", "annotation", "composite")
+            and bool(re.fullmatch(r"[0-9a-f]{64}", visual["sha256"]))
+            and bool(re.fullmatch(r"[0-9a-f]{40}", visual["source_revision"]))
+            and visual["working_tree_state"] in ("clean", "dirty", "unknown")
+            and visual["role"] in ("patient", "support", "both", "developer")
+            and all(type(visual[k]) is int and 0 < visual[k] <= 32768 for k in ("width", "height"))
+            and isinstance(visual["viewport"], dict) and set(visual["viewport"]) == {"width", "height"}
+            and all(type(visual["viewport"][k]) is int and 0 < visual["viewport"][k] <= 32768 for k in ("width", "height"))
+            and (visual["source_visual_id"] is None or isinstance(visual["source_visual_id"], str)
+                 and bool(IDENTIFIER.fullmatch(visual["source_visual_id"])))
+            and isinstance(visual["placements"], list) and len(visual["placements"]) <= 128
+            and _strings(visual["limitations"]))
+
+
+def _visuals(root, manifest):
+    visuals, errors = {}, []
+    revision = _revision(root)
+    for visual in manifest["visuals"]:
+        if not _visual_schema(visual) or visual["id"] in visuals:
+            return {}, ["catalog: visual manifest schema or identifier invalid"]
+        identifier = visual["id"]
+        visuals[identifier] = visual
+    for identifier, visual in visuals.items():
+        try:
+            asset = _path(root, visual["path"])
+            if visual["kind"] == "screenshot" and asset.suffix.lower() not in {".png", ".jpg", ".jpeg"}:
+                errors.append(f"{identifier}: screenshot must be a raster capture")
+            if asset.stat().st_size > 16 * LIMIT:
+                raise ValueError("image exceeds bound")
+            raw = asset.read_bytes()
+            if hashlib.sha256(raw).hexdigest() != visual["sha256"]:
+                errors.append(f"{identifier}: visual hash mismatch")
+            source = visuals.get(visual["source_visual_id"])
+            source_asset = (_path(root, source["path"]) if visual["kind"] == "composite"
+                            and source is not None and source["kind"] == "screenshot" else None)
+            if _dimensions(asset, raw, root=root, source_asset=source_asset) != (visual["width"], visual["height"]):
+                errors.append(f"{identifier}: visual dimensions mismatch")
+        except OSError:
+            errors.append(f"{identifier}: visual asset unavailable")
+        except (ValueError, ET.ParseError):
+            errors.append(f"{identifier}: visual asset unavailable or invalid")
+        if revision and visual["source_revision"] != revision:
+            if not any("historical" in value.lower() for value in visual["limitations"]):
+                errors.append(f"{identifier}: historical source requires an explicit limitation")
+        elif revision is None or visual["working_tree_state"] != "clean":
+            if not visual["limitations"]:
+                errors.append(f"{identifier}: unknown or dirty source requires a limitation")
+    for identifier, visual in visuals.items():
+        if visual["kind"] in ("screenshot", "schematic"):
+            if visual["source_visual_id"] is not None or visual["placements"]:
+                errors.append(f"{identifier}: clean visual cannot name an annotation source")
+            continue
+        source = visuals.get(visual["source_visual_id"])
+        if source is None or source["kind"] != "screenshot":
+            errors.append(f"{identifier}: annotation requires a clean screenshot source")
+            continue
+        if any(visual[k] != source[k] for k in ("width", "height", "viewport", "source_revision", "working_tree_state", "scenario", "role")):
+            errors.append(f"{identifier}: annotation/source provenance or dimensions mismatch")
+        if not visual["placements"]:
+            errors.append(f"{identifier}: annotation requires placement rectangles")
+        for placement in visual["placements"]:
+            errors.extend(f"{identifier}: {error}" for error in check_placement(source, placement))
+    return visuals, errors[:256]
 
 
 def _sources(root):
@@ -156,18 +345,8 @@ def check_catalog(root: Path, catalog: dict) -> list[str]:
             raise ValueError("manifest schema")
     except (OSError, ValueError, TypeError, UnicodeError, RecursionError):
         return ["catalog: source inventory or visual manifest unavailable or invalid"]
-    visuals = {}
-    for visual in manifest["visuals"]:
-        allowed = {"id", "kind", "path", "sha256", "source_revision", "working_tree_state", "scenario", "action", "result", "role", "viewport", "width", "height", "source_visual_id", "placements", "limitations"}
-        if not isinstance(visual, dict) or set(visual) - allowed or not isinstance(visual.get("id"), str) or not IDENTIFIER.fullmatch(visual["id"]) or visual["id"] in visuals or visual.get("kind") not in ("screenshot", "schematic", "annotation", "composite") or not isinstance(visual.get("path"), str):
-            return ["catalog: visual manifest schema or identifier invalid"]
-        visuals[visual["id"]] = visual
-        try:
-            asset = _path(root, visual["path"])
-            if visual["kind"] == "screenshot" and asset.suffix.lower() not in {".png", ".jpg", ".jpeg", ".webp"}:
-                errors.append(f"{visual['id']}: screenshot must be a raster capture")
-        except (OSError, ValueError):
-            errors.append(f"{visual['id']}: visual asset unavailable")
+    visuals, visual_errors = _visuals(root, manifest)
+    errors.extend(visual_errors)
 
     controls = {row["id"]: row for row in catalog["controls"]}
     assigned = set()
@@ -180,6 +359,8 @@ def check_catalog(root: Path, catalog: dict) -> list[str]:
             numbers = [step["number"] for step in row["steps"]]
             if numbers[:2] != [0, 1] or numbers != list(range(len(numbers))):
                 errors.append(f"{identifier}: steps must start at 0 and be consecutive")
+            if row["mode"] != "not-executable" and not any(step["interactive"] for step in row["steps"]):
+                errors.append(f"{identifier}: executable flow requires an interactive step")
             if row["status"] != "implemented" and not row["gap_refs"]:
                 errors.append(f"{identifier}: gap status requires a gap reference")
             for source in row["source_ids"]:
@@ -243,11 +424,14 @@ def check_catalog(root: Path, catalog: dict) -> list[str]:
 
 def main(argv: list[str] | None = None) -> int:
     """Read --root/--catalog; return 0 for structural success, 2 for errors."""
-    parser = argparse.ArgumentParser(description=__doc__)
+    class SafeParser(argparse.ArgumentParser):
+        def error(self, message):
+            raise ValueError("invalid checker arguments")
+    parser = SafeParser(description=__doc__, allow_abbrev=False)
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--catalog", required=True)
-    args = parser.parse_args(argv)
     try:
+        args = parser.parse_args(argv)
         root = args.root.resolve(strict=True)
         catalog = _json(_path(root, args.catalog))
         errors = check_catalog(root, catalog)

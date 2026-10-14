@@ -1,5 +1,34 @@
 # Video production notes
 
+Runtime policy note, 2026-10-13: reviewed `79aeafd`, integrated as `d3c3a04`, implements indefinite Ochsner-key
+application usage including functional qualification/testing/validation and app-like
+evaluation; LLM creation/change of app/spec/test code and media grants do not expand.
+Same-path private SQLite accounting preserves history/unknown liabilities; safe
+activation requires old writers quiescent. [Current guidance](../user/getting-started.md#application-runtime-accounting)
+and [native status](../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13)
+are canonical. No model request, capture, render or live migration was performed
+under this policy assignment. Prior fixed-day/source-bound facts below are historical.
+
+Budget note, updated 2026-10-12: reviewed head `8908ef9` integrated as `c7c53a3`;
+the backend was restored with explicit fixed-day opt-in, without a paid readiness
+request. This is not new model qualification. Preserve existing production media;
+no video capture/render is initiated. [Usage and limitations](../user/getting-started.md#fixed-oct-12-model-budget-window)
+and [native candidate status](../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12)
+are canonical. Existing qualification stills must not be relabeled to the new source.
+The requested local IAB support-join demo showed joined/read-only with private
+identity excluded; acknowledgement remained unavailable and a transient kernel
+notice cleared. Do not narrate reliable synchronized-screen behavior from that demo.
+
+L4 candidate note, 2026-10-12: the normal wrapper requests model mode using the
+exact Secure Note field and configures the key-free viewer's public backend trait.
+Actual isolated UI smoke was explicitly offline on 29580/29581: independent
+patient creation and Downtown primary-care provider discovery succeeded after a
+native-input/reconnect failure; warnings remain. No paid requalification or video
+production was performed. The disposable tab/services were closed, while original
+Operator PIDs 92464/96962 and IAB views remained at that checkpoint. SM reports
+those PIDs/ports absent on Oct 13, without stopping them. Exact pin/review/CLI correction
+status belongs in [native L4 tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12).
+
 Updated 2026-10-12. Video production is **on hold** under the current human plan;
 no second video, new bookends, capture, assembly or publication is initiated by
 these notes. Existing R6/assets stay unchanged. Caption work remains deferred,

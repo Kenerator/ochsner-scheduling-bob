@@ -134,7 +134,7 @@ As a reviewer or maintainer, I want a clean supported Mac setup, deterministic C
 - **FR-021**: The reviewer training collection MUST trace every distinct supplied/native workflow to its own document with Step 0 setup, Step 1 delivered launch, explicit synthetic inputs/actions/results/recovery/cleanup and a visual at every interactive step. Seven purpose-grouped actual control atlases MUST include dynamic and below-fold controls, disabled conditions and effect scope. Clean captures and separate annotations MUST retain source/action/result/hash/dimension/placement provenance; schematics MUST be labeled, never presented as executed screenshots. Structural checks MUST NOT imply workflow certification.
 - **FR-022**: The normal approved Ochsner launch MUST consume the reviewed reusable model-first runtime with exact dedicated credential item `[Env] (Ochsner PoC) OPENAI_API_KEY`, qualified BOB default `gpt-5.4-2026-03-05`, explicit offline alternatives and safe failure. Help/doctor MUST read no key, start no service and make no model call. Keys belong only in the model host, not viewer/mock children; owned lifecycle MUST preserve foreign listeners and canonical budget/effect state. No generic/inherited credential fallback or startup paid request is permitted.
 - **FR-023**: BOB MUST consume the reviewed shared Flight Deck export with a thin native project mapping for functional, UX, safety, verification, training and repository readiness. Native tasks remain the sole completion ledger; checked implementation tasks MUST NOT manufacture verification or acceptance, and absent evidence MUST remain unknown. Generation/doctor MUST require no app, model key or private DevOps runtime dependency.
-- **FR-024**: Training and launch evidence MUST bind the actual candidate/mode and disclose incomplete, unsupported and stale cases. Historical genuine model qualification retains its original source/date/limits. These follow-ons MUST NOT repair product gaps, disrupt Operator sessions, create new budget headroom, publish media or imply production/platform qualification.
+- **FR-024**: Training and launch evidence MUST bind the actual candidate/mode and disclose incomplete, unsupported and stale cases. Historical genuine model qualification retains its original source/date/limits. These follow-ons MUST NOT repair product gaps, create new budget headroom, publish media or imply production/platform qualification. Preserve Operator sessions unless an identified necessary interruption is covered by the explicit later grant; retain original accounting/history/effects and never stop unrelated services. Each distinct supplied/native acceptance or recovery workflow has its own input-traced document, not only the baseline example families. The visual manifest MUST validate exact provenance fields, actual file hashes/dimensions, clean source/layer relations, bounded placements and contained public paths before adoption; this does not certify visual content or synchronization.
 
 ### Key Entities
 
@@ -167,3 +167,72 @@ As a reviewer or maintainer, I want a clean supported Mac setup, deterministic C
 - Synthetic identity matching demonstrates workflow behavior, not authentication or authorization; no real PHI, credentials, live human routing, or clinical decision support is in scope.
 - This exact BOB repository has approved public source and retained branded synthetic assets, with provenance in the UI asset index. Internal-use PoC scope remains; broader rights, application deployment and external media publication require separate authority.
 - Genuine-model qualification is required for full completion after offline behavior; credentials, spend, and model choice require an applicable grant.
+
+## Fixed-day budget requirement — 2026-10-12
+
+Historical requirement, superseded for application runtime by FR-027 below.
+
+- **FR-025 [US6]**: Under the Operator's separate fixed-day BOB grant, the system
+  MUST require explicit opt-in to bypass numeric ceilings only from
+  `2026-10-12T05:00:00Z` inclusive to `2026-10-13T05:00:00Z` exclusive.
+  Default and expired new reservations MUST enforce ordinary ceilings. The
+  canonical ledger, counts, costs, reservations and unknown liability MUST survive;
+  valid over-cap history MUST remain readable and settleable after expiry.
+  Priced model validation, bounded requests, private locking/atomic persistence,
+  technical storage capacity, no tools/retries and project scope MUST remain.
+- **FR-025a [US6]**: Public budget readiness MUST require the existing canonical
+  ledger and initialized marker, validate a worst-case 512-output-token reservation
+  under the same explicit opt-in/clock/storage policy, and perform no writes,
+  initialization, reservation, settlement, model call or namespace replacement.
+  Readiness MUST NOT substitute for durable reservation at actual dispatch.
+  CLI/browser `--unlimited-today` MUST require `--openai`; the shared launcher
+  remains a separately owned integration. No qualifier override is added.
+
+Origin: explicit Operator budget direction, forwarded within the existing approved
+assignment by SM; not a persona-inferred permission. Acceptance uses fixed-clock,
+late-settlement, launch-boundary and read-only file-identity tests. Actual live
+activation, independent review and protected integration are not inferred from
+offline tests; status belongs in [native tasks](tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
+
+## Model-first launcher integration — 2026-10-12
+
+- **FR-026 [US6]**: The normal BOB launcher MUST use the pinned reviewed shared
+  runtime and `bob`/`ochsner-bob` preset policy, selecting actual model mode with
+  default `gpt-5.4-2026-03-05` and explicit supported overrides. Resolve only the
+  exact Ochsner Secure Note `notes` field through the trusted helper; no inherited
+  or generic credential fallback. Help/doctor and supported explicit offline mode
+  MUST make no credential/model request. Only the actual model host receives the
+  scalar key; viewer and nested mock stay secret-free. Existing canonical accounting,
+  priced reservations/unknown liability and scheduling authority remain; FR-027
+  supersedes the former application spend/expiry gate.
+  Public backend routing MUST be validated numeric IPv4 loopback HTTP and retain
+  exact Host/Origin isolation. Owned lifecycle MUST not disrupt other listeners.
+
+Origin/scope: approved model-first design and L4 owner handoff from SM; not persona
+permission or a new spending/credential grant. Consumer constructor, no-call,
+privacy/lifecycle and isolated UI evidence are distinct from shared-mechanism tests
+and historical genuine-model qualification. Native tasks hold current gaps/status.
+
+## Indefinite application runtime policy — 2026-10-13
+
+- **FR-027 [US6]**: Normal browser, CLI, direct application and functional
+  qualification/testing/validation/app-like evaluation model paths MUST
+  permit Ochsner-key runtime usage without application-imposed call, dollar or
+  dated-window limits until further notice. This MUST NOT expand LLM generation
+  or changes to application/spec/test code or unrelated research/media allowances. No special budget flag
+  is required. Existing model/key/HTTP/output/context/retry/concurrency, identity,
+  confirmation and effect protections remain.
+- **FR-027a [US6]**: Preserve the same canonical private accounting path, lock,
+  initialized marker, history, reservation IDs/configuration, unknown liabilities
+  and late settlements. Use scalable transactional storage without a cumulative
+  row/byte authorization cutoff; real I/O, corruption and privacy failures deny
+  dispatch. Readiness MUST validate existing JSON or SQLite without initialization,
+  migration, reservation, model call or mutation. Atomic format migration may be
+  activated only after all old-format writers are quiescent; never reset history.
+
+Origin: actual human MLX message `01a1363a-23ea-7802-80fa-a54d8668ba4a` and
+clarification `01a13665-6c25-70f1-9c4a-ad6ec6f5db40`, both verified natively.
+SM selected same-path SQLite and covered-execution constructor selection; functional
+qualification reuses the exact pinned notes helper, rejects off-canonical accounting,
+and retains explicit live opt-in/no duplicate paid runs.
+Status/evidence: [native tasks](tasks.md#indefinite-runtime-policy--2026-10-13).

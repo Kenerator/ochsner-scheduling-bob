@@ -79,9 +79,10 @@ def _run(args, source, output, resources):
     try:
         namespace = resources.enter_context(CliNamespace(args.journal))
         api = ObservedAPI(HttpMockAdapter(args.api_url, scenario=args.scenario), diagnostics.api)
-        # One ledger for CLI, browser and qualification. No override/reset flag;
-        # construction does not dispatch, reserve a call, or read credentials.
-        language = LanguageAdapter(budget=ModelBudget(ROOT / ".bob-local/model-budget.json")) if args.openai else None
+        # Runtime-like functional qualification is covered; LLM generation of
+        # application/spec/test code remains outside this execution authorization.
+        # Keep the same private history; construction never makes a model request.
+        language = LanguageAdapter(budget=ModelBudget(ROOT / ".bob-local/model-budget.json", application_runtime=True)) if args.openai else None
         conversation = Conversation(SchedulingSession(api, journal_path=namespace.journal.path,
                                     session_id=namespace.session_id), language=language,
                                     diagnostic_sink=diagnostics.language)
@@ -94,7 +95,7 @@ def _run(args, source, output, resources):
           "Use an explicit new --journal path only for a new synthetic mock run.", file=output)
     if args.openai:
         print("OpenAI interpretation explicitly requested for public free text. Requires BOB_ENABLE_OPENAI=1, "
-              "BOB_OPENAI_MODEL and OPENAI_API_KEY at runtime. Shared limit: 200 calls / $20. "
+              "BOB_OPENAI_MODEL and OPENAI_API_KEY at runtime. Runtime use is authorized without application usage/spending limits until further notice. "
               "No silent fallback; local commands remain deterministic. No model call occurs until a public text turn.", file=output)
     try:
         namespace.check()

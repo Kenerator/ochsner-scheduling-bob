@@ -1,11 +1,15 @@
 # As-built code walkthrough
 
-Updated 2026-10-12 against integrated source
-`1c318f3e54508d522b18f57d5bc871c4c04ad9ff`. Follow the actual local synthetic
+Updated 2026-10-13 against reviewed source
+`79aeafd6269dd1e54f9429a3cdf49b30070b153c`, integrated as
+`d3c3a044575c5666c220ab89dcb680b8a456fcbb` with the identical selected tree.
+Native T087–T098 records review/qualification/CI/integration and the separate
+unperformed activation. Follow the actual local synthetic
 workflow from entry points to authority/effect boundaries, then inspection and
 optional language. This is a source map, not a second completion ledger or a
-production-readiness claim. Runtime repairs were integrated through
-[PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6).
+production-readiness claim. Earlier repairs integrated through
+[PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6); budget/L3 through
+[PR #8](https://github.com/Kenerator/ochsner-scheduling-bob/pull/8).
 
 Navigation: [entry points](#entry-points) → [booking](#follow-a-booking) →
 [boundaries](#boundary-modules) → [browser/Support](#browser-interaction-and-widget) →
@@ -21,6 +25,12 @@ is kept at the bottom and never relabeled as new execution.
 
 ## Entry points
 
+The [managed launcher](../../../tools/poc-runtime/launch.py) loads
+[public BOB config](../../../poc-launch.json), validates request/readiness, resolves
+only the exact named Secure Note field in model mode, constructs role-scoped
+process specs and supervises owned children. Its [manifest](../../../tools/poc-runtime/export-manifest.json)
+pins shared-source bytes; consumer [tests](../../../tests/test_runtime_launcher.py)
+exercise actual BOB boundaries. Explicit direct entrypoints below remain available.
 
 The [public exports](../../../src/ochsner_bob/__init__.py) are SchedulingSession,
 HttpMockAdapter, ApiError and UnknownOutcome. Retained `core.py` / `adapters.py`
@@ -37,6 +47,12 @@ import that sketch; passing them does not establish supplied-service acceptance.
 
 OwnedMock imports the unchanged vendored Store/Handler, binds its own ephemeral
 or explicit numeric loopback port and runs Popen with raw output suppressed.
+L3 delta, updated 2026-10-12, reviewed at `8908ef9` and integrated as `c7c53a3`: its child now
+receives only PATH/locale/TZ/temp/SYSTEMROOT plus forced bytecode suppression,
+not the parent model/vault/token/import environment. The actual child/vendor
+readiness and cleanup boundary is tested with private Boolean-only
+[canary reports](../../../tests/test_mock_child_environment.py). Exact CI and
+restoration evidence are in [native tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md#l3-secret-free-mock-child-prerequisite--2026-10-12).
 Cleanup terminates only its child, never an unrelated listener. See
 [vendor provenance](../../../vendor/reference/PROVENANCE.md) for source/fixture hashes.
 
@@ -151,8 +167,15 @@ patient renderer for support observation, and separate current-context labeling.
 Per-tab sessionStorage holds capabilities/public drafts/disclosures, not private
 identity drafts. Dirty unsent changes disable confirmation, which submits the
 shown snapshot. Poll/ack does not schedule or invoke models; reads may expire a
-takeover lease. Sidecar URL is fixed at `http://127.0.0.1:28451` (default UI port
-28450); changing launcher ports alone does not reconfigure it.
+takeover lease. Default sidecar/UI remain 28451/28450. The L4 candidate adds a
+synced, validated public `backend_url` trait from `BOB_TRANSPORT_URL`; it permits
+only numeric IPv4 loopback HTTP and JavaScript uses that trait. Direct custom
+pairs set it explicitly; the managed launcher sets it on the key-free viewer.
+[Consumer tests](../../../tests/test_runtime_launcher.py) exercise actual model
+constructors, role-scoped child environments, no-call readiness, configured
+renderer routing and real owned offline HTTP cleanup. This is not live-model
+qualification; [native L4 status](../../../specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12)
+records the adopted CLI correction and completed review/CI/protected integration.
 
 ## Diagnostics, recording and Replay
 
@@ -229,11 +252,19 @@ cover captured observations, gaps and non-authoritative imported presentation.
 preferences/workflow only, proposes closed public actions and supplies no identity
 or consent. [ModelBudget](../../../src/ochsner_bob/model_budget.py) reserves before
 dispatch against `.bob-local/model-budget.json`, the CLI/browser path and
-qualifier default. The qualifier exposes a `--budget` override, which does not
-legitimately replenish the shared grant; construction/view does not dispatch.
-The implemented constructor caps remain 200 calls/$20; a higher external
-allowance does not change those code limits or reset accounting. Unknown billing
-keeps the reservation. [Language](../../../tests/test_language.py) and
+qualifier default. The qualifier accepts `--budget` only when it is the canonical
+path, never a fresh-history override; construction/view does not dispatch.
+Actual application and functional qualification constructors select uncapped
+covered-execution accounting. The qualifier privately resolves the exact Ochsner
+Secure Note `notes` through the pinned helper, not an inherited key. Explicit live
+opt-in remains; LLM generation of app/spec/test code is outside this authorization.
+[RuntimeLedger](../../../src/ochsner_bob/runtime_accounting.py) stores indexed
+transactions at the same canonical path, migrates validated JSON atomically with
+all history/IDs/configuration, and retains private locking/marker and fail-safe
+storage validation. Readiness is read-only and activation requires old writers
+quiescent. See [runtime boundary](architecture.md#indefinite-runtime-accounting--2026-10-13).
+Unknown
+billing keeps the reservation. [Language](../../../tests/test_language.py) and
 [budget tests](../../../tests/test_model_budget.py) are offline evidence; injected
 model transports are explicitly fixtures, not genuine model qualification.
 The separately scoped [genuine language record](../live-qualification.md) retains

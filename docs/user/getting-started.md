@@ -4,6 +4,21 @@ Internal-use synthetic demonstration with public source, not a real healthcare s
 a clinician or live representative. Follow [setup](../../README.md) with an
 explicit Python 3.11+ environment. Offline use needs no model account.
 
+## Launch mode and setup
+
+The [normal launcher](../../README.md#normal-model-first-launcher) requests model
+mode with the configured BOB snapshot; its exact Ochsner Secure Note `notes` field
+is resolved privately through the existing trusted helper. `--offline` is explicit
+and no-call. `--help`/`--doctor` retrieve no credentials or model output; readiness
+is not qualification. No inherited-key fallback is used. See the README for
+first-use accounting versus preservation of existing private ledger/unknown usage.
+
+Custom free `--ui-port`/`--transport-port` pairs configure the public widget URL;
+no source edit is needed. Keep the matching exact UI Origin. Invalid/missing
+configuration, occupied ports or unavailable accounting/storage stop visibly; do
+not stop another listener or reset accounting. Ctrl-C cleans only owned children.
+L4 candidate review/CLI ownership status is in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12).
+
 ## Find the controls
 
 These drawings are **schematics—not screenshots**. They locate controls in the
@@ -126,3 +141,54 @@ are simulation-only and are not automatically executed or adopted as tests.
 Export/import accepts bounded reviewed data, never executable instructions or
 live consent. Use Purge only for a disposable recording: its reference becomes
 permanently expired and importing its external export does not revive it.
+
+## Fixed Oct 12 model-budget window
+
+Updated 2026-10-12: reviewed head `8908ef9` integrated through protected PR #8
+as `c7c53a3`; the local backend was restored with explicit opt-in. Exact CI,
+expiry and unchanged-accounting evidence are in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
+This does not activate other already-running services or prove a model request.
+
+Historical: the Oct 12 opt-in applied only through `2026-10-13T05:00:00Z` exclusive.
+It is superseded for application runtime by the policy below; the old flag is no
+longer accepted by application launchers. Historical counts/CI remain unchanged.
+
+## Application runtime accounting
+
+Updated 2026-10-13 for reviewed `79aeafd`, integrated as `d3c3a04`; activation remains
+unperformed and its safe handoff is
+in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13).
+The Operator authorized Ochsner-key usage involved in **running BOB** without
+application call, dollar or time-window limits until further notice. No special
+budget flag is needed. The human clarification includes functional qualification,
+testing, validation and app-like evaluation. Excluded is LLM work that creates or
+changes app/spec/test code; unrelated research/media permissions do not expand.
+
+Normal browser/CLI and functional qualification constructors select runtime accounting. Exact model/key
+selection, bounded input/output/context/HTTP timeouts, no tools/retries, privacy,
+identity, confirmation and effect guards remain. Every dispatch requires a durable
+reservation; known usage settles once and unknown usage retains its full liability.
+No account-wide billing/invoice reconciliation is claimed.
+
+Readiness/doctor validates existing private JSON or SQLite and its initialized
+lock/marker without writes, migration, reservations or model requests. It is
+accounting/storage readiness, not a spend gate or a promise that later I/O works.
+The first actual new-runtime construction atomically migrates validated JSON to
+private transactional SQLite at the **same** `.bob-local/model-budget.json` path.
+All history, reservation IDs/configuration and late settlement are retained, with
+no arbitrary cumulative-record limit. Storage exhaustion, malformed state, unsafe
+permissions or unexpected SQLite companions fail safely; nothing silently resets.
+
+**Activation:** first verify all old model writers are quiescent, then start the
+reviewed/integrated runtime using the existing canonical path and effects namespace.
+Old processes cannot share this format migration and old code cannot read the new
+format. Do not restore an old build against migrated accounting or reset/change
+the ledger to make it work. The current implementation assignment does not restart
+the Operator app or migrate its live ledger.
+
+For deliberate genuine qualification only, `scripts/qualify_live.py --run-live`
+requires explicit `BOB_ENABLE_OPENAI=1`, a supported priced model, the same existing
+canonical ledger and exact Ochsner Secure Note `notes` helper. It ignores an inherited
+generic key and rejects an alternate `--budget` path. Help/offline/unit tests never
+retrieve a key. Run only useful missing checks, not duplicate paid proof; see the
+[source-bound qualification method](../internal/live-qualification.md#qualification-method).

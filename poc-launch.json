@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "project_id": "ochsner-scheduling-bob",
+  "adapter": "bob",
+  "default_interface": "browser",
+  "credential": {
+    "item": "[Env] (Ochsner PoC) OPENAI_API_KEY",
+    "field": "notes",
+    "helper_path_env": "POC_SECRET_HELPER",
+    "helper_command": "bw-get-secret"
+  },
+  "model": {
+    "default": "gpt-5.4-2026-03-05",
+    "environment": "BOB_OPENAI_MODEL"
+  }
+}

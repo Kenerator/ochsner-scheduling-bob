@@ -845,6 +845,1050 @@
       "evidence_refs": [
         "specs/001-ochsner-scheduling-assistant/spec.md"
       ]
+    },
+    {
+      "id": "correct-duplicate-zip",
+      "source_ids": [
+        "US2",
+        "FR-004",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/correct-duplicate-zip.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py"
+      ]
+    },
+    {
+      "id": "invalid-private-identity",
+      "source_ids": [
+        "US2",
+        "FR-004",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/invalid-private-identity.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py"
+      ]
+    },
+    {
+      "id": "recover-partial-identity",
+      "source_ids": [
+        "US2",
+        "FR-004",
+        "tests/test_identity_draft_recovery.py"
+      ],
+      "document": "docs/user/walkthroughs/recover-partial-identity.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_identity_draft_recovery.py"
+      ]
+    },
+    {
+      "id": "appointment-not-found",
+      "source_ids": [
+        "US2",
+        "FR-007",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/appointment-not-found.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py"
+      ]
+    },
+    {
+      "id": "appointment-outage",
+      "source_ids": [
+        "US2",
+        "FR-007",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/appointment-outage.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py"
+      ]
+    },
+    {
+      "id": "malformed-appointment-response",
+      "source_ids": [
+        "US2",
+        "FR-007",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/malformed-appointment-response.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py"
+      ]
+    },
+    {
+      "id": "failed-availability-refresh",
+      "source_ids": [
+        "US1",
+        "FR-005",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/failed-availability-refresh.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py"
+      ]
+    },
+    {
+      "id": "correct-invalid-date-range",
+      "source_ids": [
+        "US1",
+        "FR-005",
+        "tests/test_conversation.py"
+      ],
+      "document": "docs/user/walkthroughs/correct-invalid-date-range.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_conversation.py"
+      ]
+    },
+    {
+      "id": "clear-date-preferences",
+      "source_ids": [
+        "US1",
+        "FR-005",
+        "tests/test_conversation.py"
+      ],
+      "document": "docs/user/walkthroughs/clear-date-preferences.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_conversation.py"
+      ]
+    },
+    {
+      "id": "select-and-clear-provider",
+      "source_ids": [
+        "US1",
+        "FR-005",
+        "tests/test_conversation.py"
+      ],
+      "document": "docs/user/walkthroughs/select-and-clear-provider.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_conversation.py"
+      ]
+    },
+    {
+      "id": "accept-provider-name-suggestion",
+      "source_ids": [
+        "US1",
+        "FR-006",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/accept-provider-name-suggestion.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py"
+      ]
+    },
+    {
+      "id": "text-does-not-confirm",
+      "source_ids": [
+        "US1",
+        "FR-008",
+        "tests/test_conversation.py"
+      ],
+      "document": "docs/user/walkthroughs/text-does-not-confirm.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_conversation.py"
+      ]
+    },
+    {
+      "id": "duplicate-confirmation",
+      "source_ids": [
+        "US1",
+        "FR-009",
+        "tests/test_session_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/duplicate-confirmation.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_session_contract.py"
+      ]
+    },
+    {
+      "id": "stale-submission",
+      "source_ids": [
+        "US1",
+        "FR-008",
+        "tests/test_browser_service.py"
+      ],
+      "document": "docs/user/walkthroughs/stale-submission.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_browser_service.py"
+      ]
+    },
+    {
+      "id": "unknown-after-restart",
+      "source_ids": [
+        "US1",
+        "FR-010a",
+        "tests/test_effect_journal.py"
+      ],
+      "document": "docs/user/walkthroughs/unknown-after-restart.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_effect_journal.py"
+      ]
+    },
+    {
+      "id": "success-then-conflict",
+      "source_ids": [
+        "US1",
+        "FR-010",
+        "tests/test_transition_acceptance.py"
+      ],
+      "document": "docs/user/walkthroughs/success-then-conflict.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_transition_acceptance.py"
+      ]
+    },
+    {
+      "id": "handoff-failure",
+      "source_ids": [
+        "US3",
+        "FR-012",
+        "tests/test_supplied_http.py"
+      ],
+      "document": "docs/user/walkthroughs/handoff-failure.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_supplied_http.py"
+      ]
+    },
+    {
+      "id": "unknown-handoff-outcome",
+      "source_ids": [
+        "US3",
+        "FR-010",
+        "tests/test_live_diagnostics.py"
+      ],
+      "document": "docs/user/walkthroughs/unknown-handoff-outcome.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_live_diagnostics.py"
+      ]
+    },
+    {
+      "id": "help-during-model-wait",
+      "source_ids": [
+        "US3",
+        "FR-011",
+        "tests/test_interaction_service.py"
+      ],
+      "document": "docs/user/walkthroughs/help-during-model-wait.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_interaction_service.py"
+      ]
+    },
+    {
+      "id": "model-unavailable-no-fallback",
+      "source_ids": [
+        "US6",
+        "FR-001",
+        "tests/test_language.py"
+      ],
+      "document": "docs/user/walkthroughs/model-unavailable-no-fallback.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_language.py"
+      ]
+    },
+    {
+      "id": "malformed-model-response",
+      "source_ids": [
+        "US1",
+        "FR-001",
+        "tests/test_language.py"
+      ],
+      "document": "docs/user/walkthroughs/malformed-model-response.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_language.py"
+      ]
+    },
+    {
+      "id": "pairing-expiry-and-rejoin",
+      "source_ids": [
+        "US5",
+        "FR-017",
+        "tests/test_browser_service.py"
+      ],
+      "document": "docs/user/walkthroughs/pairing-expiry-and-rejoin.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_browser_service.py"
+      ]
+    },
+    {
+      "id": "independent-session-isolation",
+      "source_ids": [
+        "US5",
+        "FR-017",
+        "tests/test_browser_service.py"
+      ],
+      "document": "docs/user/walkthroughs/independent-session-isolation.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_browser_service.py"
+      ]
+    },
+    {
+      "id": "support-stale-observation",
+      "source_ids": [
+        "US5",
+        "FR-017",
+        "tests/test_browser_service.py"
+      ],
+      "document": "docs/user/walkthroughs/support-stale-observation.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_browser_service.py"
+      ]
+    },
+    {
+      "id": "support-lease-expiry",
+      "source_ids": [
+        "US5",
+        "FR-017",
+        "tests/test_support_status.py"
+      ],
+      "document": "docs/user/walkthroughs/support-lease-expiry.md",
+      "status": "unverified",
+      "mode": "offline",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_support_status.py"
+      ]
+    },
+    {
+      "id": "replay-preference-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-preference-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py"
+      ]
+    },
+    {
+      "id": "replay-identity-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-identity-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py"
+      ]
+    },
+    {
+      "id": "replay-clock-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-clock-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py"
+      ]
+    },
+    {
+      "id": "replay-model-timeout-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-model-timeout-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py"
+      ]
+    },
+    {
+      "id": "replay-order-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-order-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py"
+      ]
+    },
+    {
+      "id": "replay-delay-and-view-variant",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/replay-delay-and-view-variant.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py"
+      ]
+    },
+    {
+      "id": "incomplete-capture",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_view_receipt_capture.py"
+      ],
+      "document": "docs/user/walkthroughs/incomplete-capture.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_view_receipt_capture.py"
+      ]
+    },
+    {
+      "id": "imported-provenance-drift",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/imported-provenance-drift.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py"
+      ]
+    },
+    {
+      "id": "expired-recording",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_recording_store.py"
+      ],
+      "document": "docs/user/walkthroughs/expired-recording.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_recording_store.py"
+      ]
+    },
+    {
+      "id": "rejected-recording-import",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/rejected-recording-import.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py"
+      ]
+    },
+    {
+      "id": "recording-limit",
+      "source_ids": [
+        "US4",
+        "FR-015",
+        "tests/test_replay_contract.py"
+      ],
+      "document": "docs/user/walkthroughs/recording-limit.md",
+      "status": "unverified",
+      "mode": "recorded-simulation",
+      "steps": [
+        {
+          "number": 0,
+          "anchor": "step-0--install-and-set-up",
+          "interactive": false
+        },
+        {
+          "number": 1,
+          "anchor": "step-1--launch",
+          "interactive": false
+        }
+      ],
+      "gap_refs": [
+        "docs/user/walkthroughs/index.md#pending-documents-and-visuals"
+      ],
+      "evidence_refs": [
+        "tests/test_replay_contract.py"
+      ]
     }
   ],
   "controls": [

@@ -17,6 +17,9 @@ from time import monotonic
 
 _ROOT = Path(__file__).resolve().parents[1]
 _SERVER = _ROOT / "vendor/reference/mock-api/server.py"
+# The model-hosting parent legitimately holds credentials. Its synthetic child
+# needs only OS/locale/temp settings, never model flags, vault tokens or imports.
+_CHILD_ENV_NAMES = ("PATH", "LANG", "LC_ALL", "LC_CTYPE", "TZ", "TMPDIR", "SYSTEMROOT")
 _RUNNER = """
 import importlib.util, os, sys
 spec = importlib.util.spec_from_file_location('bob_owned_vendor_server', sys.argv[1])
@@ -57,7 +60,9 @@ class OwnedMock:
                 self.process = subprocess.Popen(
                     [sys.executable, "-c", _RUNNER, str(_SERVER), str(write_fd), str(self.port)],
                     cwd=_ROOT, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-                    pass_fds=(write_fd,), env=dict(os.environ, PYTHONDONTWRITEBYTECODE="1"),
+                    pass_fds=(write_fd,), env={
+                        **{name: os.environ[name] for name in _CHILD_ENV_NAMES if name in os.environ},
+                        "PYTHONDONTWRITEBYTECODE": "1"},
                 )
             finally:
                 os.close(write_fd)

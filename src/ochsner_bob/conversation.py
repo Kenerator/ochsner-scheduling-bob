@@ -25,7 +25,7 @@ _NOTICE = {
     "timeout": "Language interpretation timed out. Review fresh options before confirming; Help remains available.",
     "refused": "Language interpretation was refused. Use local controls or Help.",
     "invalid_context": "Public interpretation context is unavailable. Use local controls or Help.",
-    "budget_exceeded": "The shared model budget is unavailable or exhausted. No model request was sent. Use local controls or Help.",
+    "budget_exceeded": "Model accounting or pre-dispatch validation is unavailable. No model request was sent. Use local controls or Help.",
     "accounting_failed": "Model accounting could not be verified. No proposed action was applied. Use local controls or Help.",
 }
 _MEDICAL = re.compile(r"\b(?:medical advice|chest pain|symptoms?|diagnos\w*|triage|medication|prescription)\b|\bshould I wait\b", re.I)

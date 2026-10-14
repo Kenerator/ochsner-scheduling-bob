@@ -120,12 +120,11 @@ as a completed collection. Share reviewed reusable checker bytes with SM for
 Template integration, never write the Template/shared source from BOB.
 
 F6 waits for SM's reviewed Flight Deck export/manifest, then pins identical shared
-bytes plus BOB's thin `docs/internal/flight-deck/project.yaml`. L4 waits for the
-reviewed `tools/poc-runtime/` bundle, then adds BOB config, constructor/privacy/
-lifecycle tests and the validated public loopback backend URL trait. Neither
-bundle is invented locally. Keep canonical `.bob-local/model-budget.json` and
-existing effect namespaces; no paid startup probe. The separately approved
-today-only unlimited mechanism is not active until implemented and verified.
+bytes plus BOB's thin `docs/internal/flight-deck/project.yaml`. L4 is now integrated
+at `e615d98`; reuse T087–T098 evidence rather than replaying that implementation.
+Neither bundle is invented locally. Keep canonical `.bob-local/model-budget.json`
+and existing effect namespaces; no paid startup probe. FR-027/027a supersede the
+old budget/window prose for runtime and functional qualification, not code creation.
 
 W2/W3 final captures and launch instructions follow stable BOB/L4 routing. Use
 isolated synthetic states/free ports, only materially needed stills and separate
@@ -141,3 +140,79 @@ completion ledger. Isolate work in an ignored local BOB clone while the Operator
 checkout stays untouched; sequential execution protects the single-owner native
 files and shared source remains SM-owned. Independent SM bundle work can proceed
 in parallel with W1.
+
+Resumption 2026-10-13: reconcile preparation `68d92a8` with integrated `e615d98`.
+The 31-flow baseline is not an exhaustive inventory: include distinct invalid-date,
+identity-correction, lookup-error, handoff-certainty, isolation/stale-role and
+typed-variant cases from native scenarios/tests. Reuse one document only for truly
+identical flows; record source bases and explicit unavailable UI paths. Extend the
+checker tests before implementation for strict visual provenance/hash/header,
+layer/source/placement and contained public reference contracts. Every manifest row
+uses the approved exact fields; safe errors never echo arbitrary input. Structural
+checks cannot certify pixels or freshness beyond declared Git ancestry/limitations.
+SM owns Template distribution after the stable checker handoff. Existing fresh
+Operator demo tabs are retained; later captures use separately owned state/ports.
+The verified conditional interruption grant permits only necessary identified BOB
+stop/restart with accounting/effects preservation, not broad service control.
+
+## Fixed-day BOB budget delta — 2026-10-12
+
+Historical plan, superseded for application runtime by FR-027 below; original
+source-bound evidence remains in tasks.
+
+FR-025/025a extend US6 in the existing budget boundary, not the Session/effects
+architecture. Keep ordinary stored configuration at 200 calls/$20. Explicit
+constructor/launcher opt-in uses a fixed UTC half-open interval for Oct 12 Central;
+never persist or infer a renewable override. Move numeric ceiling enforcement to
+new-reservation preparation, retaining structural validation on every read so valid
+window entries remain readable/settleable after expiry.
+
+Reuse the canonical ledger/private flock/atomic writes and priced worst-case
+reservation. Preserve the existing byte limit and check space for every reserved
+call's largest valid late usage before accepting new work. Snapshot ordinary
+headroom honestly, even negative. Do not change journal namespaces or reset state.
+
+Expose `preflight_budget(path: Path, *, model: str, unlimited_today: bool=False)
+-> None` as existing-state-only readiness. Require the initialized marker and
+private ledger, reuse locked reservation preparation in memory, and forbid any
+creation/write/settlement. The actual model host must reserve again. Existing CLI
+and browser flags pass opt-in explicitly and reject offline use; SM owns shared
+launch integration. Offline tests precede code; full suite/demos/guard and one
+independent review precede selected protected integration. No live activation,
+credential lookup or paid readiness call is part of this candidate.
+
+## L4 consumer integration — 2026-10-12
+
+Consume only selected `tools/poc-runtime/{adapters,credentials,launch,processes}.py`
+and its hash manifest from the authoritative Template, with public BOB config.
+No local fork/regeneration of managed bytes. Central field resolution pins `notes`;
+do not repeat vault proof. Test actual browser/CLI constructors with synthetic
+transport credentials and isolated private ledgers before implementation claims.
+The thin widget accepts a validated public `BOB_TRANSPORT_URL` trait; JavaScript
+uses that trait, while the service keeps exact UI Origin/Host checks.
+
+Preserve running Operator services, sessions and ledger. Use only disposable owned
+ports/state for no-call smoke and cleanup. Keep W1 separate. Full project tests,
+deterministic demos, affected docs/navigation, staged guard and one final SM diff
+review precede normal protected integration. Shared tests are not consumer/live
+model or cross-platform qualification.
+
+## Indefinite runtime accounting delta — 2026-10-13
+
+FR-027/027a supersede application spending/dated-window gating only. Actual CLI
+and browser plus functional qualification constructors select `application_runtime=True`;
+excluded code-generation/build-agent configuration stays unchanged. ModelBudget delegates runtime storage to stdlib SQLite
+at the existing canonical path, with the stable private lock/marker. Atomic
+validated JSON migration preserves all IDs/configuration/history and liabilities;
+indexed transactional inserts/updates remove the cumulative-record cutoff without
+dropping unknown or pending calls. SQLite DELETE journal privacy, memory temporary
+storage, strict schema/row validation, full sync and no silent recovery/reset
+preserve fail-safe accounting. Readiness opens old/new formats read-only, never
+migrates, and exposes the compatible noflag `preflight_budget(path, model=model)`.
+
+Activate only after all old-format model writers are quiescent; this candidate
+does not migrate/restart the live app. SM's reviewed five-file source `17d4157`
+is adopted without forking. Tests-first temporary/fake-transport regressions,
+combined product qualification, source-bound docs/navigation/guard and one SM
+consumer diff review precede normal CI/protected integration. Native tasks remain
+the sole implementation ledger; no paid proof or media production is included.

@@ -1,6 +1,6 @@
 # Quickstart and qualification
 
-Updated 2026-10-09. macOS ARM with explicit Python 3.11+ is the required target.
+Updated 2026-10-12. macOS ARM with explicit Python 3.11+ is the required target.
 The qualified working environment used Python 3.11.13. System Python 3.9 is not
 supported. Follow the exact setup and terminal commands in [README](../../README.md).
 
@@ -23,8 +23,9 @@ not locked. Do not install the optional bootstrap profile for normal BOB use.
 Browser terminals: `scripts/serve_browser.py` owns the mock and backend at
 127.0.0.1:28451; Marimo serves `apps/scheduling_app.py` at 127.0.0.1:28450.
 Use the numeric URL, not an alternate hostname: backend Host/Origin checks are
-intentional. The JavaScript widget currently requires those default ports;
-launcher port options are for transport checks, not automatic widget configuration.
+intentional. The normal model-first launcher configures its selected free pair
+through the validated public `BOB_TRANSPORT_URL` widget trait. Direct custom
+launches must set that public variable on the viewer and matching sidecar flags.
 The CLI's separately owned mock uses 4010. Never stop another project's listener
 to acquire a port. Ctrl-C stops only each owned process.
 
@@ -41,8 +42,17 @@ When deliberately starting a fresh supplied mock, use an explicitly new backend
 Retain prior namespaces; do not reinterpret prior unknowns. Model allowance always
 uses the same root ledger, regardless of mock namespace.
 
-Optional genuine language requires `--openai`, the three explicit environment
-settings in README and the existing Operator budget. Never paste keys into
+The normal [model-first wrapper](../../README.md#normal-model-first-launcher)
+uses the exact Ochsner Secure Note `notes` field and requires existing canonical
+accounting; help/doctor/startup do not make model requests. Its explicit `--offline`
+path stays key-free. Exact L4 candidate/CLI ownership status is in native tasks;
+shared mechanism tests alone are not consumer or cross-platform qualification.
+
+Direct optional genuine language requires `--openai`, the three explicit environment
+settings in README and the runtime-only policy in the
+[user guide](../../docs/user/getting-started.md#application-runtime-accounting).
+No dated budget flag is required; functional qualification/testing/validation is
+covered too, while LLM creation/change of app/spec/test code remains excluded. Never paste keys into
 commands/logs/browser. No model calls on construction, view, poll, support or
 replay. See [genuine qualification](../../docs/internal/live-qualification.md)
 for the qualified alternative, mini failures, unknown cost and exact grant.

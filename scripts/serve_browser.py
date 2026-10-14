@@ -15,9 +15,9 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 def language_for_launch(enabled):
-    # CLI, browser and qualification share one ledger. A new effect namespace
-    # must never replenish the model budget. Construction does not dispatch.
-    return LanguageAdapter(budget=ModelBudget(ROOT/".bob-local/model-budget.json")) if enabled else None
+    # Only application entrypoints select the indefinite runtime policy. Build
+    # and generation callers keep their separate bounded/default configuration.
+    return LanguageAdapter(budget=ModelBudget(ROOT/".bob-local/model-budget.json",application_runtime=True)) if enabled else None
 
 
 def server_for_launch(service,port,ui_port):

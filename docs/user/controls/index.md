@@ -1,6 +1,6 @@
 # BOB control inventory
 
-Updated 2026-10-12 against `d925f326dd604b3eba07d844914810e2f2574705`
+Updated 2026-10-13 against integrated runtime `e615d9894666909708fbf9810efcdafadc173a1a`
 [widget.js](../../../src/ochsner_bob/widget.js). These 57 control families
 include dynamic numbered provider/slot choices and spelling suggestions. Labels
 are accessible text; no new UI IDs were added for documentation. `both` means a
@@ -35,6 +35,33 @@ not controls and not proof of effect authority.
 The grouped annotated atlas pages and visuals are pending W2. This source inventory
 was reconciled with earlier patient/paired runtime observations, but the below-fold
 Developer collection has not been newly exercised on the current candidate.
+
+### Accessible roles and required atlas states
+
+Native input type/accessible role is distinct from the local actor role in the
+inventory below. Public request, phone, ZIP, pairing grant, interaction reference
+and bookmark name are text fields; Typed variant JSON and Reviewed recording JSON
+are multiline text fields. DOB/From/Through are native date fields, Replay step
+index is a numeric spinbutton, Specialty/Location/Suggested public location are
+comboboxes. Other actions are buttons; Private identity/Developer summaries are
+disclosure buttons. Dynamic provider, option and `Use {value}` controls are buttons.
+Browser-native date-picker subcontrols are framework/browser affordances, not new
+BOB actions. Their exact rendering is verified in the corresponding actual capture.
+
+| Purpose group | Distinct role/state coverage required in W2 | Authority/disabled boundary |
+|---|---|---|
+| session-and-public | Fresh/no session; patient filters/dates; returned providers; explicit public typo suggestions; support mirror | Starting an independent patient is separate from joining; patient actions disabled with no state, wait or takeover; support is read-only |
+| private-and-booking | Expanded patient identity; missing/ambiguous/verified/corrected; returned slots and current proposal; support expanded private region | Private inputs never mirrored; selection is not confirmation; dirty/stale/unknown/Support cannot confirm |
+| help-and-outcomes | Help/medical/unsupported from normal and waiting/error/terminal states; handoff queued/failed/unknown; current versus historical result | Safety actions remain reachable while waiting; separate handoff write does not mean employee contact |
+| support | Empty join toolbar; patient pair action with grant excluded from assets; joined/inactive, active lease, returned/expired lease, pending suggestion/adoption, stale/missing observation | Read-only pairing does not grant takeover, private identity or confirmation; suggestion is not adoption |
+| developer-recording | Disclosure closed/open; recording OFF diagnostics/reference; explicit capture active/sealed; Support denied operations | Visible Developer controls are not authorization; private fields/capabilities excluded from diagnostics |
+| replay-navigation | Owned opened reference; previous/step/play/pause; zero-based jump/before-after; named bookmark; unavailable/expired reference | Simulation only; missing observations/provenance limits remain explicit; no live effect |
+| replay-variants-and-data | Typed API/preference/fixture/clock/model/order/view variants; comparison; reviewed proposal; bounded export/import; rejected import; disposable purge | No historical identity/consent revival; promotion is data, not executable code; purge never removes effect protection |
+
+Source review confirms the 57 BOB control families cover these static/dynamic
+construction paths. This table is a capture checklist, not seven completed
+annotated screenshots or a new whole-browser qualification claim. Current IAB
+pairing showed acknowledgement warnings, so synchronization remains a visible gap.
 
 ### session-and-public
 
@@ -131,6 +158,8 @@ Developer collection has not been newly exercised on the current candidate.
 ## Revision history
 
 - 2026-10-12: W1 inventory only; no grouped actual screenshot certification.
+- 2026-10-13: Reconciled current renderer and explicit accessible-role/state matrix;
+  W2 actual clean/annotated captures and privacy review remain open.
 
 ## References
 

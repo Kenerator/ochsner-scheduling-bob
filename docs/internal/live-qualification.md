@@ -8,6 +8,10 @@ browser, patient matching, booking, handoff delivery or production readiness.
 
 ## Grant and boundary
 
+The following is the historical Oct 9 qualification grant/source, not the current
+credential or spend contract. Current covered execution includes functional
+qualification under the Oct 13 human clarification; see the runtime policy delta.
+
 The Operator authorized up to **200 calls and $20 total**. The qualification
 worker was sole caller through call 40, then explicitly released ownership;
 the parent integration used the same ledger for one browser call, followed by
@@ -59,13 +63,54 @@ Budget denial is `budget_exceeded`; settlement failure is `accounting_failed`;
 both return no proposed action. Injected transports remain visibly `fixture`.
 Default transport remains real OpenAI, gated by explicit environment opt-in.
 
+### Fixed-day candidate delta — 2026-10-12
+
+Historical only, superseded for application runtime by the Oct 13 policy below.
+The historical qualification/cost results below are unchanged. Ordinary ceilings
+remain 200 calls/$20; the separate fixed Oct 12 Central grant is implemented in
+reviewed source `8908ef9`, integrated as `c7c53a3`, with explicit
+`unlimited_today=True`, not a ledger reset. Backend restoration and no-effect
+health checks left accounting unchanged; they are not new genuine-model qualification.
+See [usage/expiry/storage limits](../user/getting-started.md#fixed-oct-12-model-budget-window)
+and [native candidate status](../../specs/001-ochsner-scheduling-assistant/tasks.md#fixed-day-bob-budget-candidate--2026-10-12).
+Only new reservations bypass numeric ceilings during the fixed window; existing
+valid entries reopen/snapshot/settle after expiry. Calls never refund and unknown
+liability remains. The qualifier does not gain an override flag.
+
+### Runtime policy delta — 2026-10-13
+
+Normal application CLI/browser constructors now select `application_runtime=True`
+under the verified indefinite grant and actual human clarification
+`01a13665-6c25-70f1-9c4a-ad6ec6f5db40`. Functional qualification/testing/validation
+and app-like evaluation are covered too; LLM creation/change of app/spec/test code
+is excluded. `scripts/qualify_live.py` explicitly selects the covered policy and
+same existing canonical accounting; an off-canonical `--budget` is rejected.
+Historical model results/costs are unchanged.
+[Runtime accounting](../../src/ochsner_bob/runtime_accounting.py) uses indexed,
+private SQLite at the same canonical path, preserving all validated legacy entries,
+IDs/configuration and unknown liabilities through atomic migration. Runtime has no
+cumulative row/byte spending cutoff; actual I/O/privacy/corruption failure denies.
+Old-format writers must be quiescent before activation; none is migrated here.
+
+`preflight_budget(path: Path, *, model: str) -> None` validates existing JSON or
+SQLite plus initialized marker under lock, without creation, migration, reservation,
+settlement, credential/model request or mutation. It validates priced request
+bounds/accounting storage, not a call/dollar/date gate. Actual dispatch reserves
+durably again. [Offline regressions](../../tests/test_runtime_accounting.py) use
+temporary ledgers and fake transports, not genuine qualification or invoices.
+Current review/CI/activation status belongs in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#indefinite-runtime-policy--2026-10-13).
+
 ## Qualification method
 
-After loading the credential securely into the environment and setting
-`BOB_ENABLE_OPENAI=1`, execute the explicit project Python 3.11+ interpreter:
+For a useful missing genuine check only, configure the same trusted
+`POC_SECRET_HELPER`/`bw-get-secret` as normal launch. The qualifier privately
+resolves only `[Env] (Ochsner PoC) OPENAI_API_KEY`, Secure Note `notes`, with no
+inherited-key fallback. It requires existing canonical private accounting and
+explicit live/model enablement; help/no-opt-in never looks up a credential.
+Quiesce old-format writers before first new-format activation. For example:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/python scripts/qualify_live.py --run-live
+BOB_ENABLE_OPENAI=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/python scripts/qualify_live.py --run-live --model gpt-5.4-2026-03-05
 ```
 
 For the qualified alternative, append `--model gpt-5.4-2026-03-05`.
