@@ -10,6 +10,9 @@ scheduling PoC as implemented, not a production design or deployment approval.
 Earlier runtime repairs integrated through [PR #6](https://github.com/Kenerator/ochsner-scheduling-bob/pull/6);
 budget/L3 through [PR #8](https://github.com/Kenerator/ochsner-scheduling-bob/pull/8).
 The L4 launch boundary changes hosting/configuration, not domain authority.
+Training/Flight Deck source reviewed at `4a7a5cf`, integrated through
+[PR #11](https://github.com/Kenerator/ochsner-scheduling-bob/pull/11) as `7494bb0`;
+runtime source above is unchanged. Current evidence and gaps remain in native tasks.
 
 Navigation: [overview](#components-and-authority) · [A interfaces](#a-interfaces-and-support) ·
 [B workflow](#b-shared-workflow-and-confirmation-authority) ·
@@ -420,7 +423,9 @@ paths/anchors, visible instruction shape, source hashes/headers, inert SVG and
 exact-source annotation placement. Project roles/groups are bounded slugs; BOB's
 seven-group/57-control coverage is a separate consumer test. It cannot certify
 wording, perceptual fidelity, a browser journey or permission. The 558-test
-checkpoint is synthetic evidence; final independent collection review is pending.
+checkpoint remains historical synthetic evidence. One collection review and its
+affected correction are clear at `4a7a5cf`; native tasks record actual delivery,
+the 568-test committed result and unchanged browser/model gaps.
 
 The separate [Flight Deck](../flight-deck/README.md) uses the manifest-bound
 standard-library Ruby PoC profile and [native mapping](../flight-deck/project.yaml).
