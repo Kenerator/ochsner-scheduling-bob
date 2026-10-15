@@ -10,7 +10,7 @@ The collection covers **67 distinct input/native journeys**, not 67 newly passed
 browser tests. The [catalog](catalog.json) retains all flows as documentation-
 unverified for whole-journey execution. Every guide makes current UI actions,
 automated-only faults, historical/offline figures and unexecuted gaps explicit.
-The structural checker passes 414 declared steps (248 interactive), but cannot
+The structural checker passes 430 declared steps (264 interactive), but cannot
 certify prose accuracy, screenshot correspondence, model reliability or UI fidelity.
 Native progress remains only in [tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md).
 
