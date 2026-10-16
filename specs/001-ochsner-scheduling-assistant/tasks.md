@@ -1,5 +1,103 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Selected diagnostics and connected-language follow-on — 2026-10-15
+
+Base: clean canonical `14474ac0c62618eddff6f2ce47a9f31097f96be9`; isolated branch
+`codex/bob-connected-qualification`. Authority/design and privacy boundaries are in
+[plan.md](plan.md#selected-diagnostics-and-connected-language-follow-on--2026-10-15).
+Native tasks remain the sole completion ledger; no separate tracker is created.
+
+- [x] T108 [US3–US6] Reproduce and fix recording-OFF allowlisted handoff-reason
+  observation with tests first for session/result/API/CLI/browser, certainty,
+  privacy, duplicate protection and recording/import compatibility.
+- [x] T109 [P] [US1–US6] Develop the actual connected local qualification harness
+  using independent development fixtures and real supplied HTTP/Session/Conversation/
+  LanguageAdapter, tests first. Disjoint new harness/test files only; no live calls.
+- [x] T110 [US6] Correct the two selected stale current documentation statements;
+  preserve original mini/pass4/default/model/port evidence and credential policy.
+- [x] T111 [US1–US6] Freeze eight exact synthetic holdout journeys × two declared
+  repetitions, turn/call/effect expectations, stop conditions and hashes. Keep
+  development data and holdout inputs separate; preserve legacy12/10/2 evidence.
+- [ ] T112 [US6] Integrate offline tests/demos, privacy/accounting design and one
+  coherent frozen candidate; obtain SM's single final-diff review before live.
+- [ ] T113 [US1–US6] Execute only the declared connected genuine tranche using the
+  existing canonical accounting and exact named resolver/current model; retain all
+  failures/unrun cases/known versus unknown usage, no retry/fallback/tuning loop.
+- [ ] T114 [US6] Sanitize source-bound results into existing live qualification/
+  native status/persona/next steps and affected as-built notes; SM affected-only
+  evidence confirmation, exact-head CI and normal protected PR/integration/readback.
+
+Initial source trace: validated `reason` reaches HttpMockAdapter.handoff, but
+SchedulingSession._effect/_event and Diagnostics.api omitted it. The optional
+allowlisted `handoff_reason` now survives current/history/session/API/CLI metadata;
+Recording/Replay schemas and raw-context boundaries remain unchanged.
+
+### Offline candidate checkpoint — 2026-10-16
+
+Parent diagnostics RED: six tests, 15 expected missing-reason failures, zero errors
+(0.076 s), then GREEN six (0.070 s); the supplemental actual HTTP contract brought
+the focused set to seven PASS (0.138 s), existing live diagnostics nine PASS
+(0.070 s). An earlier test-setup foreign-session import error was corrected before
+the recorded RED; it was not a product defect. Worker harness RED13 missing-harness
+failures → GREEN24 (1.017 s), then parent combined execution below. Worker wrote
+only the disjoint harness/development fixture/test files; no competing native writer.
+
+SM selected fixed canonical owner A, then the explicit existing-SQLite write keyword
+after actual source proved `_existing_only` alone was read-only. Three new mode
+tests first failed on the missing interface (initial unexpected-keyword errors were
+made explicit missing-interface failures), then passed. Policy tests initially
+failed ten times on the missing entrypoint. Later boundary checks exposed unsanitized
+setup exceptions, short report writes and uncheckpointed runner/interruption paths;
+these were repaired with targeted tests. The main-report fixture initially omitted
+candidate public config/source setup and was corrected, not reported as a product
+failure. Seventeen policy tests passed (0.082 s); all owners/SQLite/credentials used
+there are disposable/synthetic. No canonical ledger/key was inspected by these tests.
+
+Integrated working-source host Mac/Python3.11.13 suite: **616 PASS, 29.283 s**.
+The first sandboxed combined attempt was interrupted after a browser-launch FAIL
+and Flight Deck ERROR; system Perl library access was denied and per-session Git
+provenance subprocesses stalled under the sandbox. Its partial output is not a pass.
+Only the exact owned test PID was interrupted; the host-scoped offline rerun above
+completed. Three BOB demos passed: success/completed; conflict/rejected→fresh
+confirmed completed; labeled lost-receipt unknown/retry blocked. Final staged
+candidate scan/checks and exact committed rerun remain T112 work, not live evidence.
+
+The holdout has 8 exact journeys×2 scheduled repetitions, at most34 language calls
+and eight local no-dispatch safety turns. SHA-256
+`19d13600c7e46972bb6a398ee9eb329babeb14fe52ae196197df04a8c171f18e`.
+Dry-run validates public sources/schema/counts only; it does not inspect the owner,
+start mocks/apps, resolve keys or interpret holdout text. The development transport
+tests remain fixture evidence; no holdout semantic/genuine pass is claimed.
+language.py remains `4d5cb915284c90c408406f2ea3f57bea0d5a126abb4d07be668d4861b7614461`;
+legacy cases remain `5a099f43b42fe7e3b7d0aee7497d5881bae89943f8838e82149b905c0e888be2`.
+New accounting/harness identities will bind the frozen candidate, not rewrite pass4.
+
+T112 is held only for the coherent candidate handoff/SM pre-live review; T113 has
+made **zero live calls and zero credential lookups**. The separate denied canonical
+offline support relaunch was not executed and remains held; it neither authorizes
+an alternate launch/transport nor cancels this owned-clone implementation. No
+Operator service, private accounting/history/effects, legacy qualifier, prompt,
+vendor bytes, reviewed shared runtime/checker bundle or media was changed.
+
+Final preparation: source/case dry-run digest
+`a387eb64b494b2928005613194d26cf7528e37f27ce7fc71d3fad9f67c0c647f`;
+accounting source hashes are ModelBudget
+`da51ae372e96e8807bec90063d45ea29ab74792a916ac00d8cd9493950862358`
+and RuntimeLedger `7d4c99fa6b41a89ef642f76a2ead1aeb79b233bc8236ff4e0d50dd88eb7d38bc`.
+The new entrypoint is `77b29cdb3c9e10c140fc234ec6b2f9e53be6a4cb2a8368746ca6e2ca6e49a586`;
+harness is `ae78bbed67ddbc0732a8fd290befc097e98094270ed765528f8b49965c046de6`.
+The strict-config supplement caught nonfinite JSON in an irrelevant field:
+one expected RED → GREEN (0.014 s), before final combined qualification.
+Prior final behavioral-source checkpoint was 616 PASS (28.505 s); the additional
+case's final combined run was **617 PASS (28.279 s)**. Two starter success/failure demos also
+passed offline. Structural walkthrough checker and Flight Deck doctor passed;
+narrative verification/acceptance remains unknown. Relevant new native tasks are
+mapped into existing Flight Deck FR-001/014/020/027/027a, not a duplicate ledger.
+The staged guard initially found two reviewed synthetic inline-credential fixture
+patterns. Exact path/rule/blob allowances were added only for those nonworking
+test values (real HTTPS denied); the whole-index rescan remains required before
+commit. No directory exclusions, secret values or hook changes were introduced.
+
 ## Approved launch/training/Flight Deck follow-on — 2026-10-12
 
 Native scope: FR-021–FR-024. Approved plan source and human confirmation are

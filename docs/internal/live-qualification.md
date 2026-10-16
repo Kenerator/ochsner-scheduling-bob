@@ -293,13 +293,74 @@ qualify_live.py pass 4 ff697f87674bcb84d123562de9ef419f340369b4df4f5c5a505daaf62
 live_model_cases.json all passes 5a099f43b42fe7e3b7d0aee7497d5881bae89943f8838e82149b905c0e888be2
 ```
 
-## Remaining scope
+## Current integration and historical qualification limits
 
-The budget/usage interface is ready for parent integration; the optional hook is
-not automatically installed into parent-owned UI/conversation constructors.
-Only the two verified pinned snapshots are allowlisted. Other models are
-authorized by the grant but fail closed until their pricing/bounds are tested.
-R15 passed this suite for the explicitly selected GPT-5.4 snapshot. Planned
-default mini mixed-correction behavior remains **not qualified**. This is a
-small synthetic suite, not an independent holdout or a population-quality, clinical, PHI, accessibility,
-browser, account-cost or production-security certification.
+Updated 2026-10-15: normal CLI/browser constructors install canonical application
+accounting; the delivered model-first launcher selects the qualified
+`gpt-5.4-2026-03-05` default and validated loopback backend routing. Runtime-like
+functional qualification uses the same existing accounting and exact dedicated
+credential resolver, not a fresh ledger or inherited-key fallback. See
+[current launch/accounting guidance](../user/getting-started.md) and
+[native source-bound status](../../specs/001-ochsner-scheduling-assistant/tasks.md).
+
+The earlier uninstalled-hook/planned-mini paragraph described the pre-integration
+checkpoint, not current behavior. Preserve the mini failures and the stronger
+snapshot's successful pass4/source hashes above: mini mixed-correction behavior
+remains **not qualified** by that record. Its twelve fixed cases/ten dispatched
+calls/two local privacy rejections were adapter-only regression acceptance, not
+connected journeys, an independent holdout or a population-quality, clinical,
+PHI, accessibility, browser, account-cost or production-security certification.
+The separately selected connected tranche has not executed at this checkpoint.
+
+## Connected holdout candidate — prepared, not executed
+
+Updated 2026-10-16; native T108–T114 owns implementation/review/execution status.
+The [holdout manifest](../../tests/fixtures/connected_qualification_holdout.json)
+declares eight journeys and two scheduled repetitions: **16 executions, at most
+34 language turns and eight separate local safety turns**. Repetitions are planned,
+not retries triggered by a failure. No prompt/model tuning uses these dialogues.
+The legacy adapter cases informed earlier tuning and are not relabeled a holdout.
+
+| Journey | Language turns per repetition | Required downstream result |
+| --- | ---: | --- |
+| New booking/availability | 2 | One confirmed booking plus actual appointment readback |
+| Evolving preferences | 3 | Uptown correction, one separately confirmed booking/readback |
+| Proposal refusal/correction | 2 | Proposal revoked, uptown retained, zero POSTs |
+| Partial identity/local safety | 1 | Help/medical are no-dispatch; minimized mock handoff queued |
+| Unsupported after completion | 2 | Unsupported boundary, prior completed receipt retained |
+| Conflict/fresh choice | 2 | Actual 409, new returned choice and separate confirmation/readback |
+| Outage/handoff/recovery | 3 | Actual 503/read failure and failed handoff, then declared recovery/booking |
+| Empty availability/handoff/decline | 2 | Empty dermatology options, queued handoff, no booking |
+
+The [connected runner](../../scripts/connected_qualification.py) uses the unchanged
+supplied HTTP service and real Conversation/Session/LanguageAdapter. Its separate
+[development fixtures](../../tests/fixtures/connected_qualification_development.json)
+and [offline tests](../../tests/test_connected_qualification.py) are fixture evidence,
+not genuine-language or holdout semantic passes. Local identity and exact current
+proposal confirmation never enter model input or gain authority from model output.
+
+The [new entrypoint](../../scripts/qualify_connected_live.py) keeps imports in the
+frozen candidate and charges only the selected existing canonical private SQLite.
+An explicit fixed owner-root binding validates project/config/resolver/model and
+existing private storage before helper use; no arbitrary budget/model/environment
+fallback is accepted. The narrowly selected existing-storage write mode leaves
+readiness read-only and cannot initialize/migrate/reset or replace a marker.
+Config/source/file identity drift denies through the existing stable lock. The
+private exclusive run report preserves all planned/unrun executions, numeric known/
+unknown accounting and source hashes; it is never committed or used as headroom.
+
+`--dry-run` validates only public candidate sources/holdout and prints hashes/bounds;
+it does not inspect the canonical owner, retrieve credentials or start an app/mock.
+Live invocation requires explicit opt-in and the exact source digest selected by
+SM's independent pre-live review. Transport/accounting uncertainty stops later paid
+work; semantic failure remains a failure without fallback, tuning or extra attempts.
+The adapter retains 2048-byte public input, 16384-byte request, 65536-byte response,
+512-output-token and 10-second bounds, `store:false`, no tools and no retries.
+
+Holdout SHA-256: `19d13600c7e46972bb6a398ee9eb329babeb14fe52ae196197df04a8c171f18e`.
+Fresh source comparison confirms language.py and legacy live_model_cases.json still
+match the pass4 hashes above. Accounting/harness/entrypoint changes receive new
+source identities; they do not rewrite historical execution or imply prompt drift.
+No credential lookup or live model call has occurred for this follow-on. Even a
+completed tranche would remain a small synthetic sample, not population reliability,
+browser synchronization, clinical, PHI, accessibility or production acceptance.

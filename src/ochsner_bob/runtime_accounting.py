@@ -198,7 +198,7 @@ class RuntimeLedger:
         return totals
 
     def reserve(self, model, output, maximum):
-        if self.owner._existing_only:
+        if self.owner._existing_only and not self.owner._existing_writes:
             raise BudgetError("Read-only accounting cannot reserve.")
         with self._connection(write=True) as connection:
             if not self.owner.application_runtime:
@@ -211,7 +211,7 @@ class RuntimeLedger:
         return identifier
 
     def settle(self, reservation, usage):
-        if self.owner._existing_only or type(reservation) is not int or reservation < 1:
+        if (self.owner._existing_only and not self.owner._existing_writes) or type(reservation) is not int or reservation < 1:
             raise BudgetError("Invalid accounting reservation.")
         with self._connection(write=True) as connection:
             row = connection.execute("SELECT * FROM calls WHERE id=?", (reservation,)).fetchone()

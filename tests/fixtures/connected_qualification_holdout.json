@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "synthetic_only": true,
+  "set": "holdout",
+  "repetitions": 2,
+  "cases": [
+    {
+      "id": "new-booking-availability",
+      "scenario": "happy_path_booking",
+      "steps": [
+        {"kind": "text", "text": "I'd like to book a primary care visit downtown. Can you show the available appointment times?", "dispatch": true, "expect": {"states": ["preferences"], "preferences": {"specialty": "primary_care", "location": "downtown"}, "identity_status": "missing", "proposal": false}},
+        {"kind": "identity", "data": {"phone": "555-0101", "dob": "1985-04-12", "zip": "70112"}, "expect": {"identity_status": "verified"}},
+        {"kind": "text", "text": "Now show the available primary care appointments downtown.", "dispatch": true, "expect": {"states": ["options"], "slot_count": 3, "proposal": false}},
+        {"kind": "command", "action": "select", "data": {"index": 1}, "expect": {"proposal": true}},
+        {"kind": "confirm", "expect": {"result_status": "completed", "history_statuses": ["completed"]}}
+      ],
+      "expected": {"post_attempts": 1, "booking_completed": 1, "booking_verified": 1, "handoff_queued": 0, "api_calls": 4, "language_calls": 2}
+    },
+    {
+      "id": "evolving-preferences",
+      "scenario": "provider_lookup",
+      "steps": [
+        {"kind": "text", "text": "Which primary care doctors practice downtown?", "dispatch": true, "expect": {"states": ["providers"], "preferences": {"specialty": "primary_care", "location": "downtown"}}},
+        {"kind": "text", "text": "Actually, find primary care doctors uptown instead of downtown.", "dispatch": true, "expect": {"states": ["providers"], "preferences": {"specialty": "primary_care", "location": "uptown"}, "proposal": false}},
+        {"kind": "identity", "data": {"phone": "555-0101", "dob": "1985-04-12", "zip": "70112"}, "expect": {"identity_status": "verified"}},
+        {"kind": "text", "text": "Show available appointments for primary care uptown.", "dispatch": true, "expect": {"states": ["options"], "slot_count": 1}},
+        {"kind": "command", "action": "select", "data": {"index": 1}, "expect": {"proposal": true}},
+        {"kind": "confirm", "expect": {"result_status": "completed", "history_statuses": ["completed"]}}
+      ],
+      "expected": {"post_attempts": 1, "booking_completed": 1, "booking_verified": 1, "handoff_queued": 0, "api_calls": 6, "language_calls": 3}
+    },
+    {
+      "id": "proposal-refusal-correction",
+      "scenario": "happy_path_booking",
+      "steps": [
+        {"kind": "text", "text": "Which primary care clinicians can I see downtown?", "dispatch": true, "expect": {"states": ["providers"], "preferences": {"specialty": "primary_care", "location": "downtown"}}},
+        {"kind": "identity", "data": {"phone": "555-0101", "dob": "1985-04-12", "zip": "70112"}, "expect": {"identity_status": "verified"}},
+        {"kind": "command", "action": "availability", "data": {}, "expect": {"states": ["options"], "slot_count": 3}},
+        {"kind": "command", "action": "select", "data": {"index": 1}, "expect": {"proposal": true}},
+        {"kind": "text", "text": "Do not book that appointment. I want uptown instead.", "dispatch": true, "expect": {"states": ["preferences", "declined"], "preferences": {"location": "uptown"}, "proposal": false, "history_statuses": []}}
+      ],
+      "expected": {"post_attempts": 0, "booking_completed": 0, "booking_verified": 0, "handoff_queued": 0, "api_calls": 3, "language_calls": 2}
+    },
+    {
+      "id": "partial-identity-local-safety",
+      "scenario": "unsupported_request",
+      "steps": [
+        {"kind": "text", "text": "Find me a primary care doctor in the downtown area.", "dispatch": true, "expect": {"states": ["providers"], "preferences": {"specialty": "primary_care", "location": "downtown"}}},
+        {"kind": "identity", "data": {"phone": "555-0101"}, "expect": {"identity_status": "missing", "states": ["identity_required"]}},
+        {"kind": "text", "text": "Can a human help me finish this?", "dispatch": false, "expect": {"states": ["help"], "proposal": false}},
+        {"kind": "text", "text": "I have chest pain and need medical advice.", "dispatch": false, "expect": {"states": ["medical"], "proposal": false}},
+        {"kind": "command", "action": "handoff", "data": {"reason": "medical_advice"}, "expect": {"result_status": "queued", "history_statuses": ["queued"]}}
+      ],
+      "expected": {"post_attempts": 1, "booking_completed": 0, "booking_verified": 0, "handoff_queued": 1, "api_calls": 2, "language_calls": 1}
+    },
+    {
+      "id": "unsupported-after-completion",
+      "scenario": "happy_path_booking",
+      "steps": [
+        {"kind": "text", "text": "Show primary care appointment times in downtown, please.", "dispatch": true, "expect": {"states": ["preferences"], "preferences": {"specialty": "primary_care", "location": "downtown"}}},
+        {"kind": "identity", "data": {"phone": "555-0101", "dob": "1985-04-12", "zip": "70112"}, "expect": {"identity_status": "verified"}},
+        {"kind": "command", "action": "availability", "data": {}, "expect": {"states": ["options"], "slot_count": 3}},
+        {"kind": "command", "action": "select", "data": {"index": 1}, "expect": {"proposal": true}},
+        {"kind": "confirm", "expect": {"result_status": "completed"}},
+        {"kind": "text", "text": "Can you arrange transportation to this visit?", "dispatch": true, "expect": {"states": ["unsupported"], "proposal": false, "result_status": "completed", "history_statuses": ["completed"]}}
+      ],
+      "expected": {"post_attempts": 1, "booking_completed": 1, "booking_verified": 1, "handoff_queued": 0, "api_calls": 4, "language_calls": 2}
+    },
+    {
+      "id": "conflict-fresh-choice-recovery",
+      "scenario": "slot_conflict",
+      "steps": [
+        {"kind": "text", "text": "I'd like the available primary care appointment times downtown.", "dispatch": true, "expect": {"states": ["preferences"], "preferences": {"specialty": "primary_care", "location": "downtown"}}},
+        {"kind": "identity", "data": {"phone": "555-0101", "dob": "1985-04-12", "zip": "70112"}, "expect": {"identity_status": "verified"}},
+        {"kind": "command", "action": "availability", "data": {}, "expect": {"states": ["options"], "slot_count": 3}},
+        {"kind": "command", "action": "select", "data": {"index": 3}, "expect": {"proposal": true}},
+        {"kind": "confirm", "expect": {"result_status": "rejected", "history_statuses": ["rejected"], "proposal": false}},
+        {"kind": "text", "text": "Please refresh the available primary care times downtown so I can choose a different appointment.", "dispatch": true, "expect": {"states": ["options"], "slot_count": 3, "proposal": false}},
+        {"kind": "command", "action": "select", "data": {"index": 1}, "expect": {"proposal": true}},
+        {"kind": "confirm", "expect": {"result_status": "completed", "history_statuses": ["rejected", "completed"]}}
+      ],
+      "expected": {"post_attempts": 2, "booking_completed": 1, "booking_verified": 1, "handoff_queued": 0, "api_calls": 6, "language_calls": 2}
+    },
+    {
+      "id": "outage-handoff-recovery",
+      "scenario": "api_failure",
+      "steps": [
+        {"kind": "text", "text": "Find primary care clinicians who practice downtown.", "dispatch": true, "expect": {"states": ["outage"], "preferences": {"specialty": "primary_care", "location": "downtown"}}},
+        {"kind": "text", "text": "I need help with this scheduling problem.", "dispatch": false, "expect": {"states": ["help"]}},
+        {"kind": "command", "action": "handoff", "data": {"reason": "api_failure"}, "expect": {"result_status": "failed", "history_statuses": ["failed"]}},
+        {"kind": "scenario", "scenario": "happy_path_booking", "expect": {"history_statuses": ["failed"]}},
+        {"kind": "text", "text": "Find primary care doctors downtown again now.", "dispatch": true, "expect": {"states": ["providers"], "history_statuses": ["failed"]}},
+        {"kind": "identity", "data": {"phone": "555-0101", "dob": "1985-04-12", "zip": "70112"}, "expect": {"identity_status": "verified"}},
+        {"kind": "text", "text": "Now list available primary care appointment times downtown.", "dispatch": true, "expect": {"states": ["options"], "slot_count": 3}},
+        {"kind": "command", "action": "select", "data": {"index": 1}, "expect": {"proposal": true}},
+        {"kind": "confirm", "expect": {"result_status": "completed", "history_statuses": ["failed", "completed"]}}
+      ],
+      "expected": {"post_attempts": 2, "booking_completed": 1, "booking_verified": 1, "handoff_queued": 0, "api_calls": 7, "language_calls": 3}
+    },
+    {
+      "id": "empty-availability-handoff-decline",
+      "scenario": "no_availability",
+      "steps": [
+        {"kind": "text", "text": "I'd like to see available dermatology appointment times uptown.", "dispatch": true, "expect": {"states": ["preferences"], "preferences": {"specialty": "dermatology", "location": "uptown"}}},
+        {"kind": "identity", "data": {"phone": "555-0101", "dob": "1985-04-12", "zip": "70112"}, "expect": {"identity_status": "verified"}},
+        {"kind": "command", "action": "availability", "data": {}, "expect": {"states": ["options"], "slot_count": 0, "proposal": false}},
+        {"kind": "text", "text": "Please help me with these missing appointment options.", "dispatch": false, "expect": {"states": ["help"]}},
+        {"kind": "command", "action": "handoff", "data": {"reason": "no_availability"}, "expect": {"result_status": "queued", "history_statuses": ["queued"]}},
+        {"kind": "text", "text": "I won't proceed with scheduling anything else.", "dispatch": true, "expect": {"states": ["declined"], "proposal": false, "result_status": "queued", "history_statuses": ["queued"]}}
+      ],
+      "expected": {"post_attempts": 1, "booking_completed": 0, "booking_verified": 0, "handoff_queued": 1, "api_calls": 3, "language_calls": 2}
+    }
+  ]
+}

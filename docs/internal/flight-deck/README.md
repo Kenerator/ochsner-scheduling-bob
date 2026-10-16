@@ -5,6 +5,12 @@ not application state, a second task ledger, a permission source or production
 acceptance. Native [specification](../../../specs/001-ochsner-scheduling-assistant/spec.md)
 and [tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md) remain canonical.
 
+Mapping delta prepared 2026-10-16 on base `14474ac`: FR-001/014/020/027/027a
+now include relevant T108–T114 follow-on tasks. Pending review/live/result tasks
+must remain incomplete in the derived implementation view; offline test narratives
+still cannot manufacture verification or acceptance. Shared runtime bytes and six
+elements are unchanged. Exact candidate generation/status belongs in native tasks.
+
 ## Generate and inspect
 
 From the repository root, use the installed Ruby/Git tools. No gem/npm install,

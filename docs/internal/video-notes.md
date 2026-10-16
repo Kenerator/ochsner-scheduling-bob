@@ -1,5 +1,10 @@
 # Video production notes
 
+Candidate note, 2026-10-16: the selected OFF-diagnostics/connected-evidence change
+is code/test/document work only. The [declared holdout](live-qualification.md#connected-holdout-candidate--prepared-not-executed)
+has not run, and no new capture, bookend, render, publication or Support-sync claim
+is authorized. Existing stills and original media hold keep their source identities.
+
 Current training-assets note, 2026-10-14: the [67 individual guides](../user/walkthroughs/index.md)
 and [seven-group annotated atlas](../user/controls/index.md) are documentation,
 not a second video or reactivated production. The [manifest](../../assets/ui/walkthroughs/manifest.json)

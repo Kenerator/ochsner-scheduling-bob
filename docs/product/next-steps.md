@@ -1,6 +1,6 @@
 # BOB handoff and next steps
 
-Updated 2026-10-14. Detailed completion and evidence remain in the
+Updated 2026-10-16. Detailed completion and evidence remain in the
 [native ledger](../../specs/001-ochsner-scheduling-assistant/tasks.md).
 
 Runtime/launcher `79aeafd` integrated through protected
@@ -23,6 +23,12 @@ the detailed original-source evidence; these facts do not certify every journey.
 
 ## Current next actions
 
+- Finish the separately approved diagnostics/connected-evidence follow-on on the
+  owned candidate: combined offline checks and SM's one pre-live review, then only
+  the declared [8×2 synthetic tranche](../internal/live-qualification.md#connected-holdout-candidate--prepared-not-executed)
+  under its original gates. No live calls or credential lookup have occurred for
+  this follow-on. The denied canonical support-demo relaunch remains held and is
+  separate from this implementation; do not retry it through another transport.
 - Use the delivered guides for Operator/reviewer evaluation. Keep partial actual
   UI, automated-only fault cases and unverified whole journeys distinct. Reliable
   Support acknowledgement and intermittent reconnect/date-edit behavior remain
@@ -44,8 +50,9 @@ Production identity/authentication/authorization, PHI/real APIs, live support ro
 distributed idempotency/reconciliation, deployment, Linux/mobile/assistive technology,
 transitive dependency locking, load/capacity and wider third-party rights require
 their own design/evidence/authority. Optional H01 memory pruning, VID-P01 pacing
-and post-MVP UX refinement are not selected. No additional model calls are scheduled
-by this handoff. Preserve every unknown liability and unresolved effect.
+and post-MVP UX refinement are not selected. These docs initiate no model calls;
+the declared tranche remains held for pre-live review. Preserve every unknown
+liability and unresolved effect.
 
 ## References
 

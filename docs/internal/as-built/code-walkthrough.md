@@ -1,5 +1,11 @@
 # As-built code walkthrough
 
+Candidate delta prepared 2026-10-16 on base `14474ac`, independent pre-live review
+pending: allowlisted OFF handoff diagnostics and the connected qualification
+entrypoint/binding below are new. Historical reviewed source/evidence remains
+unchanged in scope; [native T108–T114](../../../specs/001-ochsner-scheduling-assistant/tasks.md)
+owns exact candidate, combined checks, review and later live results.
+
 Updated 2026-10-14 against reviewed runtime source
 `79aeafd6269dd1e54f9429a3cdf49b30070b153c`, integrated as
 `d3c3a044575c5666c220ab89dcb680b8a456fcbb` with the identical selected tree.
@@ -228,6 +234,13 @@ and its per-session diagnostics. `Conversation` publishes public model context,
 accepted/rejected fields, application status and latency. Raw identity/text,
 receipts and exception payloads are withheld; metadata is not an exact transcript.
 `diagnostics()` and CLI `/diagnostics` inspect without scheduling/model effects.
+`SchedulingSession.command` validates an allowlisted handoff reason, `_effect`
+attaches it only to that claimed attempt, and `_event` retains the selected
+category. `ObservedAPI` passes a fifth handoff-only category argument;
+`InteractionService._api_observation` forwards it only to ordinary diagnostics,
+not capture observations. `render` adds the categorical CLI label. See
+[OFF diagnostics tests](../../../tests/test_handoff_diagnostics.py) for queued,
+rejected, failed, unknown, invalid/private input, duplicate and replay compatibility.
 
 `InteractionService._summary` registers bounded OFF references;
 `_open_off_inspection` checks ownership/expiry and opens current sanitized
@@ -273,6 +286,24 @@ billing keeps the reservation. [Language](../../../tests/test_language.py) and
 model transports are explicitly fixtures, not genuine model qualification.
 The separately scoped [genuine language record](../live-qualification.md) retains
 default-model failures and the explicitly selected alternative's semantic result.
+
+[connected_qualification.py](../../../scripts/connected_qualification.py) validates
+bounded synthetic manifests, runs real Conversation/Session against OwnedMock and
+records categorical HTTP/language/effect evidence. Local confirmation consumes the
+immediately returned proposal only; a completed booking gets an actual appointments
+readback. Fresh effect journals are per journey; model accounting is supplied once
+by the caller, never replenished. [Development tests](../../../tests/test_connected_qualification.py)
+use injected fixture transports and deny real HTTPS.
+[qualify_connected_live.py](../../../scripts/qualify_connected_live.py) schedules
+the declared 8×2 holdout with terminal-stop/unrun retention, binds the fixed owner
+and exact existing SQLite, selects the pinned notes resolver/strong snapshot and
+requires a reviewed source digest before live opt-in. `--dry-run` is public-source
+only; `--preflight` is existing-state-only. Explicit `_existing_writes=True` adds
+only existing-SQLite reserve/settle to the otherwise read-only mode; default
+readiness semantics remain. [Policy tests](../../../tests/test_connected_qualification_policy.py)
+use disposable owners/ledgers, not the Operator's state. An exclusive private run
+report prevents accidental second-tranche replay; it is evidence, not a new budget
+ledger or qualification claim. No legacy qualifier/prompt/case bytes are changed.
 
 ## Training contract and source-bound visuals
 
