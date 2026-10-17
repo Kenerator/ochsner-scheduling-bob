@@ -41,8 +41,9 @@ class ConnectedQualificationTests(unittest.TestCase):
         self.assertIsNotNone(importlib.util.find_spec("scripts.connected_qualification"),
                              "Offline connected qualification harness is missing")
         self.harness = importlib.import_module("scripts.connected_qualification")
-        self.temp = self.enterContext(tempfile.TemporaryDirectory(prefix="connected-test-", dir=ROOT / "tmp"))
-        self.effects = Path(self.temp)
+        # Clean committed exports have no untracked repo tmp directory.
+        self.temp = self.enterContext(tempfile.TemporaryDirectory(prefix="connected-test-"))
+        self.effects = Path(self.temp).resolve()
 
     def language(self, action="preferences", preferences=None, *, raw=None, failure=None):
         # A bounded synthetic model transport exercises the actual LanguageAdapter.

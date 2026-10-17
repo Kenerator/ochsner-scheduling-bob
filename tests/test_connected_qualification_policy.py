@@ -21,7 +21,7 @@ USAGE = {"input_tokens": 10, "output_tokens": 5, "cached_input_tokens": 0, "reas
 
 class ExistingStorageWriteTests(unittest.TestCase):
     def setUp(self):
-        self.directory = Path(self.enterContext(tempfile.TemporaryDirectory(dir=ROOT / "tmp")))
+        self.directory = Path(self.enterContext(tempfile.TemporaryDirectory(prefix="connected-policy-"))).resolve()
         self.assertIn("_existing_writes", inspect.signature(ModelBudget).parameters,
                       "Missing existing-SQLite dispatch mode")
 
@@ -77,7 +77,7 @@ class ConnectedPolicyTests(unittest.TestCase):
         self.enterContext(patch("http.client.HTTPSConnection", side_effect=AssertionError("no real HTTPS")))
         self.assertIsNotNone(importlib.util.find_spec("scripts.qualify_connected_live"), "Missing connected live policy")
         self.policy = importlib.import_module("scripts.qualify_connected_live")
-        self.directory = Path(self.enterContext(tempfile.TemporaryDirectory(dir=ROOT / "tmp")))
+        self.directory = Path(self.enterContext(tempfile.TemporaryDirectory(prefix="connected-policy-"))).resolve()
         self.owner = self.directory / "owner"
         self.owner.mkdir()
         (self.owner / ".git").mkdir()

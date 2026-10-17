@@ -154,9 +154,27 @@ new tracker, Operator service action or expansion of the held Support/media scop
 
 Affected working evidence delta: Mac/Python3.11.13 full suite617 PASS (29.223 s),
 walkthrough structural checker passed, and explicit Git ignore check returns the
-private report path as ignored. No runtime/test/holdout bytes changed from f785f83;
+private report path as ignored. No runtime/prompt/holdout bytes changed from f785f83;
 current documentation moves the dated as-built checkpoint to existing history
 sections and reports failure/unknown/unrun without private binding details.
+
+Clean-export CI on evidence candidate `17ad1b2bc6f3ed383786f736c78ff48807986476`,
+[run38985996387](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38985996387)
+/ [job117257480734](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38985996387/job/117257480734),
+FAILED:617 tests ran with42 setup errors. Both new test suites wrongly required
+an existing untracked ROOT/tmp directory, absent in the clean committed export;
+subsequent profile checks were not run. This failure is retained, not relabeled
+an environmental pass or confused with the genuine-model unavailable result.
+An owned clean export reproduced42 errors (0.015 s). Minimal test-only scratch
+setup now uses owned system TemporaryDirectory paths, resolved for strict binding
+checks; the SAME42 tests passed in that export (1.210 s), no skips/loosened assertions.
+Runtime/harness/model/prompt/holdout/effects/accounting bytes are unchanged. Exact
+nonworking fixture allowances are rebound to changed test blobs, not broadened.
+The consumed live tranche/report and every original unknown liability remain;
+normal new-head CI follows only this concrete cause repair, never a paid rerun.
+The same repaired clean export's full Mac/Python3.11.13 suite passed617 tests
+(27.384 s). Runtime/case dry-run digest still exactly `a387eb64...c0c647f`;
+no new model/credential/Operator-service action occurred during the CI repair.
 
 ## Approved launch/training/Flight Deck follow-on — 2026-10-12
 
