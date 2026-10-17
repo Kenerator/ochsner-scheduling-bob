@@ -386,8 +386,8 @@ class InteractionService(BrowserService):
             raise ValueError("unbound fixture outcome")
         return matches[0]
 
-    def _api_observation(self, context, session, method, value, error, delay):
-        context["diagnostics"].api(method, value, error, delay)
+    def _api_observation(self, context, session, method, value, error, delay, handoff_reason=None):
+        context["diagnostics"].api(method, value, error, delay, handoff_reason)
         if context["active"] is None or context["observations"] is None:
             return
         try:

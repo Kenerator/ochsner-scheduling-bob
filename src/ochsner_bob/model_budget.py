@@ -112,13 +112,15 @@ class ModelBudget:
 
     def __init__(self, path: Path, *, max_calls=200, ceiling_usd="20", unlimited_today=False, clock=None,
                  application_runtime=False,
-                 _existing_only=False):
+                 _existing_only=False, _existing_writes=False):
         self._blocked = False
         self._seen = False
         try:
             clock = time.time if clock is None else clock
             ceiling = Decimal(str(ceiling_usd))
-            if (type(application_runtime) is not bool or type(unlimited_today) is not bool or type(_existing_only) is not bool or not callable(clock)
+            if (type(application_runtime) is not bool or type(unlimited_today) is not bool or type(_existing_only) is not bool
+                    or type(_existing_writes) is not bool or _existing_writes and not (application_runtime and _existing_only)
+                    or not callable(clock)
                     or type(max_calls) is not int or not 1 <= max_calls <= 200
                     or not ceiling.is_finite() or not 0 < ceiling <= 20
                     or ceiling * _NANOS != (ceiling * _NANOS).to_integral_value()):
@@ -128,10 +130,16 @@ class ModelBudget:
             self._unlimited_today = unlimited_today
             self._clock = clock
             self._existing_only = _existing_only
+            # Explicit covered dispatch against existing SQLite only. Readiness
+            # stays read-only; this never relaxes creation/migration/marker rules.
+            self._existing_writes = _existing_writes
+            self._existing_identities = None
             self.application_runtime = application_runtime
             self._runtime = None
             supplied = Path(path).absolute()
             parent = supplied.parent.resolve(strict=_existing_only)
+            if _existing_writes and supplied.parent != parent:
+                raise ValueError()
             if not _existing_only:
                 try:
                     parent.mkdir(mode=0o700)
@@ -176,6 +184,16 @@ class ModelBudget:
                 if marker not in (b"", b"1") or ((self._seen or self._existing_only) and marker != b"1"):
                     raise ValueError()
                 self._seen = self._seen or marker == b"1"
+                if self._existing_writes:
+                    from .runtime_accounting import RuntimeLedger
+                    if not RuntimeLedger.is_database(self.path):
+                        raise ValueError()
+                    ledger = self.path.stat(follow_symlinks=False)
+                    lock = os.fstat(fd)
+                    identities = ((ledger.st_dev, ledger.st_ino), (lock.st_dev, lock.st_ino))
+                    if self._existing_identities is not None and identities != self._existing_identities:
+                        raise ValueError()
+                    self._existing_identities = identities
                 yield fd
             except BudgetError:
                 raise

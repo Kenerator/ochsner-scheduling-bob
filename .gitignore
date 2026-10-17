@@ -30,3 +30,5 @@ docs/internal/private/
 docs/product/RFP/source/
 docs/product/RFP/manifest.json
 tmp/aeos-dashboards/
+# Private execution evidence includes local owner/accounting bindings; retain locally.
+tmp/connected-qualification/

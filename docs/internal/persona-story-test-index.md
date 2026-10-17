@@ -8,6 +8,22 @@ own completion. Persona hypotheses do not grant permissions or prove user resear
 
 ## Exact pins and material adoption
 
+2026-10-16 scoped delta (`f785f83`, pre-live review clear; live failed/incomplete): Morgan-Rae's
+US3/US5 categorical handoff context and Sam-Rae's US4/US6 inspection constraints
+link FR-012/014 to [OFF handoff diagnostics](../../tests/test_handoff_diagnostics.py)
+and [the observation boundary](../../src/ochsner_bob/diagnostics.py). Tests cover
+queued/rejected/failed/unknown without raw summaries, identifiers or inspection
+effects; no new synchronized Support behavior is inferred. Jules/Billy-June/
+Ellie-Rae's US1 correction/consent, Amy-Lou/Nina-Jean's US3 assistance and Sam-Rae's
+US6 uncertainty map to [connected development tests](../../tests/test_connected_qualification.py),
+[fixed-owner policy tests](../../tests/test_connected_qualification_policy.py) and
+the [declared held-out journeys](../../tests/fixtures/connected_qualification_holdout.json).
+Offline fixture/binding checks remain distinct from the selected live tranche's
+first unavailable/unknown attempt, zero scheduling effects and 15 unrun executions;
+neither is user validation or connected semantic success. [Native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md)
+and [qualification limits/results](live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16)
+retain actual source/check/review status.
+
 Every pin below has catalog prefix `poc-template-seed-v1:`. Names link to the
 [canonical pinned cards](../product/personas.md); cards/ancestry remain there,
 not duplicated as proof. Six actors are human; Sam-Rae is an agent and has no

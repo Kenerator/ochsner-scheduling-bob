@@ -93,6 +93,10 @@ requirements:
     task_ids:
       - "T010"
       - "T017"
+      - "T109"
+      - "T111"
+      - "T112"
+      - "T113"
     capability_ids:
       - "language"
     evidence_refs:
@@ -214,6 +218,7 @@ requirements:
     task_ids:
       - "T008"
       - "T054"
+      - "T108"
     capability_ids:
       - "inspection"
     evidence_refs:
@@ -277,6 +282,8 @@ requirements:
   -
     id: "FR-020"
     task_ids:
+      - "T110"
+      - "T114"
       - "T002"
       - "T004"
       - "T037"
@@ -394,6 +401,8 @@ requirements:
       - "T093"
       - "T095"
       - "T098"
+      - "T112"
+      - "T113"
     capability_ids:
       - "operations"
     evidence_refs:
@@ -406,6 +415,8 @@ requirements:
       - "T095"
       - "T096"
       - "T097"
+      - "T112"
+      - "T113"
     capability_ids:
       - "operations"
     evidence_refs:
@@ -528,6 +539,15 @@ gaps:
       - "FR-021"
       - "FR-024"
     reference: "docs/user/walkthroughs/index.md"
+  -
+    id: "connected-tranche-unavailable"
+    title: "Connected tranche stopped at one unavailable/unknown attempt; 15 executions remain unrun"
+    state: "OPEN"
+    requirement_ids:
+      - "FR-001"
+      - "FR-027"
+      - "FR-027a"
+    reference: "docs/internal/live-qualification.md"
   -
     id: "broader-model-reliability"
     title: "Historical small-sample qualification does not establish general model reliability"

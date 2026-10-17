@@ -1,5 +1,10 @@
 # As-built architecture
 
+Current scoped source: reviewed `f785f83` (2026-10-16); the connected tranche
+stopped failed/incomplete after one unavailable/unknown attempt. See
+[native T108–T114](../../../specs/001-ochsner-scheduling-assistant/tasks.md) and
+[source-bound outcome](../live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16).
+
 Updated 2026-10-14 against reviewed runtime source
 `79aeafd6269dd1e54f9429a3cdf49b30070b153c`, integrated as
 `d3c3a044575c5666c220ab89dcb680b8a456fcbb` with the identical selected tree.
@@ -176,6 +181,12 @@ flowchart TB
 [Diagnostics](../../../src/ochsner_bob/diagnostics.py) observes validated final API
 outcomes and bounded public model disposition/context/timing independently of
 capture. CLI `/diagnostics` and browser inspection do not invoke workflow effects.
+`SchedulingSession._effect/_event` retains `handoff_reason` on the actual attempt
+and its event; `ObservedAPI` forwards only an exact allowlisted category to
+`Diagnostics.api`. Blocked later attempts cannot rewrite an earlier receipt's
+category. Raw summaries/identity/identifiers never enter that metadata, and
+recording/export/import schemas are unchanged. [Focused contracts](../../../tests/test_handoff_diagnostics.py)
+cover OFF outcomes/privacy/duplicates, CLI/service inspection and real HTTP.
 An owned recording-OFF reference opens **current sanitized inspection**, not
 historical Replay; grants are bounded, fixed-expiry and memory/session-scoped.
 Unknown/foreign/ungranted references share a generic denial. The widget gives
@@ -235,8 +246,11 @@ Delivered views include final categorical notices. Widget safety buttons remain
 usable during pending text; dirty edits disable exact-snapshot confirmation.
 Poll/read/ack cannot schedule or invoke models, but reads may expire takeover
 (revocation-only). Host/Origin and closed JSON schemas are checked. The shipped
-widget sidecar URL is fixed at port 28451 (default UI origin 28450); launcher port
-changes alone do not reconfigure it.
+widget sidecar URL comes from the validated public `BOB_TRANSPORT_URL` trait;
+the launcher supplies its selected numeric IPv4 loopback transport URL. Defaults
+remain backend28451/UI28450, but explicitly selected launcher ports do configure
+this routing. Exact Host/Origin isolation remains enforced; an arbitrary remote
+or malformed endpoint is not accepted.
 
 ## Replay fidelity and retention
 
@@ -383,6 +397,19 @@ External file changes require complete bounded-memory validation before dispatch
 Readiness validates old/new formats read-only; it never migrates or grants a call.
 Activate only with old writers quiescent; no live-format migration is performed.
 
+The new [connected qualifier](../../../scripts/qualify_connected_live.py) separates
+the frozen candidate imports from the selected canonical accounting owner. Its
+bounded config/project/credential/model checks and pinned source/config/root/ledger/
+lock identities deny drift before helper use and under the existing flock.
+`ModelBudget(..., application_runtime=True, _existing_only=True, _existing_writes=True)`
+permits normal reserve/settle only in already-existing validated private SQLite.
+The new Boolean option defaults false; invalid combinations fail before creating
+anything. `_existing_only=True` alone and `preflight_budget` remain read-only.
+No new accounting namespace, global locking design, migration or spending policy
+is introduced. [Disposable binding tests](../../../tests/test_connected_qualification_policy.py)
+exercise that boundary; [holdout scope/limits](../live-qualification.md#connected-holdout-candidate--prepared-not-executed)
+distinguish offline mechanisms from the not-yet-run genuine tranche.
+
 ## Limitations
 
 L4 consumer reviewed at `79aeafd`, integrated as `d3c3a04` on 2026-10-13:
@@ -443,6 +470,19 @@ The following dated checkpoints are preserved historical records. Their candidat
 pending-integration, counts, digests and rendered-diagram statements describe
 those sources at those times—not the current integrated source or these diagrams.
 Current organization/source accuracy is reviewed against the revision at the top.
+
+### Diagnostics/connected candidate checkpoint — 2026-10-16
+
+Prepared on base `14474ac`: ordinary recording-OFF diagnostics retain only the
+allowlisted handoff reason; the connected qualifier uses candidate code with fixed
+canonical existing-SQLite accounting. This paragraph was formerly the dated
+candidate notice at the top. Independent pre-live review cleared `f785f83` before
+the selected run. That run stopped after one unavailable interpretation with
+unknown usage, zero scheduling effects and 15 unrun executions. No connected
+semantic qualification, browser synchronization, Operator relaunch or migration
+is claimed. [Native status](../../../specs/001-ochsner-scheduling-assistant/tasks.md)
+retains exact review/execution/delivery evidence; older records below keep their
+original sources and scope.
 
 ## Adversarial repair delta — 2026-10-10
 

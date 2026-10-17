@@ -74,7 +74,7 @@ class SchedulingSession:
                 "booking_certainty": (self.current_result or {}).get("status", "not_attempted"),
                 "takeover": self.takeover}
 
-    def _event(self, action, before, elapsed):
+    def _event(self, action, before, elapsed, handoff_reason=None):
         # Closed metadata: no patient/slot ids, raw user input, exception or transcript.
         event = {"seq": self.revision, "action": action if action in {
             "identity", "preferences", "discover", "availability", "select", "confirm",
@@ -82,6 +82,8 @@ class SchedulingSession:
             "handoff", "takeover", "return", "invalid", "begin_input"} else "invalid",
             "before": before, "after": self._safe_state(), "latency_ms": round(elapsed, 3),
             "policy": deepcopy(self.last_policy)}
+        if action == "handoff" and type(handoff_reason) is str and handoff_reason in REASONS:
+            event["handoff_reason"] = handoff_reason
         if len(self.events) < 2000:
             self.events.append(event)
         else:
@@ -135,6 +137,7 @@ class SchedulingSession:
             before = self._safe_state()
             started = perf_counter()
             old_proposal = deepcopy(self.proposal)
+            handoff_reason = None
             self.last_policy = None
             self._invalidate()
             self.suggestions = []
@@ -203,12 +206,13 @@ class SchedulingSession:
                         "unsupported": "That request is outside supported scheduling. I can prepare a handoff; rescheduling and cancellation are unavailable."}[action]
                 elif action == "handoff":
                     reason = data.get("reason", "user_requested")
-                    if reason not in REASONS or set(data) - {"reason"}:
+                    if type(reason) is not str or reason not in REASONS or set(data) - {"reason"}:
                         raise ValueError("Choose a supported handoff reason.")
+                    handoff_reason = reason  # Selected category, not raw user context or write authority.
                     self._guard("handoff")
                     # Categorical current context only. No raw conversation or identity.
                     summary = f"Workflow={self.state}; identity={self.identity_status}; current_booking={(self.current_result or {}).get('status', 'not_attempted')}; prior_completed={sum(r['status']=='completed' for r in self.history)}; missing={'none' if self.identity else 'private_identity'}."
-                    self._effect("handoff", lambda: self.api.handoff(reason, summary))
+                    self._effect("handoff", lambda: self.api.handoff(reason, summary), handoff_reason=reason)
                 elif action == "decline":
                     self.state = "declined"
                     self.message = "The pending proposal is cleared. Earlier completed or unknown attempts remain in the history; no cancellation was sent."
@@ -247,7 +251,7 @@ class SchedulingSession:
                 self.message = "The operation could not be verified. Help remains available."
                 # Unexpected failures are visible categorically, never raw exception text.
             finally:
-                self._event(action, before, (perf_counter() - started) * 1000)
+                self._event(action, before, (perf_counter() - started) * 1000, handoff_reason)
             return self.view()
 
     def _identity(self, data):
@@ -324,12 +328,17 @@ class SchedulingSession:
         self.state = "preferences"
         self.message = "Preferences updated. Find providers or request current availability."
 
-    def _effect(self, kind, operation):
+    def _effect(self, kind, operation, *, handoff_reason=None):
+        if kind == "handoff" and (type(handoff_reason) is not str or handoff_reason not in REASONS):
+            raise ValueError("Choose a supported handoff reason.")
         key = self._key(kind)
         # Journal fsync completes before any POST. Confirmation is gone before I/O.
         claim = self.journal.claim(key)
         self.proposal = None
         receipt = {"kind": kind, "status": "attempted", "reference": uuid4().hex}
+        if kind == "handoff":
+            # This metadata belongs to this claimed attempt, never a later blocked retry.
+            receipt["handoff_reason"] = handoff_reason
         self.current_result = receipt
         try:
             payload = operation()

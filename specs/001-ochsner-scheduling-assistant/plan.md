@@ -73,6 +73,69 @@ scripts/demo_*.py
 
 **Structure Decision**: Keep reusable behavior in `src/ochsner_bob`, with effects and framework concerns at adapters. Establish the shared interaction/effect contracts before parallel story work. Existing bootstrap/template packages remain support tooling; BOB product code, tests, fixtures, UI assets, and docs stay isolated.
 
+## Selected diagnostics and connected-language follow-on — 2026-10-15
+
+Scope: existing FR-001/008–015/020/027/027a. Direct Operator selection is MLX
+turn `01a14226-eaee-7be1-a9af-560d3b694c36`, human message
+`01a14227-0333-7d80-8131-4193d5950828`, verified by SM and forwarded to the sole
+BOB owner. The private assessment is reference material, never a public input or
+artifact. No interview/vendor/private-RFP content is adopted here.
+
+Bounded design: retain optional `handoff_reason` in the actual handoff result and
+session/API diagnostic event. Validate against the existing categorical allowlist
+at each observation boundary; invalid/extra-field inputs cannot leak. Booking,
+policy/consent, receipt certainty, durable duplicate protection and Recording/Replay
+schemas stay unchanged. Prove OFF queued/rejected/failed/unknown, privacy, ordinary
+CLI/browser exposure, effect-free repeated inspection and compatibility tests.
+Correct only the stale current accounting/default and fixed-widget-port statements.
+
+Connected qualification extends the existing local qualification pattern, not a
+hosted eval service. Reuse actual LanguageAdapter, Conversation/Session and the
+unchanged supplied HTTP mock through owned lifecycle/free ports. Build the harness
+with separate development fixtures; predeclare eight synthetic connected journeys
+and two scheduled repetitions (16 executions). Freeze exact dialogue, outcome/
+effect assertions, local no-dispatch turns, model-turn bounds and source/prompt/
+schema/policy/case hashes before live. Identity, returned option selection and
+separate current confirmation remain local deterministic controls. Never tune the
+prompt/model on this tranche while retaining holdout labeling.
+
+Planned families: new booking/availability intent; evolving preferences; negation/
+refusal after a proposal; help/medical during partial identity; general unsupported
+request after completion; supplied slot conflict/fresh-choice recovery; supplied
+outage/help/handoff failure then recovery; no availability/help/queued handoff.
+Exact dialogues/bounds live in the frozen synthetic case manifest, not copied task
+status. Every failure, local safety turn, unrun step/repetition and accounting
+uncertainty is reported. A transport/accounting unknown halts further dispatch;
+semantic failure is retained without automatic retry, fallback or tuning.
+
+Parent owns diagnostics/core, public docs, native artifacts, holdout manifest,
+credential/accounting integration and final integration. One disjoint offline
+worker may own only the new connected harness and its development tests/fixtures;
+no model/vault/live ledger access or reviewer fan-out. SM owns ONE coherent final
+candidate review before live, then affected evidence/status confirmation. Reuse
+canonical private accounting/history/locks/unknown liabilities; never initialize
+alternate headroom. SM selected A: frozen candidate code imports remain in the
+owned clone; `--canonical-owner-root` is fixed to the selected OS-account checkout
+`codeRepos/ochsner-scheduling-bob`, never an environment/alternate budget path.
+Validate regular bounded schema1/project/adapter/exact credential/model config,
+agreement with candidate config, no symlink substitution, private existing SQLite
+and initialized stable lock/marker before any helper. Pin/recheck config/source
+hashes and ledger/lock/root identities through the existing locking boundary.
+
+Source inspection found `_existing_only=True` intentionally rejects reserve and
+settle. SM explicitly selected the minimal compatibility extension on 2026-10-16:
+`_existing_writes=True` is valid only with both application runtime and existing-only
+mode and already-validated SQLite. Preserve read-only readiness/default semantics,
+no initialization/migration/marker creation, and normal durable reserve/settle IDs.
+Do not flip safety flags after construction or redesign global accounting/locks.
+The new qualifier has no model or budget override; it selects the strong configured
+snapshot, exact pinned resolver and explicit reviewed source digest. A private
+exclusive-create run report retains started/unrun execution evidence and prevents
+accidental replay of this tranche; it is not accounting, headroom or another task
+ledger. Public summaries exclude machine paths/accounting file identities.
+Full offline suite/demos, source/privacy/guard, protected CI/PR/readback follow.
+No Support-sync/global-lock/scaling repair, media, platform, tags or deployment.
+
 ## Complexity Tracking
 
 > **Fill ONLY if Constitution Check has violations that must be justified**

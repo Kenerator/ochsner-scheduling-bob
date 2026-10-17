@@ -1,5 +1,181 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Selected diagnostics and connected-language follow-on — 2026-10-15
+
+Base: clean canonical `14474ac0c62618eddff6f2ce47a9f31097f96be9`; isolated branch
+`codex/bob-connected-qualification`. Authority/design and privacy boundaries are in
+[plan.md](plan.md#selected-diagnostics-and-connected-language-follow-on--2026-10-15).
+Native tasks remain the sole completion ledger; no separate tracker is created.
+
+- [x] T108 [US3–US6] Reproduce and fix recording-OFF allowlisted handoff-reason
+  observation with tests first for session/result/API/CLI/browser, certainty,
+  privacy, duplicate protection and recording/import compatibility.
+- [x] T109 [P] [US1–US6] Develop the actual connected local qualification harness
+  using independent development fixtures and real supplied HTTP/Session/Conversation/
+  LanguageAdapter, tests first. Disjoint new harness/test files only; no live calls.
+- [x] T110 [US6] Correct the two selected stale current documentation statements;
+  preserve original mini/pass4/default/model/port evidence and credential policy.
+- [x] T111 [US1–US6] Freeze eight exact synthetic holdout journeys × two declared
+  repetitions, turn/call/effect expectations, stop conditions and hashes. Keep
+  development data and holdout inputs separate; preserve legacy12/10/2 evidence.
+- [x] T112 [US6] Integrate offline tests/demos, privacy/accounting design and one
+  coherent frozen candidate; obtain SM's single final-diff review before live.
+- [x] T113 [US1–US6] Execute only the declared connected genuine tranche using the
+  existing canonical accounting and exact named resolver/current model; retain all
+  failures/unrun cases/known versus unknown usage, no retry/fallback/tuning loop.
+- [ ] T114 [US6] Sanitize source-bound results into existing live qualification/
+  native status/persona/next steps and affected as-built notes; SM affected-only
+  evidence confirmation, exact-head CI and normal protected PR/integration/readback.
+
+Initial source trace: validated `reason` reaches HttpMockAdapter.handoff, but
+SchedulingSession._effect/_event and Diagnostics.api omitted it. The optional
+allowlisted `handoff_reason` now survives current/history/session/API/CLI metadata;
+Recording/Replay schemas and raw-context boundaries remain unchanged.
+
+### Offline candidate checkpoint — 2026-10-16
+
+Parent diagnostics RED: six tests, 15 expected missing-reason failures, zero errors
+(0.076 s), then GREEN six (0.070 s); the supplemental actual HTTP contract brought
+the focused set to seven PASS (0.138 s), existing live diagnostics nine PASS
+(0.070 s). An earlier test-setup foreign-session import error was corrected before
+the recorded RED; it was not a product defect. Worker harness RED13 missing-harness
+failures → GREEN24 (1.017 s), then parent combined execution below. Worker wrote
+only the disjoint harness/development fixture/test files; no competing native writer.
+
+SM selected fixed canonical owner A, then the explicit existing-SQLite write keyword
+after actual source proved `_existing_only` alone was read-only. Three new mode
+tests first failed on the missing interface (initial unexpected-keyword errors were
+made explicit missing-interface failures), then passed. Policy tests initially
+failed ten times on the missing entrypoint. Later boundary checks exposed unsanitized
+setup exceptions, short report writes and uncheckpointed runner/interruption paths;
+these were repaired with targeted tests. The main-report fixture initially omitted
+candidate public config/source setup and was corrected, not reported as a product
+failure. Seventeen policy tests passed (0.082 s); all owners/SQLite/credentials used
+there are disposable/synthetic. No canonical ledger/key was inspected by these tests.
+
+Integrated working-source host Mac/Python3.11.13 suite: **616 PASS, 29.283 s**.
+The first sandboxed combined attempt was interrupted after a browser-launch FAIL
+and Flight Deck ERROR; system Perl library access was denied and per-session Git
+provenance subprocesses stalled under the sandbox. Its partial output is not a pass.
+Only the exact owned test PID was interrupted; the host-scoped offline rerun above
+completed. Three BOB demos passed: success/completed; conflict/rejected→fresh
+confirmed completed; labeled lost-receipt unknown/retry blocked. Final staged
+candidate scan/checks and exact committed rerun remain T112 work, not live evidence.
+
+The holdout has 8 exact journeys×2 scheduled repetitions, at most34 language calls
+and eight local no-dispatch safety turns. SHA-256
+`19d13600c7e46972bb6a398ee9eb329babeb14fe52ae196197df04a8c171f18e`.
+Dry-run validates public sources/schema/counts only; it does not inspect the owner,
+start mocks/apps, resolve keys or interpret holdout text. The development transport
+tests remain fixture evidence; no holdout semantic/genuine pass is claimed.
+language.py remains `4d5cb915284c90c408406f2ea3f57bea0d5a126abb4d07be668d4861b7614461`;
+legacy cases remain `5a099f43b42fe7e3b7d0aee7497d5881bae89943f8838e82149b905c0e888be2`.
+New accounting/harness identities will bind the frozen candidate, not rewrite pass4.
+
+At that preparation checkpoint T112 awaited the coherent candidate handoff/review
+and T113 had made **zero live calls and zero credential lookups**. The separate denied canonical
+offline support relaunch was not executed and remains held; it neither authorizes
+an alternate launch/transport nor cancels this owned-clone implementation. No
+Operator service, private accounting/history/effects, legacy qualifier, prompt,
+vendor bytes, reviewed shared runtime/checker bundle or media was changed.
+
+Final preparation: source/case dry-run digest
+`a387eb64b494b2928005613194d26cf7528e37f27ce7fc71d3fad9f67c0c647f`;
+accounting source hashes are ModelBudget
+`da51ae372e96e8807bec90063d45ea29ab74792a916ac00d8cd9493950862358`
+and RuntimeLedger `7d4c99fa6b41a89ef642f76a2ead1aeb79b233bc8236ff4e0d50dd88eb7d38bc`.
+The new entrypoint is `77b29cdb3c9e10c140fc234ec6b2f9e53be6a4cb2a8368746ca6e2ca6e49a586`;
+harness is `ae78bbed67ddbc0732a8fd290befc097e98094270ed765528f8b49965c046de6`.
+The strict-config supplement caught nonfinite JSON in an irrelevant field:
+one expected RED → GREEN (0.014 s), before final combined qualification.
+Prior final behavioral-source checkpoint was 616 PASS (28.505 s); the additional
+case's final combined run was **617 PASS (28.279 s)**. Two starter success/failure demos also
+passed offline. Structural walkthrough checker and Flight Deck doctor passed;
+narrative verification/acceptance remains unknown. Relevant new native tasks are
+mapped into existing Flight Deck FR-001/014/020/027/027a, not a duplicate ledger.
+The staged guard initially found two reviewed synthetic inline-credential fixture
+patterns. Exact path/rule/blob allowances were added only for those nonworking
+test values (real HTTPS denied); the whole-index rescan remains required before
+commit. No directory exclusions, secret values or hook changes were introduced.
+
+### Reviewed live attempt and evidence delta — 2026-10-16
+
+Frozen local candidate `f785f837e704658f2baf09678599a32f4ca76bc1`, tree
+`e8ad93255659b2170267d715caadb47360233245`, clean readback. Exact committed Mac/
+Python3.11.13 suite617 PASS (28.337 s), three BOB demos and structural checker
+passed. Whole-index precommit guard563 files/131 binary/eight exact reviewed
+fixture matches/zero unresolved/symlinks/submodules; diff check clear. Six-file
+committed Flight Deck generation was CURRENT/DEGRADED with24/28 implementation
+complete and28 UNKNOWN verification/acceptance, estimate unavailable. No renderer
+or live-screen synchronization pass is inferred from structural/source inspection.
+
+SM selected the exact frozen source/digest/holdout for T113 after ONE independent
+MLX coherent pre-live review: CLEAR,101 affected tests PASS (3.454 s,no skips),
+public dry-run source/case/bounds matched. No source/model/prompt or holdout edit
+followed before execution. Read-only original canonical preflight returned
+`existing_sqlite_valid`; config/SQLite/original lock/marker/source identity checks
+passed before the exact pinned named-notes resolver was used. Existing standard
+strong-snapshot pricing was checked against official documentation, unchanged.
+
+**T113 is checked for compliant execution/terminal stop, NOT semantic qualification.**
+First journey `new-booking-availability`, repetition1, step0: genuine-mode
+interpretation unavailable,302.981ms,usage absent/accounting unknown. One new
+reservation,zero known records,one unknown; known cost increment$0 but actual
+usage/charge UNKNOWN, full$5.261520000 reserved liability retained. Scheduling
+HTTP/POST/bookings/handoffs/readbacks all zero; no accepted public proposal. First
+journey steps1–4 and all15 later executions are explicitly unrun; zero local safety
+texts reached. No retry/fallback/model switch/tuning/key reread/accounting reset.
+The declared tranche is consumed/held for reconciliation, not automatically replayed.
+
+Private run evidence hash
+`4727570ee2f9dc439d275f90ea9b02bdacc6726ff52953a44624fe86d8d8e0e4`
+binds the same source digest/holdout and original owner/config/accounting identity;
+public [outcomes](../../docs/internal/live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16)
+exclude machine paths/prior accounting/raw model response/credentials. The raw
+private report was never staged. Its new directory initially failed Git ignore
+checking; a narrow `tmp/connected-qualification/` ignore was added, without removing
+or rewriting retained evidence. No tests/docs blanket exclusion or hook change.
+
+ONE credential-free, bounded, certificate-verifying TLS handshake to the declared
+official hostname443 succeeded with the same interpreter (128 trust anchors),
+zero HTTP/model requests and no trust/proxy change. No concrete local trust/network
+cause was established; categorical unavailable cannot diagnose upstream HTTP/auth/
+model availability or prove no charge. Further observability/environment correction
+and any fresh paid tranche require separate selection, not a silent rerun.
+
+T114 evidence delta is docs/native mapping plus the narrow private-report ignore;
+runtime/prompt/holdout/shared bytes are unchanged from reviewed f785f83. SM's
+nonblocking as-built placement correction moves dated candidate notes into existing
+near-end history/source sections and leaves concise current pointers upfront.
+The Flight Deck retains this failed/incomplete tranche as an OPEN gap, never a
+manufactured verification/acceptance pass. Affected-only confirmation and normal
+exact-head CI/protected delivery/readback remain pending; no whole-review rerun,
+new tracker, Operator service action or expansion of the held Support/media scope.
+
+Affected working evidence delta: Mac/Python3.11.13 full suite617 PASS (29.223 s),
+walkthrough structural checker passed, and explicit Git ignore check returns the
+private report path as ignored. No runtime/prompt/holdout bytes changed from f785f83;
+current documentation moves the dated as-built checkpoint to existing history
+sections and reports failure/unknown/unrun without private binding details.
+
+Clean-export CI on evidence candidate `17ad1b2bc6f3ed383786f736c78ff48807986476`,
+[run38985996387](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38985996387)
+/ [job117257480734](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/38985996387/job/117257480734),
+FAILED:617 tests ran with42 setup errors. Both new test suites wrongly required
+an existing untracked ROOT/tmp directory, absent in the clean committed export;
+subsequent profile checks were not run. This failure is retained, not relabeled
+an environmental pass or confused with the genuine-model unavailable result.
+An owned clean export reproduced42 errors (0.015 s). Minimal test-only scratch
+setup now uses owned system TemporaryDirectory paths, resolved for strict binding
+checks; the SAME42 tests passed in that export (1.210 s), no skips/loosened assertions.
+Runtime/harness/model/prompt/holdout/effects/accounting bytes are unchanged. Exact
+nonworking fixture allowances are rebound to changed test blobs, not broadened.
+The consumed live tranche/report and every original unknown liability remain;
+normal new-head CI follows only this concrete cause repair, never a paid rerun.
+The same repaired clean export's full Mac/Python3.11.13 suite passed617 tests
+(27.384 s). Runtime/case dry-run digest still exactly `a387eb64...c0c647f`;
+no new model/credential/Operator-service action occurred during the CI repair.
+
 ## Approved launch/training/Flight Deck follow-on — 2026-10-12
 
 Native scope: FR-021–FR-024. Approved plan source and human confirmation are

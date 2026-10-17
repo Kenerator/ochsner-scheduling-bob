@@ -3,7 +3,7 @@ from copy import deepcopy
 import math
 from time import perf_counter
 
-from .http_mock import ApiError, UnknownOutcome, _ERROR_CODES
+from .http_mock import ApiError, UnknownOutcome, _ERROR_CODES, _REASONS as HANDOFF_REASONS
 from .language import _context, _REASONS
 
 
@@ -17,20 +17,27 @@ class ObservedAPI:
         if name not in {"providers", "search_patients", "availability", "appointments", "book", "handoff"}:
             return method
 
-        def observe(value, error, started):
+        def observe(value, error, started, handoff_reason):
             try:
-                self._observer(name, value, error, (perf_counter() - started) * 1000)
+                elapsed = (perf_counter() - started) * 1000
+                if name == "handoff":
+                    self._observer(name, value, error, elapsed, handoff_reason)
+                else:
+                    self._observer(name, value, error, elapsed)
             except Exception:
                 pass  # Diagnostics can never change scheduling certainty.
 
         def call(*args, **kwargs):
             started = perf_counter()
+            candidate = kwargs.get("reason", args[0] if args else None) if name == "handoff" else None
+            # Never retain argument lists, summaries or arbitrary reason strings.
+            handoff_reason = candidate if type(candidate) is str and candidate in HANDOFF_REASONS else None
             try:
                 result = method(*args, **kwargs)
             except Exception as error:
-                observe(None, error, started)
+                observe(None, error, started, handoff_reason)
                 raise
-            observe(result, None, started)
+            observe(result, None, started, handoff_reason)
             return result
         return call
 
@@ -47,7 +54,7 @@ class Diagnostics:
         self.dropped = 0
         self.model_count = 0
 
-    def api(self, method, value, error, elapsed):
+    def api(self, method, value, error, elapsed, handoff_reason=None):
         if len(self.api_events) >= self.limit:
             self.dropped += 1
             return
@@ -60,6 +67,8 @@ class Diagnostics:
             "outcome": outcome, "error": "none" if error is None else code if type(code) is str and code in _ERROR_CODES else "unexpected",
             "http_status": getattr(error, "status", None) if isinstance(error, (ApiError, UnknownOutcome)) else None,
             "latency_ms": latency(elapsed)})
+        if method == "handoff" and type(handoff_reason) is str and handoff_reason in HANDOFF_REASONS:
+            self.api_events[-1]["handoff_reason"] = handoff_reason
 
     def language(self, *, context, status, accepted, rejected, application, revision, elapsed):
         if self.model_count >= self.limit:

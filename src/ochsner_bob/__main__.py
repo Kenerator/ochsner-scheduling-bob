@@ -14,7 +14,7 @@ from .cli_namespace import CliNamespace
 from .http_mock import HttpMockAdapter
 from .language import LanguageAdapter
 from .model_budget import ModelBudget
-from .session import SchedulingSession
+from .session import REASONS, SchedulingSession
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -52,6 +52,9 @@ def render(view, output):
     if view["current_result"]:
         result = view["current_result"]
         print(f"Last {result['kind']} outcome: {result['status']}", file=output)
+        reason = result.get("handoff_reason")
+        if result["kind"] == "handoff" and type(reason) is str and reason in REASONS:
+            print("Handoff reason: " + reason, file=output)
     if view["booking_blocked"] or view["handoff_blocked"]:
         print("Unresolved prior write: outcome unknown or pending. Retrying remains blocked; Help is available.", file=output)
     output.flush()

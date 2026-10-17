@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "synthetic_only": true,
+  "set": "development",
+  "repetitions": 1,
+  "cases": [
+    {
+      "id": "development-booking",
+      "scenario": "happy_path_booking",
+      "steps": [
+        {"kind": "text", "text": "I want primary care downtown", "dispatch": true,
+         "expect": {"states": ["preferences"], "preferences": {"specialty": "primary_care", "location": "downtown"}}},
+        {"kind": "identity", "data": {"phone": "555-0101", "dob": "1985-04-12", "zip": "70112"},
+         "expect": {"identity_status": "verified"}},
+        {"kind": "command", "action": "availability", "data": {}, "expect": {"states": ["options"], "slot_count": 3}},
+        {"kind": "command", "action": "select", "data": {"index": 1}, "expect": {"proposal": true}},
+        {"kind": "confirm", "expect": {"result_status": "completed", "history_statuses": ["completed"]}}
+      ],
+      "expected": {"post_attempts": 1, "booking_completed": 1, "booking_verified": 1, "handoff_queued": 0, "api_calls": 4, "language_calls": 1}
+    },
+    {
+      "id": "development-local-safety",
+      "scenario": "provider_lookup",
+      "steps": [
+        {"kind": "identity", "data": {"phone": "555-0101"}, "expect": {"identity_status": "missing", "states": ["identity_required"]}},
+        {"kind": "text", "text": "Please help", "dispatch": false, "expect": {"states": ["help"]}},
+        {"kind": "text", "text": "I need medical advice", "dispatch": false, "expect": {"states": ["medical"]}}
+      ],
+      "expected": {"post_attempts": 0, "booking_completed": 0, "handoff_queued": 0, "api_calls": 0, "language_calls": 0}
+    }
+  ]
+}
