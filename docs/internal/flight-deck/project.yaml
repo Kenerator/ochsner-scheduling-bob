@@ -540,6 +540,15 @@ gaps:
       - "FR-024"
     reference: "docs/user/walkthroughs/index.md"
   -
+    id: "connected-tranche-unavailable"
+    title: "Connected tranche stopped at one unavailable/unknown attempt; 15 executions remain unrun"
+    state: "OPEN"
+    requirement_ids:
+      - "FR-001"
+      - "FR-027"
+      - "FR-027a"
+    reference: "docs/internal/live-qualification.md"
+  -
     id: "broader-model-reliability"
     title: "Historical small-sample qualification does not establish general model reliability"
     state: "DEFERRED"

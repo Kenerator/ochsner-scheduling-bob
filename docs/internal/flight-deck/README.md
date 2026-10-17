@@ -6,9 +6,10 @@ acceptance. Native [specification](../../../specs/001-ochsner-scheduling-assista
 and [tasks](../../../specs/001-ochsner-scheduling-assistant/tasks.md) remain canonical.
 
 Mapping delta prepared 2026-10-16 on base `14474ac`: FR-001/014/020/027/027a
-now include relevant T108–T114 follow-on tasks. Pending review/live/result tasks
-must remain incomplete in the derived implementation view; offline test narratives
-still cannot manufacture verification or acceptance. Shared runtime bytes and six
+now include relevant T108–T114 follow-on tasks. Implementation/execution checkmarks
+do not turn the first unavailable/unknown attempt and 15 unrun executions into a
+genuine qualification; the failed/incomplete result stays an explicit gap. Pending
+delivery remains incomplete; narratives cannot manufacture verification/acceptance. Shared runtime bytes and six
 elements are unchanged. Exact candidate generation/status belongs in native tasks.
 
 ## Generate and inspect

@@ -1,12 +1,9 @@
 # As-built architecture
 
-Candidate delta, 2026-10-16 on base `14474ac` (independent pre-live review pending):
-ordinary recording-OFF diagnostics retain only the allowlisted handoff reason.
-The connected qualifier uses candidate code with fixed canonical existing-SQLite
-accounting; [native T108–T114](../../../specs/001-ochsner-scheduling-assistant/tasks.md)
-holds candidate/evidence status. No live tranche, new browser synchronization,
-Operator relaunch or migration is claimed. Historical reviewed revisions below
-keep their original scope.
+Current scoped source: reviewed `f785f83` (2026-10-16); the connected tranche
+stopped failed/incomplete after one unavailable/unknown attempt. See
+[native T108–T114](../../../specs/001-ochsner-scheduling-assistant/tasks.md) and
+[source-bound outcome](../live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16).
 
 Updated 2026-10-14 against reviewed runtime source
 `79aeafd6269dd1e54f9429a3cdf49b30070b153c`, integrated as
@@ -473,6 +470,19 @@ The following dated checkpoints are preserved historical records. Their candidat
 pending-integration, counts, digests and rendered-diagram statements describe
 those sources at those times—not the current integrated source or these diagrams.
 Current organization/source accuracy is reviewed against the revision at the top.
+
+### Diagnostics/connected candidate checkpoint — 2026-10-16
+
+Prepared on base `14474ac`: ordinary recording-OFF diagnostics retain only the
+allowlisted handoff reason; the connected qualifier uses candidate code with fixed
+canonical existing-SQLite accounting. This paragraph was formerly the dated
+candidate notice at the top. Independent pre-live review cleared `f785f83` before
+the selected run. That run stopped after one unavailable interpretation with
+unknown usage, zero scheduling effects and 15 unrun executions. No connected
+semantic qualification, browser synchronization, Operator relaunch or migration
+is claimed. [Native status](../../../specs/001-ochsner-scheduling-assistant/tasks.md)
+retains exact review/execution/delivery evidence; older records below keep their
+original sources and scope.
 
 ## Adversarial repair delta — 2026-10-10
 

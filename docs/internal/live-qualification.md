@@ -310,7 +310,8 @@ remains **not qualified** by that record. Its twelve fixed cases/ten dispatched
 calls/two local privacy rejections were adapter-only regression acceptance, not
 connected journeys, an independent holdout or a population-quality, clinical,
 PHI, accessibility, browser, account-cost or production-security certification.
-The separately selected connected tranche has not executed at this checkpoint.
+The connected tranche was unexecuted at that preparation checkpoint; the dated
+execution outcome below supersedes that status, not the historical evidence.
 
 ## Connected holdout candidate — prepared, not executed
 
@@ -361,6 +362,69 @@ Holdout SHA-256: `19d13600c7e46972bb6a398ee9eb329babeb14fe52ae196197df04a8c171f1
 Fresh source comparison confirms language.py and legacy live_model_cases.json still
 match the pass4 hashes above. Accounting/harness/entrypoint changes receive new
 source identities; they do not rewrite historical execution or imply prompt drift.
-No credential lookup or live model call has occurred for this follow-on. Even a
-completed tranche would remain a small synthetic sample, not population reliability,
+At that pre-live preparation checkpoint no credential lookup or live model call
+had occurred. Even a completed tranche would remain a small synthetic sample, not population reliability,
 browser synchronization, clinical, PHI, accessibility or production acceptance.
+
+## Connected holdout execution — failed/incomplete, 2026-10-16
+
+**Not qualified.** SM selected exact `f785f837e704658f2baf09678599a32f4ca76bc1`
+after one independent coherent review returned CLEAR with 101 affected offline
+tests passing (3.454 s, no skips). The committed Mac/Python3.11.13 suite passed
+617 tests (28.337 s). SM's separate selection authorized the declared attempt;
+these checks did not predict a genuine-model pass or human acceptance.
+
+Read-only canonical preflight returned `existing_sqlite_valid`; the original
+private SQLite/config/lock/marker and pinned trusted resolver/executable passed
+before key lookup. Only the exact named Secure Note `notes` route was used.
+The strong snapshot and existing standard text rates matched
+[official model guidance](https://developers.openai.com/api/docs/models/gpt-5.4)
+and [pricing](https://developers.openai.com/api/docs/pricing) checked 2026-10-16.
+No accounting initialization, migration, replacement, reset or alternate path
+occurred. Runtime code, prompt, model and holdout remained frozen.
+
+The first `new-booking-availability`, repetition1, step0 genuine-mode interpretation
+returned **unavailable** after 302.981 ms, with no usage report or accepted public
+proposal. The tranche immediately halted as declared. First-journey steps1–4 and
+all 15 later scheduled executions are unrun; none is labeled passed or retried.
+
+| Frozen journey | Repetition 1 | Repetition 2 |
+| --- | --- | --- |
+| new-booking-availability | Step0 unavailable; remaining four steps unrun | Unrun: terminal stop |
+| evolving-preferences | Unrun: terminal stop | Unrun: terminal stop |
+| proposal-refusal-correction | Unrun: terminal stop | Unrun: terminal stop |
+| partial-identity-local-safety | Unrun: terminal stop | Unrun: terminal stop |
+| unsupported-after-completion | Unrun: terminal stop | Unrun: terminal stop |
+| conflict-fresh-choice-recovery | Unrun: terminal stop | Unrun: terminal stop |
+| outage-handoff-recovery | Unrun: terminal stop | Unrun: terminal stop |
+| empty-availability-handoff-decline | Unrun: terminal stop | Unrun: terminal stop |
+
+Actual local accounting delta: **one reservation/interpretation attempt, zero known
+usage records, one unknown record**. Known-cost increment is $0, but actual usage
+and charge are **unknown**, not zero or refunded. The full new worst-case reserved
+liability **$5.261520000** remains in the original canonical history. This is an
+accounting reservation, not a statement that OpenAI charged that amount. No
+scheduling HTTP request, POST, booking, handoff or appointment readback occurred;
+zero of the eight planned local safety texts was reached. Only one of at most34
+planned language turns was attempted; no automatic retry/fallback was performed.
+
+Sanitized private execution evidence SHA-256:
+`4727570ee2f9dc439d275f90ea9b02bdacc6726ff52953a44624fe86d8d8e0e4`.
+It binds 34 source hashes and the original owner/config/accounting identity privately;
+machine paths, prior aggregate accounting, credentials and raw model responses are
+not published. Source digest:
+`a387eb64b494b2928005613194d26cf7528e37f27ce7fc71d3fad9f67c0c647f`;
+holdout SHA remains `19d13600c7e46972bb6a398ee9eb329babeb14fe52ae196197df04a8c171f18e`.
+The exclusive private run report is retained and prohibits accidental replay.
+
+One subsequent credential-free TLS handshake to the same official
+hostname verified successfully with the same interpreter, without an HTTP/model
+request or trust/proxy change. Therefore no concrete local TLS/trust cause was
+established. The adapter's deliberately categorical unavailable result does not
+distinguish upstream HTTP/auth/model availability from another transient cause;
+no failed/no-charge conclusion is inferred. No second key lookup or API/model
+request was made. Any further diagnosis requiring changed observability or a fresh
+paid tranche needs a separately selected minimal, testable delta first. The frozen
+tranche is consumed/held for reconciliation, not automatically replayed. Historical
+pass4 remains its original adapter-only evidence, not connected success on this
+candidate; Support relaunch and unrelated product/media work remain held.

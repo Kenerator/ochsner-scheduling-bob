@@ -1,10 +1,9 @@
 # As-built code walkthrough
 
-Candidate delta prepared 2026-10-16 on base `14474ac`, independent pre-live review
-pending: allowlisted OFF handoff diagnostics and the connected qualification
-entrypoint/binding below are new. Historical reviewed source/evidence remains
-unchanged in scope; [native T108–T114](../../../specs/001-ochsner-scheduling-assistant/tasks.md)
-owns exact candidate, combined checks, review and later live results.
+Current scoped source: reviewed `f785f83` (2026-10-16); the connected run stopped
+failed/incomplete, not semantically qualified. Exact source/checks and next steps
+are in [native T108–T114](../../../specs/001-ochsner-scheduling-assistant/tasks.md)
+and the [execution record](../live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16).
 
 Updated 2026-10-14 against reviewed runtime source
 `79aeafd6269dd1e54f9429a3cdf49b30070b153c`, integrated as
@@ -19,7 +18,8 @@ production-readiness claim. Earlier repairs integrated through
 [PR #8](https://github.com/Kenerator/ochsner-scheduling-bob/pull/8).
 Training/Flight Deck source reviewed at `4a7a5cf`, integrated through
 [PR #11](https://github.com/Kenerator/ochsner-scheduling-bob/pull/11) as `7494bb0`;
-runtime source above is unchanged. Native tasks retain actual evidence and gaps.
+runtime source above was unchanged at that training delivery. `f785f83` adds the
+existing-storage option described below; native tasks retain actual evidence/gaps.
 
 Navigation: [entry points](#entry-points) → [booking](#follow-a-booking) →
 [boundaries](#boundary-modules) → [browser/Support](#browser-interaction-and-widget) →
@@ -340,6 +340,18 @@ These are historical source-bound checkpoints, not current execution claims.
 Pending/candidate wording and numeric results below retain their original scope.
 The revision at the top identifies the code inspected for this reorganization;
 no new runtime/browser/model qualification is implied.
+
+### Diagnostics/connected candidate checkpoint — 2026-10-16
+
+Prepared on base `14474ac`: allowlisted OFF handoff diagnostics and the connected
+qualification entrypoint/binding below were the new candidate delta. This dated
+notice was moved from the top to keep current navigation concise. Independent
+pre-live review cleared `f785f83`; the subsequent selected tranche stopped on its
+first unavailable interpretation with unknown usage and no scheduling effects.
+All 15 later executions remain unrun. No prompt/model change or retry followed.
+Historical reviewed sources below remain unchanged in scope; the current
+[execution record](../live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16)
+and native tasks hold actual results and remaining delivery status.
 
 ## Adversarial repair delta — 2026-10-10
 

@@ -8,7 +8,7 @@ own completion. Persona hypotheses do not grant permissions or prove user resear
 
 ## Exact pins and material adoption
 
-2026-10-16 candidate delta (base `14474ac`, review/live pending): Morgan-Rae's
+2026-10-16 scoped delta (`f785f83`, pre-live review clear; live failed/incomplete): Morgan-Rae's
 US3/US5 categorical handoff context and Sam-Rae's US4/US6 inspection constraints
 link FR-012/014 to [OFF handoff diagnostics](../../tests/test_handoff_diagnostics.py)
 and [the observation boundary](../../src/ochsner_bob/diagnostics.py). Tests cover
@@ -18,9 +18,10 @@ Ellie-Rae's US1 correction/consent, Amy-Lou/Nina-Jean's US3 assistance and Sam-R
 US6 uncertainty map to [connected development tests](../../tests/test_connected_qualification.py),
 [fixed-owner policy tests](../../tests/test_connected_qualification_policy.py) and
 the [declared held-out journeys](../../tests/fixtures/connected_qualification_holdout.json).
-These are offline fixture/binding checks and planned genuine evidence, not user
-validation or executed live holdout results. [Native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md)
-and [qualification limits](live-qualification.md#connected-holdout-candidate--prepared-not-executed)
+Offline fixture/binding checks remain distinct from the selected live tranche's
+first unavailable/unknown attempt, zero scheduling effects and 15 unrun executions;
+neither is user validation or connected semantic success. [Native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md)
+and [qualification limits/results](live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16)
 retain actual source/check/review status.
 
 Every pin below has catalog prefix `poc-template-seed-v1:`. Names link to the

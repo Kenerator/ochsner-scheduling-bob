@@ -23,12 +23,15 @@ the detailed original-source evidence; these facts do not certify every journey.
 
 ## Current next actions
 
-- Finish the separately approved diagnostics/connected-evidence follow-on on the
-  owned candidate: combined offline checks and SM's one pre-live review, then only
-  the declared [8×2 synthetic tranche](../internal/live-qualification.md#connected-holdout-candidate--prepared-not-executed)
-  under its original gates. No live calls or credential lookup have occurred for
-  this follow-on. The denied canonical support-demo relaunch remains held and is
-  separate from this implementation; do not retry it through another transport.
+- Finish normal protected delivery of reviewed diagnostics/connected source
+  `f785f83` and its truthful [failed/incomplete live result](../internal/live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16).
+  The first interpretation was unavailable with unknown usage; all 15 later
+  executions are unrun and the original reservation remains. Do not replay the
+  tranche, reread the key or change prompts/model to obtain a pass. No concrete
+  TLS cause was established; further diagnosis needs a separately selected minimal
+  observability/environment correction before any fresh paid tranche.
+  The denied canonical support-demo relaunch remains held; do not retry it through
+  another transport.
 - Use the delivered guides for Operator/reviewer evaluation. Keep partial actual
   UI, automated-only fault cases and unverified whole journeys distinct. Reliable
   Support acknowledgement and intermittent reconnect/date-edit behavior remain
@@ -51,7 +54,7 @@ distributed idempotency/reconciliation, deployment, Linux/mobile/assistive techn
 transitive dependency locking, load/capacity and wider third-party rights require
 their own design/evidence/authority. Optional H01 memory pruning, VID-P01 pacing
 and post-MVP UX refinement are not selected. These docs initiate no model calls;
-the declared tranche remains held for pre-live review. Preserve every unknown
+the consumed tranche remains held for reconciliation. Preserve every unknown
 liability and unresolved effect.
 
 ## References

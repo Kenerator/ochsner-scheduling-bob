@@ -18,9 +18,9 @@ Native tasks remain the sole completion ledger; no separate tracker is created.
 - [x] T111 [US1–US6] Freeze eight exact synthetic holdout journeys × two declared
   repetitions, turn/call/effect expectations, stop conditions and hashes. Keep
   development data and holdout inputs separate; preserve legacy12/10/2 evidence.
-- [ ] T112 [US6] Integrate offline tests/demos, privacy/accounting design and one
+- [x] T112 [US6] Integrate offline tests/demos, privacy/accounting design and one
   coherent frozen candidate; obtain SM's single final-diff review before live.
-- [ ] T113 [US1–US6] Execute only the declared connected genuine tranche using the
+- [x] T113 [US1–US6] Execute only the declared connected genuine tranche using the
   existing canonical accounting and exact named resolver/current model; retain all
   failures/unrun cases/known versus unknown usage, no retry/fallback/tuning loop.
 - [ ] T114 [US6] Sanitize source-bound results into existing live qualification/
@@ -72,8 +72,8 @@ language.py remains `4d5cb915284c90c408406f2ea3f57bea0d5a126abb4d07be668d4861b76
 legacy cases remain `5a099f43b42fe7e3b7d0aee7497d5881bae89943f8838e82149b905c0e888be2`.
 New accounting/harness identities will bind the frozen candidate, not rewrite pass4.
 
-T112 is held only for the coherent candidate handoff/SM pre-live review; T113 has
-made **zero live calls and zero credential lookups**. The separate denied canonical
+At that preparation checkpoint T112 awaited the coherent candidate handoff/review
+and T113 had made **zero live calls and zero credential lookups**. The separate denied canonical
 offline support relaunch was not executed and remains held; it neither authorizes
 an alternate launch/transport nor cancels this owned-clone implementation. No
 Operator service, private accounting/history/effects, legacy qualifier, prompt,
@@ -97,6 +97,66 @@ The staged guard initially found two reviewed synthetic inline-credential fixtur
 patterns. Exact path/rule/blob allowances were added only for those nonworking
 test values (real HTTPS denied); the whole-index rescan remains required before
 commit. No directory exclusions, secret values or hook changes were introduced.
+
+### Reviewed live attempt and evidence delta — 2026-10-16
+
+Frozen local candidate `f785f837e704658f2baf09678599a32f4ca76bc1`, tree
+`e8ad93255659b2170267d715caadb47360233245`, clean readback. Exact committed Mac/
+Python3.11.13 suite617 PASS (28.337 s), three BOB demos and structural checker
+passed. Whole-index precommit guard563 files/131 binary/eight exact reviewed
+fixture matches/zero unresolved/symlinks/submodules; diff check clear. Six-file
+committed Flight Deck generation was CURRENT/DEGRADED with24/28 implementation
+complete and28 UNKNOWN verification/acceptance, estimate unavailable. No renderer
+or live-screen synchronization pass is inferred from structural/source inspection.
+
+SM selected the exact frozen source/digest/holdout for T113 after ONE independent
+MLX coherent pre-live review: CLEAR,101 affected tests PASS (3.454 s,no skips),
+public dry-run source/case/bounds matched. No source/model/prompt or holdout edit
+followed before execution. Read-only original canonical preflight returned
+`existing_sqlite_valid`; config/SQLite/original lock/marker/source identity checks
+passed before the exact pinned named-notes resolver was used. Existing standard
+strong-snapshot pricing was checked against official documentation, unchanged.
+
+**T113 is checked for compliant execution/terminal stop, NOT semantic qualification.**
+First journey `new-booking-availability`, repetition1, step0: genuine-mode
+interpretation unavailable,302.981ms,usage absent/accounting unknown. One new
+reservation,zero known records,one unknown; known cost increment$0 but actual
+usage/charge UNKNOWN, full$5.261520000 reserved liability retained. Scheduling
+HTTP/POST/bookings/handoffs/readbacks all zero; no accepted public proposal. First
+journey steps1–4 and all15 later executions are explicitly unrun; zero local safety
+texts reached. No retry/fallback/model switch/tuning/key reread/accounting reset.
+The declared tranche is consumed/held for reconciliation, not automatically replayed.
+
+Private run evidence hash
+`4727570ee2f9dc439d275f90ea9b02bdacc6726ff52953a44624fe86d8d8e0e4`
+binds the same source digest/holdout and original owner/config/accounting identity;
+public [outcomes](../../docs/internal/live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16)
+exclude machine paths/prior accounting/raw model response/credentials. The raw
+private report was never staged. Its new directory initially failed Git ignore
+checking; a narrow `tmp/connected-qualification/` ignore was added, without removing
+or rewriting retained evidence. No tests/docs blanket exclusion or hook change.
+
+ONE credential-free, bounded, certificate-verifying TLS handshake to the declared
+official hostname443 succeeded with the same interpreter (128 trust anchors),
+zero HTTP/model requests and no trust/proxy change. No concrete local trust/network
+cause was established; categorical unavailable cannot diagnose upstream HTTP/auth/
+model availability or prove no charge. Further observability/environment correction
+and any fresh paid tranche require separate selection, not a silent rerun.
+
+T114 evidence delta is docs/native mapping plus the narrow private-report ignore;
+runtime/prompt/holdout/shared bytes are unchanged from reviewed f785f83. SM's
+nonblocking as-built placement correction moves dated candidate notes into existing
+near-end history/source sections and leaves concise current pointers upfront.
+The Flight Deck retains this failed/incomplete tranche as an OPEN gap, never a
+manufactured verification/acceptance pass. Affected-only confirmation and normal
+exact-head CI/protected delivery/readback remain pending; no whole-review rerun,
+new tracker, Operator service action or expansion of the held Support/media scope.
+
+Affected working evidence delta: Mac/Python3.11.13 full suite617 PASS (29.223 s),
+walkthrough structural checker passed, and explicit Git ignore check returns the
+private report path as ignored. No runtime/test/holdout bytes changed from f785f83;
+current documentation moves the dated as-built checkpoint to existing history
+sections and reports failure/unknown/unrun without private binding details.
 
 ## Approved launch/training/Flight Deck follow-on — 2026-10-12
 

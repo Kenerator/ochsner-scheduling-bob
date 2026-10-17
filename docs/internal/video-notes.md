@@ -1,9 +1,11 @@
 # Video production notes
 
-Candidate note, 2026-10-16: the selected OFF-diagnostics/connected-evidence change
-is code/test/document work only. The [declared holdout](live-qualification.md#connected-holdout-candidate--prepared-not-executed)
-has not run, and no new capture, bookend, render, publication or Support-sync claim
-is authorized. Existing stills and original media hold keep their source identities.
+Scoped note, 2026-10-16: reviewed OFF-diagnostics/connected source `f785f83` remains
+separate from media. The [selected holdout attempt](live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16)
+stopped unavailable/unknown on its first turn, with zero scheduling effects and
+15 unrun executions; no connected success narration is supported. No new capture,
+bookend, render, publication or Support-sync claim is authorized. Existing stills
+and original media hold keep their source identities.
 
 Current training-assets note, 2026-10-14: the [67 individual guides](../user/walkthroughs/index.md)
 and [seven-group annotated atlas](../user/controls/index.md) are documentation,
