@@ -14,7 +14,7 @@ report/reservation. The own-note metadata contract was read without vault access
 - [x] T120 [US6] After SM's reviewed shared bundle, integrate own-note resolver/
   launcher and bounded runtime/qualification accounting, tests first; preserve
   canonical SQLite/history/lock/marker and deny consumed numeric allowance.
-- [ ] T121 [US6] Full combined offline tests/demos/guard and changed-candidate
+- [x] T121 [US6] Full combined offline tests/demos/guard and changed-candidate
   affected review/SM selection before ANY own-key live dispatch or rollout.
 
 Initial import setup lacked the direct script's `mock_lifecycle` search path;
@@ -95,7 +95,48 @@ one-request diagnostic remains unexecuted/held; this changed binding needs one
 affected review and exact SM selection. T121 retains final guard/demos/docs,
 frozen commit/CI/review status, not this working-source checkpoint.
 
-Final readiness alignment: a new legacy-JSON readiness regression was observed
+### Verified OFFLINE own-policy delivery — 2026-10-20
+
+Exact frozen consumer `5870b048b4e6412e003edfd980fff113653f8f65`, tree
+`7ad25edc547147a7e6b4c67e7c6ee88c411bb225`, clean after654committed tests
+(29.995s), all demos, guard/navigation. MLX reviewed all35affected files over d0a2ce9:
+CLEAR/no actionable findings,167focused offline tests PASS4.967s. Its initial
+wrong-environment attempt lacked ZEN/browser dependencies; corrected to the qualified
+BOB interpreter without source changes. That first attempt was not a product pass.
+
+[PR #16](https://github.com/Kenerator/ochsner-scheduling-bob/pull/16) exact-head
+[CI39471442523](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/39471442523)
+/ job118796247043 completed SUCCESS at2026-10-20T18:05:20Z (13:05:20Central):
+654combined tests PASS46.420s,9supplied HTTP PASS0.422s,3booking demos,9widget
+PASS0.557s, every executed step successful. Project Node22.14.0 selected; standard
+offline Ubuntu CI is not Linux product/browser/live-model qualification. An
+upstream action-runtime Node20 deprecation annotation was nonblocking; no workflow
+or action pin was changed in this consumer delivery.
+
+After fresh matching-head/CLEAN/MERGEABLE/SUCCESS checks and SM selection, normal
+protected PR16 merge produced `9756009b8f3490c1f49f5d5bc33845adb0eedb51` at
+2026-10-20T18:12:59Z (13:12:59Central), with the exact reviewed tree above. Effective
+main rules were protected PR/deletion/non-fast-forward constraints, zero platform-
+required status contexts; the SM-selected offline CI was verified directly.
+No admin/force/bypass/protection edit or branch/tag deletion. Actual remote main,
+clean canonical main/refreshed origin/main, and owned checkout readbacks matched.
+
+Canonical public config selects exact own-note/notes/trusted-helper tuple; all5
+shared file hashes match selected20e3dd5/metadata8b4ecef. A pre/post code-update
+fingerprint comparison confirmed canonical root identity, private SQLite/lock
+identity/owner/mode/size/mtime/bytes and all historical accounting unchanged; only
+sanitized equality status was exposed, no ledger contents/key. No initialization,
+migration, reset, new headroom, credential lookup, model/reservation/scheduling
+request or app/Support activation. Ochsner-key use remains PAUSED. T118 remains
+unexecuted: its one-request/$5.261520 limit is not a dispatch selection.
+
+This is the ONE authorized finite factual docs/native closure after product
+readback. It changes no runtime/test/shared bytes and reuses adequate code review/
+qualification; its ordinary exact-head CI/protected delivery follows without a
+local full-proof rerun. Final closure refs belong in the native handoff, not another
+status/proof PR, recursive closure task, new tracker or model request.
+
+Historical pre-delivery readiness alignment: a new legacy-JSON readiness regression was observed
 RED1, then GREEN within70affected tests (1.305s). Own-key model readiness now denies
 legacy JSON before helper access without changing/migrating it, matching existing-
 SQLite model hosts. Both public connected preflight and the diagnostic runner's
@@ -104,7 +145,7 @@ helper/report/reservation on exhausted accounting. Older valid-SQLite fixtures w
 made explicit; legacy reconciliation still preserves exact bytes/identity. No
 readiness success can bypass the actual locked reservation.
 
-Final working-source host verification: **654PASS31.294s**, Python3.11.13/
+Historical final working-source verification: **654PASS31.294s**, Python3.11.13/
 Node26.4.0. All3BOB success/conflict/unknown demos and starter success/failure
 passed. Walkthrough structural checker and Flight Deck doctor/generation passed;
 unknown verification/acceptance and the consumed connected gap remain, not green

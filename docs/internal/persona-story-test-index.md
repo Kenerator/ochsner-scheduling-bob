@@ -16,8 +16,9 @@ link the current FR-022/026/027/027a override to
 limits deny before dispatch without discarding historical unknowns or creating
 new headroom. Exact own-note resolution excludes stale parent-key fallback.
 These are offline synthetic contracts, not a new model/account/Support capability,
-user research, credential validity or rollout acceptance. Native T119–T121 owns
-the pending affected review, CI and live-selection boundary.
+user research, credential validity or live activation. Native T119–T121 records
+reviewed `5870b04` / integrated `9756009`, actual offline CI/readback and the
+retained live-selection boundary; no new model request is implied.
 
 2026-10-19 offline transport diagnosis: Sam-Rae's US6 truthful inspection and
 unknown-outcome constraints map FR-014/027a to

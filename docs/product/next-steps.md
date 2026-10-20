@@ -24,11 +24,13 @@ the detailed original-source evidence; these facts do not certify every journey.
 ## Current next actions
 
 - Ochsner-key use is paused. The exact reviewed shared own-note export and bounded
-  existing-SQLite BOB consumers are integrated locally with654offline tests passing.
+  existing-SQLite BOB consumers are delivered through PR #16 (`5870b04` → `9756009`)
+  with654offline tests, independent review and exact-head CI passing.
   Config and qualifiers select only our `[Env] OPENAI_API_KEY` notes; existing
   200calls/$20 settings and all canonical liabilities apply, no reset/headroom/
-  uncapped transfer. Finish the scoped guard/demos/frozen candidate and affected
-  review/CI/rollout. No real own-key model qualification or activation is claimed;
+  uncapped transfer. Canonical code/config/bundle readback is verified and private
+  accounting/lock/history are unchanged. This completes the OFFLINE own-policy
+  switch, not real own-key model qualification or activation;
   exact candidate selection precedes any live request, per
   [T119–T121](../../specs/001-ochsner-scheduling-assistant/tasks.md#own-key-policy-preparation--2026-10-20).
 

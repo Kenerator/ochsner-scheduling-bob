@@ -1,7 +1,8 @@
 # Video production notes
 
 2026-10-20 policy note: Ochsner-key use is paused and own-note integration has
-offline-tested working code with live execution held for affected review/selection.
+reviewed/integrated OFFLINE code (`5870b04` → `9756009`), with no live activation
+or diagnostic selected.
 This creates no new model/media
 evidence and does not reactivate video, capture, Support relaunch or publication.
 Historical source/key identity stays with each existing result/still.

@@ -1,14 +1,14 @@
 # As-built code walkthrough
 
-Current own-key working delta, 2026-10-20 (affected review pending): see
+Current own-key source, 2026-10-20: reviewed `5870b04`, integrated as `9756009`. See
 [the bounded consumer path](#bounded-own-key-consumer-path); historical reviewed
 source/evidence below is not relabeled own-key qualification.
 
-Pending-review transport delta (2026-10-19): see the
+Earlier transport delta (2026-10-19), later reviewed at `d0a2ce9`: see the
 [private diagnostic path](#private-transport-diagnostic-path) and native
 [T115–T118](../../../specs/001-ochsner-scheduling-assistant/tasks.md#private-transport-diagnosis--2026-10-19).
 
-Current scoped source: reviewed `f785f83` (2026-10-16); the connected run stopped
+Earlier connected scoped source: reviewed `f785f83` (2026-10-16); the connected run stopped
 failed/incomplete, not semantically qualified. Exact source/checks and next steps
 are in [native T108–T114](../../../specs/001-ochsner-scheduling-assistant/tasks.md)
 and the [execution record](../live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16).
@@ -503,7 +503,8 @@ Native tasks retain actual checks and the held review/live step, not this source
 
 ## Bounded own-key consumer path
 
-Updated 2026-10-20 against working source based on `d0a2ce9`; affected review pending.
+Updated 2026-10-20 against reviewed source `5870b04`, integrated as `9756009` with
+the identical selected tree; native T121 records actual delivery/readback.
 [poc-launch.json](../../../poc-launch.json) explicitly selects our own notes item.
 The five exact managed runtime files are bound by their
 [manifest](../../../tools/poc-runtime/export-manifest.json), code20e3dd5/metadata8b4ecef.

@@ -71,8 +71,10 @@ transitive dependencies are not a reproducible lock. No API key is needed offlin
 Current policy, 2026-10-20: **Ochsner-key use is paused. Model execution is held.**
 BOB config explicitly selects our `[Env] OPENAI_API_KEY` note, not a fallback.
 The exact reviewed shared export (`20e3dd5`, metadata `8b4ecef`) is adopted with
-bounded existing-SQLite consumers. Changed-candidate review/selection and protected
-rollout are pending; no live request or Operator app activation has run.
+bounded existing-SQLite consumers. Reviewed source `5870b04` was delivered through
+[PR #16](https://github.com/Kenerator/ochsner-scheduling-bob/pull/16) as `9756009`;
+canonical config/bundle and unchanged private accounting were read back. This is
+OFFLINE code/configuration completion, not model activation or own-key qualification.
 Do not use a stale inherited key or the paused Ochsner source.
 See [native T119–T121](specs/001-ochsner-scheduling-assistant/tasks.md#own-key-policy-preparation--2026-10-20).
 Offline commands remain key-free; this policy does not authorize an app relaunch.

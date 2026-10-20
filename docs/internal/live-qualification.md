@@ -3,14 +3,23 @@
 Current policy, 2026-10-20: Ochsner-key use is paused. Own-note config/validator
 preparation is not own-key model qualification. The diagnostic's reviewed `d0a2ce9`
 Ochsner binding cannot certify this change. The reviewed shared own-note bundle is
-adopted and bounded existing-SQLite consumers have654offline tests passing; all live
-work remains held for changed-candidate review/selection and rollout. Existing
+adopted and bounded existing-SQLite consumers have654offline tests passing. Reviewed
+source `5870b04` was delivered through PR #16 as `9756009`, with canonical readback
+and unchanged private accounting. This is OFFLINE own-policy completion; all live
+work remains unselected. Existing
 canonical history/unknowns still consume200calls/$20 numeric
 allowance; the pending diagnostic adds at most one request/$5.261520 unknown
 liability only if all actual gates pass. [T119–T121](../../specs/001-ochsner-scheduling-assistant/tasks.md#own-key-policy-preparation--2026-10-20).
 The Oct19 native attempts were denied before process start, with no new credential
 lookup, diagnostic reservation/report or model dispatch. Prior result identities
 and the consumed failed/incomplete connected tranche below are unchanged.
+
+Own-policy delivery evidence: independent affected review CLEAR,167focused tests
+PASS4.967s; exact source tree `7ad25edc547147a7e6b4c67e7c6ee88c411bb225` equals
+the merge tree. [CI39471442523](https://github.com/Kenerator/ochsner-scheduling-bob/actions/runs/39471442523)
+passed654combined tests (46.420s),9supplied-HTTP tests,3booking demos and9widget
+checks on its existing offline runner. No real key/model, application activation,
+new reservation, scheduling or unknown-liability reset was used for delivery.
 
 Model hosts and qualifiers now require already-existing private SQLite and its
 stable original lock/marker; no initialization/migration occurs at dispatch.
