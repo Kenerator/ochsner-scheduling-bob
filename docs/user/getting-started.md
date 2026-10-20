@@ -9,8 +9,9 @@ for complete install/launch/sample/action/recovery instructions for one scenario
 
 Current policy, 2026-10-20: Ochsner-key use is paused. BOB's config selects
 our exact `[Env] OPENAI_API_KEY` Secure Note `notes` via the trusted helper, never
-an inherited-key/helper-failure fallback. Live/model launches remain held while
-the changed BOB consumer candidate awaits affected review/selection and rollout.
+an inherited-key/helper-failure fallback. Reviewed own-key source `5870b04` is
+integrated as `9756009` through PR #16, with canonical config/bundle readback and
+private accounting preservation verified. Live/model activation remains unselected.
 The exact reviewed shared own-note export is installed; no fallback is needed.
 [Native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#own-key-policy-preparation--2026-10-20)
 own readiness. No key/model smoke or Support relaunch is authorized by this guide.
@@ -114,7 +115,7 @@ our account. If prior history consumes allowance, deny; never create a fresh
 ledger, change metadata, subtract liabilities or override a ceiling to proceed.
 The one pending diagnostic is bounded by both its one-request/$5.261520 liability
 limit and aggregate numeric readiness. Bounded existing-SQLite consumers are
-offline-tested; affected review/selection and rollout are pending. Model hosts
+offline-tested, independently reviewed and integrated. No live dispatch is selected. Model hosts
 never initialize/migrate accounting; own-key model readiness rejects legacy JSON
 without modifying it and before helper access. A storage-valid or numeric-ready check
 does not prove credentials/model availability or authorize a dispatch.

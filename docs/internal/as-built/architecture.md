@@ -1,14 +1,14 @@
 # As-built architecture
 
-Current own-key working delta, 2026-10-20 (affected review pending):
+Current own-key source, 2026-10-20: reviewed `5870b04`, integrated as `9756009`.
 [bounded own-key runtime](#bounded-own-key-runtime) supersedes Ochsner-key selection
 for current execution. Historical reviewed source/evidence below stays unchanged.
 
-Pending-review transport delta (2026-10-19): see the
+Earlier transport delta (2026-10-19), later reviewed at `d0a2ce9`: see the
 [private observer boundary](#private-transport-observer-boundary) and native
 [T115–T118](../../../specs/001-ochsner-scheduling-assistant/tasks.md#private-transport-diagnosis--2026-10-19).
 
-Current scoped source: reviewed `f785f83` (2026-10-16); the connected tranche
+Earlier connected scoped source: reviewed `f785f83` (2026-10-16); the connected tranche
 stopped failed/incomplete after one unavailable/unknown attempt. See
 [native T108–T114](../../../specs/001-ochsner-scheduling-assistant/tasks.md) and
 [source-bound outcome](../live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16).
@@ -714,8 +714,9 @@ are not execution authority, holdout qualification or a zero-charge claim.
 
 ## Bounded own-key runtime
 
-Updated 2026-10-20 against working source based on reviewed diagnostic `d0a2ce9`;
-changed-consumer review/selection pending. The exact five-file shared export uses
+Updated 2026-10-20 against reviewed own-policy source `5870b04`, normally integrated
+as `9756009` with identical selected tree; native T121 records readback and limits.
+The exact five-file shared export uses
 code `20e3dd5`, metadata `8b4ecef`, with hashes in the
 [managed manifest](../../../tools/poc-runtime/export-manifest.json). No shared fork
 or unrelated Template work is adopted. Config selects our `[Env] OPENAI_API_KEY`

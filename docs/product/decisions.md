@@ -7,10 +7,12 @@ lookup is needed to prove offline configuration. Own-key execution must enforce
 the existing numeric200calls/$20 settings against preserved canonical liabilities,
 not inherit Ochsner's uncapped policy. Exact shared export `20e3dd5` (metadata
 `8b4ecef`) is adopted and bounded existing-SQLite consumers are offline-tested.
-Changed-candidate review/selection and rollout remain pending; no model/UI launch
-is inferred.
+Reviewed own-policy source `5870b04` was selected and normally integrated as
+`9756009` through PR #16; canonical own-note/config/bundle readback and unchanged
+private accounting were verified. No model/UI launch or live diagnostic is inferred.
 [Native preparation](../../specs/001-ochsner-scheduling-assistant/tasks.md#own-key-policy-preparation--2026-10-20)
-tracks the only current work. Older decisions/results below remain historical.
+records the OFFLINE completion and retained live hold. Older decisions/results
+below remain historical.
 
 Reviewed 2026-10-13; implementation progress belongs in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md).
 
