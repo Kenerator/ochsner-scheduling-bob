@@ -1,5 +1,11 @@
 # Video production notes
 
+2026-10-20 policy note: Ochsner-key use is paused and own-note integration has
+offline-tested working code with live execution held for affected review/selection.
+This creates no new model/media
+evidence and does not reactivate video, capture, Support relaunch or publication.
+Historical source/key identity stays with each existing result/still.
+
 2026-10-19 transport-diagnosis note: [T115–T118](../../specs/001-ochsner-scheduling-assistant/tasks.md#private-transport-diagnosis--2026-10-19)
 adds offline finite category/status observations only; no live diagnosis has run.
 It does not authorize or produce media, a new model-success narrative, Support

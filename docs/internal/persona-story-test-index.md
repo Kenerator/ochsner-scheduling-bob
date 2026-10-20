@@ -8,6 +8,17 @@ own completion. Persona hypotheses do not grant permissions or prove user resear
 
 ## Exact pins and material adoption
 
+2026-10-20 own-key policy delta: Sam-Rae's US6 inspection/uncertainty constraints
+link the current FR-022/026/027/027a override to
+[own-policy tests](../../tests/test_own_key_policy.py), bounded existing-only
+[accounting readiness](../../src/ochsner_bob/model_budget.py) and
+[actual launcher consumer tests](../../tests/test_runtime_launcher.py). Numeric
+limits deny before dispatch without discarding historical unknowns or creating
+new headroom. Exact own-note resolution excludes stale parent-key fallback.
+These are offline synthetic contracts, not a new model/account/Support capability,
+user research, credential validity or rollout acceptance. Native T119–T121 owns
+the pending affected review, CI and live-selection boundary.
+
 2026-10-19 offline transport diagnosis: Sam-Rae's US6 truthful inspection and
 unknown-outcome constraints map FR-014/027a to
 [transport observation tests](../../tests/test_transport_diagnostics.py) and

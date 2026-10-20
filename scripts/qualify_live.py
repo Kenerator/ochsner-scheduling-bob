@@ -30,7 +30,7 @@ def resolve_qualification_key():
     if config_path.is_symlink() or not config_path.is_file() or config_path.stat().st_size > 16384:
         raise ValueError("invalid qualification credential configuration")
     credential = json.loads(config_path.read_text())["credential"]
-    if credential != {"item":"[Env] (Ochsner PoC) OPENAI_API_KEY", "field":"notes",
+    if credential != {"item":"[Env] OPENAI_API_KEY", "field":"notes",
                       "helper_path_env":"POC_SECRET_HELPER", "helper_command":"bw-get-secret"}:
         raise ValueError("unsupported qualification credential configuration")
     return _runtime_credentials.resolve_key(credential, run=_runtime_credentials.bounded_helper)
@@ -80,9 +80,9 @@ def main(argv=None):
         if args.budget.absolute() != canonical.absolute():
             raise ValueError("canonical accounting required")
         preflight_budget(canonical, model=args.model)
-        # Functional qualification is covered application-like execution, not
-        # LLM generation of application/spec/test code. Preserve all accounting.
-        budget = ModelBudget(canonical, application_runtime=True)
+        # Explicit own-key selection keeps the same history and ordinary numeric
+        # limits; the paused Ochsner-only uncapped policy does not transfer.
+        budget = ModelBudget(canonical, application_runtime=False, _existing_only=True, _existing_writes=True)
         before = budget.snapshot()
         # The three exact runtime fields only; never enumerate the environment.
         adapter = LanguageAdapter(environ={"BOB_ENABLE_OPENAI":"1", "BOB_OPENAI_MODEL":args.model,

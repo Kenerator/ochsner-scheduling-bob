@@ -23,7 +23,7 @@ _OLD = "inherited-not-a-real-key"
 
 
 def isolated_runner(directory):
-    root = Path(directory) / "qualification-project"
+    root = Path(directory).resolve() / "qualification-project"
     for name in ("poc-launch.json", "tests/live_model_cases.json", "src/ochsner_bob/language.py",
                  "src/ochsner_bob/model_budget.py", "src/ochsner_bob/runtime_accounting.py", "scripts/qualify_live.py",
                  "tools/poc-runtime/credentials.py", "tools/poc-runtime/export-manifest.json"):
@@ -45,12 +45,11 @@ class QualificationPolicyTests(unittest.TestCase):
         guard.start()
         self.addCleanup(guard.stop)
 
-    def test_covered_qualification_uses_uncapped_policy_and_named_key_not_parent_key(self):
-        budget = ModelBudget(self.ledger)
-        document = json.loads(self.ledger.read_text())
-        document["calls"] = [{"model": MODEL, "max_output_tokens":512,
-            "reserved_nanos":302304000, "status":"unknown", "usage":None}] * 201
-        self.ledger.write_text(json.dumps(document))
+    def test_own_key_qualification_denies_preserved_over_cap_history_before_helper(self):
+        budget = ModelBudget(self.ledger, application_runtime=True)
+        for _ in range(201):
+            budget.settle(budget.reserve(model=MODEL), None)
+        before = self.ledger.read_bytes()
         received = []
         def adapter(**options):
             received.append(options["environ"])
@@ -58,13 +57,13 @@ class QualificationPolicyTests(unittest.TestCase):
         output = io.StringIO()
         with patch.dict(os.environ, {**ENV, "OPENAI_API_KEY":_OLD}), \
                 patch.dict(self.runner["main"].__globals__, {"LanguageAdapter":adapter,
-                    "resolve_qualification_key":lambda:_KEY}), redirect_stdout(output):
+                    "resolve_qualification_key":lambda:self.fail("exhausted budget reached helper")}), redirect_stdout(output):
             code = self.runner["main"](["--run-live"])
-        self.assertEqual(1, code)  # Fixtures are never genuine qualification.
+        self.assertEqual(2, code)
         report = json.loads(output.getvalue())
-        self.assertGreater(report["calls_this_run"], 0)
-        self.assertEqual("application_runtime_unlimited", report["budget_after"]["policy"])
-        self.assertEqual(_KEY, received[0]["OPENAI_API_KEY"])
+        self.assertEqual(report["qualification"], "failed_or_incomplete")
+        self.assertEqual(received, [])
+        self.assertEqual(self.ledger.read_bytes(), before)
         self.assertNotIn(_KEY, output.getvalue()); self.assertNotIn(_OLD, output.getvalue())
         for path in self.ledger.parent.iterdir():
             self.assertNotIn(_KEY.encode(), path.read_bytes())
@@ -80,10 +79,33 @@ class QualificationPolicyTests(unittest.TestCase):
                                     "POC_SECRET_HELPER":"/usr/bin/true"}), \
                 patch.object(credentials, "bounded_helper", helper):
             self.assertEqual(_KEY, self.runner["resolve_qualification_key"]())
-        self.assertEqual(["[Env] (Ochsner PoC) OPENAI_API_KEY", "notes"], calls[0][0][1:])
+        self.assertEqual(["[Env] OPENAI_API_KEY", "notes"], calls[0][0][1:])
         self.assertEqual(1, len(calls))
         self.assertNotIn("OPENAI_API_KEY", calls[0][1]["env"])
         self.assertNotIn("BW_SESSION", calls[0][1]["env"])
+
+    def test_own_key_qualification_within_limits_uses_resolved_key_and_preserved_sqlite(self):
+        ModelBudget(self.ledger, application_runtime=True)
+        inode = self.ledger.stat().st_ino
+        received = []
+        def adapter(**options):
+            received.append(options)
+            return LanguageAdapter(transport=FakeTransport(billed_response()), **options)
+        output = io.StringIO()
+        with patch.dict(os.environ, {**ENV, "OPENAI_API_KEY": _OLD}), \
+                patch.dict(self.runner["main"].__globals__, {"LanguageAdapter": adapter,
+                    "resolve_qualification_key": lambda: _KEY}), redirect_stdout(output):
+            code = self.runner["main"](["--run-live"])
+        self.assertEqual(code, 1)  # Injected fixture output never qualifies genuine mode.
+        report = json.loads(output.getvalue())
+        self.assertGreater(report["calls_this_run"], 0)
+        self.assertEqual(report["budget_after"]["policy"], "bounded_nonapplication")
+        self.assertEqual(report["budget_after"]["unknown_calls"], 0)
+        self.assertFalse(received[0]["budget"].application_runtime)
+        self.assertEqual(received[0]["environ"]["OPENAI_API_KEY"], _KEY)
+        self.assertNotIn(_KEY, output.getvalue())
+        self.assertNotIn(_OLD, output.getvalue())
+        self.assertEqual(self.ledger.stat().st_ino, inode)
 
     def test_help_and_missing_optin_never_resolve_key_or_touch_accounting(self):
         with patch.dict(self.runner["main"].__globals__, {
@@ -108,7 +130,7 @@ class QualificationPolicyTests(unittest.TestCase):
         self.assertFalse(alternate.exists())
 
     def test_missing_named_helper_cannot_fall_back_to_inherited_key(self):
-        ModelBudget(self.ledger)
+        ModelBudget(self.ledger, application_runtime=True)
         output = io.StringIO()
         with patch.dict(os.environ, {**ENV, "POC_SECRET_HELPER":str(self.root / "missing-helper")}), redirect_stdout(output):
             self.assertEqual(2, self.runner["main"](["--run-live"]))

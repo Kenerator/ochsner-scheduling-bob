@@ -1,5 +1,17 @@
 # Key decisions
 
+Current supersession, 2026-10-20: verified actual human MLX
+`01a15a3c-e19c-70f2-8125-61ed75717a31` pauses Ochsner-key use and explicitly selects
+our `[Env] OPENAI_API_KEY` Secure Note `notes`. No fallback, new vault item or live
+lookup is needed to prove offline configuration. Own-key execution must enforce
+the existing numeric200calls/$20 settings against preserved canonical liabilities,
+not inherit Ochsner's uncapped policy. Exact shared export `20e3dd5` (metadata
+`8b4ecef`) is adopted and bounded existing-SQLite consumers are offline-tested.
+Changed-candidate review/selection and rollout remain pending; no model/UI launch
+is inferred.
+[Native preparation](../../specs/001-ochsner-scheduling-assistant/tasks.md#own-key-policy-preparation--2026-10-20)
+tracks the only current work. Older decisions/results below remain historical.
+
 Reviewed 2026-10-13; implementation progress belongs in [native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md).
 
 - Runtime policy supersession: verified actual human `01a1363a-23ea-7802-80fa-a54d8668ba4a` and clarification `01a13665-6c25-70f1-9c4a-ad6ec6f5db40` authorize Ochsner-key use involved in running BOB **including functional qualification/testing/validation/app-like evaluation**, without application usage/spending limits until further notice. Excluded is LLM creation/change of app/spec/test code. Browser/CLI/functional qualifier select uncapped accounting; the qualifier reuses exact Ochsner Secure Note `notes`, rejects off-canonical accounting and retains explicit live opt-in. SM selected same-path atomic JSON-to-SQLite migration, preserving lock/marker/history/IDs/configuration/unknown liabilities and late settlement without cumulative-record cutoff. Privacy/corruption/I/O failures and all model/scheduling safety contracts remain. Readiness is read-only and never migrates. Activation requires old writers quiescent; no live migration/restart is performed by this candidate work. [Current policy](../user/getting-started.md#application-runtime-accounting).

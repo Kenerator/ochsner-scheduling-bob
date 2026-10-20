@@ -1,6 +1,28 @@
 # Genuine synthetic language qualification
 
-Current follow-on, 2026-10-19: the private transport observer and fixed one-request
+Current policy, 2026-10-20: Ochsner-key use is paused. Own-note config/validator
+preparation is not own-key model qualification. The diagnostic's reviewed `d0a2ce9`
+Ochsner binding cannot certify this change. The reviewed shared own-note bundle is
+adopted and bounded existing-SQLite consumers have654offline tests passing; all live
+work remains held for changed-candidate review/selection and rollout. Existing
+canonical history/unknowns still consume200calls/$20 numeric
+allowance; the pending diagnostic adds at most one request/$5.261520 unknown
+liability only if all actual gates pass. [T119–T121](../../specs/001-ochsner-scheduling-assistant/tasks.md#own-key-policy-preparation--2026-10-20).
+The Oct19 native attempts were denied before process start, with no new credential
+lookup, diagnostic reservation/report or model dispatch. Prior result identities
+and the consumed failed/incomplete connected tranche below are unchanged.
+
+Model hosts and qualifiers now require already-existing private SQLite and its
+stable original lock/marker; no initialization/migration occurs at dispatch.
+Read-only readiness checks numeric headroom before helper access in qualification;
+actual reserve rechecks under the existing lock. Late pending settlements remain
+possible while already-unknown calls cannot be refunded. Normal launcher fakes
+prove own-note-only capture and role-scoped key handoff without inherited keys;
+they do not prove key validity or model availability. Direct manual model launches
+with arbitrary inherited credentials are not selected by this policy. No credential
+content inspection/hash or new trust marker is used to claim account identity.
+
+Historical follow-on checkpoint, 2026-10-19: the private transport observer and fixed one-request
 diagnostic runner have offline tests only; independent affected review and exact
 candidate selection remain pending. No diagnostic request/key lookup has run.
 The [native plan](../../specs/001-ochsner-scheduling-assistant/plan.md#selected-private-transport-diagnosis--2026-10-19)

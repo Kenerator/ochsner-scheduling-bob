@@ -169,7 +169,8 @@ class ConnectedPolicyTests(unittest.TestCase):
         path = legacy / "model-budget.json"
         ModelBudget(path)
         before = (path.stat().st_ino, path.read_bytes())
-        preflight_budget(path, model=MODEL)
+        with self.assertRaises(BudgetError):
+            preflight_budget(path, model=MODEL)
         self.assertEqual((path.stat().st_ino, path.read_bytes()), before)
         self.ledger.write_bytes(path.read_bytes())
         before = (self.ledger.stat().st_ino, self.ledger.read_bytes())

@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from ochsner_bob.conversation import Conversation
 from ochsner_bob.language import LanguageAdapter
-from ochsner_bob.model_budget import BudgetError, ModelBudget
+from ochsner_bob.model_budget import BudgetError, ModelBudget, preflight_budget
 from ochsner_bob.runtime_accounting import RuntimeLedger
 from ochsner_bob.session import SchedulingSession
 if __package__:
@@ -34,9 +34,9 @@ MODEL = "gpt-5.4-2026-03-05"
 # or an environment-selected budget. Other owners require a separately reviewed change.
 _APPROVED_OWNER_ROOT = Path(pwd.getpwuid(os.getuid()).pw_dir) / "codeRepos" / PROJECT
 HOLDOUT = ROOT / "tests/fixtures/connected_qualification_holdout.json"
-_CREDENTIAL = {"item": "[Env] (Ochsner PoC) OPENAI_API_KEY", "field": "notes",
+_CREDENTIAL = {"item": "[Env] OPENAI_API_KEY", "field": "notes",
                "helper_path_env": "POC_SECRET_HELPER", "helper_command": "bw-get-secret"}
-_RESOLVER_HASH = "ae126a87d778fdae99368d053aa6e27151cb09f911ff7f0d63872950fda2b0af"
+_RESOLVER_HASH = "758e74b1b983c30959587a1aa7639d6abac590d4703089435a0b4f5e7b314220"
 
 
 def _read(path, maximum=524288):
@@ -116,7 +116,7 @@ def holdout_plan():
 class _BoundBudget(ModelBudget):
     def __init__(self, binding):
         self.binding = binding
-        super().__init__(binding.ledger, application_runtime=True, _existing_only=True, _existing_writes=True)
+        super().__init__(binding.ledger, application_runtime=False, _existing_only=True, _existing_writes=True)
 
     @contextmanager
     def _locked(self):
@@ -193,6 +193,7 @@ def create_language(binding, *, transport_observer=None):
         if Path(sys.modules[module.__module__].__file__).resolve() != ROOT / ("src/ochsner_bob/" + name + ".py"):
             raise ValueError("invalid_setup")
     binding.validate()
+    preflight_budget(binding.ledger, model=MODEL)  # Numeric exhaustion denies before helper access.
     key = resolve_qualification_key()
     binding.validate()  # Helper latency cannot conceal config/storage replacement.
     return LanguageAdapter(environ={"BOB_ENABLE_OPENAI": "1", "BOB_OPENAI_MODEL": MODEL,
@@ -254,6 +255,7 @@ def main(argv=None):
             print(json.dumps({"qualification": "not_run", "plan": plan}, sort_keys=True)); return 0
         binding = canonical_binding(args.canonical_owner_root)
         binding.hashes = hashes
+        preflight_budget(binding.ledger, model=MODEL)
         before = binding.budget.snapshot()
         if args.preflight:
             print(json.dumps({"qualification": "not_run", "readiness": "existing_sqlite_valid"})); return 0

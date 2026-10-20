@@ -359,7 +359,7 @@ class AdapterBudgetTests(unittest.TestCase):
         from test_qualification_policy import isolated_runner
         runner, root = isolated_runner(self.temp.name)
         ledger = root / ".bob-local/model-budget.json"
-        importlib.import_module("ochsner_bob.model_budget").ModelBudget(ledger)
+        importlib.import_module("ochsner_bob.model_budget").ModelBudget(ledger, application_runtime=True)
         original = self.language.LanguageAdapter
         def offline_adapter(**options):
             return original(transport=FakeTransport(billed_response(model=STRONGER)),**options)
@@ -391,7 +391,7 @@ class AdapterBudgetTests(unittest.TestCase):
     def test_runner_stops_after_unknown_billing_without_retry(self):
         from test_qualification_policy import isolated_runner
         runner, root = isolated_runner(self.temp.name)
-        importlib.import_module("ochsner_bob.model_budget").ModelBudget(root / ".bob-local/model-budget.json")
+        importlib.import_module("ochsner_bob.model_budget").ModelBudget(root / ".bob-local/model-budget.json", application_runtime=True)
         original = self.language.LanguageAdapter
         def offline_adapter(**options):
             return original(transport=FakeTransport(),**options)

@@ -327,6 +327,9 @@ requirements:
   -
     id: "FR-022"
     task_ids:
+      - "T119"
+      - "T120"
+      - "T121"
       - "T087"
       - "T088"
       - "T089"
@@ -387,6 +390,8 @@ requirements:
   -
     id: "FR-026"
     task_ids:
+      - "T119"
+      - "T120"
       - "T087"
       - "T088"
       - "T089"
@@ -400,6 +405,8 @@ requirements:
   -
     id: "FR-027"
     task_ids:
+      - "T120"
+      - "T121"
       - "T093"
       - "T095"
       - "T098"
@@ -415,6 +422,8 @@ requirements:
   -
     id: "FR-027a"
     task_ids:
+      - "T120"
+      - "T121"
       - "T094"
       - "T095"
       - "T096"

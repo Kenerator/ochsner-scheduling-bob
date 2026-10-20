@@ -1,4 +1,4 @@
-"""Normal runtime constructors use the indefinite policy; no paid calls."""
+"""Current own-key constructors use preserved numeric limits; no paid calls."""
 import contextlib
 import io
 from pathlib import Path
@@ -35,7 +35,10 @@ class BudgetWindowLaunchTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
+        # Existing synthetic SQLite mirrors the preserved canonical runtime;
+        # model hosts must not initialize/migrate accounting themselves.
+        model_budget.ModelBudget(self.root / ".bob-local/model-budget.json", application_runtime=True)
         self.created = []
 
     def construct_budget(self, path, **options):
@@ -57,7 +60,8 @@ class BudgetWindowLaunchTests(unittest.TestCase):
                                        "--namespace", str(self.root / "effects")])
         self.assertEqual(0, code)
         self.assertEqual(1, len(self.created))
-        self.assertEqual("application_runtime_unlimited", self.created[0].snapshot()["policy"])
+        self.assertFalse(self.created[0].application_runtime)
+        self.assertEqual((200, "20.000000000"), (self.created[0].snapshot()["max_calls"], self.created[0].snapshot()["ceiling_usd"]))
         self.assertEqual(0, self.created[0].snapshot()["calls"])
 
     def test_cli_normal_model_mode_uses_runtime_accounting_without_request(self):
@@ -69,10 +73,11 @@ class BudgetWindowLaunchTests(unittest.TestCase):
                             input_stream=io.StringIO("/quit\n"), output_stream=output)
         self.assertEqual(0, code)
         self.assertEqual(1, len(self.created))
-        self.assertEqual("application_runtime_unlimited", self.created[0].snapshot()["policy"])
+        self.assertFalse(self.created[0].application_runtime)
+        self.assertEqual((200, "20.000000000"), (self.created[0].snapshot()["max_calls"], self.created[0].snapshot()["ceiling_usd"]))
         self.assertEqual(0, self.created[0].snapshot()["calls"])
-        self.assertIn("without application usage/spending limits", output.getvalue())
-        self.assertNotIn("200 calls / $20", output.getvalue())
+        self.assertIn("200-call/$20 limits", output.getvalue())
+        self.assertNotIn("without application usage/spending limits", output.getvalue())
 
     def test_retired_budget_flag_is_rejected_before_any_startup(self):
         for module in (cli, serve_browser):

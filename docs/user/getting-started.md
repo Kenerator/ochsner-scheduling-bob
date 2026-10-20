@@ -7,9 +7,18 @@ for complete install/launch/sample/action/recovery instructions for one scenario
 
 ## Launch mode and setup
 
+Current policy, 2026-10-20: Ochsner-key use is paused. BOB's config selects
+our exact `[Env] OPENAI_API_KEY` Secure Note `notes` via the trusted helper, never
+an inherited-key/helper-failure fallback. Live/model launches remain held while
+the changed BOB consumer candidate awaits affected review/selection and rollout.
+The exact reviewed shared own-note export is installed; no fallback is needed.
+[Native tasks](../../specs/001-ochsner-scheduling-assistant/tasks.md#own-key-policy-preparation--2026-10-20)
+own readiness. No key/model smoke or Support relaunch is authorized by this guide.
+
 The [normal launcher](../../README.md#normal-model-first-launcher) requests model
-mode with the configured BOB snapshot; its exact Ochsner Secure Note `notes` field
-is resolved privately through the existing trusted helper. `--offline` is explicit
+mode with the configured BOB snapshot; our selected
+Secure Note `notes` field is resolved privately through the existing trusted helper.
+`--offline` is explicit
 and no-call. `--help`/`--doctor` retrieve no credentials or model output; readiness
 is not qualification. No inherited-key fallback is used. See the README for
 first-use accounting versus preservation of existing private ledger/unknown usage.
@@ -97,6 +106,21 @@ Complete matching capture may establish semantic core parity, not full renderer
 parity or live consent. Reference ownership/TTL and missing evidence remain explicit.
 
 ## Application runtime accounting
+
+Current own-key requirement, 2026-10-20: enforce the existing numeric 200-call/$20
+settings against the **same** canonical ledger, reservations, unknowns and stable
+lock/marker. Historical Ochsner-only uncapped authorization does not transfer to
+our account. If prior history consumes allowance, deny; never create a fresh
+ledger, change metadata, subtract liabilities or override a ceiling to proceed.
+The one pending diagnostic is bounded by both its one-request/$5.261520 liability
+limit and aggregate numeric readiness. Bounded existing-SQLite consumers are
+offline-tested; affected review/selection and rollout are pending. Model hosts
+never initialize/migrate accounting; own-key model readiness rejects legacy JSON
+without modifying it and before helper access. A storage-valid or numeric-ready check
+does not prove credentials/model availability or authorize a dispatch.
+
+The following describes the historical Ochsner runtime integration and remains
+source-bound, not current permission to use that key or its uncapped policy:
 
 Updated 2026-10-14 for reviewed runtime `79aeafd`, integrated as `d3c3a04`. The
 integration's historical safe activation handoff is

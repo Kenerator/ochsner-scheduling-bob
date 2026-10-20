@@ -198,3 +198,13 @@ class DiagnosticRunnerTests(unittest.TestCase):
         from hashlib import sha256
         self.assertEqual(hashes["scripts/diagnose_language_transport.py"],
             sha256((policy.ROOT / "scripts/diagnose_language_transport.py").read_bytes()).hexdigest())
+
+    def test_exhausted_numeric_allowance_denies_before_helper_report_or_reserve(self):
+        for _ in range(3):
+            self.budget.settle(self.budget.reserve(model=policy.MODEL), None)
+        before = self.budget.snapshot()
+        self.assertEqual(self.run_live(), 2)
+        self.helper.assert_not_called()
+        self.factory.assert_not_called()
+        self.assertEqual(self.budget.snapshot(), before)
+        self.assertEqual(list(self.output.glob("transport-diagnostic-*.json")), [])

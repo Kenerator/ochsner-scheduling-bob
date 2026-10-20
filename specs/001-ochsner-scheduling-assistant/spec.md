@@ -7,6 +7,21 @@
 
 ## User Scenarios & Testing *(mandatory)*
 
+Current credential-policy override, 2026-10-20: actual human MLX
+`01a15a3c-e19c-70f2-8125-61ed75717a31` pauses all Ochsner-supplied-key use until
+further notice and explicitly selects our Secure Note `[Env] OPENAI_API_KEY`,
+field `notes`, via the existing trusted helper. This supersedes the Ochsner item
+in FR-022/026 and the Ochsner-only uncapped execution policy in FR-027 for current
+execution, without changing historical evidence. Own-key BOB dispatch MUST enforce
+the existing 200-call/$20 numeric settings, preserve canonical accounting/history/
+unknown liabilities/stable lock/marker, and deny if prior liability consumes those
+limits. No new headroom, ledger, partition, inherited-key or helper-failure fallback.
+The pending diagnostic remains at most one request/up to$5.261520 new unknown
+liability, not an override of exhausted aggregate numeric limits. No live dispatch
+until the changed credential/accounting candidate receives affected review and SM
+selection. Preparation is not own-key qualification; older Ochsner proofs retain
+their original identity. [Native tasks](tasks.md#own-key-policy-preparation--2026-10-20).
+
 This is one synthetic-data PoC, not a merger, clinical assistant, production authentication system, contact center, rescheduling/cancellation service, or nxusKit integration. The seven pinned personas are hypotheses and design/test constraints, not permissions.
 
 Story wording is inferred from explicitly accepted B01–B18 requirements and pinned

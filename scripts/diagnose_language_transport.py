@@ -53,6 +53,7 @@ def main(argv=None):
             raise ValueError("invalid_setup")
         binding = policy.canonical_binding(policy._APPROVED_OWNER_ROOT)
         binding.hashes = hashes
+        policy.preflight_budget(binding.ledger, model=policy.MODEL)
         before = binding.budget.snapshot()  # Validates the pinned sources under the original lock.
         output = ROOT / "tmp/connected-qualification"
         info = output.stat(follow_symlinks=False)

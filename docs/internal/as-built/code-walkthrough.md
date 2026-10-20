@@ -1,5 +1,9 @@
 # As-built code walkthrough
 
+Current own-key working delta, 2026-10-20 (affected review pending): see
+[the bounded consumer path](#bounded-own-key-consumer-path); historical reviewed
+source/evidence below is not relabeled own-key qualification.
+
 Pending-review transport delta (2026-10-19): see the
 [private diagnostic path](#private-transport-diagnostic-path) and native
 [T115–T118](../../../specs/001-ochsner-scheduling-assistant/tasks.md#private-transport-diagnosis--2026-10-19).
@@ -496,3 +500,28 @@ command or mock. [Runner tests](../../../tests/test_transport_diagnostic_runner.
 exercise no-call dry-run, one reservation/unknown, prior report preservation,
 exclusive replay refusal, source/config drift and private output boundaries.
 Native tasks retain actual checks and the held review/live step, not this source map.
+
+## Bounded own-key consumer path
+
+Updated 2026-10-20 against working source based on `d0a2ce9`; affected review pending.
+[poc-launch.json](../../../poc-launch.json) explicitly selects our own notes item.
+The five exact managed runtime files are bound by their
+[manifest](../../../tools/poc-runtime/export-manifest.json), code20e3dd5/metadata8b4ecef.
+[serve_browser.language_for_launch](../../../scripts/serve_browser.py) and
+[CLI _run](../../../src/ochsner_bob/__main__.py) require bounded existing-SQLite
+accounting. In supported model launches, the selected launcher supplies their
+private scalar-key handoff; this is not authenticated launcher provenance, a
+fallback lookup or a key-content/account detector. Direct arbitrary-key launches
+are not selected. No startup model call occurs.
+[ModelBudget](../../../src/ochsner_bob/model_budget.py) permits bounded existing-only
+writes and checks numeric readiness read-only. The unchanged RuntimeLedger reserve
+branch performs the durable200/$20 check; late settlement keeps history/unknowns.
+[qualify_live.py](../../../scripts/qualify_live.py) and
+[qualify_connected_live.py](../../../scripts/qualify_connected_live.py) reject any
+credential tuple except the own note. The latter pins resolver SHA758e74b1...,
+canonical root/config/SQLite/lock/marker/source identities and performs numeric
+preflight before helper access. Its one-request diagnostic consumer remains held.
+[Own-policy tests](../../../tests/test_own_key_policy.py) cover exhausted liability,
+no new accounting, exact private resolver and immutable old unknowns. Updated
+fixtures precreate disposable existing SQLite; no production headroom is initialized.
+Native T119–T121 holds actual test/review/CI/rollout state and the live boundary.
