@@ -1,5 +1,9 @@
 # As-built code walkthrough
 
+Pending-review transport delta (2026-10-19): see the
+[private diagnostic path](#private-transport-diagnostic-path) and native
+[T115–T118](../../../specs/001-ochsner-scheduling-assistant/tasks.md#private-transport-diagnosis--2026-10-19).
+
 Current scoped source: reviewed `f785f83` (2026-10-16); the connected run stopped
 failed/incomplete, not semantically qualified. Exact source/checks and next steps
 are in [native T108–T114](../../../specs/001-ochsner-scheduling-assistant/tasks.md)
@@ -474,3 +478,21 @@ The RC-1 clean export/install subsequently passed 398 tests (19.696 s), pip
 dependency checks and all three demos on Python 3.11.13/macOS ARM. Its capture
 copy later changed only the widget backend port, explicitly disclosed in the
 [current still manifest](../../../assets/ui/stills/feature-completion-20261010/manifest.json).
+
+## Private transport diagnostic path
+
+Updated 2026-10-19 against working source based on `c6102e5`; affected review pending.
+In [language.py](../../../src/ochsner_bob/language.py), `_observe_transport` constructs
+two sanitized primitives and ignores ordinary observer failures. `_http_transport`
+observes constructor/connect/read/close outcomes once; the ordinary adapter still
+validates output and settles usage exactly as before. No observation is added to
+`LanguageOutcome` or ordinary UI/recording schemas. See
+[transport tests](../../../tests/test_transport_diagnostics.py).
+[diagnose_language_transport.py](../../../scripts/diagnose_language_transport.py)
+binds one fixed input and source digest, checks explicit live opt-in, uses the
+existing qualifier's canonical storage/resolver checks, then exclusive-creates a
+private result before key access. It invokes only LanguageAdapter, never a Session
+command or mock. [Runner tests](../../../tests/test_transport_diagnostic_runner.py)
+exercise no-call dry-run, one reservation/unknown, prior report preservation,
+exclusive replay refusal, source/config drift and private output boundaries.
+Native tasks retain actual checks and the held review/live step, not this source map.

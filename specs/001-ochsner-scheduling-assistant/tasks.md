@@ -1,5 +1,51 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Private transport diagnosis — 2026-10-19
+
+Base `c6102e5eeb28615bad3996e7fcdfcd06062ca9e9`, isolated branch
+`codex/bob-transport-diagnosis`. Approved limits and tests are in
+[the native plan](plan.md#selected-private-transport-diagnosis--2026-10-19).
+Read-only resume reconciliation: clean source, no BOB listeners, existing canonical
+SQLite/lock/marker readiness valid; zero key/model/app requests. No accounting
+initialization, migration, reservation, settlement or history/effect reset.
+
+- [x] T115 [US6] Tests-first private finite category/numeric HTTP status observer
+  in the actual default HTTPS transport, preserving default/fixture/outcome/
+  accounting/privacy behavior and no retries.
+- [x] T116 [US6] After T115, tests-first one-request diagnostic entrypoint with
+  fixed synthetic public input, canonical binding/resolver/source/exclusive report
+  gates and no scheduling. Preserve previous private report and unknown liabilities.
+- [ ] T117 [US6] Full offline suite/demos/guard and frozen affected candidate;
+  obtain ONE affected independent review, then SM exact-candidate selection.
+- [ ] T118 [US6] Only after T117 selection, execute at most ONE separately
+  declared no-scheduling diagnostic request; record sanitized outcome/unknowns,
+  source-bound evidence and normal selected integration. No holdout retry/pass claim.
+
+Ruling: the approved native plan/tasks override generic skill workspace/ledger
+defaults. Reuse the existing isolated clone; no second tracker/review fan-out.
+The implementation and source-bound runner share `language.py` and qualifier
+interfaces, so they are sequential. This handoff stops before key/live execution.
+
+Offline working-source evidence, 2026-10-19, Python3.11.13: seam RED10 expected
+missing-interface failures (zero errors) → GREEN10; existing26 language tests
+unchanged and PASS. One comparison fixture initially reused an exhausted reply;
+fresh equivalent replies corrected the test setup, not product behavior. Runner
+RED10 expected missing-entrypoint failures → GREEN10; added source/config/output/
+CLI boundary cases bring the new tests to23. Combined affected91 PASS (1.412s).
+Full Mac offline suite640 PASS (32.079s), all three BOB success/conflict/unknown
+demos plus starter success/failure demos passed. Synthetic HTTPS/disposable SQLite
+only; zero actual keys/models, canonical reservations/settlements or app relaunches.
+Public dry-run declares one fixed request/no scheduling/no retries; current source
+digest `68dab6603bffa22d0b6bdbe6cbc5eb34368443fc4e558fbaa3aca6b2d58bed7f`.
+The prior holdout report/history/unknown liabilities remain; this is not connected
+qualification. Whole-index credential guard:566 files/131 binary/eight existing
+exact synthetic allowances/zero unresolved findings, symlinks or submodules.
+The diff check found only trailing blank lines in the two new tests; removed.
+Walkthrough structure and Flight Deck doctor/generation pass; six generated files
+retain CURRENT/DEGRADED,26/28 implementation and28 UNKNOWN verification/acceptance.
+No green receipt, semantic pass or timing/cost estimate was manufactured.
+Frozen candidate/review selection remain T117 work.
+
 ## Selected diagnostics and connected-language follow-on — 2026-10-15
 
 Base: clean canonical `14474ac0c62618eddff6f2ce47a9f31097f96be9`; isolated branch

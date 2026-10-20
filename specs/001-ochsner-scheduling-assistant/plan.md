@@ -136,6 +136,53 @@ ledger. Public summaries exclude machine paths/accounting file identities.
 Full offline suite/demos, source/privacy/guard, protected CI/PR/readback follow.
 No Support-sync/global-lock/scaling repair, media, platform, tags or deployment.
 
+## Selected private transport diagnosis — 2026-10-19
+
+Approved design: SM human message `01a14770-df0b-74b2-98c2-8a4c5ea7d6e5`,
+question `call_257bf110952d47b88a4bbdd65ce3ef77`; maintenance timing hold lifted by
+MLX human `01a156cd-df53-7350-a11d-681eb2d5df5d`. FR-014/027/027a, US6 only.
+This is a separate one-request diagnosis, not a replay or pass of the consumed
+16-execution holdout. All earlier unknown liabilities and failed/unrun outcomes stay.
+
+1. In `language.py`, add optional `transport_observer=None` to LanguageAdapter
+   and `_http_transport`. Preserve the actual transport identity and injected
+   fixture protocol. Emit one fresh dictionary of category and HTTP status only:
+   success/http_error/protocol_error/invalid_response/timeout/tls_error/url_error/
+   network_error/other; status is an exact int 100..599 or null. Never read non-200
+   bodies, stringify exceptions, retain headers or parse provider error fields.
+   Ordinary observer exceptions are swallowed without retry; process-control
+   exceptions retain cancellation semantics. Test HTTP400/401/403/404/429/5xx,
+   redirects, timeout/TLS/URL/network/unknown errors, malformed length/body/input,
+   observer failure, no message leakage, unchanged outcomes and unknown accounting.
+2. Add `scripts/diagnose_language_transport.py`: one fixed synthetic public input/
+   context directly through actual LanguageAdapter, no Session command, owned mock
+   or scheduling action. Reuse `qualify_connected_live` canonical binding, exact
+   named-notes resolver and private report writer; include the new script in the
+   existing source hash closure. Keep prompt/model/rates unchanged. Dry-run is
+   owner/key/network/app-free. Live opt-in requires the reviewed exact source digest
+   and BOB_ENABLE_OPENAI=1, existing canonical SQLite/config/root/ledger/lock/marker
+   identities, and one exclusive private result file before helper access.
+   Fixed run ID `transport-diagnostic-20261019`; fixed ignored report under existing
+   `tmp/connected-qualification/`. No CLI run/model/key/report/accounting overrides.
+   Preserve started/incomplete evidence on failure; do not overwrite old run.json.
+   Bounds: one request, 512 output tokens, 10 seconds, 2048 input bytes, 16384
+   request bytes, 65536 response bytes, tools none/retries zero. Retain only safe
+   numeric usage/cost/accounting, finite transport observation and source binding;
+   no public action/preferences/raw data and no semantic-qualification claim.
+3. Tests first for each deliverable, then full offline suite and success/failure
+   demos, staged credential guard and one frozen affected-code review. Native tasks
+   are the only completion record; dependent work stays sequential under one writer.
+   SM selects the reviewed candidate before ANY key access or single live request.
+   This implementation handoff stops before that selection. No Support relaunch,
+   global accounting/locking redesign, provider/key/model switch, TLS weakening,
+   fallback, media, new task/monitor, cloud or external publication/deployment.
+
+Review focus: observer receives only two sanitized primitives; constructor/read/
+close failures emit once without masking; interrupted result cannot be replayed;
+source/config/ledger drift denies before helper/reserve; a 4xx still retains unknown
+accounting, never assumed zero charge. Offline tests exercise these boundaries with
+synthetic connection fixtures and disposable existing-SQLite bindings only.
+
 ## Complexity Tracking
 
 > **Fill ONLY if Constitution Check has violations that must be justified**

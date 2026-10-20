@@ -1,6 +1,6 @@
 # BOB handoff and next steps
 
-Updated 2026-10-16. Detailed completion and evidence remain in the
+Updated 2026-10-19. Detailed completion and evidence remain in the
 [native ledger](../../specs/001-ochsner-scheduling-assistant/tasks.md).
 
 Runtime/launcher `79aeafd` integrated through protected
@@ -23,13 +23,17 @@ the detailed original-source evidence; these facts do not certify every journey.
 
 ## Current next actions
 
-- Finish normal protected delivery of reviewed diagnostics/connected source
-  `f785f83` and its truthful [failed/incomplete live result](../internal/live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16).
+- Diagnostics/connected source `f785f83` and its truthful
+  [failed/incomplete live result](../internal/live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16)
+  were delivered through PR #14; native completion metadata integrated at `c6102e5`.
   The first interpretation was unavailable with unknown usage; all 15 later
   executions are unrun and the original reservation remains. Do not replay the
   tranche, reread the key or change prompts/model to obtain a pass. No concrete
-  TLS cause was established; further diagnosis needs a separately selected minimal
-  observability/environment correction before any fresh paid tranche.
+  TLS cause was established. The separately approved minimal private transport
+  diagnosis is now offline-tested: freeze the affected candidate for one independent
+  review and SM selection before the single no-scheduling diagnostic request.
+  This is not a new full tranche or permission to retry the consumed one. See
+  [T115–T118](../../specs/001-ochsner-scheduling-assistant/tasks.md#private-transport-diagnosis--2026-10-19).
   The denied canonical support-demo relaunch remains held; do not retry it through
   another transport.
 - Use the delivered guides for Operator/reviewer evaluation. Keep partial actual

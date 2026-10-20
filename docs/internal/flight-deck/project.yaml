@@ -219,6 +219,8 @@ requirements:
       - "T008"
       - "T054"
       - "T108"
+      - "T115"
+      - "T116"
     capability_ids:
       - "inspection"
     evidence_refs:
@@ -403,6 +405,8 @@ requirements:
       - "T098"
       - "T112"
       - "T113"
+      - "T117"
+      - "T118"
     capability_ids:
       - "operations"
     evidence_refs:
@@ -417,6 +421,8 @@ requirements:
       - "T097"
       - "T112"
       - "T113"
+      - "T116"
+      - "T118"
     capability_ids:
       - "operations"
     evidence_refs:

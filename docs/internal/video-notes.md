@@ -1,5 +1,10 @@
 # Video production notes
 
+2026-10-19 transport-diagnosis note: [T115–T118](../../specs/001-ochsner-scheduling-assistant/tasks.md#private-transport-diagnosis--2026-10-19)
+adds offline finite category/status observations only; no live diagnosis has run.
+It does not authorize or produce media, a new model-success narrative, Support
+relaunch or a second video. Earlier failed/unknown/unrun evidence stays unchanged.
+
 Scoped note, 2026-10-16: reviewed OFF-diagnostics/connected source `f785f83` remains
 separate from media. The [selected holdout attempt](live-qualification.md#connected-holdout-execution--failedincomplete-2026-10-16)
 stopped unavailable/unknown on its first turn, with zero scheduling effects and

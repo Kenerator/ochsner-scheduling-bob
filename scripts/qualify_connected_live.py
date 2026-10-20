@@ -88,6 +88,7 @@ def _identity(path):
 def source_hashes():
     names = [str(p.relative_to(ROOT)) for p in (ROOT / "src/ochsner_bob").glob("*.py")]
     names += ["scripts/connected_qualification.py", "scripts/qualify_connected_live.py", "scripts/mock_lifecycle.py",
+              "scripts/diagnose_language_transport.py",
               "tests/fixtures/connected_qualification_holdout.json", "poc-launch.json", "policies/bob.json",
               "tools/poc-runtime/credentials.py", "tools/poc-runtime/export-manifest.json",
               "vendor/reference/mock-api/server.py"]
@@ -186,7 +187,7 @@ def resolve_qualification_key():
     return credentials.resolve_key(_CREDENTIAL, run=credentials.bounded_helper)
 
 
-def create_language(binding):
+def create_language(binding, *, transport_observer=None):
     for module, name in ((Conversation, "conversation"), (SchedulingSession, "session"),
                          (LanguageAdapter, "language"), (ModelBudget, "model_budget"), (RuntimeLedger, "runtime_accounting")):
         if Path(sys.modules[module.__module__].__file__).resolve() != ROOT / ("src/ochsner_bob/" + name + ".py"):
@@ -195,7 +196,8 @@ def create_language(binding):
     key = resolve_qualification_key()
     binding.validate()  # Helper latency cannot conceal config/storage replacement.
     return LanguageAdapter(environ={"BOB_ENABLE_OPENAI": "1", "BOB_OPENAI_MODEL": MODEL,
-                                    "OPENAI_API_KEY": key}, budget=binding.budget)
+                                    "OPENAI_API_KEY": key}, budget=binding.budget,
+                           transport_observer=transport_observer)
 
 
 def run_schedule(manifest, language, effects_dir, *, on_execution=None):

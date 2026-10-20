@@ -8,6 +8,16 @@ own completion. Persona hypotheses do not grant permissions or prove user resear
 
 ## Exact pins and material adoption
 
+2026-10-19 offline transport diagnosis: Sam-Rae's US6 truthful inspection and
+unknown-outcome constraints map FR-014/027a to
+[transport observation tests](../../tests/test_transport_diagnostics.py) and
+[one-request gate tests](../../tests/test_transport_diagnostic_runner.py).
+They exercise finite type/status-only observations, observer failure, no raw error
+leakage, unchanged default/fixture semantics and preserved unknown liabilities.
+No new patient/Support capability, genuine model result or acceptance is claimed;
+[native T115–T118](../../specs/001-ochsner-scheduling-assistant/tasks.md#private-transport-diagnosis--2026-10-19)
+retains the pending review/live boundary.
+
 2026-10-16 scoped delta (`f785f83`, pre-live review clear; live failed/incomplete): Morgan-Rae's
 US3/US5 categorical handoff context and Sam-Rae's US4/US6 inspection constraints
 link FR-012/014 to [OFF handoff diagnostics](../../tests/test_handoff_diagnostics.py)

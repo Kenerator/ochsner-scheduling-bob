@@ -1,5 +1,9 @@
 # As-built architecture
 
+Pending-review transport delta (2026-10-19): see the
+[private observer boundary](#private-transport-observer-boundary) and native
+[T115–T118](../../../specs/001-ochsner-scheduling-assistant/tasks.md#private-transport-diagnosis--2026-10-19).
+
 Current scoped source: reviewed `f785f83` (2026-10-16); the connected tranche
 stopped failed/incomplete after one unavailable/unknown attempt. See
 [native T108–T114](../../../specs/001-ochsner-scheduling-assistant/tasks.md) and
@@ -685,3 +689,21 @@ The earlier export failure at 9625185 is retained in the native task ledger.
 Refreshed source-bound performance at this revision: 30 sequential loopback
 requests, p50 1.202 ms, p95 2.807 ms, max 2.849 ms, zero effects/model calls.
 It is decoded HTTP completion, not browser paint or a capacity/SLA guarantee.
+
+## Private transport observer boundary
+
+Updated 2026-10-19 against working source based on `c6102e5`; independent affected
+review pending, not a replacement for the reviewed revisions above.
+`LanguageAdapter` retains the default `_http_transport` identity and injected
+fixture contract. An optional private observer receives only one finite category
+and numeric HTTP status (or null). Non-200 bodies remain unread; exception types,
+not their text, classify transport failures. Ordinary observer failure is ignored;
+process-control exceptions retain cancellation semantics. Session/UI/Recording/
+Replay/prompt/schema/accounting semantics remain unchanged.
+The fixed [diagnostic runner](../../../scripts/diagnose_language_transport.py) reuses
+the existing canonical SQLite binding, lock/marker/source checks and pinned named
+resolver. It directly interprets one fixed public synthetic input without any
+scheduling service or command. An exclusive ignored private result precedes helper
+access; no alternate ledger/headroom, model/key/transport fallback or error-body
+retention exists. [Offline tests](../../../tests/test_transport_diagnostic_runner.py)
+are not execution authority, holdout qualification or a zero-charge claim.

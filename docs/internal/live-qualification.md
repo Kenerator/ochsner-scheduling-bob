@@ -1,5 +1,13 @@
 # Genuine synthetic language qualification
 
+Current follow-on, 2026-10-19: the private transport observer and fixed one-request
+diagnostic runner have offline tests only; independent affected review and exact
+candidate selection remain pending. No diagnostic request/key lookup has run.
+The [native plan](../../specs/001-ochsner-scheduling-assistant/plan.md#selected-private-transport-diagnosis--2026-10-19)
+defines the finite category/status boundary; [T115–T118](../../specs/001-ochsner-scheduling-assistant/tasks.md#private-transport-diagnosis--2026-10-19)
+owns evidence. This does not retry or qualify the failed/incomplete connected
+tranche below, change model/key/rates, or release any prior unknown liability.
+
 Updated 2026-10-09. Status: **12/12 genuine semantic cases passed with
 gpt-5.4-2026-03-05**; the planned default mini snapshot remains **10/12, not
 qualified**. Offline fixtures are not genuine model evidence.
