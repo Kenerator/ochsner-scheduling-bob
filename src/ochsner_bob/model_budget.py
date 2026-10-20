@@ -97,9 +97,10 @@ def _maximum(model, max_output):
 class ModelBudget:
     """reserve(model=..., max_output_tokens=512), then settle(id, usage|None).
 
-    Actual application entrypoints select application_runtime=True: uncapped
-    runtime accounting at the same canonical path, using indexed SQLite storage.
-    Functional qualification also explicitly selects this covered policy.
+    application_runtime=True retains historical Ochsner-only uncapped semantics.
+    Current own-key application/qualification callers select False, preserving
+    numeric limits and the same existing SQLite history. Never infer an account
+    allowance from the storage format or a former credential's authorization.
     Default generic/non-application callers remain bounded. Independent paths cannot
     enforce an account-wide ceiling. Bounded limits may be stricter, never exceed the
     ordinary grant, and cannot change on reopen. Explicit unlimited_today opts
@@ -119,7 +120,7 @@ class ModelBudget:
             clock = time.time if clock is None else clock
             ceiling = Decimal(str(ceiling_usd))
             if (type(application_runtime) is not bool or type(unlimited_today) is not bool or type(_existing_only) is not bool
-                    or type(_existing_writes) is not bool or _existing_writes and not (application_runtime and _existing_only)
+                    or type(_existing_writes) is not bool or _existing_writes and not _existing_only
                     or not callable(clock)
                     or type(max_calls) is not int or not 1 <= max_calls <= 200
                     or not ceiling.is_finite() or not 0 < ceiling <= 20
@@ -130,7 +131,8 @@ class ModelBudget:
             self._unlimited_today = unlimited_today
             self._clock = clock
             self._existing_only = _existing_only
-            # Explicit covered dispatch against existing SQLite only. Readiness
+            # Explicit dispatch against existing SQLite only, bounded or legacy
+            # application policy. Readiness
             # stays read-only; this never relaxes creation/migration/marker rules.
             self._existing_writes = _existing_writes
             self._existing_identities = None
@@ -355,12 +357,22 @@ class ModelBudget:
 def preflight_budget(path: Path, *, model: str) -> None:
     """Validate existing canonical readiness; never initialize, reserve or write.
 
-    This checks accounting/storage only under the indefinite application runtime
-    policy, never a spending gate. JSON and SQLite are validated without migration.
+    Current own-key readiness includes the existing numeric call/dollar limits.
+    JSON and SQLite are inspected without migration or a reservation, but only
+    existing SQLite is model-ready. Historical JSON/over-cap records remain
+    readable for reconciliation, not authority for a new own-key call.
     Missing ledger/marker, unsafe/corrupt storage or unsupported models fail closed.
     Actual dispatch must still durably reserve against the same canonical path.
     """
-    _maximum(model, 512)
+    maximum = _maximum(model, 512)
+    # This read-only compatibility mode validates either stored format without
+    # migrating legacy JSON. It grants no uncapped spending: check limits below.
     budget = ModelBudget(path, application_runtime=True, _existing_only=True)
     with budget._locked():
         budget._runtime.validate()
+        if budget._runtime.legacy is not None:
+            raise BudgetError("Existing SQLite accounting required; no migration or key lookup performed.")
+        snapshot = budget._runtime.snapshot()
+        liability = int(Decimal(snapshot["liability_usd"]) * _NANOS)
+        if snapshot["calls"] >= budget.max_calls or liability + maximum > budget.ceiling:
+            raise BudgetError("Call count or dollar ceiling reached; dispatch blocked.")

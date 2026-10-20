@@ -71,14 +71,15 @@ class RuntimeAccountingTests(unittest.TestCase):
         with self.assertRaises(model_budget.BudgetError):
             model_budget.ModelBudget(self.path, max_calls=3, ceiling_usd="1").reserve(model=MODEL)
 
-    def test_preflight_accepts_over_cap_legacy_json_without_migration_or_mutation(self):
+    def test_own_key_preflight_rejects_over_cap_legacy_without_migration_or_mutation(self):
         legacy = model_budget.ModelBudget(self.path)
         legacy.reserve(model=STRONGER)
         document = json.loads(self.path.read_text())
         document["calls"] *= 4  # Valid historical over-cap JSON, not new dispatch.
         self.path.write_text(json.dumps(document))
         before = self.state()
-        model_budget.preflight_budget(self.path, model=STRONGER)
+        with self.assertRaises(model_budget.BudgetError):
+            model_budget.preflight_budget(self.path, model=STRONGER)
         self.assertEqual(before, self.state())
 
     def test_sqlite_readiness_is_read_only_and_keeps_ids_and_marker(self):

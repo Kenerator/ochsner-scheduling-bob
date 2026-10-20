@@ -17,9 +17,11 @@ import json
 import math
 import os
 import re
+import ssl
 import time
 from typing import Literal, Protocol
 import unicodedata
+from urllib.error import URLError
 
 
 ACTIONS = ("discover", "availability", "appointments", "preferences", "help",
@@ -216,7 +218,23 @@ _INSTRUCTIONS = (
 )
 
 
-def _http_transport(payload, *, api_key, timeout, max_body_bytes):
+_TRANSPORT_CATEGORIES = frozenset(("success", "http_error", "protocol_error", "invalid_response",
+                                 "timeout", "tls_error", "url_error", "network_error", "other"))
+
+
+def _observe_transport(observer, category, http_status):
+    """Private opt-in seam: two primitives, never arbitrary diagnostic material."""
+    if observer is None:
+        return
+    event = {"category": category if type(category) is str and category in _TRANSPORT_CATEGORIES else "other",
+             "http_status": http_status if type(http_status) is int and 100 <= http_status <= 599 else None}
+    try:
+        observer(event)
+    except Exception:
+        pass  # Diagnostics cannot mask success/failure or trigger another request.
+
+
+def _http_transport(payload, *, api_key, timeout, max_body_bytes, transport_observer=None):
     # Direct stdlib HTTPS ignores proxy environment and never follows redirects.
     # A single shared deadline bounds connect, request, headers and bounded reads.
     deadline = time.monotonic() + timeout
@@ -227,41 +245,65 @@ def _http_transport(payload, *, api_key, timeout, max_body_bytes):
             raise TimeoutError()
         return seconds
 
-    connection = http.client.HTTPSConnection("api.openai.com", timeout=remaining())
+    category, status = "other", None
     try:
-        connection.connect()
-        sock = connection.sock
-        sock.settimeout(remaining())
-        connection.request("POST", "/v1/responses", body=payload, headers={
-            "Authorization": "Bearer " + api_key, "Content-Type": "application/json",
-            "Accept": "application/json", "Accept-Encoding": "identity"})
-        sock.settimeout(remaining())
-        reply = connection.getresponse()
-        if (reply.status != 200 or reply.getheader("Content-Type", "").split(";")[0].strip().lower() != "application/json"
-                or reply.getheader("Content-Encoding", "identity").lower() != "identity"):
-            raise _Unavailable()
-        length = reply.getheader("Content-Length")
-        if length is not None and (not length.isascii() or not length.isdigit() or int(length) > max_body_bytes):
-            raise _Invalid()
-        body = bytearray()
-        while True:
+        connection = http.client.HTTPSConnection("api.openai.com", timeout=remaining())
+        try:
+            connection.connect()
+            sock = connection.sock
             sock.settimeout(remaining())
-            part = reply.read1(min(8192, max_body_bytes + 1 - len(body)))
-            remaining()
-            if not part:
-                break
-            body.extend(part)
-            if len(body) > max_body_bytes:
+            connection.request("POST", "/v1/responses", body=payload, headers={
+                "Authorization": "Bearer " + api_key, "Content-Type": "application/json",
+                "Accept": "application/json", "Accept-Encoding": "identity"})
+            sock.settimeout(remaining())
+            reply = connection.getresponse()
+            status = reply.status if type(reply.status) is int and 100 <= reply.status <= 599 else None
+            if reply.status != 200:
+                category = "http_error" if status is not None else "other"
+                raise _Unavailable()  # Error bodies/headers are not diagnostic inputs.
+            if (reply.getheader("Content-Type", "").split(";")[0].strip().lower() != "application/json"
+                    or reply.getheader("Content-Encoding", "identity").lower() != "identity"):
+                category = "protocol_error"
+                raise _Unavailable()
+            length = reply.getheader("Content-Length")
+            if length is not None and (not length.isascii() or not length.isdigit() or int(length) > max_body_bytes):
                 raise _Invalid()
-            # HTTPResponse may release the socket on its final length-delimited
-            # read. Do not touch that socket again after the complete body.
-            if length is not None and len(body) >= int(length):
-                break
-        if length is not None and len(body) != int(length):
-            raise _Invalid()
-        return bytes(body)
-    finally:
-        connection.close()
+            body = bytearray()
+            while True:
+                sock.settimeout(remaining())
+                part = reply.read1(min(8192, max_body_bytes + 1 - len(body)))
+                remaining()
+                if not part:
+                    break
+                body.extend(part)
+                if len(body) > max_body_bytes:
+                    raise _Invalid()
+                # HTTPResponse may close its socket after its last bounded read.
+                if length is not None and len(body) >= int(length):
+                    break
+            if length is not None and len(body) != int(length):
+                raise _Invalid()
+            result = bytes(body)
+        finally:
+            connection.close()
+    except Exception as error:
+        # Type checks only: never stringify/retain an exception or provider data.
+        if isinstance(error, TimeoutError):
+            category = "timeout"
+        elif isinstance(error, ssl.SSLError):
+            category = "tls_error"
+        elif isinstance(error, URLError):
+            category = "url_error"
+        elif isinstance(error, _Invalid):
+            category = "invalid_response"
+        elif isinstance(error, http.client.HTTPException):
+            category = "protocol_error"
+        elif isinstance(error, OSError) and not isinstance(error, _Unavailable):
+            category = "network_error"
+        _observe_transport(transport_observer, category, status)
+        raise
+    _observe_transport(transport_observer, "success", status)
+    return result
 
 
 def _output(body):
@@ -338,7 +380,7 @@ class LanguageAdapter:
     """
 
     def __init__(self, *, transport: Transport | None = None, environ=None, timeout=10.0,
-                 budget: BudgetHook | None = None):
+                 budget: BudgetHook | None = None, transport_observer=None):
         if type(timeout) not in (int, float) or not math.isfinite(timeout) or not 0 < timeout <= 30:
             raise ValueError("Timeout must be a finite number in (0, 30].")
         self._transport = transport if transport is not None else _http_transport
@@ -346,6 +388,7 @@ class LanguageAdapter:
         self.timeout = float(timeout)
         self.mode = "fixture" if transport is not None else "openai"
         self._budget = budget
+        self._transport_observer = transport_observer
 
     def _outcome(self, status, action=None, preferences=None, *, usage=None,
                  accounting_status="not_requested", cost_usd=None):
@@ -391,7 +434,11 @@ class LanguageAdapter:
         failure = None
         try:
             started = time.monotonic()
-            body = self._transport(payload, api_key=key, timeout=self.timeout, max_body_bytes=_MAX_BODY)
+            options = {"api_key": key, "timeout": self.timeout, "max_body_bytes": _MAX_BODY}
+            # Keep fixture transports' original protocol and genuine identity.
+            if self._transport is _http_transport and self._transport_observer is not None:
+                options["transport_observer"] = self._transport_observer
+            body = self._transport(payload, **options)
             if time.monotonic() - started >= self.timeout:
                 failure = "timeout"
         except TimeoutError:

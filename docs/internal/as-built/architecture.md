@@ -1,5 +1,13 @@
 # As-built architecture
 
+Current own-key working delta, 2026-10-20 (affected review pending):
+[bounded own-key runtime](#bounded-own-key-runtime) supersedes Ochsner-key selection
+for current execution. Historical reviewed source/evidence below stays unchanged.
+
+Pending-review transport delta (2026-10-19): see the
+[private observer boundary](#private-transport-observer-boundary) and native
+[T115–T118](../../../specs/001-ochsner-scheduling-assistant/tasks.md#private-transport-diagnosis--2026-10-19).
+
 Current scoped source: reviewed `f785f83` (2026-10-16); the connected tranche
 stopped failed/incomplete after one unavailable/unknown attempt. See
 [native T108–T114](../../../specs/001-ochsner-scheduling-assistant/tasks.md) and
@@ -685,3 +693,47 @@ The earlier export failure at 9625185 is retained in the native task ledger.
 Refreshed source-bound performance at this revision: 30 sequential loopback
 requests, p50 1.202 ms, p95 2.807 ms, max 2.849 ms, zero effects/model calls.
 It is decoded HTTP completion, not browser paint or a capacity/SLA guarantee.
+
+## Private transport observer boundary
+
+Updated 2026-10-19 against working source based on `c6102e5`; independent affected
+review pending, not a replacement for the reviewed revisions above.
+`LanguageAdapter` retains the default `_http_transport` identity and injected
+fixture contract. An optional private observer receives only one finite category
+and numeric HTTP status (or null). Non-200 bodies remain unread; exception types,
+not their text, classify transport failures. Ordinary observer failure is ignored;
+process-control exceptions retain cancellation semantics. Session/UI/Recording/
+Replay/prompt/schema/accounting semantics remain unchanged.
+The fixed [diagnostic runner](../../../scripts/diagnose_language_transport.py) reuses
+the existing canonical SQLite binding, lock/marker/source checks and pinned named
+resolver. It directly interprets one fixed public synthetic input without any
+scheduling service or command. An exclusive ignored private result precedes helper
+access; no alternate ledger/headroom, model/key/transport fallback or error-body
+retention exists. [Offline tests](../../../tests/test_transport_diagnostic_runner.py)
+are not execution authority, holdout qualification or a zero-charge claim.
+
+## Bounded own-key runtime
+
+Updated 2026-10-20 against working source based on reviewed diagnostic `d0a2ce9`;
+changed-consumer review/selection pending. The exact five-file shared export uses
+code `20e3dd5`, metadata `8b4ecef`, with hashes in the
+[managed manifest](../../../tools/poc-runtime/export-manifest.json). No shared fork
+or unrelated Template work is adopted. Config selects our `[Env] OPENAI_API_KEY`
+Secure Note `notes`; paused-source compatibility in shared validation is not
+permission to select Ochsner. The normal launcher resolves this item privately and
+constructs a key-free viewer/mock plus scalar-key model host; stale parent keys are
+not a fallback. Direct arbitrary inherited-key model launches are not selected.
+
+CLI/browser and both qualification paths select `application_runtime=False` with
+existing-only/existing-writes storage. The original canonical SQLite, metadata,
+reservation IDs, unknown liabilities and stable initialized lock remain. Missing
+or legacy-only accounting is not initialized/migrated by a model host. The minimal
+ModelBudget guard extension permits bounded writes only to already-existing private
+SQLite; it does not relax file/root/marker/inode checks. RuntimeLedger's existing
+numeric reserve branch enforces200calls/$20 under the same lock. Public readiness
+is read-only and checks numeric limits before qualification helper access; actual
+reserve repeats enforcement. Already-unknown charges cannot be refunded; pending
+historical calls can settle once. No account partition or fresh headroom is created.
+See [own-policy tests](../../../tests/test_own_key_policy.py) and
+[qualifier tests](../../../tests/test_qualification_policy.py). Full654offline PASS
+is not own-key validity, semantic model qualification, rollout or production proof.

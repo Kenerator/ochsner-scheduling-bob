@@ -68,11 +68,10 @@ def load_config(path: Path) -> dict:
         raise LaunchError("Unsupported application interface.")
     credential = value["credential"]
     _keys(credential, ("item", "field", "helper_path_env", "helper_command"))
-    if (credential["item"] != "[Env] (Ochsner PoC) OPENAI_API_KEY"
-        or credential["field"] not in ("auto", "password", "notes")
-        or credential["helper_path_env"] != "POC_SECRET_HELPER"
+    credentials.validate_selection(credential)
+    if (credential["helper_path_env"] != "POC_SECRET_HELPER"
         or credential["helper_command"] != "bw-get-secret"):
-        raise LaunchError("Unsupported Ochsner credential configuration.")
+        raise LaunchError("Unsupported credential helper configuration.")
     model = value["model"]
     _keys(model, ("default", "environment"))
     if model["environment"] != MODELS[adapter]:

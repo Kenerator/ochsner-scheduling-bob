@@ -7,6 +7,21 @@
 
 ## User Scenarios & Testing *(mandatory)*
 
+Current credential-policy override, 2026-10-20: actual human MLX
+`01a15a3c-e19c-70f2-8125-61ed75717a31` pauses all Ochsner-supplied-key use until
+further notice and explicitly selects our Secure Note `[Env] OPENAI_API_KEY`,
+field `notes`, via the existing trusted helper. This supersedes the Ochsner item
+in FR-022/026 and the Ochsner-only uncapped execution policy in FR-027 for current
+execution, without changing historical evidence. Own-key BOB dispatch MUST enforce
+the existing 200-call/$20 numeric settings, preserve canonical accounting/history/
+unknown liabilities/stable lock/marker, and deny if prior liability consumes those
+limits. No new headroom, ledger, partition, inherited-key or helper-failure fallback.
+The pending diagnostic remains at most one request/up to$5.261520 new unknown
+liability, not an override of exhausted aggregate numeric limits. No live dispatch
+until the changed credential/accounting candidate receives affected review and SM
+selection. Preparation is not own-key qualification; older Ochsner proofs retain
+their original identity. [Native tasks](tasks.md#own-key-policy-preparation--2026-10-20).
+
 This is one synthetic-data PoC, not a merger, clinical assistant, production authentication system, contact center, rescheduling/cancellation service, or nxusKit integration. The seven pinned personas are hypotheses and design/test constraints, not permissions.
 
 Story wording is inferred from explicitly accepted B01–B18 requirements and pinned
@@ -124,7 +139,7 @@ As a reviewer or maintainer, I want a clean supported Mac setup, deterministic C
 - **FR-011**: The system MUST keep help, medical-boundary, unsupported, and public-intent switching reachable from relevant states without requiring booking or clinical information.
 - **FR-012**: The system MUST submit minimized context to the unmodified mock, validate queued handoff receipts, and distinguish API state from local simulated support.
 - **FR-013**: The system MUST use one standalone ZEN policy with closed categorical facts, stable reasons, and provenance; invalid/unknown facts or engine failure MUST fail closed where safety requires, and allow MUST NOT bypass structural guards.
-- **FR-014**: CLI and browser constructors MUST attach a sanitized event sink exposing intent/workflow, rule decisions, API outcome/error, escalation, latency, and certainty without sensitive identity data; inspection/render/export MUST be effect-free. With recording OFF, ordinary session/API diagnostics and current-result metadata MUST retain the selected allowlisted handoff reason, including queued/rejected/failed/unknown outcomes, without raw summaries, text or identifiers.
+- **FR-014**: CLI and browser constructors MUST attach a sanitized event sink exposing intent/workflow, rule decisions, API outcome/error, escalation, latency, and certainty without sensitive identity data; inspection/render/export MUST be effect-free. With recording OFF, ordinary session/API diagnostics and current-result metadata MUST retain the selected allowlisted handoff reason, including queued/rejected/failed/unknown outcomes, without raw summaries, text or identifiers. An explicitly selected private model-transport observer MAY receive only a finite category and numeric HTTP status; unknown values collapse to fixed other/unknown. It MUST NOT retain error text, bodies, headers, credentials, URLs, payloads or patient data. It MUST NOT change ordinary UI/Session/Recording/Replay, prompt/model, accounting, retry or scheduling behavior; observer failure cannot mask the transport result.
 - **FR-015**: The system MUST provide references, replay, before/after inspection, comparison, isolated typed variants, provenance/diff, and reviewed fixture promotion without history rewriting or live effect replay. As required by the accepted architecture intake, same-version recorded replay MUST use the shared domain core to reproduce deterministic outcomes and semantic view projections through recorded-only simulation adapters. Missing inputs/outcomes/clock/acknowledgements MUST be disclosed as capture gaps, not silently replaced with invented history or a full-replay claim. Historical credentials, identity and consent confer no live authority.
 - **FR-016**: Developer Mode MUST be visible below the patient flow and show sanitized timeline/state/rules/model projection, timing, certainty, replay, and fork controls; its PoC toggle MUST NOT be production authorization.
 - **FR-017**: The system MUST provide paired patient/support views with acknowledged-screen fidelity, freshness, session isolation, known/missing/uncertain context, and explicit simulated takeover/return while preserving guards.

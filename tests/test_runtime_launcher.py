@@ -44,7 +44,7 @@ class RuntimeLauncherTests(unittest.TestCase):
 
     def test_managed_bundle_has_exact_reviewed_hashes(self):
         manifest = json.loads((RUNTIME / "export-manifest.json").read_text())
-        self.assertEqual(manifest["source_revision"], "17d415766a7dead713ccebcbbf6c36516a64ba3c")
+        self.assertEqual(manifest["source_revision"], "20e3dd56747797b35c082d109ac3bb0a7d7b1ebe")
         self.assertEqual(manifest["source_worktree_state"], "clean")
         self.assertEqual(set(manifest["files"]), {"tools/poc-runtime/" + name for name in
                          ("adapters.py", "credentials.py", "launch.py", "processes.py")})
@@ -101,7 +101,8 @@ class RuntimeLauncherTests(unittest.TestCase):
         from ochsner_bob.model_budget import ModelBudget
         spec = self.adapters.process_specs(ROOT, self.config, self.request(), key=_CANARY)[0]
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
+            root = Path(temporary).resolve()
+            ModelBudget(root / ".bob-local/model-budget.json", application_runtime=True)
             with patch.object(serve_browser, "ROOT", root), patch.dict(os.environ, spec.environment, clear=True):
                 adapter = serve_browser.language_for_launch("--openai" in spec.argv)
                 self.assertEqual(adapter.mode, "openai")
@@ -122,6 +123,7 @@ class RuntimeLauncherTests(unittest.TestCase):
     def test_actual_cli_constructor_routes_model_without_dispatch_on_help(self):
         import ochsner_bob.__main__ as cli
         from ochsner_bob.language import LanguageAdapter
+        from ochsner_bob.model_budget import ModelBudget
         spec = next(spec for spec in self.adapters.process_specs(ROOT, self.config,
                     self.request("--interface", "cli"), key=_CANARY) if spec.role == "model")
         seen = []
@@ -129,6 +131,8 @@ class RuntimeLauncherTests(unittest.TestCase):
         def construct(**kwargs):
             result = real(**kwargs); seen.append(result); return result
         with tempfile.TemporaryDirectory() as temporary:
+            temporary = str(Path(temporary).resolve())
+            ModelBudget(Path(temporary) / ".bob-local/model-budget.json", application_runtime=True)
             args = list(spec.argv[3:]); args[args.index("--journal") + 1] = str(Path(temporary) / "effects.json")
             with patch.object(cli, "ROOT", Path(temporary)), patch.object(cli, "LanguageAdapter", construct), \
                  patch.dict(os.environ, spec.environment, clear=True), \
@@ -182,7 +186,7 @@ class RuntimeLauncherTests(unittest.TestCase):
         from ochsner_bob.model_budget import ModelBudget, preflight_budget
         import ochsner_bob.model_budget as budget_module
         with tempfile.TemporaryDirectory() as temporary:
-            ledger = Path(temporary) / "model-budget.json"; budget = ModelBudget(ledger)
+            ledger = Path(temporary) / "model-budget.json"; budget = ModelBudget(ledger, application_runtime=True)
             before = ledger.read_bytes(); received = []
             def boundary(path, **kwargs):
                 received.append((path, kwargs)); preflight_budget(ledger, **kwargs)
@@ -282,7 +286,7 @@ class RuntimeLauncherTests(unittest.TestCase):
                                     "POC_SECRET_HELPER": "/usr/bin/true"}), \
              patch.object(self.credentials, "bounded_helper", side_effect=AssertionError("real helper")):
             self.assertEqual(self.credentials.resolve_key(self.config["credential"], run=boundary), _CANARY)
-        self.assertEqual(calls[0][0][1:], ["[Env] (Ochsner PoC) OPENAI_API_KEY", "notes"])
+        self.assertEqual(calls[0][0][1:], ["[Env] OPENAI_API_KEY", "notes"])
         self.assertEqual(len(calls), 1)
         self.assertNotIn("OPENAI_API_KEY", calls[0][1]); self.assertNotIn("BW_SESSION", calls[0][1])
 

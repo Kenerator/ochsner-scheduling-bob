@@ -320,7 +320,11 @@ class CliAndOwnedMockTests(unittest.TestCase):
         arguments = ["--api-url", "http://127.0.0.1:1", "--journal", str(self.directory / "cli-journal.json")]
         if openai:
             arguments.append("--openai")
-        with patch.object(cli, "ROOT", self.directory, create=True):
+            from ochsner_bob.model_budget import ModelBudget
+            # Current model hosts require already-existing SQLite. This fixture
+            # setup is not a product initialization/headroom operation.
+            ModelBudget(self.directory / ".bob-local/model-budget.json", application_runtime=True)
+        with patch.object(cli, "ROOT", self.directory.resolve(), create=True):
             try:
                 code = cli.main(arguments, input_stream=io.StringIO(turns), output_stream=output)
             except SystemExit as error:

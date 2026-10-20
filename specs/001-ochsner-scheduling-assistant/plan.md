@@ -136,6 +136,104 @@ ledger. Public summaries exclude machine paths/accounting file identities.
 Full offline suite/demos, source/privacy/guard, protected CI/PR/readback follow.
 No Support-sync/global-lock/scaling repair, media, platform, tags or deployment.
 
+## Selected private transport diagnosis — 2026-10-19
+
+Approved design: SM human message `01a14770-df0b-74b2-98c2-8a4c5ea7d6e5`,
+question `call_257bf110952d47b88a4bbdd65ce3ef77`; maintenance timing hold lifted by
+MLX human `01a156cd-df53-7350-a11d-681eb2d5df5d`. FR-014/027/027a, US6 only.
+This is a separate one-request diagnosis, not a replay or pass of the consumed
+16-execution holdout. All earlier unknown liabilities and failed/unrun outcomes stay.
+
+1. In `language.py`, add optional `transport_observer=None` to LanguageAdapter
+   and `_http_transport`. Preserve the actual transport identity and injected
+   fixture protocol. Emit one fresh dictionary of category and HTTP status only:
+   success/http_error/protocol_error/invalid_response/timeout/tls_error/url_error/
+   network_error/other; status is an exact int 100..599 or null. Never read non-200
+   bodies, stringify exceptions, retain headers or parse provider error fields.
+   Ordinary observer exceptions are swallowed without retry; process-control
+   exceptions retain cancellation semantics. Test HTTP400/401/403/404/429/5xx,
+   redirects, timeout/TLS/URL/network/unknown errors, malformed length/body/input,
+   observer failure, no message leakage, unchanged outcomes and unknown accounting.
+2. Add `scripts/diagnose_language_transport.py`: one fixed synthetic public input/
+   context directly through actual LanguageAdapter, no Session command, owned mock
+   or scheduling action. Reuse `qualify_connected_live` canonical binding, exact
+   named-notes resolver and private report writer; include the new script in the
+   existing source hash closure. Keep prompt/model/rates unchanged. Dry-run is
+   owner/key/network/app-free. Live opt-in requires the reviewed exact source digest
+   and BOB_ENABLE_OPENAI=1, existing canonical SQLite/config/root/ledger/lock/marker
+   identities, and one exclusive private result file before helper access.
+   Fixed run ID `transport-diagnostic-20261019`; fixed ignored report under existing
+   `tmp/connected-qualification/`. No CLI run/model/key/report/accounting overrides.
+   Preserve started/incomplete evidence on failure; do not overwrite old run.json.
+   Bounds: one request, 512 output tokens, 10 seconds, 2048 input bytes, 16384
+   request bytes, 65536 response bytes, tools none/retries zero. Retain only safe
+   numeric usage/cost/accounting, finite transport observation and source binding;
+   no public action/preferences/raw data and no semantic-qualification claim.
+3. Tests first for each deliverable, then full offline suite and success/failure
+   demos, staged credential guard and one frozen affected-code review. Native tasks
+   are the only completion record; dependent work stays sequential under one writer.
+   SM selects the reviewed candidate before ANY key access or single live request.
+   This implementation handoff stops before that selection. No Support relaunch,
+   global accounting/locking redesign, provider/key/model switch, TLS weakening,
+   fallback, media, new task/monitor, cloud or external publication/deployment.
+
+Review focus: observer receives only two sanitized primitives; constructor/read/
+close failures emit once without masking; interrupted result cannot be replayed;
+source/config/ledger drift denies before helper/reserve; a 4xx still retains unknown
+accounting, never assumed zero charge. Offline tests exercise these boundaries with
+synthetic connection fixtures and disposable existing-SQLite bindings only.
+
+## Own-key policy preparation — 2026-10-20
+
+Actual human MLX turn `01a15a3c-e133-7022-9b15-23c405c781a2` /
+message `01a15a3c-e19c-70f2-8125-61ed75717a31` explicitly selects our exact
+`[Env] OPENAI_API_KEY` Secure Note `notes` and pauses Ochsner-key usage. No new
+lookup/model request is needed to prepare or prove configuration. All actual
+dispatch remains held; the consumed connected tranche is not rerun.
+
+Preparation files: `poc-launch.json` and both qualification validators select only
+the own note. Native current instructions supersede key/accounting selection, not
+historical proofs. `tests/test_own_key_policy.py` first exercises the actual selected
+config/resolver and a disposable existing SQLite ledger with four strong-model
+unknowns ($21.046080) that must deny another $5.261520 request under200calls/$20.
+This literal fixture is not the canonical account's actual usage or bill.
+
+Dependency resolved: SM's selected shared code `20e3dd56747797b35c082d109ac3bb0a7d7b1ebe`,
+metadata `8b4ecef27273a8df72fcdabd1976f01ed35e523a`, supplies the own-note
+capability missing from the former frozen launcher/resolver. Adopt only the four
+managed Python files and exact export manifest; do not rehash/fork shared bytes or
+copy unrelated Template work. Rebind the qualifier resolver SHA to that selected
+export. The same
+policy/config/identity/source checks and no inherited generic credential or fallback
+remain. Old diagnostic digest/review cannot certify changed key/accounting bindings.
+
+After the bundle: integrate with tests first. Normal CLI/browser/qualifiers must
+select bounded accounting, not `application_runtime=True`'s Ochsner-only bypass.
+Allow bounded existing-SQLite writes without weakening existing-only no-creation/
+no-migration/private original-marker/inode checks; defaults/readiness stay read-only.
+Reuse the original canonical ledger, preserve every ID/unknown/late settlement,
+and block new dispatch if its existing numeric limits are consumed. Do not change
+metadata, initialize alternate state, subtract old liabilities or add account-local
+headroom. Read-only preflight must distinguish storage-valid from numeric dispatch-
+available before any selected request, without reserving or looking up a key.
+Normal selected launches resolve the exact own note and construct a role-scoped
+model-host environment instead of inheriting the parent's key. This existing
+launcher-to-host scalar handoff remains the supported model path; direct manual
+model launches with arbitrary inherited credentials are not selected. Do not
+invent a marker/tag as account proof or inspect/hash key contents. Qualification
+resolves the selected note itself and never falls back to parent credentials.
+Own-key model hosts now use bounded existing-only SQLite writes as well; they
+cannot initialize/migrate accounting, even if both private files are absent.
+The generic legacy uncapped API remains for historical compatibility, not current
+own-key constructors. Offline integration is not permission for a paid smoke.
+
+Then run combined offline tests/demos/guard, freeze one changed candidate and
+obtain affected review/SM selection before any own-key live request. Preserve
+the at-most-one diagnostic report/run ID and bounds; there was no prior dispatch,
+but host permission gates and current numeric headroom still apply. No Support/UI
+relaunch, second diagnostic, full-tranche retry or broader runtime allowance is
+inferred. Shared relay/provenance policy investigation remains MLX-owned.
+
 ## Complexity Tracking
 
 > **Fill ONLY if Constitution Check has violations that must be justified**

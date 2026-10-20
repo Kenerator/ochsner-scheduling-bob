@@ -15,9 +15,10 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 def language_for_launch(enabled):
-    # Only application entrypoints select the indefinite runtime policy. Build
-    # and generation callers keep their separate bounded/default configuration.
-    return LanguageAdapter(budget=ModelBudget(ROOT/".bob-local/model-budget.json",application_runtime=True)) if enabled else None
+    # Own-key hosts retain the original numeric limits/history, not the paused
+    # Ochsner-only uncapped policy. The reviewed launcher supplies the named key.
+    return LanguageAdapter(budget=ModelBudget(ROOT/".bob-local/model-budget.json",application_runtime=False,
+        _existing_only=True,_existing_writes=True)) if enabled else None
 
 
 def server_for_launch(service,port,ui_port):

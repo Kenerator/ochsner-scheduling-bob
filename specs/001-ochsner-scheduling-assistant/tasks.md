@@ -1,5 +1,186 @@
 # Tasks: Ochsner Best-of-Breed Scheduling Assistant
 
+## Own-key policy preparation — 2026-10-20
+
+Authority and design: [native plan](plan.md#own-key-policy-preparation--2026-10-20).
+Base reviewed diagnostic `d0a2ce95eab288df9c45fbac2689ab35eea3125c`, sole-writer
+branch `codex/bob-own-key-policy`; no new tracker/task/chat/monitor or shared writer.
+Adopted Ochsner pause immediately: no28450/28451 BOB listeners or owned model
+request; both native live attempts were denied before process creation, no new
+report/reservation. The own-note metadata contract was read without vault access.
+
+- [x] T119 [US6] Tests-first prepare explicit own-note config and qualification
+  validators plus current policy/instructions; retain Ochsner evidence as history.
+- [x] T120 [US6] After SM's reviewed shared bundle, integrate own-note resolver/
+  launcher and bounded runtime/qualification accounting, tests first; preserve
+  canonical SQLite/history/lock/marker and deny consumed numeric allowance.
+- [ ] T121 [US6] Full combined offline tests/demos/guard and changed-candidate
+  affected review/SM selection before ANY own-key live dispatch or rollout.
+
+Initial import setup lacked the direct script's `mock_lifecycle` search path;
+corrected before RED. Six actual offline tests then failed (0.032s, zero errors):
+config/validator/resolver own-note behavior, bounded existing-SQLite write mode,
+browser and connected qualifier cap enforcement. HTTPS is explicitly denied;
+only disposable synthetic accounting was used. Shared bytes remain frozen.
+Preparation alone is not a completed switchover/full-suite pass or own-key proof.
+Ochsner-key diagnosis/review selection is superseded, not silently reused. Reverse
+capability-report callback was host-denied for missing trusted destination consent;
+SM inspected natively and directed continuation without retry/alternate transport.
+
+After preparatory config/qualifier tuple change:2 own-binding tests PASS and4
+integration contracts remain expected RED (6tests,0.029s,zero errors). No shared
+byte, resolver manifest/pin, budget/runtime or canonical config was changed.
+Read-only canonical numeric check at this preparation checkpoint: the existing
+200calls/$20 settings permit one additional $5.261520 liability by count and money;
+ledger/lock identity, size/mtime and marker were unchanged. No aggregate private
+usage values are published. This is neither a reservation nor credential/model/
+rollout permission; readiness must be checked again on any selected dispatch.
+
+Preparation-stage full offline run:646tests,30.759s,4FAIL/21ERROR (not GREEN).
+The4 failures are the new shared-own-note resolver, bounded existing-only SQLite
+write mode, browser cap enforcement and connected-qualifier cap enforcement.
+The21 errors are the legacy qualifier's exact-notes helper case and20
+`RuntimeLauncherTests` setup paths: the unchanged shared launcher/resolver rejects
+the newly selected own-note config before those tests can exercise their paths.
+This includes the managed-bundle test's setup, not evidence of changed shared
+bytes. All names/tracebacks remain in the local offline log; no assertion/skip or
+credential exception was loosened. Reviewed shared bundle and T120 remain pending.
+No new genuine request, app rollout, credential lookup or canonical accounting
+write occurred. Preparation is retained uncommitted in the owned branch, not a
+frozen/reviewed/CI-ready candidate. Do not push or dispatch from this partial state.
+
+### Own-key consumer integration checkpoint — 2026-10-20
+
+Selected exact shared source `20e3dd56747797b35c082d109ac3bb0a7d7b1ebe`, metadata
+`8b4ecef27273a8df72fcdabd1976f01ed35e523a`, adopted as five files only. Source and
+destination hashes independently match SM selection and the four-entry manifest;
+no unrelated Template WIP or local shared fork. Qualification resolver pin is
+`758e74b1b983c30959587a1aa7639d6abac590d4703089435a0b4f5e7b314220`.
+Both qualification validators select only the own-note tuple; historical shared
+source compatibility does not authorize paused Ochsner usage.
+
+New numeric preflight/before-helper contracts were observed RED then GREEN7.
+Additional browser/CLI missing-ledger regressions were RED2 before changing both
+model hosts to bounded existing-only/existing-writes SQLite. The first CLI fixture
+was denied earlier by namespace privacy; private effect prerequisites corrected
+it to reach the actual constructor before the recorded RED. All normal model/
+qualification constructors select bounded accounting. Readiness uses read-only
+format compatibility but independently checks200calls/$20; actual reserve rechecks
+under the original lock. No metadata reset, namespace/account partition, new ledger,
+unknown refund or fresh migration. A late-pending settlement compatibility test
+retains all4old unknowns; positive within-limit fixture qualification remains
+fixture/not genuine.
+
+Host full647 tests initially found5FAIL/5ERROR: obsolete Ochsner uncapped/pin/
+note expectations. Assertions were updated to the selected own policy (numeric
+denial before helper, no new headroom), not skipped. Focused sandbox101 tests had
+1FAIL/2ERROR (missing Node and owned-backend readiness); its result is not a pass.
+Host103 affected tests PASS3.485s. After adding no-initialization checks, full651
+had6FAIL because CLI/qualifier fixtures still assumed startup could create JSON.
+They now provide resolved already-existing synthetic SQLite, preserving all outcome,
+count/privacy assertions. Those31 affected tests PASS0.715s. Final host full
+**651PASS29.976s**,Python3.11.13/Node26.4.0; CI's pinned Node22.14.0 is separate.
+
+Ruling: preserve the reviewed launcher's existing own-note-to-model-host scalar
+handoff. It ignores stale parent keys and keeps mock/viewer key-free; it is not
+cryptographic account provenance. Direct manual inherited-key launches are not
+selected. No new trusted marker/credential-content hash is invented. Cost if
+misunderstood: an unsupported caller must stop, not infer account or spending
+authority. Canonical source rollout must bring its config to the reviewed own-note
+tuple before candidate/canonical binding can pass; do not manually weaken config
+agreement or change private accounting to bypass that rollout dependency.
+
+No actual vault/key/model request or Operator app relaunch occurred. The previous
+one-request diagnostic remains unexecuted/held; this changed binding needs one
+affected review and exact SM selection. T121 retains final guard/demos/docs,
+frozen commit/CI/review status, not this working-source checkpoint.
+
+Final readiness alignment: a new legacy-JSON readiness regression was observed
+RED1, then GREEN within70affected tests (1.305s). Own-key model readiness now denies
+legacy JSON before helper access without changing/migrating it, matching existing-
+SQLite model hosts. Both public connected preflight and the diagnostic runner's
+before-report boundary also check numeric allowance: RED2 → GREEN2 (0.035s), no
+helper/report/reservation on exhausted accounting. Older valid-SQLite fixtures were
+made explicit; legacy reconciliation still preserves exact bytes/identity. No
+readiness success can bypass the actual locked reservation.
+
+Final working-source host verification: **654PASS31.294s**, Python3.11.13/
+Node26.4.0. All3BOB success/conflict/unknown demos and starter success/failure
+passed. Walkthrough structural checker and Flight Deck doctor/generation passed;
+unknown verification/acceptance and the consumed connected gap remain, not green
+receipts. Three existing exact path/rule/blob synthetic fixture exceptions are
+refreshed only because prerequisite/assertion edits changed their blobs; values,
+scope and reasons are unchanged, no new waiver or directory exclusion. Whole-index
+scan and final frozen source readback follow; no live request/key lookup or app
+activation, no canonical config/accounting/effect edit. SM owns the affected
+review and subsequent selected normal CI/integration; no callback retry is made.
+
+Final whole-index guard:567files/131binary/8existing exact synthetic matches,
+zero unresolved findings/symlinks/submodules. Diff whitespace clear. Navigation:
+12changed Markdown files/557local targets/105fragments, zero errors. Public no-call
+diagnostic dry-run source digest
+`f2f75514c523276e1cba60f64ee49d1ca7a48c845e886368e4b958bfa2637882`;
+fixed input hash `c5aeda490eb68a3f1dc1de4fb717fa75194205ef0f227032ca30c02facc089c6`,
+one fixed run ID/512output/10s/2048input/16384request/65536response/toolsnone/
+retries0/scheduling0. Original consumed report SHA remains
+`4727570ee2f9dc439d275f90ea9b02bdacc6726ff52953a44624fe86d8d8e0e4`.
+No actual credential, model request or new diagnostic reservation/report. Rollout
+must preserve original canonical private state and apply the reviewed own config
+through selected source integration; do not relax candidate/owner config agreement.
+
+## Private transport diagnosis — 2026-10-19
+
+Base `c6102e5eeb28615bad3996e7fcdfcd06062ca9e9`, isolated branch
+`codex/bob-transport-diagnosis`. Approved limits and tests are in
+[the native plan](plan.md#selected-private-transport-diagnosis--2026-10-19).
+Read-only resume reconciliation: clean source, no BOB listeners, existing canonical
+SQLite/lock/marker readiness valid; zero key/model/app requests. No accounting
+initialization, migration, reservation, settlement or history/effect reset.
+
+- [x] T115 [US6] Tests-first private finite category/numeric HTTP status observer
+  in the actual default HTTPS transport, preserving default/fixture/outcome/
+  accounting/privacy behavior and no retries.
+- [x] T116 [US6] After T115, tests-first one-request diagnostic entrypoint with
+  fixed synthetic public input, canonical binding/resolver/source/exclusive report
+  gates and no scheduling. Preserve previous private report and unknown liabilities.
+- [x] T117 [US6] Full offline suite/demos/guard and frozen affected candidate;
+  obtain ONE affected independent review, then SM exact-candidate selection.
+- [ ] T118 [US6] Only after T117 selection, execute at most ONE separately
+  declared no-scheduling diagnostic request; record sanitized outcome/unknowns,
+  source-bound evidence and normal selected integration. No holdout retry/pass claim.
+
+Historical T117 completed at `d0a2ce95eab288df9c45fbac2689ab35eea3125c`:
+MLX affected code review CLEAR,110offline tests PASS2.558s, and SM selected that
+exact candidate. Both native execution attempts were denied before process start;
+T118 did not dispatch. The Oct20 Ochsner pause supersedes that credential/dispatch
+selection. T121 owns the changed own-key review; the old review is not reused as
+own-key qualification or live authority.
+
+Ruling: the approved native plan/tasks override generic skill workspace/ledger
+defaults. Reuse the existing isolated clone; no second tracker/review fan-out.
+The implementation and source-bound runner share `language.py` and qualifier
+interfaces, so they are sequential. This handoff stops before key/live execution.
+
+Offline working-source evidence, 2026-10-19, Python3.11.13: seam RED10 expected
+missing-interface failures (zero errors) → GREEN10; existing26 language tests
+unchanged and PASS. One comparison fixture initially reused an exhausted reply;
+fresh equivalent replies corrected the test setup, not product behavior. Runner
+RED10 expected missing-entrypoint failures → GREEN10; added source/config/output/
+CLI boundary cases bring the new tests to23. Combined affected91 PASS (1.412s).
+Full Mac offline suite640 PASS (32.079s), all three BOB success/conflict/unknown
+demos plus starter success/failure demos passed. Synthetic HTTPS/disposable SQLite
+only; zero actual keys/models, canonical reservations/settlements or app relaunches.
+Public dry-run declares one fixed request/no scheduling/no retries; current source
+digest `68dab6603bffa22d0b6bdbe6cbc5eb34368443fc4e558fbaa3aca6b2d58bed7f`.
+The prior holdout report/history/unknown liabilities remain; this is not connected
+qualification. Whole-index credential guard:566 files/131 binary/eight existing
+exact synthetic allowances/zero unresolved findings, symlinks or submodules.
+The diff check found only trailing blank lines in the two new tests; removed.
+Walkthrough structure and Flight Deck doctor/generation pass; six generated files
+retain CURRENT/DEGRADED,26/28 implementation and28 UNKNOWN verification/acceptance.
+No green receipt, semantic pass or timing/cost estimate was manufactured.
+Frozen candidate/review selection remain T117 work.
+
 ## Selected diagnostics and connected-language follow-on — 2026-10-15
 
 Base: clean canonical `14474ac0c62618eddff6f2ce47a9f31097f96be9`; isolated branch

@@ -33,7 +33,8 @@ class BrowserLaunchTests(unittest.TestCase):
     def test_explicit_openai_uses_the_one_project_ledger_without_dispatch(self):
         with patch.object(serve_browser,"LanguageAdapter") as language, patch.object(serve_browser,"ModelBudget") as budget:
             self.assertIs(serve_browser.language_for_launch(True),language.return_value)
-            budget.assert_called_once_with(serve_browser.ROOT/".bob-local/model-budget.json", application_runtime=True)
+            budget.assert_called_once_with(serve_browser.ROOT/".bob-local/model-budget.json", application_runtime=False,
+                _existing_only=True, _existing_writes=True)
             language.assert_called_once_with(budget=budget.return_value)
             language.return_value.interpret.assert_not_called()
 

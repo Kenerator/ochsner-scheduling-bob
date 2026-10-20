@@ -68,6 +68,15 @@ transitive dependencies are not a reproducible lock. No API key is needed offlin
 
 ### Normal model-first launcher
 
+Current policy, 2026-10-20: **Ochsner-key use is paused. Model execution is held.**
+BOB config explicitly selects our `[Env] OPENAI_API_KEY` note, not a fallback.
+The exact reviewed shared export (`20e3dd5`, metadata `8b4ecef`) is adopted with
+bounded existing-SQLite consumers. Changed-candidate review/selection and protected
+rollout are pending; no live request or Operator app activation has run.
+Do not use a stale inherited key or the paused Ochsner source.
+See [native T119–T121](specs/001-ochsner-scheduling-assistant/tasks.md#own-key-policy-preparation--2026-10-20).
+Offline commands remain key-free; this policy does not authorize an app relaunch.
+
 L4/runtime policy reviewed at `79aeafd`, integrated as `d3c3a04` on 2026-10-13;
 source-bound review/CI/integration and separate activation status are
 in [native tasks](specs/001-ochsner-scheduling-assistant/tasks.md#l4-model-first-consumer--2026-10-12).
@@ -77,20 +86,16 @@ Only macOS ARM is qualified. `lsof` must be on PATH for exact owned-listener che
 
 Configure `POC_SECRET_HELPER` to your existing trusted executable, or make
 `bw-get-secret` discoverable on PATH. The normal launcher privately reads only
-`[Env] (Ochsner PoC) OPENAI_API_KEY`, Secure Note field `notes`; it never uses an
+`[Env] OPENAI_API_KEY`, Secure Note field `notes`; it never uses an
 inherited/generic key as fallback. No key goes in argv, config, logs or the browser.
 The model host alone receives it; viewer and nested mock remain key-free.
 
-Model readiness requires the existing private `.bob-local/model-budget.json`
-and its initialized marker/lock. Preserve those when continuing a trial; missing
-or corrupt existing accounting must be reconciled, not replaced to create headroom.
-For genuinely first-use, separately authorized accounting only:
-
-```sh
-PYTHONPATH=src .venv/bin/python -c 'from pathlib import Path; from ochsner_bob.model_budget import ModelBudget; ModelBudget(Path(".bob-local/model-budget.json"))'
-```
-
-That initializes local accounting, not permission to spend or account-wide billing.
+Own-key model hosts require the **existing private SQLite** at
+`.bob-local/model-budget.json` and its initialized original marker/lock. Preserve
+all history and unknown liabilities. This rollout does not initialize/migrate
+accounting; missing/corrupt/legacy-only state needs reconciliation, never a new
+path or reset for headroom. Read-only doctor rejects legacy JSON model readiness
+without changing it, before credential access; only existing SQLite can proceed.
 From the repository root:
 
 ```sh
@@ -102,7 +107,7 @@ From the repository root:
 Default: browser, actual model mode requested, `gpt-5.4-2026-03-05`.
 Model precedence is `--model` → `BOB_OPENAI_MODEL` → that configured default.
 Help/doctor never retrieve a credential, start an app or call a model; doctor
-checks configuration/dependencies/ports/accounting storage and helper executability only.
+checks configuration/dependencies/ports/accounting/numeric limits and helper executability only.
 Ordinary startup makes no paid readiness request. Model performance is not proven
 by startup or fake-transport routing tests; historical qualification stays source-bound.
 
@@ -191,17 +196,17 @@ Use `/diagnostics` for sanitized inspection without changing the workflow.
 The browser and CLI use the same Conversation/Session behavior, not the inherited
 `poc-demo` sketch.
 
-For direct entrypoints, OpenAI is explicitly opt-in: add `--openai` to the sidecar or CLI, with
-`BOB_ENABLE_OPENAI=1`, `BOB_OPENAI_MODEL`, and securely configured `OPENAI_API_KEY`
-in that process environment. Never put a key in arguments, source, browser or logs.
-Application runtime use of the Ochsner key is authorized **without application
-usage/spending limits until further notice**. Covered execution includes functional
-qualification, testing, validation and app-like evaluation, using the same exact
-Ochsner key and canonical accounting. LLM work creating/changing application,
-specification or test code is excluded; unrelated research/media grants do not
-expand. One private canonical accounting path retains every
-call/reservation and unknown liability. No tools, automatic retries or silent
-model fallback. View/poll/replay never invokes a model. See
+Direct `--openai` entrypoints are also held during the own-key integration; do not
+reuse a stale process key. Our explicit own-note selection does not inherit the
+former Ochsner-only uncapped policy. The replacement must enforce existing numeric
+settings (200 calls/$20) against the same canonical history before dispatch;
+prior unknown liabilities still consume allowance and cannot be reset/subtracted.
+The pending diagnostic remains at most one request/up to$5.261520 new unknown
+liability, subject to affected review, selection and actual host/numeric gates.
+Never put a key in arguments, source, browser or logs. One private canonical
+accounting path retains every call/reservation and unknown liability. No tools,
+automatic retries or silent model/key fallback. View/poll/replay never invokes a
+model. Historical Ochsner-key qualification keeps its original source. See
 [qualification and actual cost uncertainty](docs/internal/live-qualification.md).
 The dated `--unlimited-today` launcher flag is retired. See
 [runtime accounting and safe activation](docs/user/getting-started.md#application-runtime-accounting).

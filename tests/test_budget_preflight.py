@@ -21,7 +21,8 @@ class BudgetPreflightTests(unittest.TestCase):
         self.now = START + 3600
 
     def budget(self):
-        return model_budget.ModelBudget(self.path, unlimited_today=True, clock=lambda: self.now)
+        return model_budget.ModelBudget(self.path, application_runtime=True,
+            unlimited_today=True, clock=lambda: self.now)
 
     def state(self):
         return [(path.read_bytes(), path.stat().st_dev, path.stat().st_ino, path.stat().st_mtime_ns)
@@ -77,14 +78,16 @@ class BudgetPreflightTests(unittest.TestCase):
             self.assertNotIn("PRIVATE_SENTINEL", str(caught.exception))
             self.assertEqual(before, self.state())
 
-    def test_runtime_readiness_ignores_historical_dollar_caps_and_expiry(self):
+    def test_own_key_readiness_enforces_dollars_but_keeps_late_settlement(self):
         budget = self.budget()
         for _ in range(4):
             budget.reserve(model=STRONGER)
         before = self.state()
-        self.assertIsNone(self.preflight(model=STRONGER))
+        with self.assertRaises(model_budget.BudgetError):
+            self.preflight(model=STRONGER)
         self.now = END
-        self.assertIsNone(self.preflight(model=STRONGER))
+        with self.assertRaises(model_budget.BudgetError):
+            self.preflight(model=STRONGER)
         self.assertEqual(before, self.state())
         for reservation in range(1, 5):
             budget.settle(reservation, usage())
@@ -92,14 +95,16 @@ class BudgetPreflightTests(unittest.TestCase):
         self.assertIsNone(self.preflight(model=STRONGER))
         self.assertEqual(before, self.state())
 
-    def test_runtime_readiness_preserves_count_without_enforcing_historical_cap(self):
+    def test_own_key_readiness_preserves_history_and_enforces_call_cap(self):
         budget = self.budget()
         for _ in range(200):
             budget.settle(budget.reserve(model=MODEL), usage(input_tokens=1, output_tokens=1, cached_input_tokens=0))
         before = self.state()
-        self.assertIsNone(self.preflight())
+        with self.assertRaises(model_budget.BudgetError):
+            self.preflight()
         self.now = END
-        self.assertIsNone(self.preflight())
+        with self.assertRaises(model_budget.BudgetError):
+            self.preflight()
         self.assertEqual(before, self.state())
 
     def test_unpriced_model_and_insecure_storage_fail_without_mutation(self):
@@ -115,9 +120,9 @@ class BudgetPreflightTests(unittest.TestCase):
         self.assertEqual(before, self.state())
         self.assertEqual(0o644, self.path.stat().st_mode & 0o777)
 
-    def test_runtime_preflight_does_not_enforce_legacy_cumulative_capacity(self):
+    def test_legacy_capacity_state_is_retained_but_not_model_ready(self):
         with patch.object(model_budget, "_MAX_LEDGER_BYTES", 800):
-            budget = self.budget()
+            budget = model_budget.ModelBudget(self.path, unlimited_today=True, clock=lambda: self.now)
             for _ in range(20):
                 try:
                     budget.reserve(model=MODEL)
@@ -126,7 +131,8 @@ class BudgetPreflightTests(unittest.TestCase):
             else:
                 self.fail("bounded ledger did not fill")
             before = self.state()
-            self.assertIsNone(self.preflight())
+            with self.assertRaises(model_budget.BudgetError):
+                self.preflight()
             self.assertEqual(before, self.state())
             self.assertEqual(budget.snapshot()["calls"], len(json.loads(self.path.read_text())["calls"]))
 
